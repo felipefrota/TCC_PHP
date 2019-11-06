@@ -43,8 +43,8 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="alerg-Remedio">Alérgico a alguma medicação?</label>
-                    <input class="form-control" type="text" id="alerg-Remedio" placeholder="Ex: Remédio, Remédio 02, Remédio 03">
+                    <label for="alergRemedio">Alérgico a alguma medicação?</label>
+                    <input class="form-control" type="text" id="alergRemedio" placeholder="Ex: Remédio, Remédio 02, Remédio 03">
                 </div>
             </div>
 

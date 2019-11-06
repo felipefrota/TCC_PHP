@@ -62,7 +62,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="tel2">Telefone 2:</label>
-                    <input class="form-control" type="tel" id="tel1" placeholder="">
+                    <input class="form-control" type="tel" id="tel2" placeholder="">
                 </div>
             </div>
 
@@ -76,76 +76,6 @@
                 <div class="form-group col-md-6">
                     <label for="wpp">WhatsApp:</label>
                     <input class="form-control" type="tel" id="wpp" placeholder="">
-                </div>
-            </div>
-
-            <!---------------------------------------------------------------------------------------------------------->
-            <hr>
-            <span class="d-block p-2 bg-dark text-white">Dados do Cliente</span>
-            <br>
-            <!---------------------------------------------------------------------------------------------------------->
-
-            <div class="form-row">
-                <div class="form-group col-md-10">
-                    <label for="endereco">Endereço:</label>
-                    <input class="form-control" type="text" id="endereco" placeholder="">
-                </div>
-
-                <div class="form-group col-md-2">
-                    <label for="numero">Numero:</label>
-                    <input class="form-control" type="number" id="numero" placeholder="">
-                </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="complemento">Complemento:</label>
-                    <input class="form-control" type="text" id="complemento" placeholder="">
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="bairro">Bairro:</label>
-                    <input class="form-control" type="text" id="bairro" placeholder="">
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="uf">UF</label>
-                    <select class="form-control" id="uf" required name="uf" ngModel autocomplete="off"> 
-                                                <option selected>Selecione o Estado...</option> 
-                                                <option value="ac">Acre</option> 
-                                                <option value="al">Alagoas</option> 
-                                                <option value="am">Amazonas</option> 
-                                                <option value="ap">Amapá</option> 
-                                                <option value="ba">Bahia</option> 
-                                                <option value="ce">Ceará</option> 
-                                                <option value="df">Distrito Federal</option> 
-                                                <option value="es">Espírito Santo</option> 
-                                                <option value="go">Goiás</option> 
-                                                <option value="ma">Maranhão</option> 
-                                                <option value="mt">Mato Grosso</option> 
-                                                <option value="ms">Mato Grosso do Sul</option> 
-                                                <option value="mg">Minas Gerais</option> 
-                                                <option value="pa">Pará</option> 
-                                                <option value="pb">Paraíba</option> 
-                                                <option value="pr">Paraná</option> 
-                                                <option value="pe">Pernambuco</option> 
-                                                <option value="pi">Piauí</option> 
-                                                <option value="rj">Rio de Janeiro</option> 
-                                                <option value="rn">Rio Grande do Norte</option> 
-                                                <option value="ro">Rondônia</option> 
-                                                <option value="rs">Rio Grande do Sul</option> 
-                                                <option value="rr">Roraima</option> 
-                                                <option value="sc">Santa Catarina</option> 
-                                                <option value="se">Sergipe</option> 
-                                                <option value="sp">São Paulo</option> 
-                                                <option value="to">Tocantins</option> 
-                                            </select>
-                </div>
-
-                <div class="form-group col-md-3">
-                    <label for="municipio">Municipio:</label>
-                    <input class="form-control" type="text" id="municipio" placeholder="">
                 </div>
             </div>
 
