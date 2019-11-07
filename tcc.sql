@@ -39,17 +39,21 @@ CREATE TABLE cadastro_usuario(
   PRIMARY KEY (`usuarioID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
-create table instituicao(
-razao_Social varchar(30) not null,
-nome_Fantasia varchar(100) not null,
-cnpj varchar(30) not null,
-email varchar(50) default null,
-senha varchar(20) not null,
-tel1 varchar(11) default null,
-tel2 varchar(11) default null,
-cel1 varchar(11) default null,
-wpp varchar(11) default null
-);
+
+DROP TABLE IF EXISTS `cadastro_instituicao`;
+create table cadastro_instituicao(
+`instituicaoID` int(8) NOT NULL AUTO_INCREMENT,
+`razao_Social` varchar(30) DEFAULT NULL,
+`nome_Fantasia` varchar(100) DEFAULT NULL,
+`cnpj` varchar(30) DEFAULT NULL,
+`email` varchar(50) DEFAULT NULL,
+`senha` varchar(20) DEFAULT NULL,
+`telefoneFixo1` varchar(11) DEFAULT NULL,
+`telefoneFixo2` varchar(11) DEFAULT NULL,
+`telefoneCelular` varchar(11) DEFAULT NULL,
+`wpp` varchar(11) DEFAULT NULL,
+  PRIMARY KEY (`instituicaoID`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 
 

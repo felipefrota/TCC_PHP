@@ -163,7 +163,7 @@
                                                 <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
                                                 </div>
                                                 <div class="form-group">
-                                                        <a href="../Institutions/Institions.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
+                                                        <a href="../DataRegister/registerInstitution.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
 
 
                                                 </div>

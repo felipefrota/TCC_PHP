@@ -1,3 +1,16 @@
+<?php require_once("../conexao/conexao.php")?>
+
+
+<?php 
+ $select = "SELECT instituicaoID, nome_Fantasia ";
+ $select .= "FROM cadastro_instituicao ";
+ $lista_cadastro_instituicao = mysqli_query($conecta, $select);
+
+ if(!$lista_cadastro_instituicao){
+     die("Erro no banco");
+ }
+
+?>
 <html>
 
 <head>
@@ -20,17 +33,17 @@
 
     <div class="container-fluid">
 
-        <form action="../cadastroUsuario.php" method="post">
+        <form class="was-validated" action="../cadastroUsuario.php" method="post">
 
             <div class="form-row">
                 <div class="form-group col-md-7">
                     <label for="usuario">Seu Nome</label>
-                    <input class="form-control" type="text" name="usuario" placeholder="Usuario">
+                    <input class="form-control" type="text" name="usuario" id="usuario"  placeholder="Usuario">
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="senha">Senha</label>
-                    <input class="form-control" type="password" name="senha" placeholder="Senha">
+                    <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha">
                 </div>
 
             </div>
@@ -38,24 +51,24 @@
 
             <div class="form-group">
                 <label for="email">Seu Email</label>
-                <input class="form-control" type="email" name="email" placeholder="seuemail@email.com">
+                <input class="form-control" type="email" name="email" id="email" placeholder="seuemail@email.com">
             </div>
 
 
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="cpf">CPF</label>
-                    <input class="form-control" type="text" name="cpf" placeholder="000.000.000.00">
+                    <input class="form-control" type="text" name="cpf" id="cpf" placeholder="000.000.000.00">
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input class="form-control" name="dataNascimento" type="date">
+                    <input class="form-control" name="dataNascimento" id="dataNascimento"  type="date">
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="sexo">Sexo</label>
-                    <select name="sexo" class="form-control">
+                    <select name="sexo" id="sexo" class="form-control">
                         <option selected>Escolher...</option>
                         <option value="masc">Masculino</option>
                         <option value="fem">Feminino</option>
@@ -65,7 +78,7 @@
 
                 <div class="form-group col-md-3">
                     <label for="estadoCivil">Estado Civil</label>
-                    <select class="form-control" name="estadoCivil">
+                    <select class="form-control" name="estadoCivil" id="estadoCivil">
                         <option selected>Escolher...</option>
                         <option value="solt">Solteiro(a)</option>
                         <option value="casad">Casado(a)</option>
@@ -79,12 +92,12 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="telefoneCelular">Telefone Celular</label>
-                    <input class="form-control" type="tel" name="telefoneCelular" placeholder="EX: (ddd)90000-0000">
+                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="EX: (ddd)90000-0000">
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="telefoneFixo">Telefone Fixo</label>
-                    <input class="form-control" type="tel" name="telefoneFixo" placeholder="EX: (ddd)0000-0000">
+                    <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo" placeholder="EX: (ddd)0000-0000">
                 </div>
             </div>
 
@@ -99,17 +112,17 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="cep">CEP</label>
-                    <input class="form-control" type="text" name="cep" id="cep" placeholder="EX: 00000-000">
+                    <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="estado">Estado</label>
-                    <input class="form-control" type="text" name="estado" placeholder="EX: Distrito Federal">
+                    <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="cidade">Cidade</label>
-                    <select class="form-control" name="cidade">
+                    <select class="form-control" name="cidade" id="cidade">
                         <option selected value="estado">Selecione o Estado...</option>
                         <option value="ac">Acre</option>
                         <option value="al">Alagoas</option>
@@ -146,24 +159,24 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="bairro">Bairro</label>
-                    <input class="form-control" type="text" name="bairro" placeholder="EX: Asa Norte">
+                    <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="rua_avenida">Rua/Avenida</label>
-                    <input class="form-control" type="text" name="rua_avenida">
+                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="numero">Numero</label>
-                    <input class="form-control" type="text" name="numero" placeholder="Numero casa ou Apt">
+                    <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt">
                 </div>
             </div>
 
 
             <div class="form-group">
                 <label for="adicional">Adicional</label>
-                <input class="form-control" type="text" name="adicional" placeholder="Dados adicionais(Opcional)">
+                <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
             </div>
 
 
@@ -179,7 +192,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="motivoInternacao">Qual o motivo da internação?</label>
-                    <select name="motivoInternacao" class="form-control">
+                    <select name="motivoInternacao" id="motivoInternacao" class="form-control">
                         <option selected>Escolher...</option>
                         <option value="drog">Drogas</option>
                         <option value="depre">Depressão</option>
@@ -190,7 +203,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="motiv_Adicional">Se clicou em outros nós conte qual foi o motivo?</label>
-                    <input class="form-control" type="text" name="motiv_Adicional" placeholder="Opcional...">
+                    <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional" placeholder="Opcional...">
                 </div>
             </div>
             <!------------------------------------------------------------------------------------------------>
@@ -201,26 +214,26 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="remed">Toma algum remédio?</label>
-                    <input class="form-control" type="text" name="remed" placeholder="Ex:Remédio, Remédio 2, Remédio 3">
+                    <input class="form-control" type="text" name="remed" id="remed" placeholder="Ex:Remédio, Remédio 2, Remédio 3">
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="alergRemedio">Alérgico a alguma medicação?</label>
-                    <input class="form-control" type="text" name="alergRemedio" placeholder="Ex: Remédio, Remédio 02, Remédio 03">
+                    <input class="form-control" type="text" name="alergRemedio" id="alergRemedio" placeholder="Ex: Remédio, Remédio 02, Remédio 03">
                 </div>
             </div>
 
 
             <div class="form-group">
                 <label for="sintom">Tem sintomas? Quais?</label>
-                <input class="form-control" type="text" name="sintom" placeholder="Descreva os sintomas">
+                <input class="form-control" type="text" name="sintom" id="sintom" placeholder="Descreva os sintomas">
             </div>
 
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="doenc_Cronic">Alguma doença cronica?</label>
-                    <input class="form-control" type="text" name="doenc_Cronic" placeholder="Digite aqui a doença">
+                    <input class="form-control" type="text" name="doenc_Cronic" id="doenc_Cronic" placeholder="Digite aqui a doença">
                 </div>
 
             </div>
@@ -233,22 +246,23 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="instit">Qual instituição de preferencia?</label>
-                    <select name="instit" class="form-control">
-                        <option selected>Escolher...</option>
-                        <option value="inst1">Instituição 1</option>
-                        <option value="inst2">Instituição 2</option>
-                        <option value="inst3">Instituição 3</option>
-                        <option value="inst4">Instituição 4</option>
-                        <option value="inst5">Instituição 5</option>
-                        <option value="inst6">Instituição 6</option>
-                        <option value="inst7">Instituição 7</option>
+                    <select  name="instit" id="instit" class="form-control">
+                    <?php
+                            while($linha = mysqli_fetch_assoc($lista_cadastro_instituicao)) {
+                        ?>
+                            <option value="<?php echo $linha["nome_Fantasia"];  ?>">
+                                <?php echo utf8_encode($linha["nome_Fantasia"]);  ?>
+                            </option>
+                        <?php
+                            }
+                        ?>  
 
                     </select>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="levar_Inst">Vai levar alguma coisa para a instituição?</label>
-                    <input class="form-control" type="text" name="levar_Inst" placeholder="Ex: cobertor, tavesseiro, etc...">
+                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" placeholder="Ex: cobertor, tavesseiro, etc...">
                 </div>
 
             </div>
@@ -257,14 +271,14 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Inst">Alergia a algum produto?</label>
-                    <input class="form-control" type="text" name="obs_Inst" placeholder="Ex: amaciante, sabão em pó, etc...">
+                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" placeholder="Ex: amaciante, sabão em pó, etc...">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Intolerancia">Intolerância a algum alimento?</label>
-                    <input class="form-control" type="text" name="obs_Intolerancia" placeholder="Ex: lactose, glúten, etc...">
+                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" placeholder="Ex: lactose, glúten, etc...">
                 </div>
             </div>
 
