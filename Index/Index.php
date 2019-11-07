@@ -160,12 +160,11 @@
 
                                             <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-info"
-                                                        routerLinkActive="active">Dependente</button>
+                                                <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        routerLinkActive="active">Instituição</button>
+                                                        <a href="../Institutions/Institions.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
+
 
                                                 </div>
 
