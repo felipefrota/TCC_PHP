@@ -20,9 +20,9 @@
         <form class="was-validated" action="../cadastroInstituicao.php" method="post">
 
             <div class="form-row">
-                <div class="form-group custom-control-input col-md-12">
+                <div class="form-group col-md-12">
                     <label for="razao_Social">Razão Social:</label>
-                    <input class="custom-control-input" type="text" name="razao_Social" id="razao_Social" placeholder="">
+                    <input class="form-control" type="text" name="razao_Social" id="razao_Social" placeholder="">
                 </div>
             </div>
 

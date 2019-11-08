@@ -2,11 +2,11 @@
 
 
 <?php 
- $select = "SELECT instituicaoID, nome_Fantasia ";
- $select .= "FROM cadastro_instituicao ";
- $lista_cadastro_instituicao = mysqli_query($conecta, $select);
+ $select = "SELECT usuario_instituicaoID, nomeUsuario_nomeFantasia ";
+ $select .= "FROM TB_USUARIO ";
+ $lista_TB_USUARIO = mysqli_query($conecta, $select);
 
- if(!$lista_cadastro_instituicao){
+ if(!$lista_TB_USUARIO){
      die("Erro no banco");
  }
 
@@ -248,10 +248,10 @@
                     <label for="instit">Qual instituição de preferencia?</label>
                     <select  name="instit" id="instit" class="form-control">
                     <?php
-                            while($linha = mysqli_fetch_assoc($lista_cadastro_instituicao)) {
+                            while($linha = mysqli_fetch_assoc($lista_TB_USUARIO)) {
                         ?>
-                            <option value="<?php echo $linha["nome_Fantasia"];  ?>">
-                                <?php echo utf8_encode($linha["nome_Fantasia"]);  ?>
+                            <option value="<?php echo $linha["nomeUsuario_nomeFantasia"];  ?>">
+                                <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]);  ?>
                             </option>
                         <?php
                             }
