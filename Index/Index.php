@@ -63,8 +63,9 @@
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">
-                                    <img src="../Images/logo1.png">
+                                <a href="../IndexProject/Index.html" class="navbar-brand">      
+        <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                    <img src="../Images/logo.png"> 
                                 </a>
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -77,13 +78,13 @@
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-black-50 font-weight-bold"
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
                                             href="../Index/Index.php">Home</a></li>
                                     <li class="navbar-text navHistorias"><a
-                                            class="nav-link text-black-50 font-weight-bold"
+                                            class="nav-link text-dark font-weight-bold"
                                             href="#historias">Historia</a></li>
                                     <li class="navbar-text nav-instituicoes"><a
-                                            class="nav-link text-black-50 font-weight-bold"
+                                            class="nav-link text-dark font-weight-bold"
                                             href="../Institutions/Institutions.php">Instituições</a></li>
                                     <li>
                                         <a class="nav-link">
