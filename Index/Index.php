@@ -5,8 +5,8 @@
         $senha = $_POST["senha"];
 
         $login = "SELECT * ";
-        $login .= "FROM cadastro_usuario ";
-        $login .= "WHERE usuario = '{$usuario}' and senha = '{$senha}' ";
+        $login .= "FROM tb_usuario ";
+        $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
 
         $acesso = mysqli_query($conecta, $login);
         if ( !$acesso ) {
@@ -16,14 +16,18 @@
         $informacao = mysqli_fetch_assoc($acesso);
         
         if ( empty($informacao) ) {
-            $mensagem = "Login sem sucesso.";
-            // header("Index/Index.php");
+            $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
+            header("location:Index/Index.php");
         } else {
-            $_SESSION["user_portal"] = $informacao["clienteID"];
-            header("location: ../listagens.php");
+            $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
+            header("location:listagens.php");
         }
-        echo $usuario . "<br>";
-        echo $senha;    
+
+
+
+
+        // echo $usuario . "<br>";
+        // echo $senha;    
     }
 
     
@@ -113,7 +117,7 @@
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
                                                                             <input class="form-control" type="text"
-                                                                                name="usuario" placeholder="Usuário">
+                                                                                name="usuario" placeholder="Email">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
