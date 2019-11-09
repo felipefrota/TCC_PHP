@@ -116,7 +116,7 @@
                                                                 <form class="form-horizontal">
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                            <input class="form-control" type="text"
+                                                                            <input class="form-control" type="email"
                                                                                 name="usuario" placeholder="Email">
                                                                         </div>
                                                                     </div>
