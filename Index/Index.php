@@ -55,7 +55,7 @@
     <header>
         <div id="Principal">
 
-            <div class="background01">
+            <div class="background00">
                 <!----------------------------------------------------------------------------------------->
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
@@ -64,7 +64,7 @@
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand">
-                                    Logo Site
+                                    <img src="../Images/logo1.png">
                                 </a>
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
