@@ -5,13 +5,14 @@
         $senha = $_POST["senha"];
 
         $login = "SELECT * ";
-        $login .= "FROM cadastro_usuario ";
-        $login .= "WHERE usuario = '{$usuario}' and senha = '{$senha}' ";
+        $login .= "FROM tb_usuario ";
+        $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
 
         $acesso = mysqli_query($conecta, $login);
         if ( !$acesso ) {
             die("Falha na consulta ao banco");
         }
+        
         
         $informacao = mysqli_fetch_assoc($acesso);
         
@@ -19,7 +20,7 @@
             $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
             header("location:Index/Index.php");
         } else {
-            $_SESSION["user_portal"] = $informacao["clienteID"];
+            $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
             header("location:listagens.php");
         }
 
