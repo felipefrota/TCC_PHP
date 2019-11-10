@@ -1,6 +1,5 @@
 <?php
-include_once "../../conexao/conexao.php";
-
+include_once "../conexao/conexao.php";
 //consultar no banco de dados
 $result_usuario = "SELECT * FROM tb_usuario ORDER BY usuario_instituicaoID DESC";
 $resultado_usuario = mysqli_query($conecta, $result_usuario);
@@ -9,7 +8,7 @@ $resultado_usuario = mysqli_query($conecta, $result_usuario);
 //Verificar se encontrou resultado na tabela "usuarios"
 if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 	?>
-	<table class="table table-striped table-bordered table-hover">
+	<table class="table table-striped" cellspacing="0" cellpadding="0">
 		<thead>
 			<tr>
 				<th>Nome</th>
@@ -19,9 +18,7 @@ if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 				<th>Sexo</th>
 				<th>Estado Civil</th>
 				<th>Telefone Fixo</th>
-				<th>Telefone Celular</th>
-				<th>Estado</th>
-				<th>Motivo da Internaçao</th>
+				<th>Ação</th>
 				</tr>
 		</thead>
 		<tbody>
@@ -36,9 +33,10 @@ if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 					<td><?php echo $row_usuario['sexo']; ?></td>
 					<td><?php echo $row_usuario['estadoCivil']; ?></td>
 					<td><?php echo $row_usuario['telefoneFixo']; ?></td>
-					<td><?php echo $row_usuario['wpp']; ?></td>
-					<td><?php echo $row_usuario['estado']; ?></td>
-					<td><?php echo $row_usuario['motivoInternacao']; ?></td>
+					<td class="actions">
+						<a class="btn btn-success btn-xs" cellspacing="0" cellpadding="0" href="view.html">Visualizar</a>
+						<a class="btn btn-warning btn-xs" cellspacing="0" cellpadding="0" href="edit.html">Editar</a>
+					</td>
 					</tr>
 				<?php
 			}?>
