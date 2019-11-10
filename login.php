@@ -1,5 +1,8 @@
 <?php require_once("conexao/conexao.php"); ?>
 <?php
+    //variavel de sessao
+    session_start();
+
     if ( isset( $_POST["usuario"]) ){
         $usuario = $_POST["usuario"];
         $senha = $_POST["senha"];
@@ -20,8 +23,9 @@
             $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
             header("location:Index/Index.php");
         } else {
+
             $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
-            header("location:listagens.php");
+            header("location:afterLogin/usuario.php");
         }
 
 
