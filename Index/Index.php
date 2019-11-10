@@ -102,7 +102,7 @@
 
 
                                         <!--Mostrar Janela Login-->
-                                        <form action="index.php" method="post">
+                                        <form action="../login.php" method="post">
 
                                             <div class="container-fluid">
                                                 <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog"
