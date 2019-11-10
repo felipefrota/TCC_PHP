@@ -1,3 +1,28 @@
+<?php require_once("../conexao/conexao.php"); ?>
+<?php
+//--------------------------------------------------------------------------//
+//TESTE DE SEGURANÇA
+session_start();
+// if (!isset($_SESSION["user_portal"])) {
+//     header("location:../Index/index.php");
+// }
+
+
+// A sessão precisa ser iniciada em cada página diferente
+if (!isset($_SESSION)) session_start();
+    
+$nivel_necessario = 2;
+  
+// Verifica se não há a variável da sessão que identifica o usuário
+if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_necessario)) {
+    // Destrói a sessão por segurança
+    // session_destroy();
+    // Redireciona o visitante de volta pro login
+    header("Location:../afterLogin/usuario.php");    
+}
+//FIM DO TESTE DE SEGURANÇA
+//--------------------------------------------------------------------------//
+?>
 <html>
 <head>
  <title>Upload de imagens</title>
@@ -43,5 +68,22 @@
  } ?>
 
 </div>
+
+
+
+<main>
+USuARIO
+        <?php
+        if (isset($_SESSION["usuario_instituicaoID"])) {
+            echo $_SESSION["usuario_instituicaoID"];
+        }
+        ?>
+        TIPO DE USUARIO
+        <?php
+        if (isset($_SESSION["tipo"])) {
+            echo $_SESSION["tipo"];
+        }
+        ?>
+    </main>
 <body>
 </html>

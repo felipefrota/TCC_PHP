@@ -3,9 +3,22 @@
 //--------------------------------------------------------------------------//
 //TESTE DE SEGURANÇA
 session_start();
-if (!isset($_SESSION["user_portal"])) {
-    header("location:../Index/index.php");
-}
+// if (!isset($_SESSION["user_portal"])) {
+//     header("location:../Index/index.php");
+// }
+
+ // A sessão precisa ser iniciada em cada página diferente
+ if (!isset($_SESSION)) session_start();
+    
+ $nivel_necessario = 1;
+   
+ // Verifica se não há a variável da sessão que identifica o usuário
+ if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_necessario)) {
+     // Destrói a sessão por segurança
+    //  session_destroy();
+     // Redireciona o visitante de volta pro login
+     header("Location:../Index/Index.php"); exit;
+ }
 //FIM DO TESTE DE SEGURANÇA
 //--------------------------------------------------------------------------//
 
@@ -61,8 +74,8 @@ if (!isset($_SESSION["user_portal"])) {
                 <!----------------------------------------------------------------------------------------->
                 <!---------------------------------Botao Saudação------------------------------------------>
                                         <?php
-                                        if (isset($_SESSION["user_portal"])) {
-                                            $user = $_SESSION["user_portal"];
+                                        if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+                                            $user = $_SESSION["nomeUsuario_nomeFantasia"];
 
                                             $saudacao = "SELECT nomeUsuario_nomeFantasia ";
                                             $saudacao .= "FROM tb_usuario ";
@@ -122,8 +135,14 @@ if (!isset($_SESSION["user_portal"])) {
     <main>
         USuARIO
         <?php
-        if (isset($_SESSION["user_portal"])) {
-            echo $_SESSION["user_portal"];
+        if (isset($_SESSION["usuario_instituicaoID"])) {
+            echo $_SESSION["usuario_instituicaoID"];
+        }
+        ?>
+        TIPO DE USUARIO
+        <?php
+        if (isset($_SESSION["tipo"])) {
+            echo $_SESSION["tipo"];
         }
         ?>
     </main>

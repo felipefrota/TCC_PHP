@@ -9,12 +9,13 @@
 
         $login = "SELECT * ";
         $login .= "FROM tb_usuario ";
-        $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
+        $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' and tipo";
 
         $acesso = mysqli_query($conecta, $login);
         if ( !$acesso ) {
             die("Falha na consulta ao banco");
         }
+
         
         
         $informacao = mysqli_fetch_assoc($acesso);
@@ -22,11 +23,21 @@
         if ( empty($informacao) ) {
             $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
             header("location:Index/Index.php");
-        } else {
+        } 
+         
+        else{
+            // $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"] ;
+            // header("location:afterLogin/usuario.php");
+            $_SESSION['usuario_instituicaoID'] = $informacao['usuario_instituicaoID'];
+            $_SESSION['nomeUsuario_nomeFantasia'] = $informacao['usuario_instituicaoID'];
+            $_SESSION['tipo'] = $informacao['tipo'];
 
-            $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
-            header("location:afterLogin/usuario.php");
+             // Redireciona o visitante
+                header("Location:afterLogin/instituicao.php"); exit;
+
         }
+
+        
 
 
 
