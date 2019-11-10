@@ -69,7 +69,7 @@
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand">      
         <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <img src="../Images/logo.png"> 
+                                  <!--  <img src="../Images/logo.png"> --> 
                                 </a>
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
