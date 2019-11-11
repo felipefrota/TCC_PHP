@@ -10,6 +10,16 @@
      die("Erro no banco");
  }
 
+
+
+ $instituicoes = "SELECT nomeUsuario_nomeFantasia ";
+$instituicoes .= "FROM tb_usuario ";
+$instituicoes .= "WHERE tipo = 2 ";
+$lista_instituicoes = mysqli_query($conecta, $instituicoes);
+if(!$lista_instituicoes) {
+    die("erro no banco ao procurar instituções");
+}
+
 ?>
 <html>
 
@@ -36,12 +46,17 @@
         <form class="was-validated" action="../cadastroUsuario.php" method="post">
 
             <div class="form-row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-4">
                     <label for="usuario">Seu Nome</label>
                     <input class="form-control" type="text" name="usuario" id="usuario"  placeholder="Usuario">
                 </div>
 
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
+                    <label for="senha">Sobrenome:</label>
+                    <input class="form-control" type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome">
+                </div>
+
+                <div class="form-group col-md-4">
                     <label for="senha">Senha</label>
                     <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha">
                 </div>
@@ -247,20 +262,21 @@
                 <div class="form-group col-md-6">
                     <label for="instit">Qual instituição de preferencia?</label>
                     <select  name="instit" id="instit" class="form-control">
-                        <?php
-                            $minhaInst = $linha["tipo"];
-                            while($linha = mysqli_fetch_assoc($lista_TB_USUARIO)) {
-                            $inst_principal = $linha[2];
-
-                            if($minhaInst == $inst_principal) {
+                    <?php 
+                        // $minhaInst = $dataUser_login["instit"];
+                        // while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
+                          while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
                         ?>
                             <option value="<?php echo $linha["nomeUsuario_nomeFantasia"];  ?>">
                                 <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]);  ?>
                             </option>
                         <?php
                             }
-                        }
+                        
                         ?>  
+
+<!------->
+
 
                     </select>
                 </div>

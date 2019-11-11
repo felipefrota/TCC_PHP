@@ -69,6 +69,7 @@ DROP TABLE IF EXISTS `tb_usuario`;
 CREATE TABLE tb_usuario(
   `usuario_instituicaoID` int(8) NOT NULL AUTO_INCREMENT,
 `nomeUsuario_nomeFantasia` varchar(200) DEFAULT NULL,
+`sobrenome` varchar(30) DEFAULT NULL,
 `razao_Social` varchar(30) DEFAULT NULL,
 `senha` varchar(32) DEFAULT NULL,
 `email` varchar(50) DEFAULT NULL,
@@ -101,6 +102,9 @@ CREATE TABLE tb_usuario(
 `levar_Inst` varchar(1000) DEFAULT NULL,
 `obs_Inst` varchar(1000) DEFAULT NULL,
 `obs_Intolerancia` varchar(1000) DEFAULT NULL,
+
+`brev_apresent` varchar(5000) DEFAULT NULL,
+`apresent_complet` varchar(10000) DEFAULT NULL, 
   PRIMARY KEY (`usuario_instituicaoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
@@ -119,6 +123,6 @@ ALTER TABLE TB_HISTORICO ADD FOREIGN KEY(fk_usuarioID)
  REFERENCES TB_USUARIO (usuarioID);
 
 
-select*from tb_usuario; 
+select*from cadastro_usuario; 
 insert into cadastro_usuario (usuario, senha) values ('teste', 'teste'); 
 /*insert into cadastro_usuario (usuario, senha) values ('teste', md5('teste')); */

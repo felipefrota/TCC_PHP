@@ -2,6 +2,7 @@
 <?php
     if(isset($_POST["usuario"])) {
         $nomeUsuario_nomeFantasia =           $_POST["usuario"];
+        $sobrenome   =           $_POST["sobrenome"];
         $senha =                              $_POST["senha"];
         $email =                              $_POST["email"];
         $cpf_cnpj =                           $_POST["cpf"];
@@ -37,9 +38,9 @@
         // $inserir .= "('$usuario', '$senha', '$email', '$cpf', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia') ";
 
         $inserir = "INSERT INTO tb_usuario ";
-        $inserir .= "(nomeUsuario_nomeFantasia, senha, email, cpf_cnpj, dataNascimento, sexo, estadoCivil, telefoneCelular, telefoneFixo, cep, estado, cidade, bairro, rua_avenida, numero, adicional, motivoInternacao, motiv_Adicional, remed, alergRemedio, sintom, doenc_Cronic, instit, levar_Inst, obs_Inst, obs_Intolerancia, tipo) "; 
+        $inserir .= "(nomeUsuario_nomeFantasia, sobrenome, senha, email, cpf_cnpj, dataNascimento, sexo, estadoCivil, telefoneCelular, telefoneFixo, cep, estado, cidade, bairro, rua_avenida, numero, adicional, motivoInternacao, motiv_Adicional, remed, alergRemedio, sintom, doenc_Cronic, instit, levar_Inst, obs_Inst, obs_Intolerancia, tipo) "; 
         $inserir .= "VALUES ";
-        $inserir .= "('$nomeUsuario_nomeFantasia', '$senha', '$email', '$cpf_cnpj', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia', '1') ";
+        $inserir .= "('$nomeUsuario_nomeFantasia','$sobrenome' ,'$senha', '$email', '$cpf_cnpj', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia', '1') ";
         // var_dump($inserir);exit;
         $operacao_inserir = mysqli_query($conecta,$inserir);
         if(!$operacao_inserir) {
@@ -48,14 +49,18 @@
     }
 
 
-   
-    $select = "SELECT usuario_instituicaoID, razao_Social ";
-    $select .= "FROM tb_usuario ";
-    $lista_tb_usuario = mysqli_query($conecta, $select);
 
-    if(!$lista_tb_usuario){
-        die("Erro no banco");
-    }
+
+
+
+   
+    // $select = "SELECT usuario_instituicaoID, razao_Social ";
+    // $select .= "FROM tb_usuario ";
+    // $lista_tb_usuario = mysqli_query($conecta, $select);
+
+    // if(!$lista_tb_usuario){
+    //     die("Erro no banco");
+    // }
 
     
 ?>

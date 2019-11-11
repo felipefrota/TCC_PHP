@@ -65,6 +65,7 @@ if(!$lista_instituicoes) {
 //Pegando os dados enviados do formulario//
         if( isset($_POST["usuario"]) ) {
         $nomeUsuario_nomeFantasia =           $_POST["usuario"];
+        $sobrenome                =           $_POST["sobrenome"];
         $senha =                              $_POST["senha"];
         $email =                              $_POST["email"];
         $cpf_cnpj =                           $_POST["cpf"];
@@ -105,6 +106,7 @@ if(!$lista_instituicoes) {
     $alterar = "UPDATE tb_usuario ";
     $alterar .= "SET ";
     $alterar .= "nomeUsuario_nomeFantasia = '{$nomeUsuario_nomeFantasia}', ";
+    $alterar .= "sobrenome = '{$sobrenome}', "; 
     $alterar .= "senha = '{$senha}', ";
     $alterar .= "email = '{$email}', ";
     $alterar .= "cpf_cnpj = '{$cpf_cnpj}', ";
@@ -176,12 +178,17 @@ if(!$lista_instituicoes) {
         <form class="was-validated" action="../EditData/edit.people.php" method="post">
 
             <div class="form-row">
-                <div class="form-group col-md-7">
+                <div class="form-group col-md-4">
                     <label for="usuario">Seu Nome</label>
                     <input class="form-control" type="text" name="usuario" id="usuario" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
                 </div>
 
-                <div class="form-group col-md-5">
+                <div class="form-group col-md-4">
+                    <label for="senha">Sobrenome:</label>
+                    <input class="form-control" type="text" name="sobrenome" id="sobrenome" value="<?php echo $dataUser_login["sobrenome"] ?>">
+                </div>
+                
+                <div class="form-group col-md-4">
                     <label for="senha">Senha</label>
                     <input class="form-control" type="password" name="senha" id="senha" value="<?php echo $dataUser_login["senha"] ?>">
                 </div>
@@ -432,7 +439,7 @@ if(!$lista_instituicoes) {
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Intolerancia">Intolerância a algum alimento?</label>
-                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
+                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" value="<?php echo $dataUser_login["obs_Intolerancia"] ?>">
                 </div>
             </div>
 
