@@ -51,7 +51,7 @@
 
         <body>  
 
-            <h2>Login</h2>
+            <h2 id="Login_2" >Login</h2>
             <div id="janela_login">
             <form action="login_sucesso.php" method="post">
 
