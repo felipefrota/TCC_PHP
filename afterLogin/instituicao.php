@@ -18,7 +18,39 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     // Redireciona o visitante de volta pro login
     header("Location:../afterLogin/usuario.php");
 }
+
+//--------------------------------------------------------------------------//
+//Puxando todos os dados do usuario do banco 
+
+if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+    $user = $_SESSION["nomeUsuario_nomeFantasia"];
+
+    $dataUser = "SELECT * ";
+    $dataUser .= "FROM tb_usuario ";
+    $dataUser .= "WHERE usuario_instituicaoID = {$user} ";
+
+    $dataUser_login = mysqli_query($conecta, $dataUser);
+    if (!$dataUser_login) {
+        die("Falha no banco");
+    }
+
+    $dataUser_login = mysqli_fetch_assoc($dataUser_login);
+    $nome = $dataUser_login["nomeUsuario_nomeFantasia"];
+}
+//--------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------//
+//Puxando as instituições do banco
+$instituicoes = "SELECT nomeUsuario_nomeFantasia ";
+$instituicoes .= "FROM tb_usuario ";
+$instituicoes .= "WHERE tipo = $ ";
+$lista_instituicoes = mysqli_query($conecta, $instituicoes);
+if(!$lista_instituicoes) {
+    die("erro no banco ao procurar instituções");
+}
 ?>
+
+
 <!DOCTYPE HTML>
 
 <html lang="pt-br">
