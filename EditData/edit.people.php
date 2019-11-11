@@ -2,15 +2,66 @@
 
 
 <?php 
- $select = "SELECT usuario_instituicaoID, nomeUsuario_nomeFantasia, tipo ";
- $select .= "FROM TB_USUARIO ";
- $lista_TB_USUARIO = mysqli_query($conecta, $select);
+//--------------------------------------------------------------------------//
+//TESTE DE SEGURANÇA
+session_start();
+// if (!isset($_SESSION["user_portal"])) {
+//     header("location:../Index/index.php");
+// }
 
- if(!$lista_TB_USUARIO){
-     die("Erro no banco");
+ // A sessão precisa ser iniciada em cada página diferente
+ if (!isset($_SESSION)) session_start();
+    
+ $nivel_necessario = 1;
+   
+ // Verifica se não há a variável da sessão que identifica o usuário
+ if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_necessario)) {
+     // Destrói a sessão por segurança
+    //  session_destroy();
+     // Redireciona o visitante de volta pro login
+     $sql = "SELECT * FROM tb_usuario where id = $_SESSION[usuarioID]";
+
+
+     header("Location:../Index/Index.php"); exit;
  }
+//FIM DO TESTE DE SEGURANÇA
+//--------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------//
+//Puxando todos os dados do usuario do banco 
+
+if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+    $user = $_SESSION["nomeUsuario_nomeFantasia"];
+
+    $dataUser = "SELECT * ";
+    $dataUser .= "FROM tb_usuario ";
+    $dataUser .= "WHERE usuario_instituicaoID = {$user} ";
+
+    $dataUser_login = mysqli_query($conecta, $dataUser);
+    if (!$dataUser_login) {
+        die("Falha no banco");
+    }
+
+    $dataUser_login = mysqli_fetch_assoc($dataUser_login);
+    $nome = $dataUser_login["nomeUsuario_nomeFantasia"];
+}
+//--------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------//
+//Puxando as instituições do banco
+$instituicoes = "SELECT * ";
+$instituicoes .= "FROM tb_usuario";
+$lista_instituicoes = mysqli_query($conecta, $instituicoes);
+if(!$lista_instituicoes) {
+    die("erro no banco ao procurar instituções");
+}
+    
+print_r($dataUser_login);
+
+
 
 ?>
+
 <html>
 
 <head>
@@ -33,17 +84,17 @@
 
     <div class="container-fluid">
 
-        <form class="was-validated" action="../cadastroUsuario.php" method="post">
+        <form class="was-validated" action="../login.php" method="post">
 
             <div class="form-row">
                 <div class="form-group col-md-7">
                     <label for="usuario">Seu Nome</label>
-                    <input class="form-control" type="text" name="usuario" id="usuario"  placeholder="Usuario">
+                    <input class="form-control" type="text" name="usuario" id="usuario" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
                 </div>
 
                 <div class="form-group col-md-5">
                     <label for="senha">Senha</label>
-                    <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha">
+                    <input class="form-control" type="password" name="senha" id="senha" value="<?php echo $dataUser_login["senha"] ?>">
                 </div>
 
             </div>
@@ -51,25 +102,25 @@
 
             <div class="form-group">
                 <label for="email">Seu Email</label>
-                <input class="form-control" type="email" name="email" id="email" placeholder="seuemail@email.com">
+                <input class="form-control" type="email" name="email" id="email" value="<?php echo $dataUser_login["email"] ?>">
             </div>
 
 
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="cpf">CPF</label>
-                    <input class="form-control" type="text" name="cpf" id="cpf" placeholder="000.000.000.00">
+                    <input class="form-control" type="text" name="cpf" id="cpf" value="<?php echo $dataUser_login["cpf_cnpj"] ?>">
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input class="form-control" name="dataNascimento" id="dataNascimento"  type="date">
+                    <input class="form-control" name="dataNascimento" id="dataNascimento"  type="date" value="<?php echo $dataUser_login["dataNascimento"] ?>">
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="sexo">Sexo</label>
                     <select name="sexo" id="sexo" class="form-control">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dataUser_login["sexo"] ?></option>
                         <option value="masc">Masculino</option>
                         <option value="fem">Feminino</option>
                         <option value="other">Outro...</option>
@@ -79,7 +130,7 @@
                 <div class="form-group col-md-3">
                     <label for="estadoCivil">Estado Civil</label>
                     <select class="form-control" name="estadoCivil" id="estadoCivil">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dataUser_login["estadoCivil"] ?></option>
                         <option value="solt">Solteiro(a)</option>
                         <option value="casad">Casado(a)</option>
                         <option value="divor">Divorciado(a)</option>
@@ -92,12 +143,12 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="telefoneCelular">Telefone Celular</label>
-                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="EX: (ddd)90000-0000">
+                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" value="<?php echo $dataUser_login["telefoneCelular"] ?>">
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="telefoneFixo">Telefone Fixo</label>
-                    <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo" placeholder="EX: (ddd)0000-0000">
+                    <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo" value="<?php echo $dataUser_login["telefoneFixo"] ?>">
                 </div>
             </div>
 
@@ -112,18 +163,18 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="cep">CEP</label>
-                    <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000">
+                    <input class="form-control" type="text" name="cep" id="cep" id="cep" value="<?php echo $dataUser_login["cep"] ?>">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="estado">Estado</label>
-                    <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal">
+                    <input class="form-control" type="text" name="estado" id="estado" value="<?php echo $dataUser_login["estado"] ?>">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="cidade">Cidade</label>
                     <select class="form-control" name="cidade" id="cidade">
-                        <option selected value="estado">Selecione o Estado...</option>
+                        <option selected value="estado"><?php echo $dataUser_login["cidade"] ?></option>
                         <option value="ac">Acre</option>
                         <option value="al">Alagoas</option>
                         <option value="am">Amazonas</option>
@@ -159,24 +210,24 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="bairro">Bairro</label>
-                    <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte">
+                    <input class="form-control" type="text" name="bairro" id="bairro" value="<?php echo $dataUser_login["bairro"] ?>">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="rua_avenida">Rua/Avenida</label>
-                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida">
+                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" value="<?php echo $dataUser_login["rua_avenida"] ?>">
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="numero">Numero</label>
-                    <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt">
+                    <input class="form-control" type="number" name="numero" id="numero" value="<?php echo $dataUser_login["numero"] ?>">
                 </div>
             </div>
 
 
             <div class="form-group">
                 <label for="adicional">Adicional</label>
-                <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
+                <input class="form-control" type="text" name="adicional" id="adicional" value="<?php echo $dataUser_login["adicional"] ?>">
             </div>
 
 
@@ -193,7 +244,7 @@
                 <div class="form-group col-md-6">
                     <label for="motivoInternacao">Qual o motivo da internação?</label>
                     <select name="motivoInternacao" id="motivoInternacao" class="form-control">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dataUser_login["motivoInternacao"] ?></option>
                         <option value="drog">Drogas</option>
                         <option value="depre">Depressão</option>
                         <option value="reabili">Reabilitação Social</option>
@@ -203,7 +254,7 @@
 
                 <div class="form-group col-md-6">
                     <label for="motiv_Adicional">Se clicou em outros nós conte qual foi o motivo?</label>
-                    <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional" placeholder="Opcional...">
+                    <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional" value="<?php echo $dataUser_login["motiv_Adicional"] ?>">
                 </div>
             </div>
             <!------------------------------------------------------------------------------------------------>
@@ -214,26 +265,26 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="remed">Toma algum remédio?</label>
-                    <input class="form-control" type="text" name="remed" id="remed" placeholder="Ex:Remédio, Remédio 2, Remédio 3">
+                    <input class="form-control" type="text" name="remed" id="remed" value="<?php echo $dataUser_login["remed"] ?>">
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="alergRemedio">Alérgico a alguma medicação?</label>
-                    <input class="form-control" type="text" name="alergRemedio" id="alergRemedio" placeholder="Ex: Remédio, Remédio 02, Remédio 03">
+                    <input class="form-control" type="text" name="alergRemedio" id="alergRemedio" value="<?php echo $dataUser_login["alergRemedio"] ?>">
                 </div>
             </div>
 
 
             <div class="form-group">
                 <label for="sintom">Tem sintomas? Quais?</label>
-                <input class="form-control" type="text" name="sintom" id="sintom" placeholder="Descreva os sintomas">
+                <input class="form-control" type="text" name="sintom" id="sintom" value="<?php echo $dataUser_login["sintom"] ?>">
             </div>
 
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="doenc_Cronic">Alguma doença cronica?</label>
-                    <input class="form-control" type="text" name="doenc_Cronic" id="doenc_Cronic" placeholder="Digite aqui a doença">
+                    <input class="form-control" type="text" name="doenc_Cronic" id="doenc_Cronic" value="<?php echo $dataUser_login["doenc_Cronic"] ?>">
                 </div>
 
             </div>
@@ -247,27 +298,36 @@
                 <div class="form-group col-md-6">
                     <label for="instit">Qual instituição de preferencia?</label>
                     <select  name="instit" id="instit" class="form-control">
-                        <?php
-                            $minhaInst = $linha["tipo"];
-                            while($linha = mysqli_fetch_assoc($lista_TB_USUARIO)) {
-                            $inst_principal = $linha[2];
+                    <?php 
+                        // $minhaInst = $dataUser_login["instit"];
+                        // while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
 
-                            if($minhaInst == $inst_principal) {
-                        ?>
-                            <option value="<?php echo $linha["nomeUsuario_nomeFantasia"];  ?>">
-                                <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]);  ?>
+                            $minhaInst = $dataUser_login["tipo"];
+                            while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
+                                $inst_principal = $linha["2"];
+                                if($minhaInst == $inst_principal) {
+                    ?>
+                      
+                            <option value="<?php echo $linha["instit"] ?>" selected>
+                                <?php echo utf8_encode($linha["instit"]) ?>
                             </option>
-                        <?php
+                            <?php
+                                } else {
+                        ?>
+                            <option value="<?php echo $linha["instit"] ?>" >
+                                <?php echo utf8_encode($linha["instit"]) ?>
+                            </option>                        
+                        <?php 
+                                }
                             }
-                        }
-                        ?>  
+                        ?>
 
                     </select>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="levar_Inst">Vai levar alguma coisa para a instituição?</label>
-                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" placeholder="Ex: cobertor, tavesseiro, etc...">
+                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
                 </div>
 
             </div>
@@ -276,14 +336,14 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Inst">Alergia a algum produto?</label>
-                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" placeholder="Ex: amaciante, sabão em pó, etc...">
+                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Intolerancia">Intolerância a algum alimento?</label>
-                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" placeholder="Ex: lactose, glúten, etc...">
+                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
                 </div>
             </div>
 
@@ -297,57 +357,58 @@
 
 
         </form>
-    </div>
 
-    <!-- <div class="container-fluid">
-        <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-            </div>
-            <div class="form-group col-md-6">
-                <label for="inputPassword4">Senha</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
-            </div>
-    </div>
-    <div class="form-group">
-        <label for="inputAddress">Endereço</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
-    </div>
-    <div class="form-group">
-        <label for="inputAddress2">Endereço 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc.">
-    </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputCity">Cidade</label>
-            <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputEstado">Estado</label>
-            <select id="inputEstado" class="form-control">
-                  <option selected>Escolher...</option>
-                  <option>...</option>
-                </select>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputCEP">CEP</label>
-            <input type="text" class="form-control" id="inputCEP">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-                  Clique em mim
-                </label>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
-    </form>
-    </div> -->
 
+
+
+        
+
+    <main>
+        USuARIO
+        <?php
+        if (isset($_SESSION["usuario_instituicaoID"])) {
+            echo $_SESSION["usuario_instituicaoID"];
+        }
+        ?>
+        TIPO DE USUARIO
+        <?php
+        if (isset($_SESSION["tipo"])) {
+            echo $_SESSION["tipo"];
+        }
+
+        ?>
+
+<?php
+                                        if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+                                            $user = $_SESSION["nomeUsuario_nomeFantasia"];
+
+                                            $saudacao = "SELECT nomeUsuario_nomeFantasia ";
+                                            $saudacao .= "FROM tb_usuario ";
+                                            $saudacao .= "WHERE usuario_instituicaoID = {$user} ";
+
+                                            $saudacao_login = mysqli_query($conecta, $saudacao);
+                                            if (!$saudacao_login) {
+                                                die("Falha no banco");
+                                            }
+
+                                            $saudacao_login = mysqli_fetch_assoc($saudacao_login);
+                                            $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
+                                            ?>
+                                            <div class="dropdown nav-link">
+                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
+                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+    </main>
+    </div>
 
 
 

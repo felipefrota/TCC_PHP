@@ -94,7 +94,7 @@ session_start();
                                                 <h8> Bem vindo, <?php echo $nome ?> </h8>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="#">Action</a>
+                                                    <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
                                                     <a class="dropdown-item" href="#">Another action</a>
                                                     <a class="dropdown-item" href="../sair.php">Sair</a>
                                                 </div>
