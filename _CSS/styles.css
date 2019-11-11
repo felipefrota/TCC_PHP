@@ -124,8 +124,20 @@ div a #LogoSite {
     color: aqua;
 
 
+    
+/*Logo*/
 
-<<<<<<< HEAD
+   .logo    img{
+    max-width:90px;
+    max-height:150px;
+    width: auto;
+    height: auto;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+
+
+/*<<<<<<< HEAD*/
 
 /*-----------------------CSS DA SEGUNDA TELA DE LOGIN(cadastro co sucesso)
 
@@ -179,4 +191,4 @@ input[type=submit] {
     border: 1px solid #333;
     cursor: pointer;
 } */
->>>>>>> ce123bcf9dda27430032e6e7a211de24581f5080
+/*>>>>>>> ce123bcf9dda27430032e6e7a211de24581f5080*/

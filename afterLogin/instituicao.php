@@ -47,7 +47,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand">
                                     <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <img src="../Images/logo.png">
+                                    <img class="logo "src="../Images/logo.png">
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
