@@ -4,45 +4,67 @@ div#Principal {
     padding: 0%;
     border: -5%;
 }
+
+
 /*------------------------------------------------------------------------------------------*/
+
+
 /*navbar*/
 
 .navbar {
     /*background-color: #E6E6E6;*/
     opacity: 1;
-    
 }
+
+
 /*------------------------------------------------------------------------------------------*/
+
+
 /*Login*/
 
 .mostrarJanelaLogin {
     background: burlywood;
     padding: 5%;
 }
+
+
 /*------------------------------------------------------------------------------------------*/
+
+
 /*background01*/
 
 div.background00 {
-    width:100%;
-    height:100%;
-        background: /*no-repeat*/
+    width: 100%;
+    height: 100%;
+    background: /*no-repeat*/
     url('../Images/background05.jpg');
 }
+
+
 /*------------------------------------------------------------------------------------------*/
+
+
 /*section*/
 
 section.background3 {
     background-color: #CDC9C9;
-    
 }
+
+
 /*------------------------------------------------------------------------------------------*/
+
+
 /*container-fluid*/
 
 .container-fluid {
     padding-left: 0px;
     padding-right: 0px;
 }
+
+
 /*------------------------------------------------------------------------------------------*/
+
+
 /*Carousel*/
 
 div.carousel-inner {
@@ -60,12 +82,18 @@ div.carousel-inner {
     padding-left: 15px;
     padding-right: 15px;
 }
+
+
 /*------------------------------------------------------------------------------------------*/
 
 div#Historias {
     background: rgb(243, 243, 243);
 }
+
+
 /*------------------------------------------------------------------------------------------*/
+
+
 /*Paragrafos*/
 
 p {
@@ -75,7 +103,10 @@ p {
 
 
 /*-----------------------------------------------------------------------------------------*/
+
+
 /*Institutuions*/
+
 .carousel-multi-item-2 .col-md-3 {
     float: left;
     width: 25%;
@@ -88,65 +119,61 @@ p {
     border-radius: 2px;
 }
 
-
- div a #LogoSite {
-  font-family: sans-serif ; 
-     color: aqua;
-    
-
+div a #LogoSite {
+    font-family: sans-serif;
+    color: aqua;
 }
 
+
 /*-----------------------CSS DA SEGUNDA TELA DE LOGIN(cadastro co sucesso)---------------------------*/
+
 
 /* CSS Document */
 
 html {
-	background-color:#F4F4F4;
-	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-	font-size:12px;
+    background-color: #F4F4F4;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 12px;
 }
 
 body {
-	width:560px;
-	border:1px solid #ddd;
-	margin:10px auto;
-	background-color:#FFF;
-	padding:10px 30px;
-	border-radius:5px;
+    width: 560px;
+    border: 1px solid #ddd;
+    margin: 10px auto;
+    background-color: #FFF;
+    padding: 10px 30px;
+    border-radius: 5px;
 }
 
 h2 id="Login_2" {
-	font-family:Georgia, "Times New Roman", Times, serif;
-	font-size:30px;
-	font-style:italic;
-	letter-spacing:-0.05em;
-	color:green;
-	margin:2px 0 15px;
-	text-shadow:1px 1px 2px #666;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 30px;
+    font-style: italic;
+    letter-spacing: -0.05em;
+    color: green;
+    margin: 2px 0 15px;
+    text-shadow: 1px 1px 2px #666;
 }
 
 input {
-	display:block;
-	margin-bottom:20px;
-	border:1px solid #999;
-	padding:8px;
-    border-radius:3px;
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #999;
+    padding: 8px;
+    border-radius: 3px;
 }
 
 input:focus {
-	border:1px solid #ccc;
-	outline:none;
+    border: 1px solid #ccc;
+    outline: none;
 }
 
 input[type=submit] {
-	width:100px;
-	color:#FFF;
-	background:linear-gradient(top,#006400, #006400 );
-	background:-webkit-linear-gradient(top, #006400, #006400 );
-	background:-moz-linear-gradient(top, #006400, #006400    );
-	border:1px solid #333;
-	cursor:pointer;
+    width: 100px;
+    color: #FFF;
+    background: linear-gradient(top, #006400, #006400);
+    background: -webkit-linear-gradient(top, #006400, #006400);
+    background: -moz-linear-gradient(top, #006400, #006400);
+    border: 1px solid #333;
+    cursor: pointer;
 }
-
-
-

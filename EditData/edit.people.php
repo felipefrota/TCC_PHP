@@ -45,18 +45,107 @@ if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
     $dataUser_login = mysqli_fetch_assoc($dataUser_login);
     $nome = $dataUser_login["nomeUsuario_nomeFantasia"];
 }
+
+
 //--------------------------------------------------------------------------//
 
 //--------------------------------------------------------------------------//
 //Puxando as instituições do banco
-$instituicoes = "SELECT * ";
-$instituicoes .= "FROM tb_usuario";
+$instituicoes = "SELECT nomeUsuario_nomeFantasia ";
+$instituicoes .= "FROM tb_usuario ";
+$instituicoes .= "WHERE tipo = 2 ";
 $lista_instituicoes = mysqli_query($conecta, $instituicoes);
 if(!$lista_instituicoes) {
     die("erro no banco ao procurar instituções");
 }
+
+//--------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------//
+//Pegando os dados enviados do formulario//
+        if( isset($_POST["usuario"]) ) {
+        $nomeUsuario_nomeFantasia =           $_POST["usuario"];
+        $senha =                              $_POST["senha"];
+        $email =                              $_POST["email"];
+        $cpf_cnpj =                           $_POST["cpf"];
+        $dataNascimento =                     $_POST["dataNascimento"];
+        $sexo =                               $_POST["sexo"];
+        $estadoCivil =                        $_POST["estadoCivil"];
+        $telefoneCelular =                    $_POST["telefoneCelular"];
+        $telefoneFixo =                       $_POST["telefoneFixo"];
+
+        $cep =                                $_POST["cep"];
+        $estado =                             $_POST["estado"];
+        $cidade =                             utf8_decode($_POST["cidade"]);
+        $bairro =                             utf8_decode($_POST["bairro"]);
+        $rua_avenida =                        utf8_decode($_POST["rua_avenida"]);
+        $numero =                             $_POST["numero"];
+        $adicional =                          utf8_decode($_POST["adicional"]);
+
+        $motivoInternacao =                   $_POST["motivoInternacao"];
+        $motiv_Adicional =                    utf8_decode($_POST["motiv_Adicional"]);
+        $remed =                              utf8_decode($_POST["remed"]);
+        $alergRemedio =                       utf8_decode($_POST["alergRemedio"]);
+        $sintom =                             utf8_decode($_POST["sintom"]);
+        $doenc_Cronic =                       utf8_decode($_POST["doenc_Cronic"]);
+
+        $instit =                             utf8_decode($_POST["instit"]);
+        $levar_Inst =                         utf8_decode($_POST["levar_Inst"]);
+        $obs_Inst =                           utf8_decode($_POST["obs_Inst"]);
+        $obs_Intolerancia =                   utf8_decode($_POST["obs_Intolerancia"]);
+
+        $usuario_instituicaoID                = $_POST["usuario_instituicaoID"];
+ 
+
     
-print_r($dataUser_login);
+    //--------------------------------------------------------------------------//
+
+    //--------------------------------------------------------------------------//
+    //Alterar
+    $alterar = "UPDATE tb_usuario ";
+    $alterar .= "SET ";
+    $alterar .= "nomeUsuario_nomeFantasia = '{$nomeUsuario_nomeFantasia}', ";
+    $alterar .= "senha = '{$senha}', ";
+    $alterar .= "email = '{$email}', ";
+    $alterar .= "cpf_cnpj = '{$cpf_cnpj}', ";
+    $alterar .= "dataNascimento = '{$dataNascimento}', ";
+    $alterar .= "sexo = '{$sexo}', ";
+    $alterar .= "estadoCivil = '{$estadoCivil}', ";
+    $alterar .= "telefoneCelular = '{$telefoneCelular}', ";
+    $alterar .= "telefoneFixo = '{$telefoneFixo}', ";
+
+    $alterar .= "cep = '{$cep}', ";
+    $alterar .= "estado = '{$estado}', ";
+    $alterar .= "cidade = '{$cidade}', ";
+    $alterar .= "bairro = '{$bairro}', ";
+    $alterar .= "rua_avenida = '{$rua_avenida}', ";
+    $alterar .= "numero = '{$numero}', ";
+    $alterar .= "adicional = '{$adicional}', ";
+
+    $alterar .= "motivoInternacao = '{$motivoInternacao}', ";
+    $alterar .= "motiv_Adicional = '{$motiv_Adicional}', ";
+    $alterar .= "remed = '{$remed}', ";
+    $alterar .= "alergRemedio = '{$alergRemedio}', ";
+    $alterar .= "sintom = '{$sintom}', ";
+    $alterar .= "doenc_Cronic = '{$doenc_Cronic}', ";
+
+    $alterar .= "instit = '{$instit}', ";
+    $alterar .= "levar_Inst = '{$levar_Inst}', ";
+    $alterar .= "obs_Inst = '{$obs_Inst}', ";
+    $alterar .= "obs_Intolerancia = '{$obs_Intolerancia}' ";
+
+    $alterar .= "WHERE usuario_instituicaoID = {$usuario_instituicaoID} ";
+
+    $operacao_alterar = mysqli_query($conecta, $alterar);
+    if(!$operacao_alterar) {
+        die("Erro na alteracao");   
+    } else {
+        header("location:edit.people.php");   
+    }
+
+}
+
+//  print_r($_POST["usuario"]);
 
 
 
@@ -84,7 +173,7 @@ print_r($dataUser_login);
 
     <div class="container-fluid">
 
-        <form class="was-validated" action="../login.php" method="post">
+        <form class="was-validated" action="../EditData/edit.people.php" method="post">
 
             <div class="form-row">
                 <div class="form-group col-md-7">
@@ -302,20 +391,20 @@ print_r($dataUser_login);
                         // $minhaInst = $dataUser_login["instit"];
                         // while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
 
-                            $minhaInst = $dataUser_login["tipo"];
+                            $minhaInst = $dataUser_login["instit"];
                             while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
-                                $inst_principal = $linha["2"];
+                                $inst_principal = $linha["nomeUsuario_nomeFantasia"];
                                 if($minhaInst == $inst_principal) {
                     ?>
                       
-                            <option value="<?php echo $linha["instit"] ?>" selected>
-                                <?php echo utf8_encode($linha["instit"]) ?>
+                            <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>" selected>
+                                <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
                             </option>
                             <?php
                                 } else {
                         ?>
-                            <option value="<?php echo $linha["instit"] ?>" >
-                                <?php echo utf8_encode($linha["instit"]) ?>
+                            <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>" >
+                                <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
                             </option>                        
                         <?php 
                                 }
@@ -327,7 +416,7 @@ print_r($dataUser_login);
 
                 <div class="form-group col-md-6">
                     <label for="levar_Inst">Vai levar alguma coisa para a instituição?</label>
-                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
+                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" value="<?php echo $dataUser_login["levar_Inst"] ?>">
                 </div>
 
             </div>
@@ -336,7 +425,7 @@ print_r($dataUser_login);
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Inst">Alergia a algum produto?</label>
-                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>">
+                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" value="<?php echo $dataUser_login["obs_Inst"] ?>">
                 </div>
             </div>
 
@@ -348,7 +437,7 @@ print_r($dataUser_login);
             </div>
 
 
-
+            <input type="hidden" name="usuario_instituicaoID" value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
             <button type="submit" class="btn btn-info">Enviar</button>
 
 

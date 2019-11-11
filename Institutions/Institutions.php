@@ -1,20 +1,69 @@
+<?php require_once("../conexao/conexao.php"); ?>
+<?php
+        //variavel de sessao
+        session_start();
+
+        if ( isset( $_POST["usuario"]) ){
+            $usuario = $_POST["usuario"];
+            $senha = $_POST["senha"];
+    
+            $login = "SELECT * ";
+            $login .= "FROM tb_usuario ";
+            $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
+    
+            $acesso = mysqli_query($conecta, $login);
+            if ( !$acesso ) {
+                die("Falha na consulta ao banco");
+            }
+            
+            
+            $informacao = mysqli_fetch_assoc($acesso);
+            
+            if ( empty($informacao) ) {
+                $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
+                header("location:Index/Index.php");
+            } else {
+    
+                $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
+                header("location:../afterLogin/usuario.php");
+            }
+    
+    
+    
+    
+            // echo $usuario . "<br>";
+            // echo $senha;    
+        }
+    
+?>
 <html>
 
 <head>
-    <title>Galeria Horizontal</title>
+    <title>PROJETO TCC</title>
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=devide-width, initial-scale=1">
 
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../_CSS/styles.css" rel="stylesheet">
+
+
+<!------------------------------------ERROR LOGIN---------------------------------------------->
+                    <?php
+                        if ( isset($mensagem)) { 
+                    ?>
+                        <p><?php echo $mensagem ?></p>
+                    
+                    <?php
+                        }
+                    ?>  
+<!--------------------------------------------------------------------------------------------->
 </head>
 
 <body>
-
     <header>
         <div id="Principal">
 
-            <div class="background01">
+            <div class="">
                 <!----------------------------------------------------------------------------------------->
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
@@ -22,11 +71,14 @@
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">
-                                    Logo Site
+                                <a href="../IndexProject/Index.html" class="navbar-brand">      
+        <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                  <!--  <img src="../Images/logo.png"> --> 
                                 </a>
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
+                                    aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
                                 </button>
                             </div>
@@ -34,66 +86,94 @@
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-black-50 font-weight-bold" href="../Index/Index.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-black-50 font-weight-bold" href="#historias">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-black-50 font-weight-bold" href="../Institutions/Institutions.php">Instituições</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                            href="../Index/Index.php">Home</a></li>
+                                    <li class="navbar-text navHistorias"><a
+                                            class="nav-link text-dark font-weight-bold"
+                                            href="../Index/Index.php">Historia</a></li>
+                                    <li class="navbar-text nav-instituicoes"><a
+                                            class="nav-link text-dark font-weight-bold"
+                                            href="../Institutions/Institutions.php">Instituições</a></li>
                                     <li>
-                                        <a class="nav-link" href="#">
-                                            <button type="button" class="btn btn-outline-success janelaLogin" data-toggle="modal" data-target="#telaLogin">Login</button>
+                                        <a class="nav-link">
+                                            <button type="button" class="btn btn-outline-success janelaLogin"
+                                                data-toggle="modal" data-target="#telaLogin">Login</button>
                                         </a>
 
 
                                         <!--Mostrar Janela Login-->
-                                        <div class="container-fluid">
-                                            <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="login">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title text-black-50" id="tituloTela">Faca seu Login</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form class="form-horizontal">
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-10">
-                                                                        <input class="form-control" type="text" id="login-email" placeholder="Login/Email:">
+                                        <form action="../login.php" method="post">
+
+                                            <div class="container-fluid">
+                                                <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog"
+                                                    aria-labelledby="" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="login">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title text-black-50" id="tituloTela">
+                                                                    Faca seu Login</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Fechar">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form class="form-horizontal">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-10">
+                                                                            <input class="form-control" type="email"
+                                                                                name="usuario" placeholder="Email">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-10">
-                                                                        <input class="form-control" type="password" id="senha" placeholder="Senha:">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-10">
+                                                                            <input class="form-control" type="password"
+                                                                                name="senha" placeholder="Senha">
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-info" data-dismiss="modal">Login</button>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                         
+                                                                <button type="submit" id="submit" value="login" class="btn btn-info">Login</button>
+                                                                
+                   
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!--Fechando modal/ Fechando tela login-->
+                                                <!--Fechando modal/ Fechando tela login-->
 
-                                        </div>
+                                            </div>
+                                        </form>
 
 
                                     </li>
+
+                                    <!--Modal login ou senha invalido-->
+                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#modalExemplo">
+                                        Abrir modal de demonstração
+                                    </button> -->
+
+                                    <!-- Modal -->
+    
 
                                     <!---------------------------------------------------------------------------->
                                     <!--Botao Cadastro-->
                                     <li>
                                         <div class="nav-link">
-                                            <button type="button" class="btn btn-outline-info" data-toggle="dropdown" data-target="">Cadastro</button>
+                                            <button type="button" class="btn btn-outline-info" data-toggle="dropdown"
+                                                data-target="">Cadastro</button>
 
 
                                             <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-info" routerLinkActive="active">Dependente</button>
+                                                <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-secondary" routerLinkActive="active">Instituição</button>
+                                                        <a href="../DataRegister/registerInstitution.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
+
 
                                                 </div>
 
@@ -101,6 +181,7 @@
 
                                         </div>
                                     </li>
+
 
 
                                 </ul>
@@ -111,10 +192,13 @@
 
                 </div>
             </div>
+
+           
     </header>
     <!--Fechando o Div:Nav-Bar-->
 
-    <!------------------------------------------------------------------------>
+
+    <!----------------------------------------------------------------------------------------->
 
 
     <h1>Instituições de Apoio</h1>

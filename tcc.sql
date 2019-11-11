@@ -119,6 +119,6 @@ ALTER TABLE TB_HISTORICO ADD FOREIGN KEY(fk_usuarioID)
  REFERENCES TB_USUARIO (usuarioID);
 
 
-select*from cadastro_usuario; 
+select*from tb_usuario; 
 insert into cadastro_usuario (usuario, senha) values ('teste', 'teste'); 
 /*insert into cadastro_usuario (usuario, senha) values ('teste', md5('teste')); */
