@@ -117,7 +117,7 @@
     <!------------------------------------------------------------------------>
 
 
-    <h1>Ultimos Eventos</h1>
+    <h1>Instituições de Apoio</h1>
 
 
     <!--Carousel Wrapper-->
@@ -139,20 +139,22 @@
                         <div class="card bg-light">
                             <img class="card-img-top img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(38).jpg" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">Titulo Card</h5>
+                                <h5 class="card-title">Cobaia</h5>
                                 <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-                                <a href="#" class="btn btn-primary">Visitar</a>
+                                <a href="../Institutions/teste.html" class="btn btn-primary">Visitar</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-md-3 mb-3">
                         <div class="card bg-light">
-                            <img class="card-img-top img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(19).jpg" alt="Card image cap">
+                            <img class="card-img-top img-fluid" src="../Images/salve_a_si.jpg" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">Titulo Card</h5>
-                                <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
-                                <a href="#" class="btn btn-primary">Visitar</a>
+                                <h5 class="card-title"> Instituição Salve a Si</h5>
+                                <p class="card-text">Centro de tratamento para dependência química.</br> Gleba nº 9, Fazenda Salve a Si<br />
+                                       Cidade Ocidental<br />
+                                        Goiás/GO</p></p>
+                                <a href="../Institutions/salve_a_si.html" class="btn btn-primary">Visitar</a>
                             </div>
                         </div>
                     </div>
