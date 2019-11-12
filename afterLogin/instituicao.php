@@ -18,7 +18,39 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     // Redireciona o visitante de volta pro login
     header("Location:../afterLogin/usuario.php");
 }
+
+//--------------------------------------------------------------------------//
+//Puxando todos os dados do usuario do banco 
+
+if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+    $user = $_SESSION["nomeUsuario_nomeFantasia"];
+
+    $dataUser = "SELECT * ";
+    $dataUser .= "FROM tb_usuario ";
+    $dataUser .= "WHERE usuario_instituicaoID = {$user} ";
+
+    $dataUser_login = mysqli_query($conecta, $dataUser);
+    if (!$dataUser_login) {
+        die("Falha no banco");
+    }
+
+    $dataUser_login = mysqli_fetch_assoc($dataUser_login);
+    $nome = $dataUser_login["nomeUsuario_nomeFantasia"];
+}
+//--------------------------------------------------------------------------//
+
+//--------------------------------------------------------------------------//
+//Puxando as instituições do banco
+$instituicoes = "SELECT nomeUsuario_nomeFantasia ";
+$instituicoes .= "FROM tb_usuario ";
+$instituicoes .= "WHERE tipo = $user ";
+$lista_instituicoes = mysqli_query($conecta, $instituicoes);
+if(!$lista_instituicoes) {
+    die("erro no banco ao procurar instituções");
+}
 ?>
+
+
 <!DOCTYPE HTML>
 
 <html lang="pt-br">
@@ -27,6 +59,12 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     <meta charset="utf-8">
     <title>Alguma Coisa Lfie</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=devide-width, initial-scale=1">
+
+    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../_CSS/styles.css" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -47,7 +85,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand">
                                     <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <img src="../Images/logo.png">
+                                    <img class="logo "src="../Images/logo.png">
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -129,14 +167,14 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     </script>
 
 
-      <!----------------------------------------------------------------------------------------->  
-      <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
-      <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
-      <script src="../Bootstrap/js/bootstrap.min.js"></script>
-      <script src="../Bootstrap/js/jquery-3.4.1.min.js"></script>
-      <script src="Index.js" type="text/javascript"></script>
+    <!----------------------------------------------------------------------------------------->
+    <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
+    <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
+    <script src="../Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../Bootstrap/js/jquery-3.4.1.min.js"></script>
+    <script src="Index.js" type="text/javascript"></script>
 
-      
+  
 </body>
 
 </html>
