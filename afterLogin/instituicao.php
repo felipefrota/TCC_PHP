@@ -62,7 +62,6 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
                                     <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
                                     <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao_instituicoes.php">Instituições</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -128,6 +127,16 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             });
         });
     </script>
+
+
+      <!----------------------------------------------------------------------------------------->  
+      <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
+      <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
+      <script src="../Bootstrap/js/bootstrap.min.js"></script>
+      <script src="../Bootstrap/js/jquery-3.4.1.min.js"></script>
+      <script src="Index.js" type="text/javascript"></script>
+
+      
 </body>
 
 </html>
