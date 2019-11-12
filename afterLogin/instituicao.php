@@ -17,6 +17,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     // session_destroy();
     // Redireciona o visitante de volta pro login
     header("Location:../afterLogin/usuario.php");
+<<<<<<< HEAD
 }
 
 //--------------------------------------------------------------------------//
@@ -47,6 +48,8 @@ $instituicoes .= "WHERE tipo = $user ";
 $lista_instituicoes = mysqli_query($conecta, $instituicoes);
 if(!$lista_instituicoes) {
     die("erro no banco ao procurar instituções");
+=======
+>>>>>>> 0935313b07e1598c4cc610a6cff897f12d55bf0d
 }
 ?>
 
@@ -58,13 +61,20 @@ if(!$lista_instituicoes) {
 <head>
     <meta charset="utf-8">
     <title>Alguma Coisa Lfie</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+=======
+>>>>>>> 0935313b07e1598c4cc610a6cff897f12d55bf0d
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=devide-width, initial-scale=1">
 
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../_CSS/styles.css" rel="stylesheet">
+<<<<<<< HEAD
 
+=======
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+>>>>>>> 0935313b07e1598c4cc610a6cff897f12d55bf0d
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -85,7 +95,11 @@ if(!$lista_instituicoes) {
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand">
                                     <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+<<<<<<< HEAD
                                     <img class="logo "src="../Images/logo.png">
+=======
+                                    <img src="../Images/logo.png">
+>>>>>>> 0935313b07e1598c4cc610a6cff897f12d55bf0d
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -100,6 +114,10 @@ if(!$lista_instituicoes) {
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
                                     <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
                                     <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Historia</a></li>
+<<<<<<< HEAD
+=======
+                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao_instituicoes.php">Instituições</a></li>
+>>>>>>> 0935313b07e1598c4cc610a6cff897f12d55bf0d
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -167,6 +185,7 @@ if(!$lista_instituicoes) {
     </script>
 
 
+<<<<<<< HEAD
     <!----------------------------------------------------------------------------------------->
     <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
     <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
@@ -175,6 +194,14 @@ if(!$lista_instituicoes) {
     <script src="Index.js" type="text/javascript"></script>
 
   
+=======
+      <!----------------------------------------------------------------------------------------->
+      <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
+    <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
+    <!-- <script src="../Bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="../Bootstrap/js/jquery-3.4.1.min.js"></script>
+    <script src="Index.js" type="text/javascript"></script>
+>>>>>>> 0935313b07e1598c4cc610a6cff897f12d55bf0d
 </body>
 
 </html>
