@@ -187,7 +187,8 @@ if( isset($_POST["razao_Social"]) ) {
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Breve Descrição da Empresa</label>
-                <textarea class="form-control" id="brev_apresent" name="brev_apresent" id="brev_apresent" rows="3" value="<?php echo $dataUser_login["brev_apresent"] ?>"></textarea>
+                <textarea class="form-control" type="text" id="brev_apresent" name="brev_apresent" id="brev_apresent" rows="3" ><?php echo $dataUser_login["brev_apresent"] ?></textarea>
+
             </div>
 
             <div class="form-group">
