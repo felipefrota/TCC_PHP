@@ -73,7 +73,8 @@
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand">      
         <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                  <!--  <img src="../Images/logo.png"> --> 
+                                 <!--  <img src="../Images/logo2.png"> -->
+
                                 </a>
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -223,7 +224,7 @@
                         <div class="card bg-light">
                             <img class="card-img-top img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(38).jpg" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">Cobaia</h5>
+                                <h5 class="card-title">Hospital Maya</h5>
                                 <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
                                 <a href="../Institutions/teste.html" class="btn btn-primary">Visitar</a>
                             </div>
