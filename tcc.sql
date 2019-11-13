@@ -103,8 +103,15 @@ CREATE TABLE tb_usuario(
 `obs_Inst` varchar(1000) DEFAULT NULL,
 `obs_Intolerancia` varchar(1000) DEFAULT NULL,
 
-`brev_apresent` varchar(10000) DEFAULT NULL,
+`brev_apresent` varchar(5000) DEFAULT NULL,
 `apresent_complet` varchar(10000) DEFAULT NULL, 
+
+`upload_file` varchar(100) DEFAULT NULL,
+`upload_file2` varchar(100) DEFAULT NULL,
+`upload_file3` varchar(100) DEFAULT NULL,
+`upload_file4` varchar(100) DEFAULT NULL,
+`upload_file5` varchar(100) DEFAULT NULL,
+`upload_file6` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`usuario_instituicaoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 

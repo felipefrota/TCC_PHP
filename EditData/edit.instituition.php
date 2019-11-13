@@ -47,6 +47,47 @@ if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
 }
 
 
+
+//--------------------------------------------------------------------------//
+//PARTE DE UPLOAD DE DADOS
+//--------------------------------------------------------------------------//
+//Codigo dos para o upload das imagens
+$array_erro = array(
+    UPLOAD_ERR_OK => "Sem erro.",
+    UPLOAD_ERR_INI_SIZE => "O arquivo enviado excede o limite definido na diretiva upload_max_filesize do php.ini.",
+    UPLOAD_ERR_FORM_SIZE => "O arquivo excede o limite definido em MAX_FILE_SIZE no formulário HTML",
+    UPLOAD_ERR_PARTIAL => "O upload do arquivo foi feito parcialmente.",
+    UPLOAD_ERR_NO_FILE => "Nenhum arquivo foi enviado.",
+    UPLOAD_ERR_NO_TMP_DIR => "Pasta temporária ausente.",
+    UPLOAD_ERR_CANT_WRITE => "Falha em escrever o arquivo em disco.",
+    UPLOAD_ERR_EXTENSION => "Uma extensão do PHP interrompeu o upload do arquivo."
+); 
+if( isset($_POST["enviar"]) ) {
+    $numero_erro = $_FILES['upload_file']['error'];
+    $mensagem =  $array_erro[$numero_erro];
+
+    $arquivo_temporario = $_FILES['upload_file']['tmp_name'];
+    $arquivo = basename($_FILES['upload_file']['name']);
+    $diretorio = "C:/xampp/htdocs/TCC_PHP/Uploads";
+
+
+    //Upando as imagens
+    if(move_uploaded_file($arquivo_temporario, $diretorio."/". $arquivo)) {
+        $mensagem = "Arquivo publicado";
+    } else {
+        $numero_erro = $_FILES['upload_file']['error'];
+        $mensagem =  $array_erro[$numero_erro];
+    }
+    
+    
+    // echo("<pre>");
+    // print_r($_FILES['upload_file']);
+    // echo("</pre>");
+    // echo $mensagem;
+
+}
+
+
 //--------------------------------------------------------------------------//
 
 //--------------------------------------------------------------------------//
@@ -63,7 +104,7 @@ if( isset($_POST["razao_Social"]) ) {
     $wpp =                                $_POST["wpp"];
     $brev_apresent =                      $_POST["brev_apresent"];
     $apresent_complet =                   $_POST["apresent_complet"];
-
+    $upload_file = $_POST["upload_file"];
     $usuario_instituicaoID                = $_POST["usuario_instituicaoID"];
 
     //--------------------------------------------------------------------------//
@@ -82,8 +123,8 @@ if( isset($_POST["razao_Social"]) ) {
     $alterar .= "telefoneCelular = '{$telefoneCelular}', ";
     $alterar .= "wpp = '{$wpp}', ";
     $alterar .= "brev_apresent = '{$brev_apresent}', ";
-    $alterar .= "apresent_complet = '{$apresent_complet}' ";
-
+    $alterar .= "apresent_complet = '{$apresent_complet}', ";
+    $alterar .= "upload_file = '{$upload_file}' ";
 
     $alterar .= "WHERE usuario_instituicaoID = {$usuario_instituicaoID} ";
 
@@ -117,7 +158,7 @@ if( isset($_POST["razao_Social"]) ) {
 
     <div class="container-fluid">
 
-        <form class="was-validated" action="../EditData/edit.instituition.php" method="post">
+        <form class="was-validated" action="../EditData/edit.instituition.php" method="post" enctype="multipart/form-data">
 
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -197,9 +238,16 @@ if( isset($_POST["razao_Social"]) ) {
             </div>
 
 
+            <div class="form-group">
+            <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+            Enviar esse arquivo: <input name="upload_file" type="file" />
+
+
+            </div>
+
 
             <input type="hidden" name="usuario_instituicaoID" value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
-            <button type="submit" class="btn btn-info">Enviar</button>
+            <button type="submit" name="enviar" class="btn btn-info">Enviar</button>
 
 
         </form>

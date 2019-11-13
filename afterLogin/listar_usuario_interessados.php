@@ -1,7 +1,7 @@
 <?php
 include_once "../conexao/conexao.php";
 //consultar no banco de dados
-$result_usuario = "SELECT * FROM tb_usuario ORDER BY usuario_instituicaoID DESC";
+$result_usuario = "SELECT * FROM tb_usuario ORDER BY instit DESC";
 $resultado_usuario = mysqli_query($conecta, $result_usuario);
 
 
