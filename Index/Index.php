@@ -61,6 +61,10 @@
 
 <body>
     <header>
+    <!-----------------------------------------Botão fluuante whatsapp-------------------------------------------------->
+    <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5561985294948"><img src="../Images/botao_flutuante.png" style="height:80px; position:fixed; bottom: 25px; right: 25px; z-index:100;" data-selector="img"></a>
+
+
         <div id="Principal">
 
             <div class="background00">
