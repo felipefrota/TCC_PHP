@@ -91,11 +91,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item" href="../EditData/edit.instituition.php">Perfil</a>
-<<<<<<< HEAD
                                                     <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">Imagens instituição</a>
-=======
-                                                    <a class="dropdown-item" href="#">Another action</a>
->>>>>>> d62c7cb79c6e197fce9a52b8a1ab7f04c5498b58
+
                                                     <a class="dropdown-item" href="../sair.php">Sair</a>
                                                 </div>
                                             </div>
