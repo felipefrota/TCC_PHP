@@ -1,7 +1,36 @@
-<?php
-include_once "../conexao/conexao.php";
+<?php include_once "../conexao/conexao.php"; ?>
+<?php 
+
+session_start();
+$teste = $_SESSION['nome'];
+// echo $teste;
+
+$teste = $_SESSION['nome'];
+//--------------------------------------------------------------------------//
+//TESTE DE SEGURANÇA
+
+
+// if (!isset($_SESSION["user_portal"])) {
+//     header("location:../Index/index.php");
+// }
+// A sessão precisa ser iniciada em cada página diferente
+if (!isset($_SESSION)) session_start();
+
+
+$nivel_necessario = 2;
+
+
+// Verifica se não há a variável da sessão que identifica o usuário
+if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_necessario)) {
+    // Destrói a sessão por segurança
+    // session_destroy();
+    // Redireciona o visitante de volta pro login
+    header("Location:../afterLogin/usuario.php");    
+}
+                
+
 //consultar no banco de dados
-$result_usuario = "SELECT * FROM tb_usuario ORDER BY instit DESC";
+$result_usuario = "SELECT * FROM tb_usuario where instit= '$teste' ";
 $resultado_usuario = mysqli_query($conecta, $result_usuario);
 
 
@@ -34,7 +63,7 @@ if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 					<td><?php echo $row_usuario['estadoCivil']; ?></td>
 					<td><?php echo $row_usuario['telefoneFixo']; ?></td>
 					<td class="actions">
-						<a class="btn btn-success btn-xs" cellspacing="0" cellpadding="0" href="view.html">Visualizar</a>
+						<a class="btn btn-success btn-xs" cellspacing="0" cellpadding="0" href="viewuser.php?codigo=<?php echo $row_usuario['usuario_instituicaoID'] ?> ">Visualizar</a>
 						<a class="btn btn-warning btn-xs" cellspacing="0" cellpadding="0" href="edit.html">Editar</a>
 					</td>
 					</tr>

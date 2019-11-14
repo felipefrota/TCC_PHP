@@ -31,6 +31,7 @@
             $_SESSION['usuario_instituicaoID'] = $informacao['usuario_instituicaoID'];
             $_SESSION['nomeUsuario_nomeFantasia'] = $informacao['usuario_instituicaoID'];
             $_SESSION['tipo'] = $informacao['tipo'];
+            $_SESSION['nome'] = $informacao['nomeUsuario_nomeFantasia'];
 
              // Redireciona o visitante
                 header("Location:afterLogin/instituicao.php"); exit;
