@@ -27,6 +27,9 @@ if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_nec
     // Redireciona o visitante de volta pro login
     header("Location:../afterLogin/usuario.php");    
 }
+
+//FECHANDO TESTE DE SEGURANÇA
+//--------------------------------------------------------------------------//
                 
 
 //consultar no banco de dados

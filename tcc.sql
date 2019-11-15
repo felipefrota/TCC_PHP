@@ -107,27 +107,13 @@ CREATE TABLE tb_usuario(
 `apresent_complet` varchar(10000) DEFAULT NULL, 
 
 `upload_file` varchar(100) DEFAULT NULL,
-`upload_file2` varchar(100) DEFAULT NULL,
-`upload_file3` varchar(100) DEFAULT NULL,
-`upload_file4` varchar(100) DEFAULT NULL,
-`upload_file5` varchar(100) DEFAULT NULL,
-`upload_file6` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`usuario_instituicaoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 
 
 
-DROP TABLE IF EXISTS `TB_HISTORICO`;
-CREATE TABLE TB_HISTORICO(
-  `historicoID` INT NOT NULL AUTO_INCREMENT,
-  `fk_usuarioID` INT,
-  PRIMARY KEY (`historicoID`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
-
-ALTER TABLE TB_HISTORICO ADD FOREIGN KEY(fk_usuarioID)
- REFERENCES TB_USUARIO (usuarioID);
 
 
 select*from cadastro_usuario; 

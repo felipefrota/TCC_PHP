@@ -95,7 +95,7 @@ session_start();
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="../list_Instituition/list.institution.php">Empresa Cadastrada</a>
                                                     <a class="dropdown-item" href="../sair.php">Sair</a>
                                                 </div>
                                             </div>
