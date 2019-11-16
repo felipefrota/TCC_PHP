@@ -227,7 +227,7 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
 
     <form class="" action="../EditData/upload.imageInstitution.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
-                <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+                <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
                 Enviar esse arquivo: <input name="upload_file" value="imagem" type="file" />
                 <!-- echo '<a href=""><img src="C:/xampp/htdocs/TCC_PHP/Uploads".$upload_file /></a>'; -->
 

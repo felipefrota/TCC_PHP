@@ -75,7 +75,7 @@ CREATE TABLE tb_usuario(
 `senha` varchar(32) DEFAULT NULL,
 `email` varchar(50) DEFAULT NULL,
 `cpf_cnpj` varchar(15) DEFAULT NULL,
-`dataNascimento` varchar(12) DEFAULT NULL,
+`dataNascimento` date DEFAULT NULL,
 `sexo` varchar(12) DEFAULT NULL,
 `estadoCivil` varchar(12) DEFAULT NULL,
 `telefoneFixo` varchar(16) DEFAULT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE tb_usuario(
 
 `brev_apresent` varchar(5000) DEFAULT NULL,
 
-`upload_file` varchar(100) DEFAULT NULL,
+`upload_file` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`usuario_instituicaoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
