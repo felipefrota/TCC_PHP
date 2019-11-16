@@ -137,6 +137,90 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
 </head>
 
 <body>
+
+<header>
+        <div id="">
+
+            <div class="Principal">
+                <!----------------------------------------------------------------------------------------->
+                <!--<object type="text/html" data="../nav-bar.html"></object>-->
+                <div id="Nav-Bar">
+
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <a href="../IndexProject/Index.html" class="navbar-brand">
+                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                    <img src="../Images/logo.png">
+                                </a>
+                                <!------------------------------------ Fechando Logo ----------------------------------------------------------->
+
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                    <span class="navbar-toggler-icon text-black"></span>
+                                </button>
+                            </div>
+
+                            <div id="menuCelular" class="collapse navbar-collapse">
+
+                                <ul class="navbar-nav ml-auto text-light nav-menu">
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
+                                    <li>
+                                        <!----------------------------------------------------------------------------------------->
+                                        <!---------------------------------Botao Saudação------------------------------------------>
+                                        <?php
+                                        if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+                                            $user = $_SESSION["nomeUsuario_nomeFantasia"];
+                                            $saudacao = "SELECT nomeUsuario_nomeFantasia ";
+                                            $saudacao .= "FROM tb_usuario ";
+                                            $saudacao .= "WHERE usuario_instituicaoID = {$user} ";
+                                            $saudacao_login = mysqli_query($conecta, $saudacao);
+                                            if (!$saudacao_login) {
+                                                die("Falha no banco");
+                                            }
+                                            $saudacao_login = mysqli_fetch_assoc($saudacao_login);
+                                            $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
+                                            ?>
+                                            <div class="dropdown nav-link">
+                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="../EditData/edit.instituition.php">Perfil</a>
+                                                    <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">Imagens instituição</a>
+
+                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+
+                                    </li>
+                                    <!---------------------------------Fechando Saudação--------------------------------------->
+                                    <!----------------------------------------------------------------------------------------->
+                                    <!--Modal login ou senha invalido-->
+                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                            data-target="#modalExemplo">
+                            Abrir modal de demonstração
+                        </button> -->
+
+                                    <!-- Modal -->
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+    </header>
+    <!--Fechando header-->
+    <!----------------------------------------------------------------------------------------->
+
+    
 <span class="d-block p-3 bg-primary text-white">Cadastrando Imagem</span>
 
 <div class="container-fluid">

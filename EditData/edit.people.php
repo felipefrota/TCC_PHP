@@ -1,7 +1,7 @@
-<?php require_once("../conexao/conexao.php")?>
+<?php require_once("../conexao/conexao.php") ?>
 
 
-<?php 
+<?php
 //--------------------------------------------------------------------------//
 //TESTE DE SEGURANÇA
 session_start();
@@ -9,21 +9,22 @@ session_start();
 //     header("location:../Index/index.php");
 // }
 
- // A sessão precisa ser iniciada em cada página diferente
- if (!isset($_SESSION)) session_start();
-    
- $nivel_necessario = 1;
-   
- // Verifica se não há a variável da sessão que identifica o usuário
- if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_necessario)) {
-     // Destrói a sessão por segurança
+// A sessão precisa ser iniciada em cada página diferente
+if (!isset($_SESSION)) session_start();
+
+$nivel_necessario = 1;
+
+// Verifica se não há a variável da sessão que identifica o usuário
+if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_necessario)) {
+    // Destrói a sessão por segurança
     //  session_destroy();
-     // Redireciona o visitante de volta pro login
-     $sql = "SELECT * FROM tb_usuario where id = $_SESSION[usuarioID]";
+    // Redireciona o visitante de volta pro login
+    $sql = "SELECT * FROM tb_usuario where id = $_SESSION[usuarioID]";
 
 
-     header("Location:../Index/Index.php"); exit;
- }
+    header("Location:../Index/Index.php");
+    exit;
+}
 //FIM DO TESTE DE SEGURANÇA
 //--------------------------------------------------------------------------//
 
@@ -55,7 +56,7 @@ $instituicoes = "SELECT nomeUsuario_nomeFantasia ";
 $instituicoes .= "FROM tb_usuario ";
 $instituicoes .= "WHERE tipo = 2 ";
 $lista_instituicoes = mysqli_query($conecta, $instituicoes);
-if(!$lista_instituicoes) {
+if (!$lista_instituicoes) {
     die("erro no banco ao procurar instituções");
 }
 
@@ -63,42 +64,42 @@ if(!$lista_instituicoes) {
 
 //--------------------------------------------------------------------------//
 //Pegando os dados enviados do formulario//
-        if( isset($_POST["usuario"]) ) {
-        $nomeUsuario_nomeFantasia =           $_POST["usuario"];
-        $sobrenome                =           $_POST["sobrenome"];
-        $senha =                              $_POST["senha"];
-        $email =                              $_POST["email"];
-        $cpf_cnpj =                           $_POST["cpf"];
-        $dataNascimento =                     $_POST["dataNascimento"];
-        $sexo =                               $_POST["sexo"];
-        $estadoCivil =                        $_POST["estadoCivil"];
-        $telefoneCelular =                    $_POST["telefoneCelular"];
-        $telefoneFixo =                       $_POST["telefoneFixo"];
+if (isset($_POST["usuario"])) {
+    $nomeUsuario_nomeFantasia =           $_POST["usuario"];
+    $sobrenome                =           $_POST["sobrenome"];
+    $senha =                              $_POST["senha"];
+    $email =                              $_POST["email"];
+    $cpf_cnpj =                           $_POST["cpf"];
+    $dataNascimento =                     $_POST["dataNascimento"];
+    $sexo =                               $_POST["sexo"];
+    $estadoCivil =                        $_POST["estadoCivil"];
+    $telefoneCelular =                    $_POST["telefoneCelular"];
+    $telefoneFixo =                       $_POST["telefoneFixo"];
 
-        $cep =                                $_POST["cep"];
-        $estado =                             $_POST["estado"];
-        $cidade =                             utf8_decode($_POST["cidade"]);
-        $bairro =                             utf8_decode($_POST["bairro"]);
-        $rua_avenida =                        utf8_decode($_POST["rua_avenida"]);
-        $numero =                             $_POST["numero"];
-        $adicional =                          utf8_decode($_POST["adicional"]);
+    $cep =                                $_POST["cep"];
+    $estado =                             $_POST["estado"];
+    $cidade =                             utf8_decode($_POST["cidade"]);
+    $bairro =                             utf8_decode($_POST["bairro"]);
+    $rua_avenida =                        utf8_decode($_POST["rua_avenida"]);
+    $numero =                             $_POST["numero"];
+    $adicional =                          utf8_decode($_POST["adicional"]);
 
-        $motivoInternacao =                   $_POST["motivoInternacao"];
-        $motiv_Adicional =                    utf8_decode($_POST["motiv_Adicional"]);
-        $remed =                              utf8_decode($_POST["remed"]);
-        $alergRemedio =                       utf8_decode($_POST["alergRemedio"]);
-        $sintom =                             utf8_decode($_POST["sintom"]);
-        $doenc_Cronic =                       utf8_decode($_POST["doenc_Cronic"]);
+    $motivoInternacao =                   $_POST["motivoInternacao"];
+    $motiv_Adicional =                    utf8_decode($_POST["motiv_Adicional"]);
+    $remed =                              utf8_decode($_POST["remed"]);
+    $alergRemedio =                       utf8_decode($_POST["alergRemedio"]);
+    $sintom =                             utf8_decode($_POST["sintom"]);
+    $doenc_Cronic =                       utf8_decode($_POST["doenc_Cronic"]);
 
-        $instit =                             utf8_decode($_POST["instit"]);
-        $levar_Inst =                         utf8_decode($_POST["levar_Inst"]);
-        $obs_Inst =                           utf8_decode($_POST["obs_Inst"]);
-        $obs_Intolerancia =                   utf8_decode($_POST["obs_Intolerancia"]);
+    $instit =                             utf8_decode($_POST["instit"]);
+    $levar_Inst =                         utf8_decode($_POST["levar_Inst"]);
+    $obs_Inst =                           utf8_decode($_POST["obs_Inst"]);
+    $obs_Intolerancia =                   utf8_decode($_POST["obs_Intolerancia"]);
 
-        $usuario_instituicaoID                = $_POST["usuario_instituicaoID"];
- 
+    $usuario_instituicaoID                = $_POST["usuario_instituicaoID"];
 
-    
+
+
     //--------------------------------------------------------------------------//
 
     //--------------------------------------------------------------------------//
@@ -106,7 +107,7 @@ if(!$lista_instituicoes) {
     $alterar = "UPDATE tb_usuario ";
     $alterar .= "SET ";
     $alterar .= "nomeUsuario_nomeFantasia = '{$nomeUsuario_nomeFantasia}', ";
-    $alterar .= "sobrenome = '{$sobrenome}', "; 
+    $alterar .= "sobrenome = '{$sobrenome}', ";
     $alterar .= "senha = '{$senha}', ";
     $alterar .= "email = '{$email}', ";
     $alterar .= "cpf_cnpj = '{$cpf_cnpj}', ";
@@ -139,12 +140,11 @@ if(!$lista_instituicoes) {
     $alterar .= "WHERE usuario_instituicaoID = {$usuario_instituicaoID} ";
 
     $operacao_alterar = mysqli_query($conecta, $alterar);
-    if(!$operacao_alterar) {
-        die("Erro na alteracao");   
+    if (!$operacao_alterar) {
+        die("Erro na alteracao");
     } else {
-        header("location:edit.people.php");   
+        header("location:edit.people.php");
     }
-
 }
 
 //  print_r($_POST["usuario"]);
@@ -167,6 +167,100 @@ if(!$lista_instituicoes) {
 </head>
 
 <body>
+
+
+
+    <header>
+        <div id="Principal">
+
+            <div class="">
+                <!----------------------------------------------------------------------------------------->
+                <!--<object type="text/html" data="../nav-bar.html"></object>-->
+                <div id="Nav-Bar">
+
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <a href="../IndexProject/Index.html" class="navbar-brand">
+                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                    <img src="../Images/logo.png">
+                                </a>
+                                <!------------------------------------ Fechando Logo ----------------------------------------------------------->
+
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                    <span class="navbar-toggler-icon text-black"></span>
+                                </button>
+                            </div>
+
+                            <div id="menuCelular" class="collapse navbar-collapse">
+
+                                <ul class="navbar-nav ml-auto text-light nav-menu">
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario.php">Home</a></li>
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="#historias">Historia</a></li>
+                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario_instituicao.php">Instituições</a></li>
+                                    <li>
+                                        <!----------------------------------------------------------------------------------------->
+                                        <!---------------------------------Botao Saudação------------------------------------------>
+                                        <?php
+                                        if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+                                            $user = $_SESSION["nomeUsuario_nomeFantasia"];
+
+                                            $saudacao = "SELECT nomeUsuario_nomeFantasia ";
+                                            $saudacao .= "FROM tb_usuario ";
+                                            $saudacao .= "WHERE usuario_instituicaoID = {$user} ";
+
+                                            $saudacao_login = mysqli_query($conecta, $saudacao);
+                                            if (!$saudacao_login) {
+                                                die("Falha no banco");
+                                            }
+
+                                            $saudacao_login = mysqli_fetch_assoc($saudacao_login);
+                                            $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
+                                            ?>
+                                            <div class="dropdown nav-link">
+                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
+                                                    <a class="dropdown-item" href="../list_Instituition/list.institution.php">Empresa Cadastrada</a>
+                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+
+                                    </li>
+                                    <!---------------------------------Fechando Saudação--------------------------------------->
+                                    <!----------------------------------------------------------------------------------------->
+                                    <!--Modal login ou senha invalido-->
+                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#modalExemplo">
+                                        Abrir modal de demonstração
+                                    </button> -->
+
+                                    <!-- Modal -->
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+
+                </div>
+            </div>
+
+
+    </header>
+    <!--Fechando o Div:Nav-Bar-->
+
+
+    <!----------------------------------------------------------------------------------------->
+
+    <!----------------------------------------------------------------------------------------->
+
 
     <span class="d-block p-2 bg-dark text-white">Cadastro</span>
     <hr /> <br />
@@ -193,7 +287,7 @@ if(!$lista_instituicoes) {
                         Sobrenome Obrigatorio!
                     </div>
                 </div>
-                
+
                 <div class="form-group col-md-4">
                     <label for="senha">Senha</label>
                     <input class="form-control" type="password" name="senha" id="senha" value="<?php echo $dataUser_login["senha"] ?>" required minlength="4">
@@ -209,8 +303,8 @@ if(!$lista_instituicoes) {
                 <label for="email">Seu Email</label>
                 <input class="form-control" type="email" name="email" id="email" value="<?php echo $dataUser_login["email"] ?>" required>
                 <div class="invalid-feedback">
-                        Email Obrigatorio!
-                    </div>
+                    Email Obrigatorio!
+                </div>
             </div>
 
 
@@ -225,7 +319,7 @@ if(!$lista_instituicoes) {
 
                 <div class="form-group col-md-3">
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input class="form-control" name="dataNascimento" id="dataNascimento"  type="date" value="<?php echo $dataUser_login["dataNascimento"] ?>" required>
+                    <input class="form-control" name="dataNascimento" id="dataNascimento" type="date" value="<?php echo $dataUser_login["dataNascimento"] ?>" required>
                     <div class="invalid-feedback">
                         Data de Nascimento Obrigatorio!
                     </div>
@@ -438,29 +532,29 @@ if(!$lista_instituicoes) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="instit">Qual instituição de preferencia?</label>
-                    <select  name="instit" id="instit" class="form-control" required>
-                    <?php 
+                    <select name="instit" id="instit" class="form-control" required>
+                        <?php
                         // $minhaInst = $dataUser_login["instit"];
                         // while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
 
-                            $minhaInst = $dataUser_login["instit"];
-                            while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
-                                $inst_principal = $linha["nomeUsuario_nomeFantasia"];
-                                if($minhaInst == $inst_principal) {
-                    ?>
-                      
-                            <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>" selected>
-                                <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
-                            </option>
+                        $minhaInst = $dataUser_login["instit"];
+                        while ($linha = mysqli_fetch_assoc($lista_instituicoes)) {
+                            $inst_principal = $linha["nomeUsuario_nomeFantasia"];
+                            if ($minhaInst == $inst_principal) {
+                                ?>
+
+                                <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>" selected>
+                                    <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
+                                </option>
                             <?php
                                 } else {
-                        ?>
-                            <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>" >
-                                <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
-                            </option>                        
-                        <?php 
-                                }
+                                    ?>
+                                <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>">
+                                    <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
+                                </option>
+                        <?php
                             }
+                        }
                         ?>
 
                     </select>
@@ -502,12 +596,13 @@ if(!$lista_instituicoes) {
 
 
 
-        
 
-    </main>
+
+        </main>
     </div>
 
-
+    </div>
+    <!--Fechando div principal -->
 
 
     <!-------------------------------------------------------------------------------------------------------------->
