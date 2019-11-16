@@ -2,7 +2,8 @@
 
 
 #create database tcc;
-#use tcc;
+#
+use tcc;
 
 #DROP TABLE IF EXISTS `cadastro_usuario`;
 #CREATE TABLE cadastro_usuario(
@@ -107,13 +108,57 @@ CREATE TABLE tb_usuario(
 `apresent_complet` varchar(10000) DEFAULT NULL, 
 
 `upload_file` varchar(100) DEFAULT NULL,
+`upload_file2` varchar(100) DEFAULT NULL,
+`upload_file3` varchar(100) DEFAULT NULL,
+`upload_file4` varchar(100) DEFAULT NULL,
+`upload_file5` varchar(100) DEFAULT NULL,
+`upload_file6` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`usuario_instituicaoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;
+CREATE TABLE tb_prontuario_sociodemograficos(
+`id_prontuario_sociodemograficos` int(8) PRIMARY KEY AUTO_INCREMENT,
+`idade` varchar(3) DEFAULT NULL,
+`estado_civil` varchar(555) DEFAULT NULL,
+`prole` varchar(3) DEFAULT NULL,
+`escolaridade` varchar (999) DEFAULT NULL,
+`profissao` varchar (999) DEFAULT NULL,
+`renda` varchar (999) DEFAULT NULL,
+`responsavel_sustento_familia` varchar (999) DEFAULT NULL,
+`religiao` varchar (999) DEFAULT NULL,
+`id_usuario` integer,
+ CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
+);
+
+
+#DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;
+#CREATE TABLE tb_prontuario_sociodemograficos(
+#`id_prontuario_sociodemograficos` int(8) PRIMARY KEY AUTO_INCREMENT,
+#`idade` varchar(3) DEFAULT NULL,
+#`estado_civil` varchar(555) DEFAULT NULL,
+#`prole` varchar(3) DEFAULT NULL,
+#`escolaridade` varchar (999) DEFAULT NULL,
+#`profissao` varchar (999) DEFAULT NULL,
+#`renda` varchar (999) DEFAULT NULL,
+#`responsavel_sustento_familia` varchar (999) DEFAULT NULL,
+#`religiao` varchar (999) DEFAULT NULL,
+#`id_usuario` integer,
+# CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
+);
 
 
 
 
+
+  
+
+
+
+
+
+
+ALTER TABLE TB_HISTORICO ADD FOREIGN KEY(fk_usuarioID) REFERENCES TB_USUARIO (usuarioID);
 
 
 select*from cadastro_usuario; 
