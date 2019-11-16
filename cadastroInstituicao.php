@@ -11,6 +11,14 @@
         $telefoneCelular =              $_POST["telefoneCelular"];
         $wpp =                          $_POST["wpp"];
 
+        $cep =                          $_POST["cep"];
+        $estado =                       $_POST["estado"];
+        $cidade =                       $_POST["cidade"];
+        $bairro =                       $_POST["bairro"];
+        $rua_avenida =                  $_POST["rua_avenida"];
+        $numero =                       $_POST["numero"];
+        $adicional =                    $_POST["adicional"];
+
 
         // $inserir = "INSERT INTO cadastro_usuario ";
         // $inserir .= "(usuario, senha, email, cpf, dataNascimento, sexo, estadoCivil, telefoneCelular, telefoneFixo, cep, estado, cidade, bairro, rua_avenida, numero, adicional, motivoInternacao, motiv_Adicional, remed, alergRemedio, sintom, doenc_Cronic, instit, levar_Inst, obs_Inst, obs_Intolerancia) "; 
@@ -18,14 +26,17 @@
         // $inserir .= "('$usuario', '$senha', '$email', '$cpf', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia') ";
 
         $inserir = "INSERT INTO tb_usuario ";
-        $inserir .= "(razao_Social, nomeUsuario_nomeFantasia, cpf_cnpj, email, senha, telefoneFixo, telefoneFixo2, telefoneCelular, wpp, tipo) "; 
+        $inserir .= "(razao_Social, nomeUsuario_nomeFantasia, cpf_cnpj, email, senha, telefoneFixo, telefoneFixo2, telefoneCelular, wpp, cep, estado, cidade, bairro, rua_avenida, numero, adicional, tipo) "; 
         $inserir .= "VALUES ";
-        $inserir .= "('$razao_Social', '$nomeUsuario_nomeFantasia', '$cpf_cnpj', '$email', '$senha', '$telefoneFixo', '$telefoneFixo2', '$telefoneCelular', '$wpp', '2') ";
+        $inserir .= "('$razao_Social', '$nomeUsuario_nomeFantasia', '$cpf_cnpj', '$email', '$senha', '$telefoneFixo', '$telefoneFixo2', '$telefoneCelular', '$wpp', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '2') ";
         // var_dump($inserir);exit;
         $operacao_inserir = mysqli_query($conecta,$inserir);
         if(!$operacao_inserir) {
             die("ERRO NO BANCO");
-        }
+        } else {
+           
+            header("Location:afterLogin/instituicao.php"); exit;
+    }
     }
 
 

@@ -75,10 +75,12 @@
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">      
+                                <a href="../IndexProject/Index.html" class="navbar-brand"> </a>     
         <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                  <!--  <img src="../Images/logo.png"> --> 
-                                </a>
+                                    <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px >
+                                     </a>
+                                     <!----------------FECHANDO LOGO----------------->
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#menuCelular" aria-controls="menu" aria-expanded="false"

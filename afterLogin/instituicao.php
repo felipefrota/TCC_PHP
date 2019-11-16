@@ -51,10 +51,11 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">
+                                <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                     <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <img src="../Images/logo.png">
-                                </a>
+                                    <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px >
+                                    </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
@@ -67,8 +68,6 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
                                     <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao_instituicoes.php">Instituições</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>

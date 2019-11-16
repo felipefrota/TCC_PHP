@@ -102,7 +102,7 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
         <header>
             <div id="Principal">
 
-                <div class="background00">
+                <div class="">
                     <!----------------------------------------------------------------------------------------->
                     <!--<object type="text/html" data="../nav-bar.html"></object>-->
                     <div id="Nav-Bar">

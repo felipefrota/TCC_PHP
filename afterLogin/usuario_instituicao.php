@@ -42,7 +42,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
 <body>
 
-    <header>
+<header>
         <div id="Principal">
 
             <div class="">
@@ -54,8 +54,10 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand">
-                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <img src="../Images/logo.png">
+                                </a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px >
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -69,11 +71,11 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
                                     <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario.php">Historia</a></li>
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="#historias">Historia</a></li>
                                     <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario_instituicao.php">Instituições</a></li>
                                     <li>
-                                        <!----------------------------------------------------------------------------------------->
-                                        <!---------------------------------Botao Saudação------------------------------------------>
+                <!----------------------------------------------------------------------------------------->
+                <!---------------------------------Botao Saudação------------------------------------------>
                                         <?php
                                         if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
                                             $user = $_SESSION["nomeUsuario_nomeFantasia"];
@@ -92,11 +94,11 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                             ?>
                                             <div class="dropdown nav-link">
                                                 <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                                <h8> Bem vindo, <?php echo $nome ?> </h8>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
-                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                    <a class="dropdown-item" href="../list_Instituition/list.institution.php">Empresa Cadastrada</a>
                                                     <a class="dropdown-item" href="../sair.php">Sair</a>
                                                 </div>
                                             </div>
@@ -105,8 +107,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                         ?>
 
                                     </li>
-                                    <!---------------------------------Fechando Saudação--------------------------------------->
-                                    <!----------------------------------------------------------------------------------------->
+            <!---------------------------------Fechando Saudação--------------------------------------->
+            <!----------------------------------------------------------------------------------------->
                                     <!--Modal login ou senha invalido-->
                                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalExemplo">
@@ -131,7 +133,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
     <!----------------------------------------------------------------------------------------->
 
-    <!----------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------->
 
     <section class="background2">
 
