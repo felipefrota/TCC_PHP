@@ -125,26 +125,26 @@ CREATE TABLE tb_prontuario_sociodemograficos(
 `escolaridade` varchar (999) DEFAULT NULL,
 `profissao` varchar (999) DEFAULT NULL,
 `renda` varchar (999) DEFAULT NULL,
-`responsável_sustento_familia` varchar (999) DEFAULT NULL,
+`responsavel_sustento_familia` varchar (999) DEFAULT NULL,
 `religiao` varchar (999) DEFAULT NULL,
 `id_usuario` integer,
  CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
 );
 
 
-DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;
-CREATE TABLE tb_prontuario_sociodemograficos(
-`id_prontuario_sociodemograficos` int(8) PRIMARY KEY AUTO_INCREMENT,
-`idade` varchar(3) DEFAULT NULL,
-`estado_civil` varchar(555) DEFAULT NULL,
-`prole` varchar(3) DEFAULT NULL,
-`escolaridade` varchar (999) DEFAULT NULL,
-`profissao` varchar (999) DEFAULT NULL,
-`renda` varchar (999) DEFAULT NULL,
-`responsável_sustento_familia` varchar (999) DEFAULT NULL,
-`religiao` varchar (999) DEFAULT NULL,
-`id_usuario` integer,
- CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
+#DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;
+#CREATE TABLE tb_prontuario_sociodemograficos(
+#`id_prontuario_sociodemograficos` int(8) PRIMARY KEY AUTO_INCREMENT,
+#`idade` varchar(3) DEFAULT NULL,
+#`estado_civil` varchar(555) DEFAULT NULL,
+#`prole` varchar(3) DEFAULT NULL,
+#`escolaridade` varchar (999) DEFAULT NULL,
+#`profissao` varchar (999) DEFAULT NULL,
+#`renda` varchar (999) DEFAULT NULL,
+#`responsavel_sustento_familia` varchar (999) DEFAULT NULL,
+#`religiao` varchar (999) DEFAULT NULL,
+#`id_usuario` integer,
+# CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
 );
 
 

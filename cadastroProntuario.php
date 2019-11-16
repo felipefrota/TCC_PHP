@@ -62,7 +62,7 @@ if (isset($_POST["escolaridade"])) {
     // $obs_Intolerancia =                   $_POST["obs_Intolerancia"];
 
     $inserir = "INSERT INTO tb_prontuario_sociodemograficos ";
-    $inserir .= "(estado_civil, prole, escolaridade, profissao, responsável_sustento_familia, renda, religiao, id_usuario) ";
+    $inserir .= "(estado_civil, prole, escolaridade, profissao, responsavel_sustento_familia, renda, religiao, id_usuario) ";
     $inserir .= "VALUES ";
     $inserir .= "('$EstadoCivil', '$Prole', '$escolaridade', '$profissao', '$responsavel', '$renda', '$religiao', $id_usuario_cadastro ) ";
 

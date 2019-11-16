@@ -160,7 +160,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
         $estado_civil                     = $dados_detalhes["estado_civil"];
         $prole                            = $dados_detalhes["prole"];
         $escolaridade                     = $dados_detalhes["escolaridade"];
-        $responsável_sustento_familia     = $dados_detalhes["responsável_sustento_familia"];
+        $responsavel_sustento_familia     = $dados_detalhes["responsavel_sustento_familia"];
         $religiao                         = $dados_detalhes["religiao"];
         $id_usuario                       = $dados_detalhes["id_usuario"];
     }
@@ -209,7 +209,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
                 <div class="col-md-4">
                     <p><strong>Responsável Pelo Sustento da Família</strong></p>
-                    <p><?php echo $responsável_sustento_familia ?></p>
+                    <p><?php echo $responsavel_sustento_familia ?></p>
                 </div>
 
                 <div class="col-md-4">
