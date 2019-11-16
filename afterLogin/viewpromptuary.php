@@ -144,7 +144,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
 
 
-    //consultar no banco de dados 
+    //consultar no banco de dados tabela socio
     $result_usuario = "SELECT * ";
     $result_usuario .= "FROM tb_prontuario_sociodemograficos ";
     $result_usuario .= "where id_usuario= '$id_usuario_cadastro ' ";
@@ -164,7 +164,94 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
         $religiao                         = $dados_detalhes["religiao"];
         $id_usuario                       = $dados_detalhes["id_usuario"];
     }
- ?>
+
+    //consultar no banco de dados tabela dependencia
+    $result_dependencia = "SELECT * ";
+    $result_dependencia .= "FROM tb_prontuario_historico_familiar ";
+    $result_dependencia .= "where id_usuario= '$id_usuario_cadastro ' ";
+    $resultado_dependencia  = mysqli_query($conecta, $result_dependencia);
+
+    // testar erro
+    if (!$resultado_dependencia) {
+        die("Falha no banco de dados");
+    } else {
+        $dados_dependencia = mysqli_fetch_assoc($resultado_dependencia);
+        $id_prontuario_historico_familiar  = $dados_dependencia["id_prontuario_historico_familiar"];
+        $pai                               = $dados_dependencia["pai"];
+        $mae                               = $dados_dependencia["mae"];
+        $irmao                             = $dados_dependencia["irmao"];
+        $avo                               = $dados_dependencia["avo"];
+        $filho                             = $dados_dependencia["filho"];
+        $outros                            = $dados_dependencia["outros"];
+        $id_usuario                        = $dados_dependencia["id_usuario"];
+    }
+
+    //consultar no banco de dados tabela comorbidades
+    $result_comorbidades = "SELECT * ";
+    $result_comorbidades .= "FROM tb_prontuario_comorbidades_principais ";
+    $result_comorbidades .= "where id_usuario= '$id_usuario_cadastro ' ";
+    $resultado_comorbidades  = mysqli_query($conecta, $result_comorbidades);
+
+    // testar erro
+    if (!$resultado_comorbidades) {
+        die("Falha no banco de dados");
+    } else {
+        $dados_comorbidades = mysqli_fetch_assoc($resultado_comorbidades);
+        $id_prontuario_comorbidades_principais  = $dados_comorbidades["id_prontuario_comorbidades_principais"];
+        $hiper                                  = $dados_comorbidades["hipertensao_arterial_sistemica"];
+        $diabetes                               = $dados_comorbidades["diabetes_mellitus"];
+        $dislipidemia                           = $dados_comorbidades["dislipidemia"];
+        $cirrose                                = $dados_comorbidades["cirrose_hepatica"];
+        $pulmonar                               = $dados_comorbidades["doenca_pulmonar"];
+        $asma                                   = $dados_comorbidades["asma"];
+        $anemia                                 = $dados_comorbidades["anemia"];
+        $hiv                                    = $dados_comorbidades["hiv"];
+        $hepatite                               = $dados_comorbidades["hepatite_bc"];
+        $id_usuario                             = $dados_comorbidades["id_usuario"];
+    }
+
+    //consultar no banco de dados tabela substancias
+    $result_substancias = "SELECT * ";
+    $result_substancias .= "FROM tb_prontuario_substancias_psicoativas ";
+    $result_substancias .= "where id_usuario= '$id_usuario_cadastro ' ";
+    $resultado_substancias  = mysqli_query($conecta, $result_substancias);
+
+    // testar erro
+    if (!$resultado_substancias) {
+        die("Falha no banco de dados");
+    } else {
+        $dados_substancias = mysqli_fetch_assoc($resultado_substancias);
+        $id_prontuario_substancias_psicoativas  = $dados_substancias["id_prontuario_substancias_psicoativas"];
+        $tabaco                                 = $dados_substancias["tabaco"];
+        $alcool                                 = $dados_substancias["alcool"];
+        $cocaina                                = $dados_substancias["cocaina"];
+        $crack                                  = $dados_substancias["crack"];
+        $maconha                                = $dados_substancias["maconha"];
+        $inalantes                              = $dados_substancias["inalantes"];
+        $alucinogenos                           = $dados_substancias["alucinogenos"];
+        $anfetaminas                            = $dados_substancias["anfetaminas"];
+        $benzodiazepinicos                      = $dados_substancias["benzodiazepinicos"];
+        $opioides                               = $dados_substancias["opioides"];
+        $id_usuario                             = $dados_substancias["id_usuario"];
+    }
+
+      //consultar no banco de dados tabela diagnóstico e receituário
+      $result_diagnostico = "SELECT * ";
+      $result_diagnostico .= "FROM tb_prontuario_diagnostico_receituario ";
+      $result_diagnostico .= "where id_usuario= '$id_usuario_cadastro ' ";
+      $resultado_diagnostico  = mysqli_query($conecta, $result_diagnostico);
+  
+      // testar erro
+      if (!$resultado_diagnostico) {
+          die("Falha no banco de dados");
+      } else {
+          $dados_diagnostico = mysqli_fetch_assoc($resultado_diagnostico);
+          $id_prontuario_diagnostico_receituario  = $dados_diagnostico["id_prontuario_diagnostico_receituario"];
+          $diagnostico                                 = $dados_diagnostico["diagnostico"];
+          $receituario                                 = $dados_diagnostico["receituario"];
+      }
+       
+    ?>
 
 
 
@@ -184,56 +271,198 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     <body>
 
         <div id="main" class="container-fluid">
-            <h3 class="page-header">Prontuário</h3>
+            <span class="d-block p-2 bg-dark text-white">Dados Sociodemográficos</span>
+            <br />
 
             <div class="row">
-                <!-- <div class="col-md-4">
-                    <p><strong>Idade</strong></p>
-                    <p><?php echo $idade ?></p>
-                </div> -->
 
-                <div class="col-md-4">
-                    <p><strong>Estado Civil</strong></p>
-                    <p><?php echo $estado_civil ?></p>
-                </div>
-
-                <div class="col-md-4">
-                    <p><strong>Prole</strong></p>
-                    <p><?php echo $prole ?></p>
-                </div>
-
-                <div class="col-md-4">
-                    <p><strong>Escolaridade</strong></p>
-                    <p><?php echo $escolaridade ?></p>
-                </div>
-
-                <div class="col-md-4">
-                    <p><strong>Responsável Pelo Sustento da Família</strong></p>
-                    <p><?php echo $responsavel_sustento_familia ?></p>
-                </div>
-
-                <div class="col-md-4">
-                    <p><strong>Religião</strong></p>
-                    <p><?php echo $religiao ?></p>
-                </div>
-                
-            </div>
-
-            <hr/>
-            <div id="actions" class="row">
                 <div class="col-md-12">
-                    <a href=".php" class="btn btn-primary">Editar</a>
-                    <a href="instituicao.php" class="btn btn-default">Fechar</a>
+                    <p><strong>Estado Civil: </strong> <?php echo $estado_civil ?></p>
                 </div>
-            </div>
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+                <div class="col-md-12">
+                    <p><strong>Prole: </strong> <?php echo $prole ?></p>
+                </div>
 
-            <!-- Latest compiled and minified JavaScript -->
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+                <div class="col-md-12">
+                    <p><strong>Escolaridade: </strong><?php echo $escolaridade ?></p>
+                </div>
+
+                <div class="col-md-12">
+                    <p><strong>Responsável Pelo Sustento da Família: </strong> <?php echo $responsavel_sustento_familia ?></p>
+                </div>
+
+                <div class="col-md-12">
+                    <p><strong>Religião: </strong><?php echo $religiao ?></p>
+                </div>
+            </div></br></br>
+
+            <div id="main" class="container-fluid">
+                <span class="d-block p-2 bg-dark text-white">Histórico Familiar de Dependência Química</span>
+                <br />
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <p><strong>Pai: </strong><?php echo $pai ?></p>
+                        
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <p><strong>Mãe: </strong><?php echo $mae ?></p>
+                       
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Irmão: </strong><?php echo $irmao ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Avô(ó): </strong><?php echo $avo ?></p>
+                        
+                    </div>
+                    </div></br></br>
+
+                    <div id="main" class="container-fluid">
+                <span class="d-block p-2 bg-dark text-white">Comorbidades Clínicas Principais</span>
+                <br />
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <p><strong>Hipertensão Arterial Sistêmica: </strong><?php echo $hiper ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Diabetes Mlellitus: </strong><?php echo $diabetes ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Dislipidemia: </strong><?php echo $dislipidemia ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Cirrose Hepática: </strong><?php echo $cirrose ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Doença Pulmonar Obstrutiva Crônica: </strong><?php echo $pulmonar ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Asma: </strong><?php echo $asma ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Anemia: </strong><?php echo $anemia ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>HIV: </strong><?php echo $hiv ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Hepatite B ou C: </strong><?php echo $hepatite ?></p>
+                        
+                    </div>
+                    </div></br></br>
+
+                    <div id="main" class="container-fluid">
+                <span class="d-block p-2 bg-dark text-white">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
+                <br />
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <p><strong>Tabaco: </strong><?php echo $tabaco ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Álcool: </strong><?php echo $alcool ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Cocaína: </strong><?php echo $cocaina?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Crack: </strong><?php echo $crack ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Maconha: </strong><?php echo $maconha ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Inalantes: </strong><?php echo $inalantes ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Alucinógenos: </strong><?php echo $alucinogenos ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Anfetaminas: </strong><?php echo $anfetaminas ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Benzodiazpínicos: </strong><?php echo $benzodiazepinicos ?></p>
+                        
+                    </div>
+
+                    <div class="col-md-12">
+                        <p><strong>Opioides: </strong><?php echo $opioides ?></p>
+                        
+                    </div>
+                    </div></br></br>
+
+                    <div id="main" class="container-fluid">
+                <span class="d-block p-2 bg-dark text-white">Diagnóstico</span>
+                <br />
+                <p><strong> </strong><?php echo $diagnostico ?></p>
+                
+
+                </div></br></br>
+
+                <div id="main" class="container-fluid">
+                <span class="d-block p-2 bg-dark text-white">Receituário</span>
+                <br />
+                <p><strong> </strong><?php echo $receituario ?></p>
+
+                <hr />
+                <div id="actions" class="row">
+                    <div class="col-md-12">
+                        <a href=".php" class="btn btn-primary">Editar</a>
+                        <a href="instituicao.php" class="btn btn-default">Fechar</a>
+                    </div>
+                    
+                </div>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+                <!-- Latest compiled and minified JavaScript -->
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
 
     </html>

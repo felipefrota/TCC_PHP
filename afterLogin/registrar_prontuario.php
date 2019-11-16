@@ -25,16 +25,15 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 <html lang="pt-br">
 
 <head>
-   
+
     <meta charset="utf-8">
-    <title>Alguma Coisa Lfie</title>
+    <title>Registrar Prontuário</title>
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=devide-width, initial-scale=1">
 
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../_CSS/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -130,15 +129,16 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
 
     <!----------------------------------------------------------------------------------------->
-    <span class="d-block p-2 bg-dark text-white">Dados Sociodemográficos</span>
-    <hr /> <br />
+
 
     <!-------------------------------------------------------------------------------------------------------------->
 
-    <div class="container-fluid">
 
-        <form class="" action="../cadastroProntuario.php" method="post">
 
+    <form class="" action="../cadastroProntuario.php" method="post">
+        <div class="container-fluid">
+            <span class="d-block p-2 bg-dark text-white">Dados Sociodemográficos</span>
+            <br />
             <!-- <div class="form-group col-md-4">
                     <label for="senha">Idade</label>
                     <input class="form-control" type="password" name="idade" id="idade" placeholder="idade">
@@ -153,15 +153,18 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                         <option value="Divorciado">Divorciado</option>
                         <option value="Separado">Separado</option>
                         <option value="Viúvo">Viúvo</option>
-                        <option value="EUnião consensual">União consensual</option>
+                        <option value="União consensual">União consensual</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="prole">Prole</label>
+                    <label for="prole">Filhos(a)</label>
                     <select class="form-control" name="prole" id="prole">
                         <option selected>Escolher...</option>
-                        <option value="Sim">Sim</option>
-                        <option value="Não">Não</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05 ou mais">05 ou mais</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
@@ -200,7 +203,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="responsavel">Maior responsável pelo sustento da família</label>
+                    <label for="responsavel">Responsável pelo Sustento da Família</label>
                     <select class="form-control" name="responsavel" id="responsavel">
                         <option selected>Escolher...</option>
                         <option value="O próprio">O próprio</option>
@@ -221,11 +224,258 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                         <option value="Evangélico">Evangélico</option>
                         <option value="Espírita">Espírita</option>
                         <option value="Ateu">Ateu</option>
-                        <option value="Outras">Superior incompleto</option>
+                        <option value="Outras">Outros</option>
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-info">Enviar</button>
+            <br /><br />
+
+
+            <span class="d-block p-2 bg-dark text-white">Histórico Familiar de Dependência Química</span>
+            <br />
+
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="pai">Pai</label>
+                    <select class="form-control" name="pai" id="pai">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="mae">Mãe</label>
+                    <select class="form-control" name="mae" id="mae">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="irmao">Irmão(a)</label>
+                    <select class="form-control" name="irmao" id="irmao">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="avo">Avô(ó)</label>
+                    <select class="form-control" name="avo" id="avo">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="filho">Filho(a)</label>
+                    <select class="form-control" name="filho" id="filho">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="outros">Outros</label>
+                    <select class="form-control" name="outros" id="outros">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+            </div></br></br>
+            <span class="d-block p-2 bg-dark text-white">Comorbidades Clínicas Principais</span>
+            <br />
+
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="hipertensao">Hipertensão Arterial Sistêmica</label>
+                    <select class="form-control" name="hipertensao" id="hipertensao">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="diabetes">Diabetes Mlellitus</label>
+                    <select class="form-control" name="diabetes" id="diabetes">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="dislipidemia">Dislipidemia</label>
+                    <select class="form-control" name="dislipidemia" id="dislipidemia">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="cirrose">Cirrose Hepática</label>
+                    <select class="form-control" name="cirrose" id="cirrose">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="pulmonar">Doença Pulmonar Obstrutiva Crônica</label>
+                    <select class="form-control" name="pulmonar" id="pulmonar">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="asma">Asma</label>
+                    <select class="form-control" name="asma" id="asma">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="anemia">Anemia</label>
+                    <select class="form-control" name="anemia" id="anemia">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="hiv">HIV</label>
+                    <select class="form-control" name="hiv" id="hiv">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="hepatite">Hepatite B ou C</label>
+                    <select class="form-control" name="hepatite" id="hepatite">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+            </div></br></br>
+
+            <span class="d-block p-2 bg-dark text-white">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
+            <br />
+
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <label for="tabaco">Tabaco</label>
+                    <select class="form-control" name="tabaco" id="tabaco">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="alcool">Álcool</label>
+                    <select class="form-control" name="alcool" id="alcool">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="cocaina">Cocaína</label>
+                    <select class="form-control" name="cocaina" id="cocaina">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="crack">Crack</label>
+                    <select class="form-control" name="crack" id="crack">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="maconha">Maconha</label>
+                    <select class="form-control" name="maconha" id="maconha">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inalantes">Inalantes</label>
+                    <select class="form-control" name="inalantes" id="inalantes">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="alucinogenos">Alucinógenos</label>
+                    <select class="form-control" name="alucinogenos" id="alucinogenos">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="anfetaminas">Anfetaminas</label>
+                    <select class="form-control" name="anfetaminas" id="anfetaminas">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="benzodiazepinicos">Benzodiazepínicos</label>
+                    <select class="form-control" name="benzodiazepinicos" id="benzodiazepinicos">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="opioides">Opioides</label>
+                    <select class="form-control" name="opioides" id="opioides">
+                        <option selected>Escolher...</option>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+            </div></br></br>
+
+            <span class="d-block p-2 bg-dark text-white">Diagnóstico</span>
+            <br />
+
+            <div class="form-group">
+                <label for="diagnostico"></label>
+                <textarea class="form-control" name="diagnostico" id="diagnostico" rows="10" placeholder="Digite aqui o diagnóstico do paciente"></textarea>
+            </div>
+            </br></br>
+
+
+            <span class="d-block p-2 bg-dark text-white">Receituário</span>
+            <br />
+
+            <div class="form-group">
+                <label for="receituario"></label>
+                <textarea class="form-control" name="receituario" id="receituario" rows="10" placeholder="Digite aqui o receituário do paciente"></textarea>
+            </div>
+        </div></br></br>
+
+        </div>
+        <button type="submit" class="btn btn-info" >Enviar</button>
 </body>
 
 </html>

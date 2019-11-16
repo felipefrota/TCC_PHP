@@ -127,9 +127,30 @@ CREATE TABLE tb_prontuario_sociodemograficos(
 `renda` varchar (999) DEFAULT NULL,
 `responsavel_sustento_familia` varchar (999) DEFAULT NULL,
 `religiao` varchar (999) DEFAULT NULL,
+`qnt_internacoes` varchar (2) DEFAULT NULL,
 `id_usuario` integer,
  CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
 );
+
+
+use tcc
+
+DROP TABLE IF EXISTS `tb_prontuario_historico_familiar`;
+CREATE TABLE tb_prontuario_historico_familiar(
+`id_prontuario_historico_familiar` int(8) PRIMARY KEY AUTO_INCREMENT,
+`pai` varchar(3) DEFAULT NULL,
+`mae` varchar(3) DEFAULT NULL,
+`irmao` varchar(3) DEFAULT NULL,
+`avo` varchar (999) DEFAULT NULL,
+`filho` varchar (999) DEFAULT NULL,
+`tio` varchar (999) DEFAULT NULL,
+`outros` varchar (999) DEFAULT NULL,
+`id_usuario` integer,
+ CONSTRAINT fk_histPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
+ );
+ 
+
+
 
 
 #DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;

@@ -46,7 +46,7 @@ if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 			<tr>
 				<th>Nome</th>
 				<th>E-mail</th>
-				<th>cpf_cnpj</th>
+				<th>CPF</th>
 				<th>Data de Nascimento</th>
 				<th>Sexo</th>
 				<th>Estado Civil</th>

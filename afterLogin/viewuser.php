@@ -191,117 +191,117 @@ if (!$resultado_usuario){
   <div class="row">
     <div class="col-md-4">
       <p><strong>CPF</strong></p>
-  	  <p><?php echo $cpf_cnpj?></p>
+  	  <p><?php echo $cpf_cnpj ?></p>
     </div>
 	
 	<div class="col-md-4">
       <p><strong>E-mail</strong></p>
-  	  <p><?php echo $email?></p>
+  	  <p><?php echo $email ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Data de Nascimento</strong></p>
-  	  <p><?php echo $dataNascimento?></p>
+  	  <p><?php echo $dataNascimento ?></p>
     </div>
 	
 	<div class="col-md-4">
       <p><strong>Sexo</strong></p>
-  	  <p><?php echo $sexo?></p>
+  	  <p><?php echo $sexo ?></p>
     </div>
 	
 	<div class="col-md-4">
       <p><strong>Estado Civil</strong></p>
-  	  <p><?php echo $estadoCivil?></p>
+  	  <p><?php echo $estadoCivil ?></p>
     </div>
 	
     <div class="col-md-4">
       <p><strong>Telefone Fixo</strong></p>
-  	  <p><?php echo $telefoneFixo?></p>
+  	  <p><?php echo $telefoneFixo ?></p>
     </div>
 	
 	<div class="col-md-4">
       <p><strong>telefone Adicional</strong></p>
-  	  <p><?php echo $telefoneFixo2?></p>
+  	  <p><?php echo $telefoneFixo2 ?></p>
     </div>
 	
 	<div class="col-md-4">
       <p><strong>Telefone Celular</strong></p>
-  	  <p><?php echo $telefoneCelular?>/p>
+  	  <p><?php echo $telefoneCelular ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>WhatsApp</strong></p>
-  	  <p><?php echo $wpp?>/p>
+  	  <p><?php echo $wpp ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>CEP</strong></p>
-  	  <p><?php echo $cep?>/p>
+  	  <p><?php echo $cep ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Estado</strong></p>
-  	  <p><?php echo $estado?>/p>
+  	  <p><?php echo $estado ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Cidade</strong></p>
-  	  <p><?php echo $cidade?>/p>
+  	  <p><?php echo $cidade ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Bairo</strong></p>
-  	  <p><?php echo $bairro?>/p>
+  	  <p><?php echo $bairro ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Rua / Avenida</strong></p>
-  	  <p><?php echo $rua_avenida?>/p>
+  	  <p><?php echo $rua_avenida ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Número</strong></p>
-  	  <p><?php echo $numero?>/p>
+  	  <p><?php echo $numero ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Motivo da Internação</strong></p>
-  	  <p><?php echo $motivoInternacao?>/p>
+  	  <p><?php echo $motivoInternacao ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Motivo Adicional</strong></p>
-  	  <p><?php echo $motiv_Adicional?>/p>
+  	  <p><?php echo $motiv_Adicional ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Remédios</strong></p>
-  	  <p><?php echo $remed?>/p>
+  	  <p><?php echo $remed ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Medicamentos Alérgicos</strong></p>
-  	  <p><?php echo $alergRemedio?>/p>
+  	  <p><?php echo $alergRemedio ?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Sintomas</strong></p>
-  	  <p><?php echo $sintom?>/p>
+  	  <p><?php echo $sintom?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Vai levar alguma coisa para a instituição?</strong></p>
-  	  <p><?php echo $levar_Inst?>/p>
+  	  <p><?php echo $levar_Inst?></p>
     </div>
 
     <div class="col-md-4">
       <p><strong>Instituição de Preferência</strong></p>
-  	  <p><?php echo $obs_Inst?>/p>
+  	  <p><?php echo $obs_Inst?></p>
     </div>
 
     <div class="col-md-4">
-      <p><strong>Itolerância a alimentos</strong></p>
-  	  <p><?php echo $obs_Intolerancia?>/p>
+      <p><strong>Intolerância a alimentos</strong></p>
+  	  <p><?php echo $obs_Intolerancia?></p>
     </div>
 
     
