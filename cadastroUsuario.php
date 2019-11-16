@@ -45,6 +45,9 @@
         $operacao_inserir = mysqli_query($conecta,$inserir);
         if(!$operacao_inserir) {
             die("ERRO NO BANCO");
+        } else {
+           
+                header("Location:afterLogin/instituicao.php"); exit;
         }
     }
 

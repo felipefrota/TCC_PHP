@@ -1,22 +1,22 @@
-<?php require_once("../conexao/conexao.php")?>
+<?php require_once("../conexao/conexao.php") ?>
 
 
-<?php 
- $select = "SELECT usuario_instituicaoID, nomeUsuario_nomeFantasia, tipo ";
- $select .= "FROM TB_USUARIO ";
- $lista_TB_USUARIO = mysqli_query($conecta, $select);
+<?php
+$select = "SELECT usuario_instituicaoID, nomeUsuario_nomeFantasia, tipo ";
+$select .= "FROM TB_USUARIO ";
+$lista_TB_USUARIO = mysqli_query($conecta, $select);
 
- if(!$lista_TB_USUARIO){
-     die("Erro no banco");
- }
+if (!$lista_TB_USUARIO) {
+    die("Erro no banco");
+}
 
 
 
- $instituicoes = "SELECT nomeUsuario_nomeFantasia ";
+$instituicoes = "SELECT nomeUsuario_nomeFantasia ";
 $instituicoes .= "FROM tb_usuario ";
 $instituicoes .= "WHERE tipo = 2 ";
 $lista_instituicoes = mysqli_query($conecta, $instituicoes);
-if(!$lista_instituicoes) {
+if (!$lista_instituicoes) {
     die("erro no banco ao procurar instituções");
 }
 
@@ -36,7 +36,7 @@ if(!$lista_instituicoes) {
 
 <body>
 
-<header>
+    <header>
         <div id="Principal">
 
             <div class="">
@@ -47,14 +47,12 @@ if(!$lista_instituicoes) {
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">      
-        <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                  <!--  <img src="../Images/logo.png"> --> 
+                                <a href="../IndexProject/Index.html" class="navbar-brand">
+                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                    <!--  <img src="../Images/logo.png"> -->
                                 </a>
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
-                                    aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
                                 </button>
                             </div>
@@ -62,18 +60,12 @@ if(!$lista_instituicoes) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
-                                            href="../Index/Index.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a
-                                            class="nav-link text-dark font-weight-bold"
-                                            href="../Index/Index.php">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a
-                                            class="nav-link text-dark font-weight-bold"
-                                            href="../Institutions/Institutions.php">Instituições</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../Index/Index.php">Home</a></li>
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="../Index/Index.php">Historia</a></li>
+                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../Institutions/Institutions.php">Instituições</a></li>
                                     <li>
                                         <a class="nav-link">
-                                            <button type="button" class="btn btn-outline-success janelaLogin"
-                                                data-toggle="modal" data-target="#telaLogin">Login</button>
+                                            <button type="button" class="btn btn-outline-success janelaLogin" data-toggle="modal" data-target="#telaLogin">Login</button>
                                         </a>
 
 
@@ -81,15 +73,13 @@ if(!$lista_instituicoes) {
                                         <form action="../login.php" method="post">
 
                                             <div class="container-fluid">
-                                                <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog"
-                                                    aria-labelledby="" aria-hidden="true">
+                                                <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="login">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title text-black-50" id="tituloTela">
                                                                     Faca seu Login</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Fechar">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
@@ -97,23 +87,21 @@ if(!$lista_instituicoes) {
                                                                 <form class="form-horizontal">
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                            <input class="form-control" type="email"
-                                                                                name="usuario" placeholder="Email">
+                                                                            <input class="form-control" type="email" name="usuario" placeholder="Email">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                            <input class="form-control" type="password"
-                                                                                name="senha" placeholder="Senha">
+                                                                            <input class="form-control" type="password" name="senha" placeholder="Senha">
                                                                         </div>
                                                                     </div>
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                         
+
                                                                 <button type="submit" id="submit" value="login" class="btn btn-info">Login</button>
-                                                                
-                   
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -133,22 +121,21 @@ if(!$lista_instituicoes) {
                                     </button> -->
 
                                     <!-- Modal -->
-    
+
 
                                     <!---------------------------------------------------------------------------->
                                     <!--Botao Cadastro-->
                                     <li>
                                         <div class="nav-link">
-                                            <button type="button" class="btn btn-outline-info" data-toggle="dropdown"
-                                                data-target="">Cadastro</button>
+                                            <button type="button" class="btn btn-outline-info" data-toggle="dropdown" data-target="">Cadastro</button>
 
 
                                             <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
                                                 <div class="form-group">
-                                                <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
+                                                    <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
                                                 </div>
                                                 <div class="form-group">
-                                                        <a href="../DataRegister/registerInstitution.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
+                                                    <a href="../DataRegister/registerInstitution.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
 
 
                                                 </div>
@@ -169,7 +156,7 @@ if(!$lista_instituicoes) {
                 </div>
             </div>
 
-           
+
     </header>
     <!--Fechando o Div:Nav-Bar-->
 
@@ -184,22 +171,31 @@ if(!$lista_instituicoes) {
 
     <div class="container-fluid">
 
-        <form class="was-validated" action="../cadastroUsuario.php" method="post">
+        <form class="was-validated" id="register" action="../cadastroUsuario.php" method="post">
 
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="usuario">Seu Nome</label>
-                    <input class="form-control" type="text" name="usuario" id="usuario"  placeholder="Usuario">
+                    <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario" required minlength="2">
+                    <div class="invalid-feedback">
+                        Nome Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="senha">Sobrenome:</label>
-                    <input class="form-control" type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome">
+                    <input class="form-control" type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required minlength="4">
+                    <div class="invalid-feedback">
+                        Sobrenome Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="senha">Senha</label>
-                    <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha">
+                    <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha" required minlength="4">
+                    <div class="invalid-feedback">
+                        Senha Obrigatoria!
+                    </div>
                 </div>
 
             </div>
@@ -207,40 +203,55 @@ if(!$lista_instituicoes) {
 
             <div class="form-group">
                 <label for="email">Seu Email</label>
-                <input class="form-control" type="email" name="email" id="email" placeholder="seuemail@email.com">
+                <input class="form-control" type="email" name="email" id="email" placeholder="seuemail@email.com" required>
+                <div class="invalid-feedback">
+                        Email Obrigatorio!
+                    </div>
             </div>
 
 
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="cpf">CPF</label>
-                    <input class="form-control" type="text" name="cpf" id="cpf" placeholder="000.000.000.00">
+                    <input class="form-control" type="text" name="cpf" id="cpf" placeholder="000.000.000.00" required minlength="14">
+                    <div class="invalid-feedback">
+                        CPF Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input class="form-control" name="dataNascimento" id="dataNascimento"  type="date">
+                    <input class="form-control" name="dataNascimento" id="dataNascimento" type="date" required>
+                    <div class="invalid-feedback">
+                        Data de Nascimento Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="sexo">Sexo</label>
-                    <select name="sexo" id="sexo" class="form-control">
-                        <option selected>Escolher...</option>
-                        <option value="masc">Masculino</option>
-                        <option value="fem">Feminino</option>
-                        <option value="other">Outro...</option>
+                    <select name="sexo" id="sexo" class="form-control" required>
+                        <option value="" selected>Escolher...</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outro">Outro...</option>
                     </select>
+                    <div class="invalid-feedback">
+                        Sexo Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="estadoCivil">Estado Civil</label>
-                    <select class="form-control" name="estadoCivil" id="estadoCivil">
-                        <option selected>Escolher...</option>
-                        <option value="solt">Solteiro(a)</option>
-                        <option value="casad">Casado(a)</option>
-                        <option value="divor">Divorciado(a)</option>
-                        <option value="viu">Viuvo(a)</option>
+                    <select class="form-control" name="estadoCivil" id="estadoCivil" required>
+                        <option value="" selected>Escolher...</option>
+                        <option value="Solteiro(a)">Solteiro(a)</option>
+                        <option value="Casado(a)">Casado(a)</option>
+                        <option value="Divorciado(a)">Divorciado(a)</option>
+                        <option value="Viuvo(a)">Viuvo(a)</option>
                     </select>
+                    <div class="invalid-feedback">
+                        Estado Civil Obrigatorio!
+                    </div>
                 </div>
             </div>
 
@@ -268,46 +279,55 @@ if(!$lista_instituicoes) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="cep">CEP</label>
-                    <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000">
+                    <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000" required minlength="9">
+                    <div class="invalid-feedback">
+                        CEP Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="estado">Estado</label>
-                    <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal">
+                    <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal" required minlength="4">
+                    <div class="invalid-feedback">
+                        Estado Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="cidade">Cidade</label>
-                    <select class="form-control" name="cidade" id="cidade">
-                        <option selected value="estado">Selecione o Estado...</option>
-                        <option value="ac">Acre</option>
-                        <option value="al">Alagoas</option>
-                        <option value="am">Amazonas</option>
-                        <option value="ap">Amapá</option>
-                        <option value="ba">Bahia</option>
-                        <option value="ce">Ceará</option>
-                        <option value="df">Distrito Federal</option>
-                        <option value="es">Espírito Santo</option>
-                        <option value="go">Goiás</option>
-                        <option value="ma">Maranhão</option>
-                        <option value="mt">Mato Grosso</option>
-                        <option value="ms">Mato Grosso do Sul</option>
-                        <option value="mg">Minas Gerais</option>
-                        <option value="pa">Pará</option>
-                        <option value="pb">Paraíba</option>
-                        <option value="pr">Paraná</option>
-                        <option value="pe">Pernambuco</option>
-                        <option value="pi">Piauí</option>
-                        <option value="rj">Rio de Janeiro</option>
-                        <option value="rn">Rio Grande do Norte</option>
-                        <option value="ro">Rondônia</option>
-                        <option value="rs">Rio Grande do Sul</option>
-                        <option value="rr">Roraima</option>
-                        <option value="sc">Santa Catarina</option>
-                        <option value="se">Sergipe</option>
-                        <option value="sp">São Paulo</option>
-                        <option value="to">Tocantins</option>
+                    <select class="form-control" name="cidade" id="cidade" required>
+                        <option selected value="">Selecione o Estado...</option>
+                        <option value="AC">AC</option>
+                        <option value="AC">AC</option>
+                        <option value="AM">AM</option>
+                        <option value="AP">AP</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RO">RO</option>
+                        <option value="RS">RS</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="TO">TO</option>
                     </select>
+                    <div class="invalid-feedback">
+                        Cidade Obrigatoria!
+                    </div>
                 </div>
             </div>
 
@@ -315,17 +335,26 @@ if(!$lista_instituicoes) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="bairro">Bairro</label>
-                    <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte">
+                    <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte" required minlength="3">
+                    <div class="invalid-feedback">
+                        Bairro Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
                     <label for="rua_avenida">Rua/Avenida</label>
-                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida">
+                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" required minlength="2">
+                    <div class="invalid-feedback">
+                        Rua ou Avenida Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="numero">Numero</label>
-                    <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt">
+                    <label for="numero">Número</label>
+                    <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt" required minlength="1">
+                    <div class="invalid-feedback">
+                        Número Obrigatorio!
+                    </div>
                 </div>
             </div>
 
@@ -348,13 +377,16 @@ if(!$lista_instituicoes) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="motivoInternacao">Qual o motivo da internação?</label>
-                    <select name="motivoInternacao" id="motivoInternacao" class="form-control">
-                        <option selected>Escolher...</option>
-                        <option value="drog">Drogas</option>
-                        <option value="depre">Depressão</option>
-                        <option value="reabili">Reabilitação Social</option>
-                        <option value="other">Outros</option>
+                    <select name="motivoInternacao" id="motivoInternacao" class="form-control" required>
+                        <option value="" selected>Escolher...</option>
+                        <option value="Drogas">Drogas</option>
+                        <option value="Depressao">Depressão</option>
+                        <option value="Reabilitacao Social">Reabilitação Social</option>
+                        <option value="Outros">Outros</option>
                     </select>
+                    <div class="invalid-feedback">
+                        Motivo Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6">
@@ -402,21 +434,21 @@ if(!$lista_instituicoes) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="instit">Qual instituição de preferencia?</label>
-                    <select  name="instit" id="instit" class="form-control">
-                    <?php 
+                    <select name="instit" id="instit" class="form-control" required>
+                        <?php
                         // $minhaInst = $dataUser_login["instit"];
                         // while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
-                          while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
-                        ?>
+                        while ($linha = mysqli_fetch_assoc($lista_instituicoes)) {
+                            ?>
                             <option value="<?php echo $linha["nomeUsuario_nomeFantasia"];  ?>">
                                 <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]);  ?>
                             </option>
                         <?php
-                            }
-                        
-                        ?>  
+                        }
 
-<!------->
+                        ?>
+
+                        <!------->
 
 
                     </select>
@@ -515,6 +547,7 @@ if(!$lista_instituicoes) {
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
     <script src="fields.js" type="text/javascript"></script>
 
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 </body>

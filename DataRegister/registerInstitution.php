@@ -162,14 +162,20 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="razao_Social">Razão Social:</label>
-                    <input class="form-control" type="text" name="razao_Social" id="razao_Social" placeholder="">
+                    <input class="form-control" type="text" name="razao_Social" id="razao_Social" placeholder="" required minlength="2">
+                    <div class="invalid-feedback">
+                        Razão Social Obrigatoria!
+                    </div>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="nome_Fantasia">Nome Fantasia:</label>
-                    <input class="form-control" type="text" name="nome_Fantasia" id="nome_Fantasia" placeholder="">
+                    <input class="form-control" type="text" name="nome_Fantasia" id="nome_Fantasia" placeholder="" required minlength="2">
+                    <div class="invalid-feedback">
+                        Nome Fantasia Obrigatorio!
+                    </div>
                 </div>
             </div>
 
@@ -177,7 +183,10 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="cnpj">CNPJ:</label>
-                    <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="">
+                    <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="" required minlength="18">
+                    <div class="invalid-feedback">
+                        CNPJ Obrigatorio!
+                    </div>
                 </div>
             </div>
 
@@ -185,12 +194,18 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="email">Email:</label>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="">
+                    <input class="form-control" type="email" name="email" id="email" placeholder="" required minlength="2">
+                    <div class="invalid-feedback">
+                        Email Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="senha">Senha:</label>
-                    <input class="form-control" type="password" name="senha" id="senha" placeholder="">
+                    <input class="form-control" type="password" name="senha" id="senha" placeholder="" required minlength="4">
+                    <div class="invalid-feedback">
+                        Senha Obrigatorio!
+                    </div>
                 </div>
             </div>
 
@@ -203,7 +218,10 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="tel1">Telefone 1:</label>
-                    <input class="form-control" type="tel" name="telefoneFixo1" id="telefoneFixo1" placeholder="">
+                    <input class="form-control" type="tel" name="telefoneFixo1" id="telefoneFixo1" placeholder="" required minlength="14">
+                    <div class="invalid-feedback">
+                        Telefone Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6">
@@ -216,7 +234,10 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="cel1">Telefone Celular:</label>
-                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="">
+                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="" required minlength="15">
+                    <div class="invalid-feedback">
+                        Telefone Celular Obrigatorio!
+                    </div>
                 </div>
 
                 <div class="form-group col-md-6">
@@ -224,6 +245,101 @@
                     <input class="form-control" type="tel" name="wpp" id="wpp" placeholder="">
                 </div>
             </div>
+
+
+            <!---------------------------------------------------------------------------------------------------------->
+            <hr>
+            <span class="d-block p-2 bg-dark text-white">Endereço</span>
+            <br />
+            <!---------------------------------------------------------------------------------------------------------->
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="cep">CEP</label>
+                    <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000" required minlength="9">
+                    <div class="invalid-feedback">
+                        CEP Obrigatorio!
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="estado">Estado</label>
+                    <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal" required minlength="4">
+                    <div class="invalid-feedback">
+                        Estado Obrigatorio!
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="cidade">Cidade</label>
+                    <select class="form-control" name="cidade" id="cidade" required>
+                        <option selected value="">Selecione o Estado...</option>
+                        <option value="AC">AC</option>
+                        <option value="AC">AC</option>
+                        <option value="AM">AM</option>
+                        <option value="AP">AP</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RO">RO</option>
+                        <option value="RS">RS</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SE">SE</option>
+                        <option value="SP">SP</option>
+                        <option value="TO">TO</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Cidade Obrigatoria!
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="bairro">Bairro</label>
+                    <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte" required minlength="3">
+                    <div class="invalid-feedback">
+                        Bairro Obrigatorio!
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="rua_avenida">Rua/Avenida</label>
+                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" required minlength="2">
+                    <div class="invalid-feedback">
+                        Rua ou Avenida Obrigatorio!
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="numero">Número</label>
+                    <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt" required minlength="1">
+                    <div class="invalid-feedback">
+                        Número Obrigatorio!
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="adicional">Adicional</label>
+                <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
+            </div>
+
 
 
 
