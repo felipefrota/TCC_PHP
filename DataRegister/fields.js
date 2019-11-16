@@ -45,3 +45,10 @@ $(document).ready(function() {
     var $campo = $("#cnpj");
     $campo.mask('00.000.000/0000-00');
 });
+
+//-----------------------------------------------------------------------------------------------------//
+//MASK RENDA
+$(document).ready(function() {
+    var $campo = $("#Renda");
+    $campo.mask('0000.00');
+});

@@ -5,7 +5,7 @@ session_start();
 $teste = $_SESSION['nome'];
 // echo $teste;
 
-$teste = $_SESSION['nome'];
+// $teste = $_SESSION['nome'];
 //--------------------------------------------------------------------------//
 //TESTE DE SEGURANÇA
 
@@ -35,6 +35,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_nec
 //consultar no banco de dados
 $result_usuario = "SELECT * FROM tb_usuario where instit= '$teste' ";
 $resultado_usuario = mysqli_query($conecta, $result_usuario);
+
 
 
 //Verificar se encontrou resultado na tabela "usuarios"
@@ -67,7 +68,7 @@ if(($resultado_usuario) AND ($resultado_usuario->num_rows != 0)){
 					<td><?php echo $row_usuario['telefoneFixo']; ?></td>
 					<td class="actions">
 						<a class="btn btn-success btn-xs" cellspacing="0" cellpadding="0" href="viewuser.php?codigo=<?php echo $row_usuario['usuario_instituicaoID'] ?> ">Visualizar</a>
-						<a class="btn btn-warning btn-xs" cellspacing="0" cellpadding="0" href="edit.html">Editar</a>
+						<a class="btn btn-warning btn-xs" cellspacing="0" cellpadding="0" href="verificaprontuario.php?codigo=<?php echo $row_usuario['usuario_instituicaoID'] ?>">Prontuário</a>
 					</td>
 					</tr>
 				<?php
