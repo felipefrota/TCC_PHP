@@ -52,9 +52,11 @@ session_start();
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">
-                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <img src="../Images/logo.png">
+                             <a href="../IndexProject/Index.html" class="navbar-brand">
+                             </a>
+                             <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                 <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px >
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
