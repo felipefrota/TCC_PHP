@@ -1,61 +1,3 @@
-#drop database tcc;
-
-
-#create database tcc;
-#
-use tcc;
-
-#DROP TABLE IF EXISTS `cadastro_usuario`;
-#CREATE TABLE cadastro_usuario(
-#  `usuarioID` int(8) NOT NULL AUTO_INCREMENT,
-#`usuario` varchar(200) DEFAULT NULL,
-#`senha` varchar(32) DEFAULT NULL,
-#`email` varchar(50) DEFAULT NULL,
-#`cpf` varchar(11) DEFAULT NULL,
-#`dataNascimento` varchar(12) DEFAULT NULL,
-#`sexo` varchar(5) DEFAULT NULL,
-#`estadoCivil` varchar(5) DEFAULT NULL,
-#`telefoneCelular` varchar(11) DEFAULT NULL,
-#`telefoneFixo` varchar(11) DEFAULT NULL,
-
-#`cep` varchar(10) DEFAULT NULL,
-#`estado` varchar(20) DEFAULT NULL,
-#`cidade` varchar(3) DEFAULT NULL,
-#`bairro` varchar(30) DEFAULT NULL,
-#`rua_avenida` varchar(20) DEFAULT NULL,
-#`numero` varchar(5) DEFAULT NULL,
-#`adicional` varchar(60) DEFAULT NULL,
-
-#`motivoInternacao` varchar(10) DEFAULT NULL,
-#`motiv_Adicional` varchar(50) DEFAULT NULL,
-#`remed` varchar(300) DEFAULT NULL,
-#`alergRemedio` varchar(500) DEFAULT NULL,
-#`sintom` varchar(1000) DEFAULT NULL,
-#`doenc_Cronic` varchar(1000) DEFAULT NULL,
-
-#`instit` varchar(50) DEFAULT NULL,
-#`levar_Inst` varchar(1000) DEFAULT NULL,
-#`obs_Inst` varchar(1000) DEFAULT NULL,
-#`obs_Intolerancia` varchar(1000) DEFAULT NULL,
-#  PRIMARY KEY (`usuarioID`)
-#) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
-
-
-#DROP TABLE IF EXISTS `cadastro_instituicao`;
-#create table cadastro_instituicao(
-#`instituicaoID` int(8) NOT NULL AUTO_INCREMENT,
-#`razao_Social` varchar(30) DEFAULT NULL,
-#`nome_Fantasia` varchar(100) DEFAULT NULL,
-#`cnpj` varchar(30) DEFAULT NULL,
-#`email` varchar(50) DEFAULT NULL,
-#`senha` varchar(20) DEFAULT NULL,
-#`telefoneFixo1` varchar(11) DEFAULT NULL,
-#`telefoneFixo2` varchar(11) DEFAULT NULL,
-#`telefoneCelular` varchar(11) DEFAULT NULL,
-#`wpp` varchar(11) DEFAULT NULL,
-#  PRIMARY KEY (`instituicaoID`)
-#) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
-
 
 
 drop database tcc;
@@ -110,24 +52,26 @@ CREATE TABLE tb_usuario(
   PRIMARY KEY (`usuario_instituicaoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
+
+
+
+
 DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;
 CREATE TABLE tb_prontuario_sociodemograficos(
 `id_prontuario_sociodemograficos` int(8) PRIMARY KEY AUTO_INCREMENT,
-`idade` varchar(3) DEFAULT NULL,
-`estado_civil` varchar(555) DEFAULT NULL,
-`prole` varchar(3) DEFAULT NULL,
-`escolaridade` varchar (999) DEFAULT NULL,
-`profissao` varchar (999) DEFAULT NULL,
-`renda` varchar (999) DEFAULT NULL,
-`responsavel_sustento_familia` varchar (999) DEFAULT NULL,
-`religiao` varchar (999) DEFAULT NULL,
-`qnt_internacoes` varchar (2) DEFAULT NULL,
+`idade` varchar(10) DEFAULT NULL,
+`estado_civil` varchar(5) DEFAULT NULL,
+`prole` varchar(5) DEFAULT NULL,
+`escolaridade` varchar (5) DEFAULT NULL,
+`profissao` varchar (5) DEFAULT NULL,
+`renda` varchar (5) DEFAULT NULL,
+`responsavel_sustento_familia` varchar (5) DEFAULT NULL,
+`religiao` varchar (5) DEFAULT NULL,
+`qnt_internacoes` varchar (5) DEFAULT NULL,
 `id_usuario` integer,
  CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
 );
 
-
-use tcc
 
 DROP TABLE IF EXISTS `tb_prontuario_historico_familiar`;
 CREATE TABLE tb_prontuario_historico_familiar(
@@ -135,47 +79,60 @@ CREATE TABLE tb_prontuario_historico_familiar(
 `pai` varchar(3) DEFAULT NULL,
 `mae` varchar(3) DEFAULT NULL,
 `irmao` varchar(3) DEFAULT NULL,
-`avo` varchar (999) DEFAULT NULL,
-`filho` varchar (999) DEFAULT NULL,
-`tio` varchar (999) DEFAULT NULL,
-`outros` varchar (999) DEFAULT NULL,
+`avo` varchar (5) DEFAULT NULL,
+`filho` varchar (5) DEFAULT NULL,
+`outros` varchar (5) DEFAULT NULL,
 `id_usuario` integer,
  CONSTRAINT fk_histPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
  );
  
+ DROP TABLE IF EXISTS `tb_prontuario_comorbidades_principais`;
+CREATE TABLE tb_prontuario_comorbidades_principais(
+`id_prontuario_comorbidades_principais` int(8) PRIMARY KEY AUTO_INCREMENT,
+`hipertensao_arterial_sistemica` varchar(3) DEFAULT NULL,
+`diabetes_mellitus` varchar(3) DEFAULT NULL,
+`dislipidemia` varchar(3) DEFAULT NULL,
+`cirrose_hepatica` varchar (5) DEFAULT NULL,
+`doenca_pulmonar` varchar (5) DEFAULT NULL,
+`asma` varchar (5) DEFAULT NULL,
+`anemia` varchar (5) DEFAULT NULL,
+`hiv` varchar(3) DEFAULT NULL,
+`hepatite_bc` varchar(3) DEFAULT NULL,
+`outras_sexualmente` varchar(3) DEFAULT NULL,
+`outras` varchar(3) DEFAULT NULL,
+`id_usuario` integer,
+ CONSTRAINT fk_comorPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
+ );
+ 
+ 
+ DROP TABLE IF EXISTS `tb_prontuario_substancias_psicoativas`;
+CREATE TABLE tb_prontuario_substancias_psicoativas(
+`id_prontuario_substancias_psicoativas` int(8) PRIMARY KEY AUTO_INCREMENT,
+`tabaco` varchar(3) DEFAULT NULL,
+`alcool` varchar(3) DEFAULT NULL,
+`cocaina` varchar(3) DEFAULT NULL,
+`crack` varchar (5) DEFAULT NULL,
+`maconha` varchar (5) DEFAULT NULL,
+`inalantes` varchar (5) DEFAULT NULL,
+`alucinogenos` varchar (5) DEFAULT NULL,
+`anfetaminas` varchar(3) DEFAULT NULL,
+`benzodiazepinicos` varchar(3) DEFAULT NULL,
+`opioides` varchar(3) DEFAULT NULL,
+`id_usuario` integer,
+ CONSTRAINT fk_subsPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
+ );
+ 
+   DROP TABLE IF EXISTS `tb_prontuario_diagnostico_receituario`;
+CREATE TABLE tb_prontuario_diagnostico_receituario(
+`id_prontuario_diagnostico_receituario` int(8) PRIMARY KEY AUTO_INCREMENT,
+`diagnostico` longtext DEFAULT NULL,
+`receituario` longtext DEFAULT NULL,
+`id_usuario` integer,
+ CONSTRAINT fk_diagPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
+ );
+ 
+ 
+ 
+ 
 
-
-
-
-#DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;
-#CREATE TABLE tb_prontuario_sociodemograficos(
-#`id_prontuario_sociodemograficos` int(8) PRIMARY KEY AUTO_INCREMENT,
-#`idade` varchar(3) DEFAULT NULL,
-#`estado_civil` varchar(555) DEFAULT NULL,
-#`prole` varchar(3) DEFAULT NULL,
-#`escolaridade` varchar (999) DEFAULT NULL,
-#`profissao` varchar (999) DEFAULT NULL,
-#`renda` varchar (999) DEFAULT NULL,
-#`responsavel_sustento_familia` varchar (999) DEFAULT NULL,
-#`religiao` varchar (999) DEFAULT NULL,
-#`id_usuario` integer,
-# CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
-);
-
-
-
-
-
-  
-
-
-
-
-
-
-ALTER TABLE TB_HISTORICO ADD FOREIGN KEY(fk_usuarioID) REFERENCES TB_USUARIO (usuarioID);
-
-
-select*from cadastro_usuario; 
-insert into cadastro_usuario (usuario, senha) values ('teste', 'teste'); 
-/*insert into cadastro_usuario (usuario, senha) values ('teste', md5('teste')); */
+ 

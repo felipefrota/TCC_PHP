@@ -451,7 +451,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 <hr />
                 <div id="actions" class="row">
                     <div class="col-md-12">
-                        <a href=".php" class="btn btn-primary">Editar</a>
+                        <a href="..\EditData\edit.promptuary.php" class="btn btn-primary">Editar</a>
                         <a href="instituicao.php" class="btn btn-default">Fechar</a>
                     </div>
                     

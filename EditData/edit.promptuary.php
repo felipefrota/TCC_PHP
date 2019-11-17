@@ -3,6 +3,8 @@
 //--------------------------------------------------------------------------//
 //TESTE DE SEGURANÇA
 session_start();
+$id_usuario_prontuario = $_SESSION['registrado'];
+echo $id_usuario_prontuario;
 // if (!isset($_SESSION["user_portal"])) {
 //     header("location:../Index/index.php");
 // }
@@ -21,7 +23,253 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 }
 ?>
 
+<?php
+//--------------------------------------------------------------------------//
+// if ( isset($_GET["codigo"]) ) {
+//     $id_usuario = $_GET["codigo"];
+//  } else { 
+//      header ("location: instituicao.php");
+//  }
 
+
+
+
+//consultar no banco de dados tabela socio
+$result_usuario = "SELECT * ";
+$result_usuario .= "FROM tb_prontuario_sociodemograficos ";
+$result_usuario .= "where id_usuario= '$id_usuario_prontuario ' ";
+$resultado_usuario  = mysqli_query($conecta, $result_usuario);
+$dados_detalhes = mysqli_fetch_assoc($resultado_usuario);
+
+
+// testar erro
+if (isset($_POST["estado_civil"])) { 
+    
+    // $id_prontuario_sociodemograficos  = $dados_detalhes["id_prontuario_sociodemograficos"];
+    // $idade                            = $dados_detalhes["idade"];
+    $estado_civil                         = $_POST["estado_civil"];
+    $prole                                = $_POST["prole"];
+    $escolaridade                         = $_POST["escolaridade"];
+    $profissao                            = $_POST["profissao"];
+    $renda                                = $_POST["renda"];
+    $responsavel_sustento_familia         = $_POST["responsavel_sustento_familia"];
+    $religiao                             = $_POST["religiao"];
+    $id_prontuario_sociodemograficos      = $_POST["id_prontuario_sociodemograficos"];
+
+print_r($id_prontuario_sociodemograficos);
+print_r($estado_civil );
+
+//Alterarandoos dados tabela tb_prontuario_sociodemograficos
+$alterar = "UPDATE tb_prontuario_sociodemograficos ";
+$alterar .= "SET ";
+$alterar .= "estado_civil = '{$estado_civil}', ";
+$alterar .= "prole = '{$prole}', ";
+$alterar .= "escolaridade = '{$escolaridade}', ";
+$alterar .= "profissao = '{$profissao}', ";
+$alterar .= "renda = '{$renda}', ";
+$alterar .= "responsavel_sustento_familia = '{$responsavel_sustento_familia}', ";
+$alterar .= "religiao = '{$religiao}' ";
+
+$alterar .= "WHERE id_prontuario_sociodemograficos = {$id_prontuario_sociodemograficos} ";
+
+
+$operacao_alterar = mysqli_query($conecta, $alterar);
+if (!$operacao_alterar) {
+    die("Erro na alteracao");
+} else {
+    header("location:edit.promptuary.php");
+}
+}
+
+
+//--------------------------------------------------------------------------//
+
+// //consultar no banco de dados tabela dependencia
+$result_dependencia = "SELECT * ";
+$result_dependencia .= "FROM tb_prontuario_historico_familiar ";
+$result_dependencia .= "where id_usuario= '$id_usuario_prontuario ' ";
+$resultado_dependencia  = mysqli_query($conecta, $result_dependencia);
+$dados_dependencia = mysqli_fetch_assoc($resultado_dependencia);
+
+if (isset($_POST["pai"])) { 
+    
+    // $id_prontuario_historico_familiar  = $dados_dependencia["id_prontuario_historico_familiar"];
+    $pai                               = $_POST["pai"];
+    $mae                               = $_POST["mae"];
+    $irmao                             = $_POST["irmao"];
+    $avo                               = $_POST["avo"];
+    $filho                             = $_POST["filho"];
+    $outros                            = $_POST["outros"];
+    $id_prontuario_historico_familiar  = $_POST["id_prontuario_historico_familiar"];
+
+
+//Alterarandoos dados tabela tb_prontuario_historico_familiar
+$alterar = "UPDATE tb_prontuario_historico_familiar ";
+$alterar .= "SET ";
+$alterar .= "pai = '{$pai}', ";
+$alterar .= "mae = '{$mae}', ";
+$alterar .= "irmao = '{$irmao}', ";
+$alterar .= "avo = '{$avo}', ";
+$alterar .= "filho = '{$filho}', ";
+$alterar .= "outros = '{$outros}' ";
+
+$alterar .= "WHERE id_prontuario_historico_familiar = {$id_prontuario_historico_familiar} ";
+
+
+$operacao_alterar = mysqli_query($conecta, $alterar);
+if (!$operacao_alterar) {
+    die("Erro na alteracao");
+} else {
+    header("location:edit.promptuary.php");
+}
+}
+
+
+//--------------------------------------------------------------------------//
+
+// //consultar no banco de dados tabela comorbidades
+$result_comorbidades = "SELECT * ";
+$result_comorbidades .= "FROM tb_prontuario_comorbidades_principais ";
+$result_comorbidades .= "where id_usuario= '$id_usuario_prontuario ' ";
+$resultado_comorbidades  = mysqli_query($conecta, $result_comorbidades);
+$dados_comorbidades = mysqli_fetch_assoc($resultado_comorbidades);
+
+
+if (isset($_POST["hipertensao_arterial_sistemica"])) { 
+    
+    // $id_prontuario_comorbidades_principais  = $dados_comorbidades["id_prontuario_comorbidades_principais"];
+    $hipertensao_arterial_sistemica         = $_POST["hipertensao_arterial_sistemica"];
+    $diabetes_mellitus                      = $_POST["diabetes_mellitus"];
+    $dislipidemia                           = $_POST["dislipidemia"];
+    $cirrose_hepatica                       = $_POST["cirrose_hepatica"];
+    $doenca_pulmonar                        = $_POST["doenca_pulmonar"];
+    $asma                                   = $_POST["asma"];
+    $anemia                                 = $_POST["anemia"];
+    $hiv                                    = $_POST["hiv"];
+    $hepatite_bc                            = $_POST["hepatite_bc"];
+    $id_prontuario_comorbidades_principais  = $_POST["id_prontuario_comorbidades_principais"];
+
+//Alterarandoos dados tabela tb_prontuario_historico_familiar
+$alterar = "UPDATE tb_prontuario_comorbidades_principais ";
+$alterar .= "SET ";
+$alterar .= "hipertensao_arterial_sistemica = '{$hipertensao_arterial_sistemica}', ";
+$alterar .= "diabetes_mellitus = '{$diabetes_mellitus}', ";
+$alterar .= "dislipidemia = '{$dislipidemia}', ";
+$alterar .= "cirrose_hepatica = '{$cirrose_hepatica}', ";
+$alterar .= "doenca_pulmonar = '{$doenca_pulmonar}', ";
+$alterar .= "asma = '{$asma}', ";
+$alterar .= "anemia = '{$anemia}', ";
+$alterar .= "hiv = '{$hiv}', ";
+$alterar .= "hepatite_bc = '{$hepatite_bc}' ";
+
+$alterar .= "WHERE id_prontuario_comorbidades_principais = {$id_prontuario_comorbidades_principais} ";
+
+
+$operacao_alterar = mysqli_query($conecta, $alterar);
+if (!$operacao_alterar) {
+    die("Erro na alteracao");
+} else {
+    header("location:edit.promptuary.php");
+}
+}
+
+
+//--------------------------------------------------------------------------//
+
+// //consultar no banco de dados tabela substancias
+$result_substancias = "SELECT * ";
+$result_substancias .= "FROM tb_prontuario_substancias_psicoativas ";
+$result_substancias .= "where id_usuario= '$id_usuario_prontuario ' ";
+$resultado_substancias  = mysqli_query($conecta, $result_substancias);
+$dados_substancias = mysqli_fetch_assoc($resultado_substancias);
+
+
+if (isset($_POST["tabaco"])) { 
+    
+    $tabaco                                 = $_POST["tabaco"];
+    $alcool                                 = $_POST["alcool"];
+    $cocaina                                = $_POST["cocaina"];
+    $crack                                  = $_POST["crack"];
+    $maconha                                = $_POST["maconha"];
+    $inalantes                              = $_POST["inalantes"];
+    $alucinogenos                           = $_POST["alucinogenos"];
+    $anfetaminas                            = $_POST["anfetaminas"];
+    $benzodiazepinicos                      = $_POST["benzodiazepinicos"];
+    $opioides                               = $_POST["opioides"];
+    $id_prontuario_substancias_psicoativas  = $_POST["id_prontuario_substancias_psicoativas"];
+
+//Alterarandoos dados tabela tb_prontuario_historico_familiar
+$alterar = "UPDATE tb_prontuario_substancias_psicoativas ";
+$alterar .= "SET ";
+$alterar .= "tabaco = '{$tabaco}', ";
+$alterar .= "alcool = '{$alcool}', ";
+$alterar .= "cocaina = '{$cocaina}', ";
+$alterar .= "crack = '{$crack}', ";
+$alterar .= "maconha = '{$maconha}', ";
+$alterar .= "inalantes = '{$inalantes}', ";
+$alterar .= "alucinogenos = '{$alucinogenos}', ";
+$alterar .= "anfetaminas = '{$anfetaminas}', ";
+$alterar .= "benzodiazepinicos = '{$benzodiazepinicos}', ";
+$alterar .= "opioides = '{$opioides}' ";
+
+$alterar .= "WHERE id_prontuario_substancias_psicoativas = {$id_prontuario_substancias_psicoativas} ";
+
+
+$operacao_alterar = mysqli_query($conecta, $alterar);
+if (!$operacao_alterar) {
+    die("Erro na alteracao");
+} else {
+    header("location:edit.promptuary.php");
+}
+}
+
+
+
+//--------------------------------------------------------------------------//
+// //consultar no banco de dados tabela diagnóstico e receituário
+$result_diagnostico = "SELECT * ";
+$result_diagnostico .= "FROM tb_prontuario_diagnostico_receituario ";
+$result_diagnostico .= "where id_usuario= '$id_usuario_prontuario ' ";
+$resultado_diagnostico  = mysqli_query($conecta, $result_diagnostico);
+$dados_diagnostico = mysqli_fetch_assoc($resultado_diagnostico);
+
+
+if (isset($_POST["diagnostico"])) { 
+    
+    // $id_prontuario_diagnostico_receituario  = $_POST["id_prontuario_diagnostico_receituario"];
+    $diagnostico                            = $_POST["diagnostico"];
+    $receituario                            = $_POST["receituario"];
+    $id_prontuario_diagnostico_receituario  = $_POST["id_prontuario_diagnostico_receituario"];
+
+//Alterarandoos dados tabela tb_prontuario_historico_familiar
+$alterar = "UPDATE tb_prontuario_diagnostico_receituario ";
+$alterar .= "SET ";
+$alterar .= "diagnostico = '{$diagnostico}', ";
+$alterar .= "receituario = '{$receituario}' ";
+
+$alterar .= "WHERE id_prontuario_diagnostico_receituario = {$id_prontuario_diagnostico_receituario} ";
+
+
+$operacao_alterar = mysqli_query($conecta, $alterar);
+if (!$operacao_alterar) {
+    die("Erro na alteracao");
+} else {
+    header("location:edit.promptuary.php");
+}
+}
+
+
+
+// // testar erro
+if (!$resultado_diagnostico) {
+    die("Falha no banco de dados");
+} else {
+    $id_prontuario_diagnostico_receituario  = $dados_diagnostico["id_prontuario_diagnostico_receituario"];
+    $diagnostico                                 = $dados_diagnostico["diagnostico"];
+    $receituario                                 = $dados_diagnostico["receituario"];
+}
+
+?>
 <!DOCTYPE HTML>
 
 <html lang="pt-br">
@@ -57,10 +305,10 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
-                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <a href="../Index/index.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px >
-                                    </a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
@@ -138,7 +386,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
 
 
-    <form class="" action="../cadastroProntuario.php" method="post">
+    <form class="" action="edit.promptuary.php" method="post">
         <div class="container-fluid">
             <span class="d-block p-2 bg-dark text-white">Dados Sociodemográficos</span>
             <br />
@@ -148,9 +396,9 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div -->
             <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label for="estadoCivil">Estado Civil</label>
-                    <select class="form-control" name="EstadoCivil" id="EstadoCivil">
-                        <option selected>Escolher...</option>
+                    <label for="estado_civil">Estado Civil</label>
+                    <select class="form-control" name="estado_civil" id="estado_civil">
+                        <option selected><?php echo $dados_detalhes['estado_civil'] ?></option>
                         <option value="Solteiro">Solteiro</option>
                         <option value="Casado">Casado</option>
                         <option value="Divorciado">Divorciado</option>
@@ -206,8 +454,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                     </select>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="responsavel">Responsável pelo Sustento da Família</label>
-                    <select class="form-control" name="responsavel" id="responsavel">
+                    <label for="responsavel_sustento_familia">Responsável pelo Sustento da Família</label>
+                    <select class="form-control" name="responsavel_sustento_familia" id="responsavel_sustento_familia">
                         <option selected>Escolher...</option>
                         <option value="O próprio">O próprio</option>
                         <option value="Pai">Pai</option>
@@ -295,7 +543,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="hipertensao">Hipertensão Arterial Sistêmica</label>
-                    <select class="form-control" name="hipertensao" id="hipertensao">
+                    <select class="form-control" name="hipertensao_arterial_sistemica" id="hipertensao_arterial_sistemica">
                         <option selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
@@ -303,7 +551,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-2">
                     <label for="diabetes">Diabetes Mlellitus</label>
-                    <select class="form-control" name="diabetes" id="diabetes">
+                    <select class="form-control" name="diabetes_mellitus" id="diabetes_mellitus">
                         <option selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
@@ -319,7 +567,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cirrose">Cirrose Hepática</label>
-                    <select class="form-control" name="cirrose" id="cirrose">
+                    <select class="form-control" name="cirrose_hepatica" id="cirrose_hepatica">
                         <option selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
@@ -327,7 +575,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-3">
                     <label for="pulmonar">Doença Pulmonar Obstrutiva Crônica</label>
-                    <select class="form-control" name="pulmonar" id="pulmonar">
+                    <select class="form-control" name="doenca_pulmonar" id="doenca_pulmonar">
                         <option selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
@@ -346,7 +594,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 <div class="form-group col-md-3">
                     <label for="anemia">Anemia</label>
                     <select class="form-control" name="anemia" id="anemia">
-                        <option selected>Escolher...</option>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -361,7 +609,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-3">
                     <label for="hepatite">Hepatite B ou C</label>
-                    <select class="form-control" name="hepatite" id="hepatite">
+                    <select class="form-control" name="hepatite_bc" id="hepatite_bc">
                         <option selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
@@ -478,7 +726,15 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
         </div></br></br>
 
         </div>
-        <button type="submit" class="btn btn-info" >Enviar</button>
+        
+        <input type="hidden" name="id_prontuario_sociodemograficos" value="<?php echo $dados_detalhes['id_prontuario_sociodemograficos'] ?>">
+        <input type="hidden" name="id_prontuario_historico_familiar" value="<?php echo $dados_dependencia['id_prontuario_historico_familiar'] ?>">
+        <input type="hidden" name="id_prontuario_comorbidades_principais" value="<?php echo $dados_comorbidades['id_prontuario_comorbidades_principais'] ?>">
+        <input type="hidden" name="id_prontuario_substancias_psicoativas" value="<?php echo $dados_substancias['id_prontuario_substancias_psicoativas'] ?>">
+        <input type="hidden" name="id_prontuario_diagnostico_receituario" value="<?php echo $dados_diagnostico['id_prontuario_diagnostico_receituario'] ?>">
+
+        
+        <button type="submit" class="btn btn-info">Enviar</button>
 </body>
 
 </html>
