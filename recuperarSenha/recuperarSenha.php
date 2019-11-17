@@ -1,41 +1,7 @@
 <?php require_once("../conexao/conexao.php"); ?>
-<?php
-        //variavel de sessao
-        session_start();
 
-        if ( isset( $_POST["usuario"]) ){
-            $usuario = $_POST["usuario"];
-            $senha = $_POST["senha"];
-    
-            $login = "SELECT * ";
-            $login .= "FROM tb_usuario ";
-            $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
-    
-            $acesso = mysqli_query($conecta, $login);
-            if ( !$acesso ) {
-                die("Falha na consulta ao banco");
-            }
-            
-            
-            $informacao = mysqli_fetch_assoc($acesso);
-            
-            if ( empty($informacao) ) {
-                $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
-                header("location:Index/Index.php");
-            } else {
-    
-                $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
-                header("location:../afterLogin/usuario.php");
-            }
-    
-    
-    
-    
-            // echo $usuario . "<br>";
-            // echo $senha;    
-        }
-    
-?>
+
+
 <html>
 
 <head>
@@ -67,7 +33,7 @@
 
         <div id="Principal">
 
-            <div class="background00">
+            <div class="">
                 <!----------------------------------------------------------------------------------------->
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
@@ -139,7 +105,7 @@
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                        <a href="../recuperarSenha/recuperarSenha.php">Esqueceu sua senha?</a>
+                                                                        <a href="#">Esqueceu sua senha?</a>
                                                                         </div>
                                                                     </div>
                                                                 </form>
@@ -212,81 +178,41 @@
     <!----------------------------------------------------------------------------------------->
 
 
+    <form class="" action="successRecuperarSenha.php" method="post">
 
-     
 
 
-    <!----------------------------------------------------------------------------------------->
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Recuperar Senha</h5>
+            <form class="form-signin">
+            <div class="form-group row">
+              <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Digite seu Email" required autofocus>
+              </div>
 
-    <section class="background2">
+              <div class="form-group row">
+              <label for="cpf_cnpj  ">CPF ou CNPJ</label>
+                <input type="text" id="cpf_cnpj" name="cpf_cnpj"class="form-control" placeholder="Digite seu CPF ou CNPJ" required>
+              </div>
 
-        <div class="container-fluid">
-            <div id="historias">
-                <h1 class="text-center">Inicio da Historia</h1>
-                <p class="text-center">Proin quis sapien id mi fringilla pharetra. Nullam vitae sapien sit amet risus
-                    elementum vehicula ac sed felis. Nullam molestie lobortis magna ac finibus. Aenean consequat
-                    sagittis tempor. Morbi mollis nibh et turpis tincidunt, nec aliquam
-                    sem tempor. Phasellus mattis ligula ac urna mollis, in porttitor justo faucibus. In efficitur vitae
-                    metus tristique varius. Praesent id arcu auctor, ornare odio eget, aliquet urna. Nam a ornare dui.
-                </p>
 
-                <p class="text-center"> Pellentesque rutrum vulputate risus, in placerat ex facilisis vitae. Quisque
-                    hendrerit rutrum lorem, vitae venenatis velit porta non. Suspendisse at urna dapibus, volutpat risus
-                    at, lobortis ex. Morbi et nisl eget arcu ultrices rutrum.
-                    Praesent et enim et orci euismod mattis. Mauris rhoncus, sem sit amet porttitor condimentum, metus
-                    ex laoreet lorem, ac blandit nisi libero a diam. Aliquam erat volutpat. Mauris faucibus lorem eu
-                    imperdiet porta. Etiam vitae egestas
-                    nisl. Curabitur ac erat nunc. Morbi dictum blandit felis, a feugiat ligula luctus eget. Sed pharetra
-                    fringilla placerat. In facilisis auctor risus. Nulla vel lectus sapien. Pellentesque vel mauris
-                    libero. Mauris placerat dictum diam
-                    sed tincidunt.</p>
-
-                <p class="text-center"> Fusce ac libero non justo volutpat venenatis in non elit. Cras fermentum
-                    ultricies rhoncus. Aliquam nec nisl ut erat congue faucibus et at ex. Nunc rhoncus nisi leo, in
-                    sagittis tellus ullamcorper id. Sed sit amet massa lacinia, euismod
-                    nulla in, gravida leo. Etiam cursus porta felis ut tempus. Phasellus tincidunt finibus nulla et
-                    laoreet. Nunc est ex, pretium at odio sit amet, euismod volutpat ex. Vestibulum et justo at libero
-                    imperdiet gravida. Fusce sed egestas
-                    enim. Pellentesque euismod, sapien eget pellentesque ornare, sem sem blandit neque, vel consequat
-                    dolor mauris in diam. Etiam accumsan id nisl ut dignissim. Nullam ac vulputate sem. Etiam et nunc
-                    pharetra dui viverra venenatis in ac
-                    dolor. Sed maximus urna a volutpat egestas. Vivamus in interdum nisi.</p>
-
-                <p class="text-center"> Etiam non scelerisque neque. Donec tincidunt sollicitudin neque, et fermentum
-                    orci imperdiet a. Praesent sagittis ultricies elit eu consectetur. Nam non molestie ligula. Aenean
-                    ornare feugiat leo, ut porta ante volutpat sed. Fusce porttitor
-                    bibendum justo nec suscipit. Donec mattis tristique nulla sed viverra. Suspendisse id turpis a nunc
-                    sodales faucibus. Proin eu ligula feugiat, malesuada velit vitae, tempus lacus. Nulla finibus
-                    volutpat urna, et egestas mi egestas
-                    eget. Phasellus urna ligula, finibus vitae lacinia quis, cursus ac nunc.</p>
-
-                <p class="text-center"> Cras a fermentum massa. Pellentesque suscipit ut mauris at ultrices. Nulla
-                    malesuada eget leo ac condimentum. Maecenas ultrices neque nibh, at dictum libero pulvinar at.
-                    Praesent euismod sagittis neque, eget eleifend nisl accumsan a. Suspendisse
-                    euismod tristique lorem, ac dictum urna mattis id. Sed nec lectus dui.</p>
-            </div>
+              <button type="submit" class="btn btn-info">Recuperar</button>
+            </form>
+          </div>
         </div>
-
-
-    </section>
-
-
-
-                    
-
-    <!----------------------------------------------------------------------------------------->
+      </div>
+    </div>
+  </div>
 
 
 
 
 
-
-
-
-
-
-
-
+    </form>
     </div>
     <!--Fechando o DivPrincipal-->
 
@@ -296,8 +222,12 @@
     <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
     <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
-    <script src="../Bootstrap/js/jquery-3.4.1.min.js"></script>
-    <script src="Index.js" type="text/javascript"></script>
+    <script src="../DataRegister/fields.js" type="text/javascript"></script>
+
+    <script src="http://jqueryvalidation.org/files/dist/jquery.validate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
 
 </body>
 
