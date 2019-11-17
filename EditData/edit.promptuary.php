@@ -4,7 +4,6 @@
 //TESTE DE SEGURANÇA
 session_start();
 $id_usuario_prontuario = $_SESSION['registrado'];
-echo $id_usuario_prontuario;
 // if (!isset($_SESSION["user_portal"])) {
 //     header("location:../Index/index.php");
 // }
@@ -43,8 +42,8 @@ $dados_detalhes = mysqli_fetch_assoc($resultado_usuario);
 
 
 // testar erro
-if (isset($_POST["estado_civil"])) { 
-    
+if (isset($_POST["estado_civil"])) {
+
     // $id_prontuario_sociodemograficos  = $dados_detalhes["id_prontuario_sociodemograficos"];
     // $idade                            = $dados_detalhes["idade"];
     $estado_civil                         = $_POST["estado_civil"];
@@ -56,29 +55,29 @@ if (isset($_POST["estado_civil"])) {
     $religiao                             = $_POST["religiao"];
     $id_prontuario_sociodemograficos      = $_POST["id_prontuario_sociodemograficos"];
 
-print_r($id_prontuario_sociodemograficos);
-print_r($estado_civil );
+    print_r($id_prontuario_sociodemograficos);
+    print_r($estado_civil);
 
-//Alterarandoos dados tabela tb_prontuario_sociodemograficos
-$alterar = "UPDATE tb_prontuario_sociodemograficos ";
-$alterar .= "SET ";
-$alterar .= "estado_civil = '{$estado_civil}', ";
-$alterar .= "prole = '{$prole}', ";
-$alterar .= "escolaridade = '{$escolaridade}', ";
-$alterar .= "profissao = '{$profissao}', ";
-$alterar .= "renda = '{$renda}', ";
-$alterar .= "responsavel_sustento_familia = '{$responsavel_sustento_familia}', ";
-$alterar .= "religiao = '{$religiao}' ";
+    //Alterarandoos dados tabela tb_prontuario_sociodemograficos
+    $alterar = "UPDATE tb_prontuario_sociodemograficos ";
+    $alterar .= "SET ";
+    $alterar .= "estado_civil = '{$estado_civil}', ";
+    $alterar .= "prole = '{$prole}', ";
+    $alterar .= "escolaridade = '{$escolaridade}', ";
+    $alterar .= "profissao = '{$profissao}', ";
+    $alterar .= "renda = '{$renda}', ";
+    $alterar .= "responsavel_sustento_familia = '{$responsavel_sustento_familia}', ";
+    $alterar .= "religiao = '{$religiao}' ";
 
-$alterar .= "WHERE id_prontuario_sociodemograficos = {$id_prontuario_sociodemograficos} ";
+    $alterar .= "WHERE id_prontuario_sociodemograficos = {$id_prontuario_sociodemograficos} ";
 
 
-$operacao_alterar = mysqli_query($conecta, $alterar);
-if (!$operacao_alterar) {
-    die("Erro na alteracao");
-} else {
-    header("location:edit.promptuary.php");
-}
+    $operacao_alterar = mysqli_query($conecta, $alterar);
+    if (!$operacao_alterar) {
+        die("Erro na alteracao");
+    } else {
+        header("location:edit.promptuary.php");
+    }
 }
 
 
@@ -91,8 +90,8 @@ $result_dependencia .= "where id_usuario= '$id_usuario_prontuario ' ";
 $resultado_dependencia  = mysqli_query($conecta, $result_dependencia);
 $dados_dependencia = mysqli_fetch_assoc($resultado_dependencia);
 
-if (isset($_POST["pai"])) { 
-    
+if (isset($_POST["pai"])) {
+
     // $id_prontuario_historico_familiar  = $dados_dependencia["id_prontuario_historico_familiar"];
     $pai                               = $_POST["pai"];
     $mae                               = $_POST["mae"];
@@ -103,25 +102,25 @@ if (isset($_POST["pai"])) {
     $id_prontuario_historico_familiar  = $_POST["id_prontuario_historico_familiar"];
 
 
-//Alterarandoos dados tabela tb_prontuario_historico_familiar
-$alterar = "UPDATE tb_prontuario_historico_familiar ";
-$alterar .= "SET ";
-$alterar .= "pai = '{$pai}', ";
-$alterar .= "mae = '{$mae}', ";
-$alterar .= "irmao = '{$irmao}', ";
-$alterar .= "avo = '{$avo}', ";
-$alterar .= "filho = '{$filho}', ";
-$alterar .= "outros = '{$outros}' ";
+    //Alterarandoos dados tabela tb_prontuario_historico_familiar
+    $alterar = "UPDATE tb_prontuario_historico_familiar ";
+    $alterar .= "SET ";
+    $alterar .= "pai = '{$pai}', ";
+    $alterar .= "mae = '{$mae}', ";
+    $alterar .= "irmao = '{$irmao}', ";
+    $alterar .= "avo = '{$avo}', ";
+    $alterar .= "filho = '{$filho}', ";
+    $alterar .= "outros = '{$outros}' ";
 
-$alterar .= "WHERE id_prontuario_historico_familiar = {$id_prontuario_historico_familiar} ";
+    $alterar .= "WHERE id_prontuario_historico_familiar = {$id_prontuario_historico_familiar} ";
 
 
-$operacao_alterar = mysqli_query($conecta, $alterar);
-if (!$operacao_alterar) {
-    die("Erro na alteracao");
-} else {
-    header("location:edit.promptuary.php");
-}
+    $operacao_alterar = mysqli_query($conecta, $alterar);
+    if (!$operacao_alterar) {
+        die("Erro na alteracao");
+    } else {
+        header("location:edit.promptuary.php");
+    }
 }
 
 
@@ -135,8 +134,8 @@ $resultado_comorbidades  = mysqli_query($conecta, $result_comorbidades);
 $dados_comorbidades = mysqli_fetch_assoc($resultado_comorbidades);
 
 
-if (isset($_POST["hipertensao_arterial_sistemica"])) { 
-    
+if (isset($_POST["hipertensao_arterial_sistemica"])) {
+
     // $id_prontuario_comorbidades_principais  = $dados_comorbidades["id_prontuario_comorbidades_principais"];
     $hipertensao_arterial_sistemica         = $_POST["hipertensao_arterial_sistemica"];
     $diabetes_mellitus                      = $_POST["diabetes_mellitus"];
@@ -149,28 +148,28 @@ if (isset($_POST["hipertensao_arterial_sistemica"])) {
     $hepatite_bc                            = $_POST["hepatite_bc"];
     $id_prontuario_comorbidades_principais  = $_POST["id_prontuario_comorbidades_principais"];
 
-//Alterarandoos dados tabela tb_prontuario_historico_familiar
-$alterar = "UPDATE tb_prontuario_comorbidades_principais ";
-$alterar .= "SET ";
-$alterar .= "hipertensao_arterial_sistemica = '{$hipertensao_arterial_sistemica}', ";
-$alterar .= "diabetes_mellitus = '{$diabetes_mellitus}', ";
-$alterar .= "dislipidemia = '{$dislipidemia}', ";
-$alterar .= "cirrose_hepatica = '{$cirrose_hepatica}', ";
-$alterar .= "doenca_pulmonar = '{$doenca_pulmonar}', ";
-$alterar .= "asma = '{$asma}', ";
-$alterar .= "anemia = '{$anemia}', ";
-$alterar .= "hiv = '{$hiv}', ";
-$alterar .= "hepatite_bc = '{$hepatite_bc}' ";
+    //Alterarandoos dados tabela hipertensao_arterial_sistemica
+    $alterar = "UPDATE tb_prontuario_comorbidades_principais ";
+    $alterar .= "SET ";
+    $alterar .= "hipertensao_arterial_sistemica = '{$hipertensao_arterial_sistemica}', ";
+    $alterar .= "diabetes_mellitus = '{$diabetes_mellitus}', ";
+    $alterar .= "dislipidemia = '{$dislipidemia}', ";
+    $alterar .= "cirrose_hepatica = '{$cirrose_hepatica}', ";
+    $alterar .= "doenca_pulmonar = '{$doenca_pulmonar}', ";
+    $alterar .= "asma = '{$asma}', ";
+    $alterar .= "anemia = '{$anemia}', ";
+    $alterar .= "hiv = '{$hiv}', ";
+    $alterar .= "hepatite_bc = '{$hepatite_bc}' ";
 
-$alterar .= "WHERE id_prontuario_comorbidades_principais = {$id_prontuario_comorbidades_principais} ";
+    $alterar .= "WHERE id_prontuario_comorbidades_principais = {$id_prontuario_comorbidades_principais} ";
 
 
-$operacao_alterar = mysqli_query($conecta, $alterar);
-if (!$operacao_alterar) {
-    die("Erro na alteracao");
-} else {
-    header("location:edit.promptuary.php");
-}
+    $operacao_alterar = mysqli_query($conecta, $alterar);
+    if (!$operacao_alterar) {
+        die("Erro na alteracao");
+    } else {
+        header("location:edit.promptuary.php");
+    }
 }
 
 
@@ -184,8 +183,8 @@ $resultado_substancias  = mysqli_query($conecta, $result_substancias);
 $dados_substancias = mysqli_fetch_assoc($resultado_substancias);
 
 
-if (isset($_POST["tabaco"])) { 
-    
+if (isset($_POST["tabaco"])) {
+
     $tabaco                                 = $_POST["tabaco"];
     $alcool                                 = $_POST["alcool"];
     $cocaina                                = $_POST["cocaina"];
@@ -198,29 +197,29 @@ if (isset($_POST["tabaco"])) {
     $opioides                               = $_POST["opioides"];
     $id_prontuario_substancias_psicoativas  = $_POST["id_prontuario_substancias_psicoativas"];
 
-//Alterarandoos dados tabela tb_prontuario_historico_familiar
-$alterar = "UPDATE tb_prontuario_substancias_psicoativas ";
-$alterar .= "SET ";
-$alterar .= "tabaco = '{$tabaco}', ";
-$alterar .= "alcool = '{$alcool}', ";
-$alterar .= "cocaina = '{$cocaina}', ";
-$alterar .= "crack = '{$crack}', ";
-$alterar .= "maconha = '{$maconha}', ";
-$alterar .= "inalantes = '{$inalantes}', ";
-$alterar .= "alucinogenos = '{$alucinogenos}', ";
-$alterar .= "anfetaminas = '{$anfetaminas}', ";
-$alterar .= "benzodiazepinicos = '{$benzodiazepinicos}', ";
-$alterar .= "opioides = '{$opioides}' ";
+    //Alterarandoos dados tabela tb_prontuario_historico_familiar
+    $alterar = "UPDATE tb_prontuario_substancias_psicoativas ";
+    $alterar .= "SET ";
+    $alterar .= "tabaco = '{$tabaco}', ";
+    $alterar .= "alcool = '{$alcool}', ";
+    $alterar .= "cocaina = '{$cocaina}', ";
+    $alterar .= "crack = '{$crack}', ";
+    $alterar .= "maconha = '{$maconha}', ";
+    $alterar .= "inalantes = '{$inalantes}', ";
+    $alterar .= "alucinogenos = '{$alucinogenos}', ";
+    $alterar .= "anfetaminas = '{$anfetaminas}', ";
+    $alterar .= "benzodiazepinicos = '{$benzodiazepinicos}', ";
+    $alterar .= "opioides = '{$opioides}' ";
 
-$alterar .= "WHERE id_prontuario_substancias_psicoativas = {$id_prontuario_substancias_psicoativas} ";
+    $alterar .= "WHERE id_prontuario_substancias_psicoativas = {$id_prontuario_substancias_psicoativas} ";
 
 
-$operacao_alterar = mysqli_query($conecta, $alterar);
-if (!$operacao_alterar) {
-    die("Erro na alteracao");
-} else {
-    header("location:edit.promptuary.php");
-}
+    $operacao_alterar = mysqli_query($conecta, $alterar);
+    if (!$operacao_alterar) {
+        die("Erro na alteracao");
+    } else {
+        header("location:edit.promptuary.php");
+    }
 }
 
 
@@ -234,28 +233,28 @@ $resultado_diagnostico  = mysqli_query($conecta, $result_diagnostico);
 $dados_diagnostico = mysqli_fetch_assoc($resultado_diagnostico);
 
 
-if (isset($_POST["diagnostico"])) { 
-    
+if (isset($_POST["diagnostico"])) {
+
     // $id_prontuario_diagnostico_receituario  = $_POST["id_prontuario_diagnostico_receituario"];
     $diagnostico                            = $_POST["diagnostico"];
     $receituario                            = $_POST["receituario"];
     $id_prontuario_diagnostico_receituario  = $_POST["id_prontuario_diagnostico_receituario"];
 
-//Alterarandoos dados tabela tb_prontuario_historico_familiar
-$alterar = "UPDATE tb_prontuario_diagnostico_receituario ";
-$alterar .= "SET ";
-$alterar .= "diagnostico = '{$diagnostico}', ";
-$alterar .= "receituario = '{$receituario}' ";
+    //Alterarandoos dados tabela tb_prontuario_historico_familiar
+    $alterar = "UPDATE tb_prontuario_diagnostico_receituario ";
+    $alterar .= "SET ";
+    $alterar .= "diagnostico = '{$diagnostico}', ";
+    $alterar .= "receituario = '{$receituario}' ";
 
-$alterar .= "WHERE id_prontuario_diagnostico_receituario = {$id_prontuario_diagnostico_receituario} ";
+    $alterar .= "WHERE id_prontuario_diagnostico_receituario = {$id_prontuario_diagnostico_receituario} ";
 
 
-$operacao_alterar = mysqli_query($conecta, $alterar);
-if (!$operacao_alterar) {
-    die("Erro na alteracao");
-} else {
-    header("location:edit.promptuary.php");
-}
+    $operacao_alterar = mysqli_query($conecta, $alterar);
+    if (!$operacao_alterar) {
+        die("Erro na alteracao");
+    } else {
+        header("location:edit.promptuary.php");
+    }
 }
 
 
@@ -410,7 +409,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="prole">Filhos(a)</label>
                     <select class="form-control" name="prole" id="prole">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_detalhes['prole'] ?></option>
                         <option value="01">01</option>
                         <option value="02">02</option>
                         <option value="03">03</option>
@@ -421,7 +420,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="Escolaridade">Escolaridade</label>
                     <select class="form-control" name="escolaridade" id="escolaridade">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_detalhes['escolaridade'] ?></option>
                         <option value="Nunca estudou">Nunca estudou</option>
                         <option value="Fundamental incompleto">Fundamental incompleto</option>
                         <option value="Médio incompleto">Médio incompleto</option>
@@ -435,7 +434,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="profissao">Profissão</label>
                     <select class="form-control" name="profissao" id="profissao">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_detalhes['profissao'] ?></option>
                         <option value="Empregado">Empregado</option>
                         <option value="Desempregado">Desempregado</option>
                         <option value="Outros">Outros</option>
@@ -446,7 +445,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="renda">Renda</label>
                     <select class="form-control" name="renda" id="renda">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_detalhes['renda'] ?></option>
                         <option value="≤ 1 salário mínimo">≤ 1 salário mínimo</option>
                         <option value="> 1 e ≤ 2 salários mínimos">> 1 e ≤ 2 salários mínimos</option>
                         <option value="> 2 e ≤ 3 salários mínimos">> 2 e ≤ 3 salários mínimos</option>
@@ -456,7 +455,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-6">
                     <label for="responsavel_sustento_familia">Responsável pelo Sustento da Família</label>
                     <select class="form-control" name="responsavel_sustento_familia" id="responsavel_sustento_familia">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_detalhes['responsavel_sustento_familia'] ?></option>
                         <option value="O próprio">O próprio</option>
                         <option value="Pai">Pai</option>
                         <option value="Mãe">Mãe</option>
@@ -470,7 +469,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="religiao">Religião</label>
                     <select class="form-control" name="religiao" id="religiao">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_detalhes['religiao'] ?></option>
                         <option value="Católico">Católico</option>
                         <option value="Evangélico">Evangélico</option>
                         <option value="Espírita">Espírita</option>
@@ -490,7 +489,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="pai">Pai</label>
                     <select class="form-control" name="pai" id="pai">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_dependencia['pai'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -498,7 +497,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="mae">Mãe</label>
                     <select class="form-control" name="mae" id="mae">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_dependencia['mae'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -506,7 +505,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="irmao">Irmão(a)</label>
                     <select class="form-control" name="irmao" id="irmao">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_dependencia['irmao'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -514,7 +513,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="avo">Avô(ó)</label>
                     <select class="form-control" name="avo" id="avo">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_dependencia['avo'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -522,7 +521,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="filho">Filho(a)</label>
                     <select class="form-control" name="filho" id="filho">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_dependencia['filho'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -530,7 +529,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="outros">Outros</label>
                     <select class="form-control" name="outros" id="outros">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_dependencia['outros'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -544,7 +543,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="hipertensao">Hipertensão Arterial Sistêmica</label>
                     <select class="form-control" name="hipertensao_arterial_sistemica" id="hipertensao_arterial_sistemica">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['hipertensao_arterial_sistemica'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -552,7 +551,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="diabetes">Diabetes Mlellitus</label>
                     <select class="form-control" name="diabetes_mellitus" id="diabetes_mellitus">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['diabetes_mellitus'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -560,7 +559,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="dislipidemia">Dislipidemia</label>
                     <select class="form-control" name="dislipidemia" id="dislipidemia">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['dislipidemia'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -568,7 +567,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="cirrose">Cirrose Hepática</label>
                     <select class="form-control" name="cirrose_hepatica" id="cirrose_hepatica">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['dislipidemia'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -576,7 +575,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="pulmonar">Doença Pulmonar Obstrutiva Crônica</label>
                     <select class="form-control" name="doenca_pulmonar" id="doenca_pulmonar">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['dislipidemia'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -586,7 +585,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="asma">Asma</label>
                     <select class="form-control" name="asma" id="asma">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['dislipidemia'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -594,7 +593,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="anemia">Anemia</label>
                     <select class="form-control" name="anemia" id="anemia">
-                        <option value="" selected>Escolher...</option>
+                        <option value="" selected><?php echo $dados_comorbidades['dislipidemia'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -602,7 +601,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="hiv">HIV</label>
                     <select class="form-control" name="hiv" id="hiv">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['dislipidemia'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -610,7 +609,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="hepatite">Hepatite B ou C</label>
                     <select class="form-control" name="hepatite_bc" id="hepatite_bc">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_comorbidades['dislipidemia'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -625,7 +624,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="tabaco">Tabaco</label>
                     <select class="form-control" name="tabaco" id="tabaco">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['tabaco'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -633,7 +632,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="alcool">Álcool</label>
                     <select class="form-control" name="alcool" id="alcool">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['alcool'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -641,7 +640,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="cocaina">Cocaína</label>
                     <select class="form-control" name="cocaina" id="cocaina">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['cocaina'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -649,7 +648,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="crack">Crack</label>
                     <select class="form-control" name="crack" id="crack">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['crack'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -657,7 +656,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="maconha">Maconha</label>
                     <select class="form-control" name="maconha" id="maconha">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['maconha'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -665,7 +664,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-2">
                     <label for="inalantes">Inalantes</label>
                     <select class="form-control" name="inalantes" id="inalantes">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['inalantes'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -675,7 +674,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="alucinogenos">Alucinógenos</label>
                     <select class="form-control" name="alucinogenos" id="alucinogenos">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['alucinogenos'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -683,7 +682,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="anfetaminas">Anfetaminas</label>
                     <select class="form-control" name="anfetaminas" id="anfetaminas">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['anfetaminas'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -691,7 +690,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="benzodiazepinicos">Benzodiazepínicos</label>
                     <select class="form-control" name="benzodiazepinicos" id="benzodiazepinicos">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['benzodiazepinicos'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -699,7 +698,7 @@ if (!$resultado_diagnostico) {
                 <div class="form-group col-md-3">
                     <label for="opioides">Opioides</label>
                     <select class="form-control" name="opioides" id="opioides">
-                        <option selected>Escolher...</option>
+                        <option selected><?php echo $dados_substancias['opioides'] ?></option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -711,7 +710,7 @@ if (!$resultado_diagnostico) {
 
             <div class="form-group">
                 <label for="diagnostico"></label>
-                <textarea class="form-control" name="diagnostico" id="diagnostico" rows="10" placeholder="Digite aqui o diagnóstico do paciente"></textarea>
+                <textarea class="form-control" name="diagnostico" type="text" id="diagnostico" > <?php echo $dados_diagnostico["diagnostico"]?> </textarea>
             </div>
             </br></br>
 
@@ -726,14 +725,14 @@ if (!$resultado_diagnostico) {
         </div></br></br>
 
         </div>
-        
+
         <input type="hidden" name="id_prontuario_sociodemograficos" value="<?php echo $dados_detalhes['id_prontuario_sociodemograficos'] ?>">
         <input type="hidden" name="id_prontuario_historico_familiar" value="<?php echo $dados_dependencia['id_prontuario_historico_familiar'] ?>">
         <input type="hidden" name="id_prontuario_comorbidades_principais" value="<?php echo $dados_comorbidades['id_prontuario_comorbidades_principais'] ?>">
         <input type="hidden" name="id_prontuario_substancias_psicoativas" value="<?php echo $dados_substancias['id_prontuario_substancias_psicoativas'] ?>">
         <input type="hidden" name="id_prontuario_diagnostico_receituario" value="<?php echo $dados_diagnostico['id_prontuario_diagnostico_receituario'] ?>">
 
-        
+
         <button type="submit" class="btn btn-info">Enviar</button>
 </body>
 

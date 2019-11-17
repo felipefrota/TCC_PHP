@@ -1,14 +1,11 @@
 <?php require_once("../conexao/conexao.php") ?>
 
 <?php
-
 if (isset($_POST["senha"])) {
     $senha = $_POST["senha"];
     // $cpf_cnpj= $_POST["cpf_cnpj"];
     $usuario_instituicaoID = $_POST["usuario_instituicaoID"];
-
     
-
     $login = "SELECT * ";
     $login .= "FROM tb_usuario ";
     $login .= "where cpf_cnpj= '$cpf_cnpj' ";
@@ -16,13 +13,10 @@ if (isset($_POST["senha"])) {
     if (!$acesso) {
         die("Falha na consulta ao banco");
     }
-
-
     // $informacao = mysqli_fetch_assoc($acesso);
     // echo $senha, $cpf_cnpj;
     echo $senha, $usuario_instituicaoID;
     
-
     //     //Alterar
     $alterar = "UPDATE tb_usuario ";
     $alterar .= "SET ";
@@ -36,9 +30,6 @@ if (isset($_POST["senha"])) {
         header("location:../Index/Index.php");
     }
 }
-
 // echo $usuario . "<br>";
 // echo $senha;    
-
-
 ?>

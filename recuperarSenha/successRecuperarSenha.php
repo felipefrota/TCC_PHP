@@ -202,7 +202,8 @@ if ( isset($_POST["cpf_cnpj"]) ) {
                                     <input type="password" id="senha" name="senha" class="form-control" placeholder="Digite seu Email" required autofocus>
                                 </div>
 
-                                <input class="text" name="usuario_instituicaoID" value="<?php echo $dados_detalhes['usuario_instituicaoID']?>">    
+                                <input class="text" name="usuario_instituicaoID" value="<?php echo $dados_detalhes['usuario_instituicaoID']?>"> 
+                                <input class="text" name="cpf_cnpj" value="<?php echo $dados_detalhes['cpf_cnpj']?>">   
                                 <button type="submit" class="btn btn-info">Recuperar</button>
                             </form>
                         </div>
