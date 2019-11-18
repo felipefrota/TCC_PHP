@@ -36,7 +36,9 @@ div#Principal {
 div.background00 {
     width: 100%;
     height: 100%;
-    background: /*no-repeat*/
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-image: /*no-repeat*/
     url('../Images/background05.jpg');
 }
 
