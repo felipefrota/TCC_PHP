@@ -251,7 +251,6 @@ session_start();
                                     <?php echo $linha["telefoneCelular"] ?> <br> WhatsApp:
                                     <?php echo $linha["wpp"] ?></small>
                             </div>
-                            <a href="#" class="btn btn-primary">Visitar</a>
                         </div>
                     </div>
                 </div>
