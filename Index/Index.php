@@ -295,6 +295,9 @@ if (isset($_POST["usuario"])) {
 
 
             <!--GRID-->
+
+            <div class="row">
+
             <?php
             //consultar no banco de dados
             $result_usuario = "SELECT * FROM tb_usuario where tipo = 2 ";
@@ -302,7 +305,6 @@ if (isset($_POST["usuario"])) {
             while ($linha = mysqli_fetch_assoc($resultado_usuario)) {
                 ?>
 
-                <div class="row">
                     <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <div class="card bg-light">
                             <img class="card-img-top img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(38).jpg" alt="Card image cap">
