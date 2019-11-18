@@ -109,6 +109,7 @@ if( isset($_POST["razao_Social"]) ) {
     $wpp =                                $_POST["wpp"];
     $brev_apresent =                      $_POST["brev_apresent"];
     $apresent_complet =                   $_POST["apresent_complet"];
+    $url=                                 $_POST["url"];
 
     $cep =                                $_POST["cep"];
     $estado =                             $_POST["estado"];
@@ -143,6 +144,7 @@ if( isset($_POST["razao_Social"]) ) {
     $alterar .= "rua_avenida = '{$rua_avenida}', ";
     $alterar .= "numero = '{$numero}', ";
     $alterar .= "adicional = '{$adicional}', ";
+    $alterar .= "url = '{$url}', ";
     $alterar .= "brev_apresent = '{$brev_apresent}' ";
     // $alterar .= "upload_file = '{$arquivo}' ";
 
@@ -176,7 +178,7 @@ if( isset($_POST["razao_Social"]) ) {
 
 <body>
 
-<header>
+    <header>
         <div id="">
 
             <div class="Principal">
@@ -188,14 +190,16 @@ if( isset($_POST["razao_Social"]) ) {
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
-                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <a href="../Index/index.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px >
-                                    </a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
+                                    aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
                                 </button>
                             </div>
@@ -203,7 +207,8 @@ if( isset($_POST["razao_Social"]) ) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/instituicao.php">Home</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -220,16 +225,21 @@ if( isset($_POST["razao_Social"]) ) {
                                             $saudacao_login = mysqli_fetch_assoc($saudacao_login);
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
-                                            <div class="dropdown nav-link">
-                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="../EditData/edit.instituition.php">Perfil</a>
-                                                    <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">Imagens instituição</a>
-                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
-                                                </div>
+                                        <div class="dropdown nav-link">
+                                            <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item"
+                                                    href="../EditData/edit.instituition.php">Perfil</a>
+                                                <a class="dropdown-item"
+                                                    href="../EditData/upload.imageInstitution.php">Imagens
+                                                    instituição</a>
+                                                <a class="dropdown-item" href="../sair.php">Sair</a>
                                             </div>
+                                        </div>
                                         <?php
                                         }
                                         ?>
@@ -264,14 +274,15 @@ if( isset($_POST["razao_Social"]) ) {
 
     <div class="container-fluid">
 
-        <form class="was-validated" action="../EditData/edit.instituition.php" method="post" enctype="multipart/form-data">
+        <form class="was-validated" action="../EditData/edit.instituition.php" method="post"
+            enctype="multipart/form-data">
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="razao_Social">Razão Social:</label>
                     <input class="form-control" type="text" name="razao_Social" id="razao_Social"
                         value="<?php echo $dataUser_login["razao_Social"] ?>" required minlength="2">
-                        <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                         Razão Social Obrigatoria!
                     </div>
                 </div>
@@ -282,7 +293,7 @@ if( isset($_POST["razao_Social"]) ) {
                     <label for="nome_Fantasia">Nome Fantasia:</label>
                     <input class="form-control" type="text" name="nome_Fantasia" id="nome_Fantasia"
                         value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>" required minlength="2">
-                        <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                         Nome Fantasia Obrigatorio!
                     </div>
                 </div>
@@ -294,7 +305,7 @@ if( isset($_POST["razao_Social"]) ) {
                     <label for="cnpj">CNPJ:</label>
                     <input class="form-control" type="text" name="cnpj" id="cnpj"
                         value="<?php echo $dataUser_login["cpf_cnpj"] ?>" required minlength="18">
-                        <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                         CNPJ Obrigatorio!
                     </div>
                 </div>
@@ -306,7 +317,7 @@ if( isset($_POST["razao_Social"]) ) {
                     <label for="email">Email:</label>
                     <input class="form-control" type="email" name="email" id="email"
                         value="<?php echo $dataUser_login["email"] ?>" required minlength="2">
-                        <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                         Email Obrigatorio!
                     </div>
                 </div>
@@ -315,7 +326,7 @@ if( isset($_POST["razao_Social"]) ) {
                     <label for="senha">Senha:</label>
                     <input class="form-control" type="password" name="senha" id="senha"
                         value="<?php echo $dataUser_login["senha"] ?>" required minlength="4">
-                        <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                         Senha Obrigatorio!
                     </div>
                 </div>
@@ -332,7 +343,7 @@ if( isset($_POST["razao_Social"]) ) {
                     <label for="tel1">Telefone 1:</label>
                     <input class="form-control" type="tel" name="telefoneFixo1" id="telefoneFixo1"
                         value="<?php echo $dataUser_login["telefoneFixo"] ?>" required minlength="14">
-                        <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                         Telefone Obrigatorio!
                     </div>
                 </div>
@@ -350,7 +361,7 @@ if( isset($_POST["razao_Social"]) ) {
                     <label for="cel1">Telefone Celular:</label>
                     <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular"
                         value="<?php echo $dataUser_login["telefoneCelular"] ?>" required minlength="15">
-                        <div class="invalid-feedback">
+                    <div class="invalid-feedback">
                         Telefone Celular Obrigatorio!
                     </div>
                 </div>
@@ -364,15 +375,16 @@ if( isset($_POST["razao_Social"]) ) {
 
 
 
-<!---------------------------------------------------------------------------------------------------------->
-<hr>
+            <!---------------------------------------------------------------------------------------------------------->
+            <hr>
             <span class="d-block p-2 bg-dark text-white">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="cep">CEP</label>
-                    <input class="form-control" type="text" name="cep" id="cep" id="cep" value="<?php echo $dataUser_login["cep"] ?>" required minlength="9">
+                    <input class="form-control" type="text" name="cep" id="cep" id="cep"
+                        value="<?php echo $dataUser_login["cep"] ?>" required minlength="9">
                     <div class="invalid-feedback">
                         CEP Obrigatorio!
                     </div>
@@ -380,7 +392,8 @@ if( isset($_POST["razao_Social"]) ) {
 
                 <div class="form-group col-md-4">
                     <label for="estado">Estado</label>
-                    <input class="form-control" type="text" name="estado" id="estado" value="<?php echo $dataUser_login["estado"] ?>" required minlength="4">
+                    <input class="form-control" type="text" name="estado" id="estado"
+                        value="<?php echo $dataUser_login["estado"] ?>" required minlength="4">
                     <div class="invalid-feedback">
                         Estado Obrigatorio!
                     </div>
@@ -428,7 +441,8 @@ if( isset($_POST["razao_Social"]) ) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="bairro">Bairro</label>
-                    <input class="form-control" type="text" name="bairro" id="bairro" value="<?php echo $dataUser_login["bairro"] ?>" required minlength="3">
+                    <input class="form-control" type="text" name="bairro" id="bairro"
+                        value="<?php echo $dataUser_login["bairro"] ?>" required minlength="3">
                     <div class="invalid-feedback">
                         Bairro Obrigatorio!
                     </div>
@@ -436,7 +450,8 @@ if( isset($_POST["razao_Social"]) ) {
 
                 <div class="form-group col-md-4">
                     <label for="rua_avenida">Rua/Avenida</label>
-                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" value="<?php echo $dataUser_login["rua_avenida"] ?>" required minlength="2">
+                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida"
+                        value="<?php echo $dataUser_login["rua_avenida"] ?>" required minlength="2">
                     <div class="invalid-feedback">
                         Rua ou Avenida Obrigatorio!
                     </div>
@@ -444,7 +459,8 @@ if( isset($_POST["razao_Social"]) ) {
 
                 <div class="form-group col-md-4">
                     <label for="numero">Número</label>
-                    <input class="form-control" type="number" name="numero" id="numero" value="<?php echo $dataUser_login["numero"] ?>" required minlength="1">
+                    <input class="form-control" type="number" name="numero" id="numero"
+                        value="<?php echo $dataUser_login["numero"] ?>" required minlength="1">
                     <div class="invalid-feedback">
                         Número Obrigatorio!
                     </div>
@@ -454,13 +470,27 @@ if( isset($_POST["razao_Social"]) ) {
 
             <div class="form-group">
                 <label for="adicional">Adicional</label>
-                <input class="form-control" type="text" name="adicional" id="adicional" value="<?php echo $dataUser_login["adicional"] ?>">
+                <input class="form-control" type="text" name="adicional" id="adicional"
+                    value="<?php echo $dataUser_login["adicional"] ?>">
             </div>
 
 
 
-<!---------------------------------------------------------------------------------------------------------->
-<hr>
+            <!---------------------------------------------------------------------------------------------------------->
+            <hr>
+            <span class="d-block p-2 bg-dark text-white">Coloque o site da instituição</span>
+            <br>
+            <!---------------------------------------------------------------------------------------------------------->
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input class="form-control" type="text" name="url" id="url"
+                    value="<?php echo $dataUser_login["url"] ?>">
+            </div>
+
+
+
+            <!---------------------------------------------------------------------------------------------------------->
+            <hr>
             <span class="d-block p-2 bg-dark text-white">Descrição Empresa</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->

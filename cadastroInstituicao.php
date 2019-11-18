@@ -10,6 +10,7 @@
         $telefoneFixo2 =                $_POST["telefoneFixo2"];
         $telefoneCelular =              $_POST["telefoneCelular"];
         $wpp =                          $_POST["wpp"];
+        $url =                          $_POST["url"];
 
         $cep =                          $_POST["cep"];
         $estado =                       $_POST["estado"];
@@ -26,9 +27,9 @@
         // $inserir .= "('$usuario', '$senha', '$email', '$cpf', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia') ";
 
         $inserir = "INSERT INTO tb_usuario ";
-        $inserir .= "(razao_Social, nomeUsuario_nomeFantasia, cpf_cnpj, email, senha, telefoneFixo, telefoneFixo2, telefoneCelular, wpp, cep, estado, cidade, bairro, rua_avenida, numero, adicional, upload_file, tipo) "; 
+        $inserir .= "(razao_Social, nomeUsuario_nomeFantasia, cpf_cnpj, email, senha, telefoneFixo, telefoneFixo2, telefoneCelular, wpp, cep, estado, cidade, bairro, rua_avenida, numero, adicional, url, upload_file, tipo) "; 
         $inserir .= "VALUES ";
-        $inserir .= "('$razao_Social', '$nomeUsuario_nomeFantasia', '$cpf_cnpj', '$email', '$senha', '$telefoneFixo', '$telefoneFixo2', '$telefoneCelular', '$wpp', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional','semFoto.jpg' ,'2') ";
+        $inserir .= "('$razao_Social', '$nomeUsuario_nomeFantasia', '$cpf_cnpj', '$email', '$senha', '$telefoneFixo', '$telefoneFixo2', '$telefoneCelular', '$wpp', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$url','semFoto.jpg','2') ";
         // var_dump($inserir);exit;
         $operacao_inserir = mysqli_query($conecta,$inserir);
         if(!$operacao_inserir) {

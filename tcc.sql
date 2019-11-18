@@ -49,6 +49,8 @@ CREATE TABLE tb_usuario(
 `brev_apresent` varchar(5000) DEFAULT NULL,
 
 `upload_file` varchar(150) DEFAULT NULL,
+
+`url` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`usuario_instituicaoID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 

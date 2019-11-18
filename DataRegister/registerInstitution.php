@@ -341,6 +341,18 @@
             </div>
 
 
+             <!---------------------------------------------------------------------------------------------------------->
+             <hr>
+            <span class="d-block p-2 bg-dark text-white">Coloque o site da instituição</span>
+            <br>
+            <!---------------------------------------------------------------------------------------------------------->
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input class="form-control" type="text" name="url" id="url"
+                    placeholder="Coloque o link do site da empresa">
+            </div>
+
+
 
 
             <button type="submit" class="btn btn-info">Enviar</button>
