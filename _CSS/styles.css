@@ -12,8 +12,8 @@ div#Principal {
 /*navbar*/
 
 .navbar {
-    /*background-color: #E6E6E6;*/
-    opacity: 1;
+    background-color: #FFF;
+    /* opacity: 1; */
 }
 
 
@@ -39,7 +39,7 @@ div.background00 {
     background-size: cover; 
     background-repeat: no-repeat;
     background-image: /*no-repeat*/
-    url('../Images/background05.jpg');
+    url('../Images/saude1.jpg');
 }
 
 
@@ -129,11 +129,11 @@ div a #LogoSite {
     
 /*Logo*/
 
-   .logo    img{
-    max-width:90px;
+    .logo img{
+    max-width:40px;
     max-height:150px;
-    width: auto;
-    height: auto;
+    width:auto;
+    height:auto;
 }
 
 /*-----------------------------------------------------------------------------------------*/

@@ -94,7 +94,7 @@ if (isset($_POST["usuario"])) {
                                 <a href="../IndexProject/Index.html" class="navbar-brand"> </a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                 <a href="../Index/index.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                      <img src="../Images/logo5.png" width=100px height=65px> 
                                 </a>
                                 <!----------------FECHANDO LOGO----------------->
 
