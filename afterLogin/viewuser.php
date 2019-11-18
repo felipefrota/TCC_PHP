@@ -315,7 +315,7 @@ if (!$resultado_usuario){
  <hr />
  <div id="actions" class="row">
    <div class="col-md-12">
-     <a href=".php" class="btn btn-primary">Editar</a>
+     <a class="btn btn-warning btn-xs" cellspacing="0" cellpadding="0" href="verificaprontuario.php?codigo=<?php echo $dados_detalhes['usuario_instituicaoID'] ?>">Prontuário</a>
 	 <a href="instituicao.php" class="btn btn-default">Fechar</a>
    </div>
  </div>
