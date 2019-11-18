@@ -1,40 +1,55 @@
 <?php require_once("../conexao/conexao.php"); ?>
 <?php
-        //variavel de sessao
-        session_start();
+//variavel de sessao
+session_start();
 
-        if ( isset( $_POST["usuario"]) ){
-            $usuario = $_POST["usuario"];
-            $senha = $_POST["senha"];
-    
-            $login = "SELECT * ";
-            $login .= "FROM tb_usuario ";
-            $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
-    
-            $acesso = mysqli_query($conecta, $login);
-            if ( !$acesso ) {
-                die("Falha na consulta ao banco");
-            }
-            
-            
-            $informacao = mysqli_fetch_assoc($acesso);
-            
-            if ( empty($informacao) ) {
-                $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
-                header("location:Index/Index.php");
-            } else {
-    
-                $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
-                header("location:../afterLogin/usuario.php");
-            }
-    
-    
-    
-    
-            // echo $usuario . "<br>";
-            // echo $senha;    
-        }
-    
+if (isset($_POST["usuario"])) {
+    $usuario = $_POST["usuario"];
+    $senha = $_POST["senha"];
+
+    $login = "SELECT * ";
+    $login .= "FROM tb_usuario ";
+    $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
+
+    $acesso = mysqli_query($conecta, $login);
+    if (!$acesso) {
+        die("Falha na consulta ao banco");
+    }
+
+
+    $informacao = mysqli_fetch_assoc($acesso);
+
+    if (empty($informacao)) {
+        $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
+        header("location:Index/Index.php");
+    } else {
+
+        $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
+        header("location:../afterLogin/usuario.php");
+    }
+
+
+
+
+    //------------------------------------------------------------------------------------------------------//
+    //Puxando as instituições do banco
+    $instituicoes = "SELECT * ";
+    $instituicoes .= "FROM tb_usuario ";
+    $instituicoes .= "WHERE tipo = 2 ";
+    $lista_instituicoes = mysqli_query($conecta, $instituicoes);
+    if (!$lista_instituicoes) {
+        die("erro no banco ao procurar instituções");
+    }
+
+
+
+
+
+
+    // echo $usuario . "<br>";
+    // echo $senha;    
+}
+
 ?>
 <html>
 
@@ -47,22 +62,22 @@
     <link href="../_CSS/styles.css" rel="stylesheet">
 
 
-<!------------------------------------ERROR LOGIN---------------------------------------------->
-                    <?php
-                        if ( isset($mensagem)) { 
-                    ?>
-                        <p><?php echo $mensagem ?></p>
-                    
-                    <?php
-                        }
-                    ?>  
-<!--------------------------------------------------------------------------------------------->
+    <!------------------------------------ERROR LOGIN---------------------------------------------->
+    <?php
+    if (isset($mensagem)) {
+        ?>
+        <p><?php echo $mensagem ?></p>
+
+    <?php
+    }
+    ?>
+    <!--------------------------------------------------------------------------------------------->
 </head>
 
 <body>
     <header>
-    <!-----------------------------------------Botão fluuante whatsapp-------------------------------------------------->
-    <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5561985294948"><img src="../Images/botao_flutuante.png" style="height:80px; position:fixed; bottom: 25px; right: 25px; z-index:100;" data-selector="img"></a>
+        <!-----------------------------------------Botão fluuante whatsapp-------------------------------------------------->
+        <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5561985294948"><img src="../Images/botao_flutuante.png" style="height:80px; position:fixed; bottom: 25px; right: 25px; z-index:100;" data-selector="img"></a>
 
 
         <div id="Principal">
@@ -75,16 +90,14 @@
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand"> </a>     
-        <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <a href="../Index/index.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px >
-                                     </a>
-                                     <!----------------FECHANDO LOGO----------------->
+                                <a href="../IndexProject/Index.html" class="navbar-brand"> </a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                </a>
+                                <!----------------FECHANDO LOGO----------------->
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
-                                    aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
                                 </button>
                             </div>
@@ -92,18 +105,12 @@
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
-                                            href="../Index/Index.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a
-                                            class="nav-link text-dark font-weight-bold"
-                                            href="#historias">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a
-                                            class="nav-link text-dark font-weight-bold"
-                                            href="../Institutions/Institutions.php">Instituições</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../Index/Index.php">Home</a></li>
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="#historias">Historia</a></li>
+                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="#instituicoes">Instituições</a></li>
                                     <li>
                                         <a class="nav-link">
-                                            <button type="button" class="btn btn-outline-success janelaLogin"
-                                                data-toggle="modal" data-target="#telaLogin">Login</button>
+                                            <button type="button" class="btn btn-outline-success janelaLogin" data-toggle="modal" data-target="#telaLogin">Login</button>
                                         </a>
 
 
@@ -111,15 +118,13 @@
                                         <form action="../login.php" method="post">
 
                                             <div class="container-fluid">
-                                                <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog"
-                                                    aria-labelledby="" aria-hidden="true">
+                                                <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="login">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title text-black-50" id="tituloTela">
                                                                     Faca seu Login</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Fechar">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
@@ -127,28 +132,26 @@
                                                                 <form class="form-horizontal">
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                            <input class="form-control" type="email"
-                                                                                name="usuario" placeholder="Email">
+                                                                            <input class="form-control" type="email" name="usuario" placeholder="Email">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                            <input class="form-control" type="password"
-                                                                                name="senha" placeholder="Senha">
+                                                                            <input class="form-control" type="password" name="senha" placeholder="Senha">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                        <a href="../recuperarSenha/recuperarSenha.php">Esqueceu sua senha?</a>
+                                                                            <a href="../recuperarSenha/recuperarSenha.php">Esqueceu sua senha?</a>
                                                                         </div>
                                                                     </div>
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                         
+
                                                                 <button type="submit" id="submit" value="login" class="btn btn-info">Login</button>
-                                                                
-                   
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -168,22 +171,21 @@
                                     </button> -->
 
                                     <!-- Modal -->
-    
+
 
                                     <!---------------------------------------------------------------------------->
                                     <!--Botao Cadastro-->
                                     <li>
                                         <div class="nav-link">
-                                            <button type="button" class="btn btn-outline-info" data-toggle="dropdown"
-                                                data-target="">Cadastro</button>
+                                            <button type="button" class="btn btn-outline-info" data-toggle="dropdown" data-target="">Cadastro</button>
 
 
                                             <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
                                                 <div class="form-group">
-                                                <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
+                                                    <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
                                                 </div>
                                                 <div class="form-group">
-                                                        <a href="../DataRegister/registerInstitution.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
+                                                    <a href="../DataRegister/registerInstitution.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
 
 
                                                 </div>
@@ -204,7 +206,7 @@
                 </div>
             </div>
 
-           
+
     </header>
     <!--Fechando o Div:Nav-Bar-->
 
@@ -213,7 +215,7 @@
 
 
 
-     
+
 
 
     <!----------------------------------------------------------------------------------------->
@@ -272,13 +274,58 @@
 
 
 
-                    
+
+
+    <!----------------------------------------------------------------------------------------->
+
+
 
     <!----------------------------------------------------------------------------------------->
 
 
 
 
+    <!--Titulo GRID/CARD-->
+    <div class="container-fluid">
+        <div id="instituicoes">
+
+
+            <hr>
+            <h1 class="text-center">Instituições de Apoio</h1>
+
+
+            <!--GRID-->
+            <?php
+            //consultar no banco de dados
+            $result_usuario = "SELECT * FROM tb_usuario where tipo = 2 ";
+            $resultado_usuario = mysqli_query($conecta, $result_usuario);
+            while ($linha = mysqli_fetch_assoc($resultado_usuario)) {
+                ?>
+
+                <div class="row">
+                    <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                        <div class="card bg-light">
+                            <img class="card-img-top img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(38).jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $linha["nomeUsuario_nomeFantasia"] ?></h5>
+                                <p class="card-text">Um exemplo de texto rápido para construir o título do card e fazer preencher o conteúdo do card.</p>
+                                <a href="#" class="btn btn-primary">Visitar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Fechando a div col-xs-12 col-sm-6 col-md-4 col-lg-4-->
+                <?php
+                }
+                ?>
+
+
+                </div>
+                <!--Fechando a div row-->
+
+        </div>
+        <!--Fechando o div instituicoes -->
+    </div>
+    <!--Fechando a div container-fluid-->
 
 
 

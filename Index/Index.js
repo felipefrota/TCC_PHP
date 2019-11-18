@@ -6,6 +6,14 @@ $(function(e) {
 });
 
 
+//Evento nav-bar
+$(function(e) {
+    $('li.nav-instituicoes').click(function(e) {
+        $('html, body').animate({ scrollTop: $('#instituicoes').offset().top }, 1000);
+    });
+});
+
+
 
 
 // $(function(e) {
