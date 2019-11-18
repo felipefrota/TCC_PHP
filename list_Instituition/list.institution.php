@@ -125,10 +125,14 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
                                 <div id="menuCelular" class="collapse navbar-collapse">
 
                                     <ul class="navbar-nav ml-auto text-light nav-menu">
-                                        <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario.php">Home</a></li>
-                                        <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="#historias">Historia</a></li>
-                                        <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario_instituicao.php">Instituições</a></li>
-                                        <li>
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/usuario.php">Home</a></li>
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/usuario.php">Historia</a></li>
+                                    <li class="navbar-text nav-instituicoes"><a
+                                            class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/usuario.php">Instituições</a></li>
+                                    <li>                                        <li>
                                             <!----------------------------------------------------------------------------------------->
                                             <!---------------------------------Botao Saudação------------------------------------------>
                                             <?php

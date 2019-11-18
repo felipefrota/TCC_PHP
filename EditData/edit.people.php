@@ -182,14 +182,16 @@ if (isset($_POST["usuario"])) {
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
-                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <a href="../Index/index.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px >
-                                    </a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
+                                    aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
                                 </button>
                             </div>
@@ -197,10 +199,13 @@ if (isset($_POST["usuario"])) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="#historias">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario_instituicao.php">Instituições</a></li>
-                                    <li>
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/usuario.php">Home</a></li>
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/usuario.php">Historia</a></li>
+                                    <li class="navbar-text nav-instituicoes"><a
+                                            class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/usuario.php">Instituições</a></li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
                                         <?php
@@ -219,16 +224,20 @@ if (isset($_POST["usuario"])) {
                                             $saudacao_login = mysqli_fetch_assoc($saudacao_login);
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
-                                            <div class="dropdown nav-link">
-                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
-                                                    <a class="dropdown-item" href="../list_Instituition/list.institution.php">Empresa Cadastrada</a>
-                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
-                                                </div>
+                                        <div class="dropdown nav-link">
+                                            <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
+                                                <a class="dropdown-item"
+                                                    href="../list_Instituition/list.institution.php">Empresa
+                                                    Cadastrada</a>
+                                                <a class="dropdown-item" href="../sair.php">Sair</a>
                                             </div>
+                                        </div>
                                         <?php
                                         }
                                         ?>
@@ -275,7 +284,8 @@ if (isset($_POST["usuario"])) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="usuario">Seu Nome</label>
-                    <input class="form-control" type="text" name="usuario" id="usuario" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>" required minlength="2">
+                    <input class="form-control" type="text" name="usuario" id="usuario"
+                        value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>" required minlength="2">
                     <div class="invalid-feedback">
                         Nome Obrigatorio!
                     </div>
@@ -283,7 +293,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-4">
                     <label for="senha">Sobrenome:</label>
-                    <input class="form-control" type="text" name="sobrenome" id="sobrenome" value="<?php echo $dataUser_login["sobrenome"] ?>" required minlength="4">
+                    <input class="form-control" type="text" name="sobrenome" id="sobrenome"
+                        value="<?php echo $dataUser_login["sobrenome"] ?>" required minlength="4">
                     <div class="invalid-feedback">
                         Sobrenome Obrigatorio!
                     </div>
@@ -291,7 +302,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-4">
                     <label for="senha">Senha</label>
-                    <input class="form-control" type="password" name="senha" id="senha" value="<?php echo $dataUser_login["senha"] ?>" required minlength="4">
+                    <input class="form-control" type="password" name="senha" id="senha"
+                        value="<?php echo $dataUser_login["senha"] ?>" required minlength="4">
                     <div class="invalid-feedback">
                         Senha Obrigatoria!
                     </div>
@@ -302,7 +314,8 @@ if (isset($_POST["usuario"])) {
 
             <div class="form-group">
                 <label for="email">Seu Email</label>
-                <input class="form-control" type="email" name="email" id="email" value="<?php echo $dataUser_login["email"] ?>" required>
+                <input class="form-control" type="email" name="email" id="email"
+                    value="<?php echo $dataUser_login["email"] ?>" required>
                 <div class="invalid-feedback">
                     Email Obrigatorio!
                 </div>
@@ -312,7 +325,8 @@ if (isset($_POST["usuario"])) {
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="cpf">CPF</label>
-                    <input class="form-control" type="text" name="cpf" id="cpf" value="<?php echo $dataUser_login["cpf_cnpj"] ?>" required minlength="14">
+                    <input class="form-control" type="text" name="cpf" id="cpf"
+                        value="<?php echo $dataUser_login["cpf_cnpj"] ?>" required minlength="14">
                     <div class="invalid-feedback">
                         CPF Obrigatorio!
                     </div>
@@ -320,7 +334,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-3">
                     <label for="dataNascimento">Data de Nascimento</label>
-                    <input class="form-control" name="dataNascimento" id="dataNascimento" type="date" value="<?php echo $dataUser_login["dataNascimento"] ?>" required>
+                    <input class="form-control" name="dataNascimento" id="dataNascimento" type="date"
+                        value="<?php echo $dataUser_login["dataNascimento"] ?>" required>
                     <div class="invalid-feedback">
                         Data de Nascimento Obrigatorio!
                     </div>
@@ -358,12 +373,14 @@ if (isset($_POST["usuario"])) {
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="telefoneCelular">Telefone Celular</label>
-                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" value="<?php echo $dataUser_login["telefoneCelular"] ?>">
+                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular"
+                        value="<?php echo $dataUser_login["telefoneCelular"] ?>">
                 </div>
 
                 <div class="form-group col-md-3">
                     <label for="telefoneFixo">Telefone Fixo</label>
-                    <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo" value="<?php echo $dataUser_login["telefoneFixo"] ?>">
+                    <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo"
+                        value="<?php echo $dataUser_login["telefoneFixo"] ?>">
                 </div>
             </div>
 
@@ -378,7 +395,8 @@ if (isset($_POST["usuario"])) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="cep">CEP</label>
-                    <input class="form-control" type="text" name="cep" id="cep" id="cep" value="<?php echo $dataUser_login["cep"] ?>" required minlength="9">
+                    <input class="form-control" type="text" name="cep" id="cep" id="cep"
+                        value="<?php echo $dataUser_login["cep"] ?>" required minlength="9">
                     <div class="invalid-feedback">
                         CEP Obrigatorio!
                     </div>
@@ -386,7 +404,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-4">
                     <label for="estado">Estado</label>
-                    <input class="form-control" type="text" name="estado" id="estado" value="<?php echo $dataUser_login["estado"] ?>" required minlength="4">
+                    <input class="form-control" type="text" name="estado" id="estado"
+                        value="<?php echo $dataUser_login["estado"] ?>" required minlength="4">
                     <div class="invalid-feedback">
                         Estado Obrigatorio!
                     </div>
@@ -434,7 +453,8 @@ if (isset($_POST["usuario"])) {
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="bairro">Bairro</label>
-                    <input class="form-control" type="text" name="bairro" id="bairro" value="<?php echo $dataUser_login["bairro"] ?>" required minlength="3">
+                    <input class="form-control" type="text" name="bairro" id="bairro"
+                        value="<?php echo $dataUser_login["bairro"] ?>" required minlength="3">
                     <div class="invalid-feedback">
                         Bairro Obrigatorio!
                     </div>
@@ -442,7 +462,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-4">
                     <label for="rua_avenida">Rua/Avenida</label>
-                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" value="<?php echo $dataUser_login["rua_avenida"] ?>" required minlength="2">
+                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida"
+                        value="<?php echo $dataUser_login["rua_avenida"] ?>" required minlength="2">
                     <div class="invalid-feedback">
                         Rua ou Avenida Obrigatorio!
                     </div>
@@ -450,7 +471,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-4">
                     <label for="numero">Numero</label>
-                    <input class="form-control" type="number" name="numero" id="numero" value="<?php echo $dataUser_login["numero"] ?>" required minlength="1">
+                    <input class="form-control" type="number" name="numero" id="numero"
+                        value="<?php echo $dataUser_login["numero"] ?>" required minlength="1">
                     <div class="invalid-feedback">
                         Número Obrigatorio!
                     </div>
@@ -460,7 +482,8 @@ if (isset($_POST["usuario"])) {
 
             <div class="form-group">
                 <label for="adicional">Adicional</label>
-                <input class="form-control" type="text" name="adicional" id="adicional" value="<?php echo $dataUser_login["adicional"] ?>">
+                <input class="form-control" type="text" name="adicional" id="adicional"
+                    value="<?php echo $dataUser_login["adicional"] ?>">
             </div>
 
 
@@ -490,7 +513,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-6">
                     <label for="motiv_Adicional">Se clicou em outros nós conte qual foi o motivo?</label>
-                    <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional" value="<?php echo $dataUser_login["motiv_Adicional"] ?>">
+                    <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional"
+                        value="<?php echo $dataUser_login["motiv_Adicional"] ?>">
                 </div>
             </div>
             <!------------------------------------------------------------------------------------------------>
@@ -501,26 +525,30 @@ if (isset($_POST["usuario"])) {
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="remed">Toma algum remédio?</label>
-                    <input class="form-control" type="text" name="remed" id="remed" value="<?php echo $dataUser_login["remed"] ?>">
+                    <input class="form-control" type="text" name="remed" id="remed"
+                        value="<?php echo $dataUser_login["remed"] ?>">
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="alergRemedio">Alérgico a alguma medicação?</label>
-                    <input class="form-control" type="text" name="alergRemedio" id="alergRemedio" value="<?php echo $dataUser_login["alergRemedio"] ?>">
+                    <input class="form-control" type="text" name="alergRemedio" id="alergRemedio"
+                        value="<?php echo $dataUser_login["alergRemedio"] ?>">
                 </div>
             </div>
 
 
             <div class="form-group">
                 <label for="sintom">Tem sintomas? Quais?</label>
-                <input class="form-control" type="text" name="sintom" id="sintom" value="<?php echo $dataUser_login["sintom"] ?>">
+                <input class="form-control" type="text" name="sintom" id="sintom"
+                    value="<?php echo $dataUser_login["sintom"] ?>">
             </div>
 
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="doenc_Cronic">Alguma doença cronica?</label>
-                    <input class="form-control" type="text" name="doenc_Cronic" id="doenc_Cronic" value="<?php echo $dataUser_login["doenc_Cronic"] ?>">
+                    <input class="form-control" type="text" name="doenc_Cronic" id="doenc_Cronic"
+                        value="<?php echo $dataUser_login["doenc_Cronic"] ?>">
                 </div>
 
             </div>
@@ -544,15 +572,15 @@ if (isset($_POST["usuario"])) {
                             if ($minhaInst == $inst_principal) {
                                 ?>
 
-                                <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>" selected>
-                                    <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
-                                </option>
-                            <?php
+                        <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>" selected>
+                            <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
+                        </option>
+                        <?php
                                 } else {
                                     ?>
-                                <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>">
-                                    <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
-                                </option>
+                        <option value="<?php echo $linha["nomeUsuario_nomeFantasia"] ?>">
+                            <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]) ?>
+                        </option>
                         <?php
                             }
                         }
@@ -563,7 +591,8 @@ if (isset($_POST["usuario"])) {
 
                 <div class="form-group col-md-6">
                     <label for="levar_Inst">Vai levar alguma coisa para a instituição?</label>
-                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" value="<?php echo $dataUser_login["levar_Inst"] ?>">
+                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst"
+                        value="<?php echo $dataUser_login["levar_Inst"] ?>">
                 </div>
 
             </div>
@@ -572,19 +601,22 @@ if (isset($_POST["usuario"])) {
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Inst">Alergia a algum produto?</label>
-                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" value="<?php echo $dataUser_login["obs_Inst"] ?>">
+                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst"
+                        value="<?php echo $dataUser_login["obs_Inst"] ?>">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="obs_Intolerancia">Intolerância a algum alimento?</label>
-                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" value="<?php echo $dataUser_login["obs_Intolerancia"] ?>">
+                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia"
+                        value="<?php echo $dataUser_login["obs_Intolerancia"] ?>">
                 </div>
             </div>
 
 
-            <input type="hidden" name="usuario_instituicaoID" value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
+            <input type="hidden" name="usuario_instituicaoID"
+                value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
             <button type="submit" class="btn btn-info">Enviar</button>
 
 
@@ -613,7 +645,8 @@ if (isset($_POST["usuario"])) {
     <script src="fields.js" type="text/javascript"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js">
+    </script>
 </body>
 
 </html>

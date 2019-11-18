@@ -52,16 +52,18 @@ session_start();
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                             <a href="../IndexProject/Index.html" class="navbar-brand">
-                             </a>
-                             <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                 <a href="../Index/index.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px >
+                                <a href="../IndexProject/Index.html" class="navbar-brand">
+                                </a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../Index/index.php">
+                                    <img src="../Images/logo5.png" width=100px height=75px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
+                                    aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
                                 </button>
                             </div>
@@ -69,12 +71,15 @@ session_start();
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="#historias">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/usuario_instituicao.php">Instituições</a></li>
-                                    <li>
-                <!----------------------------------------------------------------------------------------->
-                <!---------------------------------Botao Saudação------------------------------------------>
+                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                            href="../afterLogin/usuario.php">Home</a></li>
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold"
+                                            href="#historias">Historia</a></li>
+                                    <li class="navbar-text nav-instituicoes"><a
+                                            class="nav-link text-dark font-weight-bold"
+                                            href="#instituicoes">Instituições</a></li>
+                                        <!----------------------------------------------------------------------------------------->
+                                        <!---------------------------------Botao Saudação------------------------------------------>
                                         <?php
                                         if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
                                             $user = $_SESSION["nomeUsuario_nomeFantasia"];
@@ -91,23 +96,27 @@ session_start();
                                             $saudacao_login = mysqli_fetch_assoc($saudacao_login);
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
-                                            <div class="dropdown nav-link">
-                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="dropdown nav-link">
+                                            <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
                                                 <h8> Bem vindo, <?php echo $nome ?> </h8>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
-                                                    <a class="dropdown-item" href="../list_Instituition/list.institution.php">Empresa Cadastrada</a>
-                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
-                                                </div>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
+                                                <a class="dropdown-item"
+                                                    href="../list_Instituition/list.institution.php">Empresa
+                                                    Cadastrada</a>
+                                                <a class="dropdown-item" href="../sair.php">Sair</a>
                                             </div>
+                                        </div>
                                         <?php
                                         }
                                         ?>
 
                                     </li>
-            <!---------------------------------Fechando Saudação--------------------------------------->
-            <!----------------------------------------------------------------------------------------->
+                                    <!---------------------------------Fechando Saudação--------------------------------------->
+                                    <!----------------------------------------------------------------------------------------->
                                     <!--Modal login ou senha invalido-->
                                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalExemplo">
@@ -132,76 +141,56 @@ session_start();
 
     <!----------------------------------------------------------------------------------------->
 
-        <!----------------------------------------------------------------------------------------->
-
-        <section class="background2">
-
-<div class="container-fluid">
-    <div id="historias">
-        <h1 class="text-center">Inicio da Historia</h1>
-        <p class="text-center">Proin quis sapien id mi fringilla pharetra. Nullam vitae sapien sit amet risus
-            elementum vehicula ac sed felis. Nullam molestie lobortis magna ac finibus. Aenean consequat
-            sagittis tempor. Morbi mollis nibh et turpis tincidunt, nec aliquam
-            sem tempor. Phasellus mattis ligula ac urna mollis, in porttitor justo faucibus. In efficitur vitae
-            metus tristique varius. Praesent id arcu auctor, ornare odio eget, aliquet urna. Nam a ornare dui.
-        </p>
-
-        <p class="text-center"> Pellentesque rutrum vulputate risus, in placerat ex facilisis vitae. Quisque
-            hendrerit rutrum lorem, vitae venenatis velit porta non. Suspendisse at urna dapibus, volutpat risus
-            at, lobortis ex. Morbi et nisl eget arcu ultrices rutrum.
-            Praesent et enim et orci euismod mattis. Mauris rhoncus, sem sit amet porttitor condimentum, metus
-            ex laoreet lorem, ac blandit nisi libero a diam. Aliquam erat volutpat. Mauris faucibus lorem eu
-            imperdiet porta. Etiam vitae egestas
-            nisl. Curabitur ac erat nunc. Morbi dictum blandit felis, a feugiat ligula luctus eget. Sed pharetra
-            fringilla placerat. In facilisis auctor risus. Nulla vel lectus sapien. Pellentesque vel mauris
-            libero. Mauris placerat dictum diam
-            sed tincidunt.</p>
-
-        <p class="text-center"> Fusce ac libero non justo volutpat venenatis in non elit. Cras fermentum
-            ultricies rhoncus. Aliquam nec nisl ut erat congue faucibus et at ex. Nunc rhoncus nisi leo, in
-            sagittis tellus ullamcorper id. Sed sit amet massa lacinia, euismod
-            nulla in, gravida leo. Etiam cursus porta felis ut tempus. Phasellus tincidunt finibus nulla et
-            laoreet. Nunc est ex, pretium at odio sit amet, euismod volutpat ex. Vestibulum et justo at libero
-            imperdiet gravida. Fusce sed egestas
-            enim. Pellentesque euismod, sapien eget pellentesque ornare, sem sem blandit neque, vel consequat
-            dolor mauris in diam. Etiam accumsan id nisl ut dignissim. Nullam ac vulputate sem. Etiam et nunc
-            pharetra dui viverra venenatis in ac
-            dolor. Sed maximus urna a volutpat egestas. Vivamus in interdum nisi.</p>
-
-        <p class="text-center"> Etiam non scelerisque neque. Donec tincidunt sollicitudin neque, et fermentum
-            orci imperdiet a. Praesent sagittis ultricies elit eu consectetur. Nam non molestie ligula. Aenean
-            ornare feugiat leo, ut porta ante volutpat sed. Fusce porttitor
-            bibendum justo nec suscipit. Donec mattis tristique nulla sed viverra. Suspendisse id turpis a nunc
-            sodales faucibus. Proin eu ligula feugiat, malesuada velit vitae, tempus lacus. Nulla finibus
-            volutpat urna, et egestas mi egestas
-            eget. Phasellus urna ligula, finibus vitae lacinia quis, cursus ac nunc.</p>
-
-        <p class="text-center"> Cras a fermentum massa. Pellentesque suscipit ut mauris at ultrices. Nulla
-            malesuada eget leo ac condimentum. Maecenas ultrices neque nibh, at dictum libero pulvinar at.
-            Praesent euismod sagittis neque, eget eleifend nisl accumsan a. Suspendisse
-            euismod tristique lorem, ac dictum urna mattis id. Sed nec lectus dui.</p>
-    </div>
-</div>
-
-
-    <main>
-        USuARIO
-        <?php
-        if (isset($_SESSION["usuario_instituicaoID"])) {
-            echo $_SESSION["usuario_instituicaoID"];
-        }
-        ?>
-        TIPO DE USUARIO
-        <?php
-        if (isset($_SESSION["tipo"])) {
-            echo $_SESSION["tipo"];
-        }
-        ?>
-    </main>
-
-
     <!----------------------------------------------------------------------------------------->
 
+    <section class="background2">
+
+        <div class="container-fluid">
+            <div id="historias">
+                <h1 class="text-center">Inicio da Historia</h1>
+                <p class="text-center">Proin quis sapien id mi fringilla pharetra. Nullam vitae sapien sit amet risus
+                    elementum vehicula ac sed felis. Nullam molestie lobortis magna ac finibus. Aenean consequat
+                    sagittis tempor. Morbi mollis nibh et turpis tincidunt, nec aliquam
+                    sem tempor. Phasellus mattis ligula ac urna mollis, in porttitor justo faucibus. In efficitur vitae
+                    metus tristique varius. Praesent id arcu auctor, ornare odio eget, aliquet urna. Nam a ornare dui.
+                </p>
+
+                <p class="text-center"> Pellentesque rutrum vulputate risus, in placerat ex facilisis vitae. Quisque
+                    hendrerit rutrum lorem, vitae venenatis velit porta non. Suspendisse at urna dapibus, volutpat risus
+                    at, lobortis ex. Morbi et nisl eget arcu ultrices rutrum.
+                    Praesent et enim et orci euismod mattis. Mauris rhoncus, sem sit amet porttitor condimentum, metus
+                    ex laoreet lorem, ac blandit nisi libero a diam. Aliquam erat volutpat. Mauris faucibus lorem eu
+                    imperdiet porta. Etiam vitae egestas
+                    nisl. Curabitur ac erat nunc. Morbi dictum blandit felis, a feugiat ligula luctus eget. Sed pharetra
+                    fringilla placerat. In facilisis auctor risus. Nulla vel lectus sapien. Pellentesque vel mauris
+                    libero. Mauris placerat dictum diam
+                    sed tincidunt.</p>
+
+                <p class="text-center"> Fusce ac libero non justo volutpat venenatis in non elit. Cras fermentum
+                    ultricies rhoncus. Aliquam nec nisl ut erat congue faucibus et at ex. Nunc rhoncus nisi leo, in
+                    sagittis tellus ullamcorper id. Sed sit amet massa lacinia, euismod
+                    nulla in, gravida leo. Etiam cursus porta felis ut tempus. Phasellus tincidunt finibus nulla et
+                    laoreet. Nunc est ex, pretium at odio sit amet, euismod volutpat ex. Vestibulum et justo at libero
+                    imperdiet gravida. Fusce sed egestas
+                    enim. Pellentesque euismod, sapien eget pellentesque ornare, sem sem blandit neque, vel consequat
+                    dolor mauris in diam. Etiam accumsan id nisl ut dignissim. Nullam ac vulputate sem. Etiam et nunc
+                    pharetra dui viverra venenatis in ac
+                    dolor. Sed maximus urna a volutpat egestas. Vivamus in interdum nisi.</p>
+
+                <p class="text-center"> Etiam non scelerisque neque. Donec tincidunt sollicitudin neque, et fermentum
+                    orci imperdiet a. Praesent sagittis ultricies elit eu consectetur. Nam non molestie ligula. Aenean
+                    ornare feugiat leo, ut porta ante volutpat sed. Fusce porttitor
+                    bibendum justo nec suscipit. Donec mattis tristique nulla sed viverra. Suspendisse id turpis a nunc
+                    sodales faucibus. Proin eu ligula feugiat, malesuada velit vitae, tempus lacus. Nulla finibus
+                    volutpat urna, et egestas mi egestas
+                    eget. Phasellus urna ligula, finibus vitae lacinia quis, cursus ac nunc.</p>
+
+                <p class="text-center"> Cras a fermentum massa. Pellentesque suscipit ut mauris at ultrices. Nulla
+                    malesuada eget leo ac condimentum. Maecenas ultrices neque nibh, at dictum libero pulvinar at.
+                    Praesent euismod sagittis neque, eget eleifend nisl accumsan a. Suspendisse
+                    euismod tristique lorem, ac dictum urna mattis id. Sed nec lectus dui.</p>
+            </div>
+        </div>
 
 
     </section>
@@ -214,7 +203,71 @@ session_start();
 
 
 
+    <!----------------------------------------------------------------------------------------->
 
+
+
+
+    <!--Titulo GRID/CARD-->
+    <div class="container-fluid">
+        <div id="instituicoes">
+
+
+            <hr>
+            <h1 class="text-center">Instituições de Apoio</h1>
+
+
+            <!--GRID-->
+
+            <div class="row">
+
+                <?php
+    //consultar no banco de dados
+    $result_usuario = "SELECT * FROM tb_usuario where tipo = 2 ";
+    $resultado_usuario = mysqli_query($conecta, $result_usuario);
+    while ($linha = mysqli_fetch_assoc($resultado_usuario)) {
+        ?>
+
+                <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="card bg-light">
+                        <img class="card-img-top img-fluid" src="../Uploads/<?php echo $linha["upload_file"] ?>"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $linha["nomeUsuario_nomeFantasia"] ?></h5>
+                            <p class="card-text"><?php echo $linha["brev_apresent"] ?></p>
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <h5>Endereço:</h5>
+                                </small>
+                                <small class="text-muted"><?php echo $linha["rua_avenida"] ?>,
+                                    <?php echo $linha["numero"] ?>, <?php echo $linha["estado"] ?> -
+                                    <?php echo $linha["cidade"] ?>, <?php echo $linha["cep"] ?></small>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <h5>Contato:</h5>
+                                </small>
+                                <small class="text-muted">Telefone: <?php echo $linha["telefoneFixo"] ?> <br> Celular:
+                                    <?php echo $linha["telefoneCelular"] ?> <br> WhatsApp:
+                                    <?php echo $linha["wpp"] ?></small>
+                            </div>
+                            <a href="#" class="btn btn-primary">Visitar</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Fechando a div col-xs-12 col-sm-6 col-md-4 col-lg-4-->
+                <?php
+        }
+        ?>
+
+
+            </div>
+            <!--Fechando a div row-->
+
+        </div>
+        <!--Fechando o div instituicoes -->
+    </div>
+    <!--Fechando a div container-fluid-->
 
 
 
@@ -233,7 +286,7 @@ session_start();
     <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
     <script src="../Bootstrap/js/bootstrap.min.js"></script>
     <script src="../Bootstrap/js/jquery-3.4.1.min.js"></script>
-    <script src="Index.js" type="text/javascript"></script>
+    <script src="animations.js" type="text/javascript"></script>
 
 </body>
 

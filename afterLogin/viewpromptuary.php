@@ -77,8 +77,6 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
                                     <ul class="navbar-nav ml-auto text-light nav-menu">
                                         <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
-                                        <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Historia</a></li>
-                                        <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao_instituicoes.php">Instituições</a></li>
                                         <li>
                                             <!----------------------------------------------------------------------------------------->
                                             <!---------------------------------Botao Saudação------------------------------------------>
