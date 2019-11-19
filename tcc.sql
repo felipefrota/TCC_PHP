@@ -61,15 +61,15 @@ CREATE TABLE tb_usuario(
 DROP TABLE IF EXISTS `tb_prontuario_sociodemograficos`;
 CREATE TABLE tb_prontuario_sociodemograficos(
 `id_prontuario_sociodemograficos` int(8) PRIMARY KEY AUTO_INCREMENT,
-`idade` varchar(10) DEFAULT NULL,
-`estado_civil` varchar(5) DEFAULT NULL,
-`prole` varchar(5) DEFAULT NULL,
-`escolaridade` varchar (5) DEFAULT NULL,
-`profissao` varchar (5) DEFAULT NULL,
-`renda` varchar (5) DEFAULT NULL,
-`responsavel_sustento_familia` varchar (5) DEFAULT NULL,
-`religiao` varchar (5) DEFAULT NULL,
-`qnt_internacoes` varchar (5) DEFAULT NULL,
+`idade` varchar(20) DEFAULT NULL,
+`estado_civil` varchar(20) DEFAULT NULL,
+`prole` varchar(20) DEFAULT NULL,
+`escolaridade` varchar (20) DEFAULT NULL,
+`profissao` varchar (20) DEFAULT NULL,
+`renda` varchar (20) DEFAULT NULL,
+`responsavel_sustento_familia` varchar (20) DEFAULT NULL,
+`religiao` varchar (20) DEFAULT NULL,
+`qnt_internacoes` varchar (20) DEFAULT NULL,
 `id_usuario` integer,
  CONSTRAINT fk_usuPronutario FOREIGN KEY (`id_usuario`) REFERENCES tb_usuario (`usuario_instituicaoID`)
 );
