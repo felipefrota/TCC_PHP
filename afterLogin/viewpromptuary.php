@@ -62,7 +62,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                 <div class="navbar-header">
                                     <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                         <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                        <a href="../Index/index.php">
+                                        <a href="../afterLogin/instituicao.php">
                                          <img src="../Images/logo5.png" width=100px height=75px >
                                          </a>
                                     <!------------------------------------ Fechando Logo ----------------------------------------------------------->
@@ -99,7 +99,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item" href="../EditData/edit.instituition.php">Perfil</a>
-                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">Imagens instituição</a>
                                                         <a class="dropdown-item" href="../sair.php">Sair</a>
                                                     </div>
                                                 </div>
