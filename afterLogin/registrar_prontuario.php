@@ -149,8 +149,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="estadoCivil">Estado Civil</label>
-                    <select class="form-control" name="EstadoCivil" id="EstadoCivil">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="EstadoCivil" id="EstadoCivil" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Solteiro">Solteiro</option>
                         <option value="Casado">Casado</option>
                         <option value="Divorciado">Divorciado</option>
@@ -161,8 +161,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-3">
                     <label for="prole">Filhos(a)</label>
-                    <select class="form-control" name="prole" id="prole">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="prole" id="prole" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="01">01</option>
                         <option value="02">02</option>
                         <option value="03">03</option>
@@ -172,8 +172,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-3">
                     <label for="Escolaridade">Escolaridade</label>
-                    <select class="form-control" name="escolaridade" id="escolaridade">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="escolaridade" id="escolaridade" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Nunca estudou">Nunca estudou</option>
                         <option value="Fundamental incompleto">Fundamental incompleto</option>
                         <option value="Médio incompleto">Médio incompleto</option>
@@ -186,8 +186,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-3">
                     <label for="profissao">Profissão</label>
-                    <select class="form-control" name="profissao" id="profissao">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="profissao" id="profissao" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Empregado">Empregado</option>
                         <option value="Desempregado">Desempregado</option>
                         <option value="Outros">Outros</option>
@@ -197,8 +197,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="renda">Renda</label>
-                    <select class="form-control" name="renda" id="renda">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="renda" id="renda" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="≤ 1 salário mínimo">≤ 1 salário mínimo</option>
                         <option value="> 1 e ≤ 2 salários mínimos">> 1 e ≤ 2 salários mínimos</option>
                         <option value="> 2 e ≤ 3 salários mínimos">> 2 e ≤ 3 salários mínimos</option>
@@ -207,8 +207,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-6">
                     <label for="responsavel">Responsável pelo Sustento da Família</label>
-                    <select class="form-control" name="responsavel" id="responsavel">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="responsavel" id="responsavel" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="O próprio">O próprio</option>
                         <option value="Pai">Pai</option>
                         <option value="Mãe">Mãe</option>
@@ -221,8 +221,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 <div class="form-group col-md-3">
                     <label for="religiao">Religião</label>
-                    <select class="form-control" name="religiao" id="religiao">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="religiao" id="religiao" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Católico">Católico</option>
                         <option value="Evangélico">Evangélico</option>
                         <option value="Espírita">Espírita</option>
@@ -241,48 +241,48 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="pai">Pai</label>
-                    <select class="form-control" name="pai" id="pai">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="pai" id="pai" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="mae">Mãe</label>
-                    <select class="form-control" name="mae" id="mae">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="mae" id="mae" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="irmao">Irmão(a)</label>
-                    <select class="form-control" name="irmao" id="irmao">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="irmao" id="irmao" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="avo">Avô(ó)</label>
-                    <select class="form-control" name="avo" id="avo">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="avo" id="avo" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="filho">Filho(a)</label>
-                    <select class="form-control" name="filho" id="filho">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="filho" id="filho" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="outros">Outros</label>
-                    <select class="form-control" name="outros" id="outros">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="outros" id="outros" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -295,32 +295,32 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="hipertensao">Hipertensão Arterial Sistêmica</label>
-                    <select class="form-control" name="hipertensao" id="hipertensao">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="hipertensao" id="hipertensao" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="diabetes">Diabetes Mlellitus</label>
-                    <select class="form-control" name="diabetes" id="diabetes">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="diabetes" id="diabetes" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="dislipidemia">Dislipidemia</label>
-                    <select class="form-control" name="dislipidemia" id="dislipidemia">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="dislipidemia" id="dislipidemia" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cirrose">Cirrose Hepática</label>
-                    <select class="form-control" name="cirrose" id="cirrose">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="cirrose" id="cirrose" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -328,7 +328,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 <div class="form-group col-md-3">
                     <label for="pulmonar">Doença Pulmonar Obstrutiva Crônica</label>
                     <select class="form-control" name="pulmonar" id="pulmonar">
-                        <option selected>Escolher...</option>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -337,32 +337,32 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="asma">Asma</label>
-                    <select class="form-control" name="asma" id="asma">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="asma" id="asma" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="anemia">Anemia</label>
-                    <select class="form-control" name="anemia" id="anemia">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="anemia" id="anemia" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="hiv">HIV</label>
-                    <select class="form-control" name="hiv" id="hiv">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="hiv" id="hiv" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="hepatite">Hepatite B ou C</label>
-                    <select class="form-control" name="hepatite" id="hepatite">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="hepatite" id="hepatite" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -376,48 +376,48 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="tabaco">Tabaco</label>
-                    <select class="form-control" name="tabaco" id="tabaco">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="tabaco" id="tabaco" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="alcool">Álcool</label>
-                    <select class="form-control" name="alcool" id="alcool">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="alcool" id="alcool" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="cocaina">Cocaína</label>
-                    <select class="form-control" name="cocaina" id="cocaina">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="cocaina" id="cocaina" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="crack">Crack</label>
-                    <select class="form-control" name="crack" id="crack">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="crack" id="crack" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="maconha">Maconha</label>
-                    <select class="form-control" name="maconha" id="maconha">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="maconha" id="maconha" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-2">
                     <label for="inalantes">Inalantes</label>
-                    <select class="form-control" name="inalantes" id="inalantes">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="inalantes" id="inalantes" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -426,32 +426,32 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="alucinogenos">Alucinógenos</label>
-                    <select class="form-control" name="alucinogenos" id="alucinogenos">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="alucinogenos" id="alucinogenos" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="anfetaminas">Anfetaminas</label>
-                    <select class="form-control" name="anfetaminas" id="anfetaminas">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="anfetaminas" id="anfetaminas" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="benzodiazepinicos">Benzodiazepínicos</label>
-                    <select class="form-control" name="benzodiazepinicos" id="benzodiazepinicos">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="benzodiazepinicos" id="benzodiazepinicos" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="opioides">Opioides</label>
-                    <select class="form-control" name="opioides" id="opioides">
-                        <option selected>Escolher...</option>
+                    <select class="form-control" name="opioides" id="opioides" required>
+                        <option value="" selected>Escolher...</option>
                         <option value="Sim">Sim</option>
                         <option value="Não">Não</option>
                     </select>
@@ -463,7 +463,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
             <div class="form-group">
                 <label for="diagnostico"></label>
-                <textarea class="form-control" name="diagnostico" id="diagnostico" rows="10" placeholder="Digite aqui o diagnóstico do paciente"></textarea>
+                <textarea class="form-control" name="diagnostico" id="diagnostico" rows="10" placeholder="Digite aqui o diagnóstico do paciente" required></textarea>
             </div>
             </br></br>
 
@@ -473,7 +473,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
             <div class="form-group">
                 <label for="receituario"></label>
-                <textarea class="form-control" name="receituario" id="receituario" rows="10" placeholder="Digite aqui o receituário do paciente"></textarea>
+                <textarea class="form-control" name="receituario" id="receituario" rows="10" placeholder="Digite aqui o receituário do paciente" required></textarea>
             </div>
         </div></br></br>
 
