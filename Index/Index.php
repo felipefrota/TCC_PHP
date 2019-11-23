@@ -218,13 +218,13 @@ if (isset($_POST["usuario"])) {
              <li class="nav-item pill-1">
                  <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
                  <div class="form-group">
-                 <a class="nav-link active js-scroll-trigger" href="#cadastro_usuario" class="btn btn-dark"
+                 <a class="nav-link active js-scroll-trigger btn btn-dark" href="#cadastro_usuario"
                     role="button" aria-pressed="true">Usuario</a>
                  </div>
                     <div class="form-group">
-                     <a class="nav-link active js-scroll-trigger" href="#cadastro_instituicao"
-                        class="btn btn-dark" role="button"
-                        aria-pressed="true">Instituição</a>
+                     <a class="nav-link active js-scroll-trigger btn btn-dark" href="#cadastro_instituicao"
+                     role="button" aria-pressed="true">Instituição</a>
+                    </div>
             </li>
         </ul>
 
