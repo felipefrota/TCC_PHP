@@ -341,95 +341,54 @@ Abrir modal de demonstração
           <h2 class="section-heading text-uppercase">Instituições Cadastradas</h2>
           <h3 class="section-subheading text-muted">Conheça nossas instituições parceiras.</h3>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
+        <hr>
+            <!--GRID-->
+            <div class="row">
+                <?php
+            //consultar no banco de dados
+            $result_usuario = "SELECT * FROM tb_usuario where tipo = 2 ";
+            $resultado_usuario = mysqli_query($conecta, $result_usuario);
+            while ($linha = mysqli_fetch_assoc($resultado_usuario)) {
+                ?>
+
+                <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                    <div class="card bg-light">
+                        <img class="card-img-top img-fluid" src="../Uploads/<?php echo $linha["upload_file"] ?>"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $linha["nomeUsuario_nomeFantasia"] ?></h5>
+                            <p class="card-text"><?php echo $linha["brev_apresent"] ?></p>
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <h5>Endereço:</h5>
+                                </small>
+                                <small class="text-muted"><?php echo $linha["rua_avenida"] ?>,
+                                    <?php echo $linha["numero"] ?>, <?php echo $linha["estado"] ?> - <?php echo $linha["cidade"] ?>, <?php echo $linha["cep"] ?></small>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <h5>Contato:</h5>
+                                </small>
+                                <small class="text-muted">Telefone: <?php echo $linha["telefoneFixo"] ?> <br> Celular:
+                                    <?php echo $linha["telefoneCelular"] ?> <br> WhatsApp: <?php echo $linha["wpp"] ?></small>
+                            </div>
+                            <a href="<?php echo $linha["url"]?>" class="btn btn-primary">Visitar</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Fechando a div col-xs-12 col-sm-6 col-md-4 col-lg-4-->
+                <?php
+                }
+                ?>
+
+
             </div>
-            <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Threads</h4>
-            <p class="text-muted">Illustration</p>
-          </div>
+            <!--Fechando a div row-->
+
         </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Explore</h4>
-            <p class="text-muted">Graphic Design</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Finish</h4>
-            <p class="text-muted">Identity</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Lines</h4>
-            <p class="text-muted">Branding</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Southwest</h4>
-            <p class="text-muted">Website Design</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Window</h4>
-            <p class="text-muted">Photography</p>
-          </div>
-        </div>
-      </div>
+        <!--Fechando o div instituicoes -->
     </div>
-  </section>
+    <!--Fechando a div container-fluid-->
 
   <!-- About -->
   <section class="page-section" id="about">
@@ -639,7 +598,7 @@ Abrir modal de demonstração
           
 
 
-        <span class="d-block p-2 bg-dark text-white">Cadastro</span>
+        <span class="d-block p-2 bg-dark text-white">Cadastro Usuário</span>
     <hr /> <br />
 
     <!-------------------------------------------------------------------------------------------------------------->
