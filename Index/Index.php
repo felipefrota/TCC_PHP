@@ -1,54 +1,53 @@
-
-<?php require_once("../conexao/conexao.php"); ?> 
+<?php require_once("../conexao/conexao.php"); ?>
 <?php
 //variavel de sessao
 session_start();
 
 if (isset($_POST["usuario"])) {
-    $usuario = $_POST["usuario"];
-    $senha = $_POST["senha"];
+  $usuario = $_POST["usuario"];
+  $senha = $_POST["senha"];
 
-    $login = "SELECT * ";
-    $login .= "FROM tb_usuario ";
-    $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
+  $login = "SELECT * ";
+  $login .= "FROM tb_usuario ";
+  $login .= "WHERE email = '{$usuario}' and senha = '{$senha}' ";
 
-    $acesso = mysqli_query($conecta, $login);
-    if (!$acesso) {
-        die("Falha na consulta ao banco");
-    }
-
-
-    $informacao = mysqli_fetch_assoc($acesso);
-
-    if (empty($informacao)) {
-        $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
-        header("location:Index/index.php");
-    } else {
-
-        $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
-        header("location:../afterLogin/usuario.php");
-    } 
+  $acesso = mysqli_query($conecta, $login);
+  if (!$acesso) {
+    die("Falha na consulta ao banco");
+  }
 
 
+  $informacao = mysqli_fetch_assoc($acesso);
 
+  if (empty($informacao)) {
+    $mensagem = "<script>alert('Login incorreto'); location.href='index.php';</script>";
+    header("location:Index/index.php");
+  } else {
 
-    //------------------------------------------------------------------------------------------------------//
-    //Puxando as instituições do banco
-    $instituicoes = "SELECT * ";
-    $instituicoes .= "FROM tb_usuario ";
-    $instituicoes .= "WHERE tipo = 2 ";
-    $lista_instituicoes = mysqli_query($conecta, $instituicoes);
-    if (!$lista_instituicoes) {
-        die("erro no banco ao procurar instituções");
-    }
+    $_SESSION["user_portal"] = $informacao["usuario_instituicaoID"];
+    header("location:../afterLogin/usuario.php");
+  }
 
 
 
 
+  //------------------------------------------------------------------------------------------------------//
+  //Puxando as instituições do banco
+  $instituicoes = "SELECT * ";
+  $instituicoes .= "FROM tb_usuario ";
+  $instituicoes .= "WHERE tipo = 2 ";
+  $lista_instituicoes = mysqli_query($conecta, $instituicoes);
+  if (!$lista_instituicoes) {
+    die("erro no banco ao procurar instituções");
+  }
 
 
-    // echo $usuario . "<br>";
-    // echo $senha;    
+
+
+
+
+  // echo $usuario . "<br>";
+  // echo $senha;    
 }
 
 ?>
@@ -68,22 +67,22 @@ if (isset($_POST["usuario"])) {
   <meta name="author" content="">
 
   <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../_CSS/styles.css" rel="stylesheet">
+  <link href="../_CSS/styles.css" rel="stylesheet">
 
 
   <title>PROJETO-TCC</title>
 
-  
-    <!------------------------------------ERROR LOGIN---------------------------------------------->
-    <?php
-    if (isset($mensagem)) {
-        ?>
+
+  <!------------------------------------ERROR LOGIN---------------------------------------------->
+  <?php
+  if (isset($mensagem)) {
+    ?>
     <p><?php echo $mensagem ?></p>
 
-    <?php
-    }
-    ?>
-    <!--------------------------------------------------------------------------------------------->
+  <?php
+  }
+  ?>
+  <!--------------------------------------------------------------------------------------------->
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -103,179 +102,170 @@ if (isset($_POST["usuario"])) {
 </head>
 
 <body id="page-top">
-  
-<!-- Modal voce se cadastrou com sucesso-->
-<div class="modal fade" id="modalCadastrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado com sucesso! </br> Agora faça login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" href="#top" >Fechar</button>
-        
+
+  <!-- Modal voce se cadastrou com sucesso-->
+  <div class="modal fade" id="modalCadastrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado com sucesso! </br> Agora faça login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" href="#top">Fechar</button>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<!--Mostrar Janela Login-->
-<form action="../login.php" method="post" >
+  <!--Mostrar Janela Login-->
+  <form action="../login.php" method="post">
 
-<div class="container-fluid">
-  <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog"
-      aria-labelledby="" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="login">
+    <div class="container-fluid">
+      <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="login">
           <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title text-black-50" id="tituloTela">
-                      Faca seu Login</h5>
-                  <button type="button" class="close" data-dismiss="modal"
-                      aria-label="Fechar">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <form class="form-horizontal">
-                      <div class="form-group row">
-                          <div class="col-sm-10">
-                              <input class="form-control" type="email"
-                                  name="usuario" placeholder="Email">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-10">
-                              <input class="form-control" type="password"
-                                  name="senha" placeholder="Senha">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-sm-10">
-                              <a
-                                  href="../recuperarSenha/recuperarSenha.php">Esqueceu
-                                  sua senha?</a>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-              <div class="modal-footer">
-
-                  <button type="submit" id="submit" value="login"
-                      class="btn btn-info">Login</button>
-
-
-              </div>
-          </div>
-      </div>
-  </div>
-  <!--Fechando modal/ Fechando tela login-->
-
-  
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Novel Life</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Instituições</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Nosso time</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
-          </li>
-               <!---------botão cadastro-------->
-          <li>
-               <a class="nav-item">
-                  <button type="button" class="btn btn-outline-warning janelaLogin"
-                   data-toggle="modal" data-target="#telaLogin">Login</button>
-               </a>
-          <li>
-                <div class="nav-item">
-                 <button type="button" class="btn btn-outline-warning" data-toggle="dropdown"
-                 data-target="">Cadastro</button>
-
-         <ul class="nav nav-pills" >
-             <li class="nav-item pill-1">
-                 <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
-                 <div class="form-group">
-                 <a class="nav-link active js-scroll-trigger btn btn-dark" href="#cadastro_usuario"
-                    role="button" aria-pressed="true">Usuario</a>
-                 </div>
-                    <div class="form-group">
-                     <a class="nav-link active js-scroll-trigger btn btn-dark" href="#cadastro_instituicao"
-                     role="button" aria-pressed="true">Instituição</a>
-                    </div>
-            </li>
-        </ul>
-
+            <div class="modal-header">
+              <h5 class="modal-title text-black-50" id="tituloTela">
+                Faca seu Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="form-horizontal">
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <input class="form-control" type="email" name="usuario" placeholder="Email">
                   </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <input class="form-control" type="password" name="senha" placeholder="Senha">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-10">
+                    <a href="../recuperarSenha/recuperarSenha.php">Esqueceu
+                      sua senha?</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
 
-                 </form>
+              <button type="submit" id="submit" value="login" class="btn btn-info">Login</button>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Fechando modal/ Fechando tela login-->
+
+
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+          <a class="navbar-brand js-scroll-trigger" href="#page-top">Novel Life</a>
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#portfolio">Instituições</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#team">Nosso time</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
+              </li>
+              <!---------botão cadastro-------->
+              <li>
+                <a class="nav-item">
+                  <button type="button" class="btn btn-outline-warning janelaLogin" data-toggle="modal" data-target="#telaLogin">Login</button>
+                </a>
+              <li>
+                <div class="nav-item">
+                  <button type="button" class="btn btn-outline-warning" data-toggle="dropdown" data-target="">Cadastro</button>
+
+                  <ul class="nav nav-pills">
+                    <li class="nav-item pill-1">
+                      <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
+                        <div class="form-group">
+                          <a class="nav-link active js-scroll-trigger btn btn-dark" href="#cadastro_usuario" role="button" aria-pressed="true">Usuario</a>
+                        </div>
+                        <div class="form-group">
+                          <a class="nav-link active js-scroll-trigger btn btn-dark" href="#cadastro_instituicao" role="button" aria-pressed="true">Instituição</a>
+                        </div>
+                    </li>
+                  </ul>
 
                 </div>
+
               </li>
-                 
-</div>
-</form>
-</li>
-
-<!---MODAL 2--->
+          </div>
+        </div>
+  </form>
 
 
+  </div>
+  </form>
+  </li>
 
-<!--Modal login ou senha invalido-->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+  <!---MODAL 2--->
+
+
+
+  <!--Modal login ou senha invalido-->
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
 data-target="#modalExemplo">
 Abrir modal de demonstração
 </button> -->
 
-<!-- Modal -->
-<!---------------------------------------------------------------------------->
-     
-             
-
-
-           </ul>
-                            </div>
-                        </div>
-                    </nav>
-
-
-                </div>
-            </div>
-
-
-    </header>
-    <!--Fechando o Div:Nav-Bar-->
-
-
-    <!----------------------------------------------------------------------------------------->
+  <!-- Modal -->
+  <!---------------------------------------------------------------------------->
 
 
 
-        </ul>
-      </div>
-    </div>
+
+  </ul>
+  </div>
+  </div>
+  </nav>
+
+
+  </div>
+  </div>
+
+
+  </header>
+  <!--Fechando o Div:Nav-Bar-->
+
+
+  <!----------------------------------------------------------------------------------------->
+
+
+
+  </ul>
+  </div>
+  </div>
   </nav>
 
   <!-- Header -->
@@ -288,9 +278,8 @@ Abrir modal de demonstração
       </div>
     </div>
 
-      <!-----------------------------------------Botão fluuante whatsapp-------------------------------------------------->
-      <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5561985294948"><img src="../Images/botao_flutuante.png"
-        style="height:80px; position:fixed; bottom: 25px; right: 25px; z-index:100;" data-selector="img"></a>
+    <!-----------------------------------------Botão fluuante whatsapp-------------------------------------------------->
+    <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5561985294948"><img src="../Images/botao_flutuante.png" style="height:80px; position:fixed; bottom: 25px; right: 25px; z-index:100;" data-selector="img"></a>
 
   </header>
 
@@ -307,8 +296,8 @@ Abrir modal de demonstração
       <div class="row text-center">
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
-             <i class="fas fa-circle fa-stack-2x text-primary"></i> 
-             <i class="fas fa-chalkboard-teacher fa-stack-1x fa-inverse"></i> 
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-chalkboard-teacher fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Plataforma Intermediadora</h4>
           <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
@@ -333,62 +322,62 @@ Abrir modal de demonstração
     </div>
   </section>
 
-  <!-- Portfolio Grid -->
+  <!-- Portfolio CART -->
   <section class="bg-light page-section" id="portfolio">
     <div class="container">
+      <!-- <div class="row"> -->
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">Instituições Cadastradas</h2>
+        <h3 class="section-subheading text-muted">Conheça nossas instituições parceiras.</h3>
+      </div>
+      <hr>
+      <!--CART-->
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Instituições Cadastradas</h2>
-          <h3 class="section-subheading text-muted">Conheça nossas instituições parceiras.</h3>
-        </div>
-        <hr>
-            <!--GRID-->
-            <div class="row">
-                <?php
-            //consultar no banco de dados
-            $result_usuario = "SELECT * FROM tb_usuario where tipo = 2 ";
-            $resultado_usuario = mysqli_query($conecta, $result_usuario);
-            while ($linha = mysqli_fetch_assoc($resultado_usuario)) {
-                ?>
+        <?php
+        //consultar no banco de dados
+        $result_usuario = "SELECT * FROM tb_usuario where tipo = 2 ";
+        $resultado_usuario = mysqli_query($conecta, $result_usuario);
+        while ($linha = mysqli_fetch_assoc($resultado_usuario)) {
+          ?>
 
-                <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                    <div class="card bg-light">
-                        <img class="card-img-top img-fluid" src="../Uploads/<?php echo $linha["upload_file"] ?>"
-                            alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $linha["nomeUsuario_nomeFantasia"] ?></h5>
-                            <p class="card-text"><?php echo $linha["brev_apresent"] ?></p>
-                            <div class="card-footer">
-                                <small class="text-muted">
-                                    <h5>Endereço:</h5>
-                                </small>
-                                <small class="text-muted"><?php echo $linha["rua_avenida"] ?>,
-                                    <?php echo $linha["numero"] ?>, <?php echo $linha["estado"] ?> - <?php echo $linha["cidade"] ?>, <?php echo $linha["cep"] ?></small>
-                            </div>
-                            <div class="card-footer">
-                                <small class="text-muted">
-                                    <h5>Contato:</h5>
-                                </small>
-                                <small class="text-muted">Telefone: <?php echo $linha["telefoneFixo"] ?> <br> Celular:
-                                    <?php echo $linha["telefoneCelular"] ?> <br> WhatsApp: <?php echo $linha["wpp"] ?></small>
-                            </div>
-                            <a href="<?php echo $linha["url"]?>" class="btn btn-primary">Visitar</a>
-                        </div>
-                    </div>
+          <div class=" col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card bg-light">
+              <img class="card-img-top img-fluid" src="../Uploads/<?php echo $linha["upload_file"] ?>" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $linha["nomeUsuario_nomeFantasia"] ?></h5>
+                <p class="card-text"><?php echo $linha["brev_apresent"] ?></p>
+                <div class="card-footer">
+                  <small class="text-muted">
+                    <h5>Endereço:</h5>
+                  </small>
+                  <small class="text-muted"><?php echo $linha["rua_avenida"] ?>,
+                    <?php echo $linha["numero"] ?>, <?php echo $linha["estado"] ?> - <?php echo $linha["cidade"] ?>, <?php echo $linha["cep"] ?></small>
                 </div>
-                <!--Fechando a div col-xs-12 col-sm-6 col-md-4 col-lg-4-->
-                <?php
-                }
-                ?>
-
-
+                <div class="card-footer">
+                  <small class="text-muted">
+                    <h5>Contato:</h5>
+                  </small>
+                  <small class="text-muted">Telefone: <?php echo $linha["telefoneFixo"] ?> <br> Celular:
+                    <?php echo $linha["telefoneCelular"] ?> <br> WhatsApp: <?php echo $linha["wpp"] ?></small>
+                </div>
+                <a href="<?php echo $linha["url"] ?>" class="btn btn-primary">Visitar</a>
+              </div>
             </div>
-            <!--Fechando a div row-->
+          </div>
+          <!--Fechando a div col-xs-12 col-sm-6 col-md-4 col-lg-4-->
+        <?php
+        }
+        ?>
 
-        </div>
-        <!--Fechando o div instituicoes -->
+
+      </div>
+      <!--Fechando a div row-->
+
+    </div>
+    <!--Fechando o div instituicoes -->
     </div>
     <!--Fechando a div container-fluid-->
+  </section>
 
   <!-- About -->
   <section class="page-section" id="about">
@@ -590,473 +579,146 @@ Abrir modal de demonstração
     </div>
   </section>
 
-   <!-- Cadastro Usuario -->
-   <section class="page-section" id="cadastro_usuario">
+  <!-- Cadastro Usuario -->
+  <section class="page-section" id="cadastro_usuario">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          
 
 
-        <span class="d-block p-2 bg-dark text-white">Cadastro Usuário</span>
-    <hr /> <br />
 
-    <!-------------------------------------------------------------------------------------------------------------->
+          <span class="d-block p-2 bg-dark text-white">Cadastro Usuário</span>
+          <hr /> <br />
 
-    <div class="container-fluid">
+          <!-------------------------------------------------------------------------------------------------------------->
 
-        <form class="was-validated" id="register" action="../cadastroUsuario.php" method="post">
+          <div class="container-fluid">
 
-            <div class="form-row">
+            <form class="was-validated" id="register" action="../cadastroUsuario.php" method="post">
+
+              <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="usuario">Seu Nome</label>
-                    <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario" required minlength="2">
-                    <div class="invalid-feedback">
-                        Nome Obrigatorio!
-                    </div>
+                  <label for="usuario">Seu Nome</label>
+                  <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Usuario" required minlength="2">
+                  <div class="invalid-feedback">
+                    Nome Obrigatorio!
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="senha">Sobrenome:</label>
-                    <input class="form-control" type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required minlength="4">
-                    <div class="invalid-feedback">
-                        Sobrenome Obrigatorio!
-                    </div>
+                  <label for="senha">Sobrenome:</label>
+                  <input class="form-control" type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" required minlength="4">
+                  <div class="invalid-feedback">
+                    Sobrenome Obrigatorio!
+                  </div>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="senha">Senha</label>
-                    <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha" required minlength="4">
-                    <div class="invalid-feedback">
-                        Senha Obrigatoria!
-                    </div>
+                  <label for="senha">Senha</label>
+                  <input class="form-control" type="password" name="senha" id="senha" placeholder="Senha" required minlength="4">
+                  <div class="invalid-feedback">
+                    Senha Obrigatoria!
+                  </div>
                 </div>
 
-            </div>
+              </div>
 
 
-            <div class="form-group">
+              <div class="form-group">
                 <label for="email">Seu Email</label>
                 <input class="form-control" type="email" name="email" id="email" placeholder="seuemail@email.com" required>
                 <div class="invalid-feedback">
-                        Email Obrigatorio!
-                    </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="cpf">CPF</label>
-                    <input class="form-control" type="text" name="cpf" id="cpf" placeholder="000.000.000.00" required minlength="14">
-                    <div class="invalid-feedback">
-                        CPF Obrigatorio!
-                    </div>
+                  Email Obrigatorio!
                 </div>
+              </div>
 
+
+              <div class="form-row">
                 <div class="form-group col-md-3">
-                    <label for="dataNascimento">Data de Nascimento</label>
-                    <input class="form-control" name="dataNascimento" id="dataNascimento" type="date" required>
-                    <div class="invalid-feedback">
-                        Data de Nascimento Obrigatorio!
-                    </div>
+                  <label for="cpf">CPF</label>
+                  <input class="form-control" type="text" name="cpf" id="cpf" placeholder="000.000.000.00" required minlength="14">
+                  <div class="invalid-feedback">
+                    CPF Obrigatorio!
+                  </div>
                 </div>
 
                 <div class="form-group col-md-3">
-                    <label for="sexo">Sexo</label>
-                    <select name="sexo" id="sexo" class="form-control" required>
-                        <option value="" selected>Escolher...</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Feminino">Feminino</option>
-                        <option value="Outro">Outro...</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Sexo Obrigatorio!
-                    </div>
+                  <label for="dataNascimento">Data de Nascimento</label>
+                  <input class="form-control" name="dataNascimento" id="dataNascimento" type="date" required>
+                  <div class="invalid-feedback">
+                    Data de Nascimento Obrigatorio!
+                  </div>
                 </div>
 
                 <div class="form-group col-md-3">
-                    <label for="estadoCivil">Estado Civil</label>
-                    <select class="form-control" name="estadoCivil" id="estadoCivil" required>
-                        <option value="" selected>Escolher...</option>
-                        <option value="Solteiro(a)">Solteiro(a)</option>
-                        <option value="Casado(a)">Casado(a)</option>
-                        <option value="Divorciado(a)">Divorciado(a)</option>
-                        <option value="Viuvo(a)">Viuvo(a)</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Estado Civil Obrigatorio!
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="telefoneCelular">Telefone Celular</label>
-                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="EX: (ddd)90000-0000">
+                  <label for="sexo">Sexo</label>
+                  <select name="sexo" id="sexo" class="form-control" required>
+                    <option value="" selected>Escolher...</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro...</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Sexo Obrigatorio!
+                  </div>
                 </div>
 
                 <div class="form-group col-md-3">
-                    <label for="telefoneFixo">Telefone Fixo</label>
-                    <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo" placeholder="EX: (ddd)0000-0000">
+                  <label for="estadoCivil">Estado Civil</label>
+                  <select class="form-control" name="estadoCivil" id="estadoCivil" required>
+                    <option value="" selected>Escolher...</option>
+                    <option value="Solteiro(a)">Solteiro(a)</option>
+                    <option value="Casado(a)">Casado(a)</option>
+                    <option value="Divorciado(a)">Divorciado(a)</option>
+                    <option value="Viuvo(a)">Viuvo(a)</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Estado Civil Obrigatorio!
+                  </div>
                 </div>
-            </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-3">
+                  <label for="telefoneCelular">Telefone Celular</label>
+                  <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="EX: (ddd)90000-0000">
+                </div>
+
+                <div class="form-group col-md-3">
+                  <label for="telefoneFixo">Telefone Fixo</label>
+                  <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo" placeholder="EX: (ddd)0000-0000">
+                </div>
+              </div>
 
 
 
 
-            <!---------------------------------------------------------------------------------------------------------->
-            <hr>
-            <span class="d-block p-2 bg-dark text-white">Endereço</span>
-            <br />
-            <!---------------------------------------------------------------------------------------------------------->
-            <div class="form-row">
+              <!---------------------------------------------------------------------------------------------------------->
+              <hr>
+              <span class="d-block p-2 bg-dark text-white">Endereço</span>
+              <br />
+              <!---------------------------------------------------------------------------------------------------------->
+              <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="cep">CEP</label>
-                    <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000" required minlength="9">
-                    <div class="invalid-feedback">
-                        CEP Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="estado">Estado</label>
-                    <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal" required minlength="4">
-                    <div class="invalid-feedback">
-                        Estado Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="cidade">Cidade</label>
-                    <select class="form-control" name="cidade" id="cidade" required>
-                        <option selected value="">Selecione o Estado...</option>
-                        <option value="AC">AC</option>
-                        <option value="AC">AC</option>
-                        <option value="AM">AM</option>
-                        <option value="AP">AP</option>
-                        <option value="BA">BA</option>
-                        <option value="CE">CE</option>
-                        <option value="DF">DF</option>
-                        <option value="ES">ES</option>
-                        <option value="GO">GO</option>
-                        <option value="MA">MA</option>
-                        <option value="MT">MT</option>
-                        <option value="MS">MS</option>
-                        <option value="MG">MG</option>
-                        <option value="PA">PA</option>
-                        <option value="PB">PB</option>
-                        <option value="PR">PR</option>
-                        <option value="PE">PE</option>
-                        <option value="PI">PI</option>
-                        <option value="RJ">RJ</option>
-                        <option value="RN">RN</option>
-                        <option value="RO">RO</option>
-                        <option value="RS">RS</option>
-                        <option value="RR">RR</option>
-                        <option value="SC">SC</option>
-                        <option value="SE">SE</option>
-                        <option value="SP">SP</option>
-                        <option value="TO">TO</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Cidade Obrigatoria!
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="bairro">Bairro</label>
-                    <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte" required minlength="3">
-                    <div class="invalid-feedback">
-                        Bairro Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="rua_avenida">Rua/Avenida</label>
-                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" required minlength="2">
-                    <div class="invalid-feedback">
-                        Rua ou Avenida Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="numero">Número</label>
-                    <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt" required minlength="1">
-                    <div class="invalid-feedback">
-                        Número Obrigatorio!
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="adicional">Adicional</label>
-                <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
-            </div>
-
-
-
-            <!---------------------------------------------------------------------------------------------------------->
-            <hr>
-            <span class="d-block p-2 bg-dark text-white">Prontuario</span>
-            <br />
-            <!---------------------------------------------------------------------------------------------------------->
-
-
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="motivoInternacao">Qual o motivo da internação?</label>
-                    <select name="motivoInternacao" id="motivoInternacao" class="form-control" required>
-                        <option value="" selected>Escolher...</option>
-                        <option value="Drogas">Drogas</option>
-                        <option value="Depressao">Depressão</option>
-                        <option value="Reabilitacao Social">Reabilitação Social</option>
-                        <option value="Outros">Outros</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Motivo Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="motiv_Adicional">Se clicou em outros nós conte qual foi o motivo?</label>
-                    <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional" placeholder="Opcional...">
-                </div>
-            </div>
-            <!------------------------------------------------------------------------------------------------>
-            <hr>
-            <span class="d-block p-2 bg-dark text-white">Remédios</span>
-            <br />
-            <!------------------------------------------------------------------------------------------------>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="remed">Toma algum remédio?</label>
-                    <input class="form-control" type="text" name="remed" id="remed" placeholder="Ex:Remédio, Remédio 2, Remédio 3">
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="alergRemedio">Alérgico a alguma medicação?</label>
-                    <input class="form-control" type="text" name="alergRemedio" id="alergRemedio" placeholder="Ex: Remédio, Remédio 02, Remédio 03">
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="sintom">Tem sintomas? Quais?</label>
-                <input class="form-control" type="text" name="sintom" id="sintom" placeholder="Descreva os sintomas">
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="doenc_Cronic">Alguma doença cronica?</label>
-                    <input class="form-control" type="text" name="doenc_Cronic" id="doenc_Cronic" placeholder="Digite aqui a doença">
-                </div>
-
-            </div>
-
-            <!------------------------------------------------------------------------------------------------>
-            <hr>
-            <span class="d-block p-2 bg-dark text-white">Instituição</span>
-            <br />
-            <!------------------------------------------------------------------------------------------------>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="instit">Qual instituição de preferencia?</label>
-                    <select name="instit" id="instit" class="form-control" required>
-                        <?php
-                        // $minhaInst = $dataUser_login["instit"];
-                        // while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
-                        while ($linha = mysqli_fetch_assoc($lista_instituicoes)) {
-                            ?>
-                            <option value="<?php echo $linha["nomeUsuario_nomeFantasia"];  ?>">
-                                <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]);  ?>
-                            </option>
-                        <?php
-                        }
-
-                        ?>
-
-                        <!------->
-
-
-                    </select>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="levar_Inst">Vai levar alguma coisa para a instituição?</label>
-                    <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" placeholder="Ex: cobertor, tavesseiro, etc...">
-                </div>
-
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="obs_Inst">Alergia a algum produto?</label>
-                    <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" placeholder="Ex: amaciante, sabão em pó, etc...">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="obs_Intolerancia">Intolerância a algum alimento?</label>
-                    <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" placeholder="Ex: lactose, glúten, etc...">
-                </div>
-            </div>
-
-
-
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalCadastrado">
-              Enviar
-            </button>
-
-
-
-
-
-
-        </form>
-    </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!---PARA AQUI--->
-
-  <!-- Cadastro Instituicao -->
-  <section class="page-section" id="cadastro_instituicao">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          
-
-
-    <span class="d-block p-3 bg-dark text-warning">Cadastro Instituição</span>
-
-<div class="container-fluid">
-
-    <form class="was-validated" action="../cadastroInstituicao.php"  method="post">
-
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="razao_Social">Razão Social:</label>
-                <input class="form-control" type="text" name="razao_Social" id="razao_Social" placeholder="" required minlength="2">
-                <div class="invalid-feedback">
-                    Razão Social Obrigatoria!
-                </div>
-            </div>
-        </div>
-
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="nome_Fantasia">Nome Fantasia:</label>
-                <input class="form-control" type="text" name="nome_Fantasia" id="nome_Fantasia" placeholder="" required minlength="2">
-                <div class="invalid-feedback">
-                    Nome Fantasia Obrigatorio!
-                </div>
-            </div>
-        </div>
-
-
-        <div class="form-row">
-            <div class="form-group col-md-12">
-                <label for="cnpj">CNPJ:</label>
-                <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="" required minlength="18">
-                <div class="invalid-feedback">
-                    CNPJ Obrigatorio!
-                </div>
-            </div>
-        </div>
-
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="email">Email:</label>
-                <input class="form-control" type="email" name="email" id="email" placeholder="" required minlength="2">
-                <div class="invalid-feedback">
-                    Email Obrigatorio!
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label for="senha">Senha:</label>
-                <input class="form-control" type="password" name="senha" id="senha" placeholder="" required minlength="4">
-                <div class="invalid-feedback">
-                    Senha Obrigatorio!
-                </div>
-            </div>
-        </div>
-
-        <!---------------------------------------------------------------------------------------------------------->
-        <hr>
-        <span class="d-block p-2 bg-dark text-white">Dados da Instituição</span>
-        <br>
-        <!---------------------------------------------------------------------------------------------------------->
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="tel1">Telefone 1:</label>
-                <input class="form-control" type="tel" name="telefoneFixo1" id="telefoneFixo1" placeholder="" required minlength="14">
-                <div class="invalid-feedback">
-                    Telefone Obrigatorio!
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label for="tel2">Telefone 2:</label>
-                <input class="form-control" type="tel" name="telefoneFixo2" id="telefoneFixo2" placeholder="">
-            </div>
-        </div>
-
-
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="cel1">Telefone Celular:</label>
-                <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="" required minlength="15">
-                <div class="invalid-feedback">
-                    Telefone Celular Obrigatorio!
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                <label for="wpp">WhatsApp:</label>
-                <input class="form-control" type="tel" name="wpp" id="wpp" placeholder="">
-            </div>
-        </div>
-
-
-        <!---------------------------------------------------------------------------------------------------------->
-        <hr>
-        <span class="d-block p-2 bg-dark text-white">Endereço</span>
-        <br />
-        <!---------------------------------------------------------------------------------------------------------->
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="cep">CEP</label>
-                <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000" required minlength="9">
-                <div class="invalid-feedback">
+                  <label for="cep">CEP</label>
+                  <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000" required minlength="9">
+                  <div class="invalid-feedback">
                     CEP Obrigatorio!
+                  </div>
                 </div>
-            </div>
 
-            <div class="form-group col-md-4">
-                <label for="estado">Estado</label>
-                <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal" required minlength="4">
-                <div class="invalid-feedback">
+                <div class="form-group col-md-4">
+                  <label for="estado">Estado</label>
+                  <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal" required minlength="4">
+                  <div class="invalid-feedback">
                     Estado Obrigatorio!
+                  </div>
                 </div>
-            </div>
 
-            <div class="form-group col-md-4">
-                <label for="cidade">Cidade</label>
-                <select class="form-control" name="cidade" id="cidade" required>
+                <div class="form-group col-md-4">
+                  <label for="cidade">Cidade</label>
+                  <select class="form-control" name="cidade" id="cidade" required>
                     <option selected value="">Selecione o Estado...</option>
                     <option value="AC">AC</option>
                     <option value="AC">AC</option>
@@ -1085,66 +747,392 @@ Abrir modal de demonstração
                     <option value="SE">SE</option>
                     <option value="SP">SP</option>
                     <option value="TO">TO</option>
-                </select>
-                <div class="invalid-feedback">
+                  </select>
+                  <div class="invalid-feedback">
                     Cidade Obrigatoria!
+                  </div>
                 </div>
-            </div>
-        </div>
+              </div>
 
 
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="bairro">Bairro</label>
-                <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte" required minlength="3">
-                <div class="invalid-feedback">
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="bairro">Bairro</label>
+                  <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte" required minlength="3">
+                  <div class="invalid-feedback">
                     Bairro Obrigatorio!
+                  </div>
                 </div>
-            </div>
 
-            <div class="form-group col-md-4">
-                <label for="rua_avenida">Rua/Avenida</label>
-                <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" required minlength="2">
-                <div class="invalid-feedback">
+                <div class="form-group col-md-4">
+                  <label for="rua_avenida">Rua/Avenida</label>
+                  <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" required minlength="2">
+                  <div class="invalid-feedback">
                     Rua ou Avenida Obrigatorio!
+                  </div>
                 </div>
-            </div>
 
-            <div class="form-group col-md-4">
-                <label for="numero">Número</label>
-                <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt" required minlength="1">
-                <div class="invalid-feedback">
+                <div class="form-group col-md-4">
+                  <label for="numero">Número</label>
+                  <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt" required minlength="1">
+                  <div class="invalid-feedback">
                     Número Obrigatorio!
+                  </div>
                 </div>
-            </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="adicional">Adicional</label>
+                <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
+              </div>
+
+
+
+              <!---------------------------------------------------------------------------------------------------------->
+              <hr>
+              <span class="d-block p-2 bg-dark text-white">Prontuario</span>
+              <br />
+              <!---------------------------------------------------------------------------------------------------------->
+
+
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="motivoInternacao">Qual o motivo da internação?</label>
+                  <select name="motivoInternacao" id="motivoInternacao" class="form-control" required>
+                    <option value="" selected>Escolher...</option>
+                    <option value="Drogas">Drogas</option>
+                    <option value="Depressao">Depressão</option>
+                    <option value="Reabilitacao Social">Reabilitação Social</option>
+                    <option value="Outros">Outros</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Motivo Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="motiv_Adicional">Se clicou em outros nós conte qual foi o motivo?</label>
+                  <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional" placeholder="Opcional...">
+                </div>
+              </div>
+              <!------------------------------------------------------------------------------------------------>
+              <hr>
+              <span class="d-block p-2 bg-dark text-white">Remédios</span>
+              <br />
+              <!------------------------------------------------------------------------------------------------>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="remed">Toma algum remédio?</label>
+                  <input class="form-control" type="text" name="remed" id="remed" placeholder="Ex:Remédio, Remédio 2, Remédio 3">
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="alergRemedio">Alérgico a alguma medicação?</label>
+                  <input class="form-control" type="text" name="alergRemedio" id="alergRemedio" placeholder="Ex: Remédio, Remédio 02, Remédio 03">
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="sintom">Tem sintomas? Quais?</label>
+                <input class="form-control" type="text" name="sintom" id="sintom" placeholder="Descreva os sintomas">
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="doenc_Cronic">Alguma doença cronica?</label>
+                  <input class="form-control" type="text" name="doenc_Cronic" id="doenc_Cronic" placeholder="Digite aqui a doença">
+                </div>
+
+              </div>
+
+              <!------------------------------------------------------------------------------------------------>
+              <hr>
+              <span class="d-block p-2 bg-dark text-white">Instituição</span>
+              <br />
+              <!------------------------------------------------------------------------------------------------>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="instit">Qual instituição de preferencia?</label>
+                  <select name="instit" id="instit" class="form-control" required>
+                    <?php
+                    // $minhaInst = $dataUser_login["instit"];
+                    // while($linha = mysqli_fetch_assoc($lista_instituicoes)) {
+                    while ($linha = mysqli_fetch_assoc($lista_instituicoes)) {
+                      ?>
+                      <option value="<?php echo $linha["nomeUsuario_nomeFantasia"];  ?>">
+                        <?php echo utf8_encode($linha["nomeUsuario_nomeFantasia"]);  ?>
+                      </option>
+                    <?php
+                    }
+
+                    ?>
+
+                    <!------->
+
+
+                  </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="levar_Inst">Vai levar alguma coisa para a instituição?</label>
+                  <input class="form-control" type="text" name="levar_Inst" id="levar_Inst" placeholder="Ex: cobertor, tavesseiro, etc...">
+                </div>
+
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="obs_Inst">Alergia a algum produto?</label>
+                  <input class="form-control" type="text" name="obs_Inst" id="obs_Inst" placeholder="Ex: amaciante, sabão em pó, etc...">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="obs_Intolerancia">Intolerância a algum alimento?</label>
+                  <input class="form-control" type="text" name="obs_Intolerancia" id="obs_Intolerancia" placeholder="Ex: lactose, glúten, etc...">
+                </div>
+              </div>
+
+
+
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modalCadastrado">
+                Enviar
+              </button>
+
+
+
+
+
+
+            </form>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <!---PARA AQUI--->
 
-        <div class="form-group">
-            <label for="adicional">Adicional</label>
-            <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
-        </div>
-
-
-         <!---------------------------------------------------------------------------------------------------------->
-         <hr>
-        <span class="d-block p-2 bg-dark text-white">Coloque o site da instituição</span>
-        <br>
-        <!---------------------------------------------------------------------------------------------------------->
-        <div class="form-group">
-            <label for="url">URL</label>
-            <input class="form-control" type="text" name="url" id="url"
-                placeholder="Coloque o link do site da empresa">
-        </div>
+  <!-- Cadastro Instituicao -->
+  <section class="page-section" id="cadastro_instituicao">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
 
 
 
+          <span class="d-block p-3 bg-dark text-warning">Cadastro Instituição</span>
 
-        <button type="submit" class="btn btn-dark">Enviar</button>
+          <div class="container-fluid">
+
+            <form class="was-validated" action="../cadastroInstituicao.php" method="post">
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="razao_Social">Razão Social:</label>
+                  <input class="form-control" type="text" name="razao_Social" id="razao_Social" placeholder="" required minlength="2">
+                  <div class="invalid-feedback">
+                    Razão Social Obrigatoria!
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="nome_Fantasia">Nome Fantasia:</label>
+                  <input class="form-control" type="text" name="nome_Fantasia" id="nome_Fantasia" placeholder="" required minlength="2">
+                  <div class="invalid-feedback">
+                    Nome Fantasia Obrigatorio!
+                  </div>
+                </div>
+              </div>
 
 
-    </form>
-</div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="cnpj">CNPJ:</label>
+                  <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="" required minlength="18">
+                  <div class="invalid-feedback">
+                    CNPJ Obrigatorio!
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="email">Email:</label>
+                  <input class="form-control" type="email" name="email" id="email" placeholder="" required minlength="2">
+                  <div class="invalid-feedback">
+                    Email Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="senha">Senha:</label>
+                  <input class="form-control" type="password" name="senha" id="senha" placeholder="" required minlength="4">
+                  <div class="invalid-feedback">
+                    Senha Obrigatorio!
+                  </div>
+                </div>
+              </div>
+
+              <!---------------------------------------------------------------------------------------------------------->
+              <hr>
+              <span class="d-block p-2 bg-dark text-white">Dados da Instituição</span>
+              <br>
+              <!---------------------------------------------------------------------------------------------------------->
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="tel1">Telefone 1:</label>
+                  <input class="form-control" type="tel" name="telefoneFixo1" id="telefoneFixo1" placeholder="" required minlength="14">
+                  <div class="invalid-feedback">
+                    Telefone Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="tel2">Telefone 2:</label>
+                  <input class="form-control" type="tel" name="telefoneFixo2" id="telefoneFixo2" placeholder="">
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="cel1">Telefone Celular:</label>
+                  <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" placeholder="" required minlength="15">
+                  <div class="invalid-feedback">
+                    Telefone Celular Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="wpp">WhatsApp:</label>
+                  <input class="form-control" type="tel" name="wpp" id="wpp" placeholder="">
+                </div>
+              </div>
+
+
+              <!---------------------------------------------------------------------------------------------------------->
+              <hr>
+              <span class="d-block p-2 bg-dark text-white">Endereço</span>
+              <br />
+              <!---------------------------------------------------------------------------------------------------------->
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="cep">CEP</label>
+                  <input class="form-control" type="text" name="cep" id="cep" id="cep" placeholder="EX: 00000-000" required minlength="9">
+                  <div class="invalid-feedback">
+                    CEP Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="estado">Estado</label>
+                  <input class="form-control" type="text" name="estado" id="estado" placeholder="EX: Distrito Federal" required minlength="4">
+                  <div class="invalid-feedback">
+                    Estado Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="cidade">Cidade</label>
+                  <select class="form-control" name="cidade" id="cidade" required>
+                    <option selected value="">Selecione o Estado...</option>
+                    <option value="AC">AC</option>
+                    <option value="AC">AC</option>
+                    <option value="AM">AM</option>
+                    <option value="AP">AP</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RO">RO</option>
+                    <option value="RS">RS</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SE">SE</option>
+                    <option value="SP">SP</option>
+                    <option value="TO">TO</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Cidade Obrigatoria!
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  <label for="bairro">Bairro</label>
+                  <input class="form-control" type="text" name="bairro" id="bairro" placeholder="EX: Asa Norte" required minlength="3">
+                  <div class="invalid-feedback">
+                    Bairro Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="rua_avenida">Rua/Avenida</label>
+                  <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" required minlength="2">
+                  <div class="invalid-feedback">
+                    Rua ou Avenida Obrigatorio!
+                  </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="numero">Número</label>
+                  <input class="form-control" type="number" name="numero" id="numero" placeholder="Numero casa ou Apt" required minlength="1">
+                  <div class="invalid-feedback">
+                    Número Obrigatorio!
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="adicional">Adicional</label>
+                <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
+              </div>
+
+
+              <!---------------------------------------------------------------------------------------------------------->
+              <hr>
+              <span class="d-block p-2 bg-dark text-white">Coloque o site da instituição</span>
+              <br>
+              <!---------------------------------------------------------------------------------------------------------->
+              <div class="form-group">
+                <label for="url">URL</label>
+                <input class="form-control" type="text" name="url" id="url" placeholder="Coloque o link do site da empresa">
+              </div>
+
+
+
+
+              <button type="submit" class="btn btn-dark">Enviar</button>
+
+
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -1197,7 +1185,7 @@ Abrir modal de demonstração
 
 
 
-   
+
 
   <!-- Footer -->
   <footer class="footer">
