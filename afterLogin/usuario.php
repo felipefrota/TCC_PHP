@@ -107,6 +107,7 @@ session_start();
                                                 <a class="dropdown-item"
                                                     href="../list_Instituition/list.institution.php">Empresa
                                                     Cadastrada</a>
+                                                    <a class="dropdown-item" href="../afterLogin/viewpromptuaryuser.php">Prontuário</a>
                                                 <a class="dropdown-item" href="../sair.php">Sair</a>
                                             </div>
                                         </div>
