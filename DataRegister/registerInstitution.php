@@ -5,6 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=devide-width, initial-scale=1">
 
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<!-- Custom styles for this template -->
+<link href="css/agency.min.css" rel="stylesheet">
+
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../_CSS/styles.css" rel="stylesheet">
 
@@ -23,7 +38,7 @@
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">      
+                                <a href="../Index/Index.php" class="navbar-brand">      
         <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                   <!--  <img src="../Images/logo.png"> --> 
                                 </a>
@@ -39,13 +54,13 @@
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
                                     <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
-                                            href="../Index/Index.php">Home</a></li>
+                                            href="../Index/index.php">Home</a></li>
                                     <li class="navbar-text navHistorias"><a
                                             class="nav-link text-dark font-weight-bold"
                                             href="../Index/Index.php">Historia</a></li>
                                     <li class="navbar-text nav-instituicoes"><a
                                             class="nav-link text-dark font-weight-bold"
-                                            href="../Institutions/Institutions.php">Instituições</a></li>
+                                            href="#">Instituições</a></li>
                                     <li>
                                         <a class="nav-link">
                                             <button type="button" class="btn btn-outline-success janelaLogin"
