@@ -113,7 +113,7 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                 <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                    <img src="../Images/logo6.png" width=100px height=75px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 

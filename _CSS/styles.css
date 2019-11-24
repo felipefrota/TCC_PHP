@@ -39,7 +39,7 @@ div.background00 {
     background-size: cover; 
     background-repeat: no-repeat;
     background-image: /*no-repeat*/
-    url('../Images/saude1.jpg');
+    url("../Images/header-bg.jpg");
 }
 
 

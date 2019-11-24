@@ -44,7 +44,7 @@ session_start();
     <header>
         <div id="Principal">
 
-            <div class="background00">
+             <div class="background00"> 
                 <!----------------------------------------------------------------------------------------->
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
@@ -55,8 +55,8 @@ session_start();
                                 <a href="../IndexProject/Index.html" class="navbar-brand">
                                 </a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                <a href="../afterLogin/usuario.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                <a href="../afterLogin/instituicao.php">
+                                    <img src="../Images/logo6.png" width=100px height=75px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 

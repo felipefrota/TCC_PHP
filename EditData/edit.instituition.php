@@ -192,7 +192,7 @@ if( isset($_POST["razao_Social"]) ) {
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                 <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                    <img src="../Images/logo6.png" width=100px height=75px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -270,7 +270,7 @@ if( isset($_POST["razao_Social"]) ) {
 
 
 
-    <span class="d-block p-3 bg-primary text-white">Cadastro Instituição</span>
+    <span class="d-block p-3 bg-dark text-warning">Cadastro Instituição</span>
 
     <div class="container-fluid">
 

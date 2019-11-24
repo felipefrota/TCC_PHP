@@ -152,8 +152,8 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                     <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                     <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px >
-                                    </a>
+                                    <img src="../Images/logo6.png" width=100px height=75px>
+                                </a> 
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
@@ -222,7 +222,7 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
     <!----------------------------------------------------------------------------------------->
 
     
-<span class="d-block p-3 bg-primary text-white">Cadastrando Imagem</span>
+    <span class="d-block p-3 bg-dark text-warning">Cadastrando Imagem</span>
 
 <div class="container-fluid">
 

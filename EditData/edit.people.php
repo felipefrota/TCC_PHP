@@ -184,7 +184,7 @@ if (isset($_POST["usuario"])) {
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                 <a href="../afterLogin/usuario.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                    <img src="../Images/logo6.png" width=100px height=75px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -272,8 +272,7 @@ if (isset($_POST["usuario"])) {
     <!----------------------------------------------------------------------------------------->
 
 
-    <span class="d-block p-2 bg-dark text-white">Cadastro</span>
-    <hr /> <br />
+    <span class="d-block p-3 bg-dark text-warning">Cadastro Usuário</span>
 
     <!-------------------------------------------------------------------------------------------------------------->
 
@@ -389,7 +388,7 @@ if (isset($_POST["usuario"])) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Endereço</span>
+            <span class="d-block p-2 bg-dark text-warning">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
             <div class="form-row">
@@ -490,7 +489,7 @@ if (isset($_POST["usuario"])) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Prontuario</span>
+            <span class="d-block p-2 bg-dark text-warning">Prontuario</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
 
@@ -519,7 +518,7 @@ if (isset($_POST["usuario"])) {
             </div>
             <!------------------------------------------------------------------------------------------------>
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Remédios</span>
+            <span class="d-block p-2 bg-dark text-warning">Remédios</span>
             <br />
             <!------------------------------------------------------------------------------------------------>
             <div class="form-row">
@@ -555,7 +554,7 @@ if (isset($_POST["usuario"])) {
 
             <!------------------------------------------------------------------------------------------------>
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Instituição</span>
+            <span class="d-block p-2 bg-dark text-warning">Instituição</span>
             <br />
             <!------------------------------------------------------------------------------------------------>
             <div class="form-row">
@@ -617,7 +616,7 @@ if (isset($_POST["usuario"])) {
 
             <input type="hidden" name="usuario_instituicaoID"
                 value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
-            <button type="submit" class="btn btn-info">Enviar</button>
+            <button type="submit" class="btn btn-dark text-warning">Enviar</button>
 
 
 

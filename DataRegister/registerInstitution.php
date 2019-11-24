@@ -27,6 +27,26 @@
 </head>
 
 <body>
+
+					<!-- Modal voce se cadastrou com sucesso-->
+                    <div class="modal fade" id="modalCadastrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado com sucesso! </br> Agora faça login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
 <header>
         <div id="Principal">
 
@@ -40,7 +60,8 @@
                             <div class="navbar-header">
                                 <a href="../Index/Index.php" class="navbar-brand">      
         <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                  <!--  <img src="../Images/logo.png"> --> 
+                                <a href="../afterLogin/instituicao.php">
+                                    <img src="../Images/logo6.png" width=100px height=75px>
                                 </a>
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -63,7 +84,7 @@
                                             href="#">Instituições</a></li>
                                     <li>
                                         <a class="nav-link">
-                                            <button type="button" class="btn btn-outline-success janelaLogin"
+                                            <button type="button" class="btn btn-dark text-warning janelaLogin"
                                                 data-toggle="modal" data-target="#telaLogin">Login</button>
                                         </a>
 
@@ -102,7 +123,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                          
-                                                                <button type="submit" id="submit" value="login" class="btn btn-info">Login</button>
+                                                                <button type="submit" id="submit" value="login" class="btn btn-dark text-warning">Login</button>
                                                                 
                    
                                                             </div>
@@ -130,16 +151,16 @@
                                     <!--Botao Cadastro-->
                                     <li>
                                         <div class="nav-link">
-                                            <button type="button" class="btn btn-outline-info" data-toggle="dropdown"
+                                            <button type="button" class="btn btn-dark text-warning" data-toggle="dropdown"
                                                 data-target="">Cadastro</button>
 
 
                                             <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
                                                 <div class="form-group">
-                                                <a href="../DataRegister/registerPeople.php" class="btn btn-info" role="button" aria-pressed="true">Usuario</a>
+                                                <a href="../DataRegister/registerPeople.php" class="btn btn-dark text-warning" role="button" aria-pressed="true">Usuario</a>
                                                 </div>
                                                 <div class="form-group">
-                                                        <a href="../DataRegister/registerInstitution.php" class="btn btn-secondary" role="button" aria-pressed="true">Instituição</a>
+                                                        <a href="../DataRegister/registerInstitution.php" class="btn btn-dark text-warning" role="button" aria-pressed="true">Instituição</a>
 
 
                                                 </div>
@@ -168,7 +189,7 @@
     <!----------------------------------------------------------------------------------------->
 
 
-    <span class="d-block p-3 bg-primary text-white">Cadastro Instituição</span>
+    <span class="d-block p-3 bg-dark text-warning">Cadastro Instituição</span>
 
     <div class="container-fluid">
 
@@ -226,7 +247,7 @@
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Dados da Instituição</span>
+            <span class="d-block p-2 bg-dark text-warning">Dados da Instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
 
@@ -264,7 +285,7 @@
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Endereço</span>
+            <span class="d-block p-2 bg-dark text-warning">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
             <div class="form-row">
@@ -358,7 +379,7 @@
 
              <!---------------------------------------------------------------------------------------------------------->
              <hr>
-            <span class="d-block p-2 bg-dark text-white">Coloque o site da instituição</span>
+            <span class="d-block p-2 bg-dark text-warning">Coloque o site da instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
             <div class="form-group">
@@ -370,7 +391,9 @@
 
 
 
-            <button type="submit" class="btn btn-info">Enviar</button>
+            <button type="submit" class="btn btn-dark text-warning" data-toggle="modal" data-target="#modalCadastrado">
+              Enviar
+            </button>
 
 
         </form>
