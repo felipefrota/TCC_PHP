@@ -45,18 +45,19 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
 <!-- Custom fonts for this template -->
 <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-<!-- Custom styles for this template -->
-<link href="css/agency.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <!-- <link href="../_CSS/agency.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
 
-    <header>
+<header>
         <div id="">
 
             <div class="Principal">
@@ -64,38 +65,26 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
-                            <div class="navbar-header">
+                            <div class="navbar-header ">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                     <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                     <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo6.png" width=100px height=75px>
+                                    <img src="../Images/logo6.png" width=100px height=70px>
                                 </a> 
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
-                                <!-- Navigation -->
-     <nav class=" fixed-top" id="mainNav"> 
-    <!-- <div class="container"> -->
-    <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
-      
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Instituições</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Nosso time</a>
-          </li>
-          
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                    <span class="navbar-toggler-icon text-white"></span>
+                                </button>
+                            </div>
+
+                            <div id="menuCelular" class="collapse navbar-collapse">
+
+                                <ul class="navbar-nav ml-auto text-light nav-menu">
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../afterLogin/instituicao.php">Home</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -113,7 +102,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
                                             <div class="dropdown nav-link">
-                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button class="btn btn-outline-secondary text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <h8> Bem vindo, <?php echo $nome ?> </h8>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

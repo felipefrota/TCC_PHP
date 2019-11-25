@@ -181,18 +181,18 @@ if( isset($_POST["razao_Social"]) ) {
     <header>
         <div id="">
 
-            <div class="Principal">
+        <div class="Principal">
                 <!----------------------------------------------------------------------------------------->
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
-                            <div class="navbar-header">
+                            <div class="navbar-header ">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                 <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo6.png" width=100px height=75px>
+                                    <img src="../Images/logo6.png" width=100px height=70px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -200,14 +200,14 @@ if( isset($_POST["razao_Social"]) ) {
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                     data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
                                     aria-label="Menu Colapso">
-                                    <span class="navbar-toggler-icon text-black"></span>
+                                    <span class="navbar-toggler-icon text-white"></span>
                                 </button>
                             </div>
 
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark"
                                             href="../afterLogin/instituicao.php">Home</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
@@ -226,9 +226,9 @@ if( isset($_POST["razao_Social"]) ) {
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
                                         <div class="dropdown nav-link">
-                                            <button class="btn btn-outline-dark dropdown-toggle" type="button"
-                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="false">
+                                            <button class="btn btn-outline-secondary text-white dropdown-toggle"
+                                                type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
                                                 <h8> Bem vindo, <?php echo $nome ?> </h8>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -237,6 +237,7 @@ if( isset($_POST["razao_Social"]) ) {
                                                 <a class="dropdown-item"
                                                     href="../EditData/upload.imageInstitution.php">Imagens
                                                     instituição</a>
+
                                                 <a class="dropdown-item" href="../sair.php">Sair</a>
                                             </div>
                                         </div>
@@ -267,10 +268,10 @@ if( isset($_POST["razao_Social"]) ) {
     </header>
     <!--Fechando header-->
     <!----------------------------------------------------------------------------------------->
+    <br />
+    <!----------------------------------------------------------------------------------------->
 
-
-
-    <span class="d-block p-3 bg-dark text-warning">Cadastro Instituição</span>
+    <span class="d-block p-3 bg-dark text-warning text-center">Cadastro Instituição</span>
 
     <div class="container-fluid">
 
@@ -334,7 +335,7 @@ if( isset($_POST["razao_Social"]) ) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Dados da Instituição</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Dados da Instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
 
@@ -377,7 +378,7 @@ if( isset($_POST["razao_Social"]) ) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Endereço</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
             <div class="form-row">
@@ -478,7 +479,7 @@ if( isset($_POST["razao_Social"]) ) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Coloque o site da instituição</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Coloque o site da instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
             <div class="form-group">
@@ -491,7 +492,7 @@ if( isset($_POST["razao_Social"]) ) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-white">Descrição Empresa</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Descrição Empresa</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
 

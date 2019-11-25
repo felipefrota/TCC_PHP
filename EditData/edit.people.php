@@ -178,13 +178,13 @@ if (isset($_POST["usuario"])) {
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                 <a href="../afterLogin/usuario.php">
-                                    <img src="../Images/logo6.png" width=100px height=75px>
+                                    <img src="../Images/logo6.png" width=100px height=70px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -199,12 +199,12 @@ if (isset($_POST["usuario"])) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark"
                                             href="../afterLogin/usuario.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold"
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-white btn-outline-dark"
                                             href="../afterLogin/usuario.php">Historia</a></li>
                                     <li class="navbar-text nav-instituicoes"><a
-                                            class="nav-link text-dark font-weight-bold"
+                                            class="nav-link text-white btn-outline-dark"
                                             href="../afterLogin/usuario.php">Instituições</a></li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -225,7 +225,7 @@ if (isset($_POST["usuario"])) {
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
                                         <div class="dropdown nav-link">
-                                            <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            <button class="btn btn-outline-secondary text-white dropdown-toggle" type="button"
                                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
                                                 <h8> Bem vindo, <?php echo $nome ?> </h8>
@@ -268,11 +268,11 @@ if (isset($_POST["usuario"])) {
 
 
     <!----------------------------------------------------------------------------------------->
-
+    <br/>
     <!----------------------------------------------------------------------------------------->
 
 
-    <span class="d-block p-3 bg-dark text-warning">Cadastro Usuário</span>
+    <span class="d-block p-3 bg-dark text-warning text-center">Cadastro Usuário</span>
 
     <!-------------------------------------------------------------------------------------------------------------->
 
@@ -388,7 +388,7 @@ if (isset($_POST["usuario"])) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Endereço</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
             <div class="form-row">
@@ -489,7 +489,7 @@ if (isset($_POST["usuario"])) {
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Prontuario</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Prontuario</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
 
@@ -518,7 +518,7 @@ if (isset($_POST["usuario"])) {
             </div>
             <!------------------------------------------------------------------------------------------------>
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Remédios</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Remédios</span>
             <br />
             <!------------------------------------------------------------------------------------------------>
             <div class="form-row">
@@ -554,7 +554,7 @@ if (isset($_POST["usuario"])) {
 
             <!------------------------------------------------------------------------------------------------>
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Instituição</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Instituição</span>
             <br />
             <!------------------------------------------------------------------------------------------------>
             <div class="form-row">

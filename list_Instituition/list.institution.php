@@ -99,7 +99,7 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
 
 <body>
 
-    <header>
+<header>
         <div id="Principal">
 
             <div class="">
@@ -107,13 +107,13 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo6.png" width=100px height=75px>
+                                <a href="../afterLogin/usuario.php">
+                                    <img src="../Images/logo6.png" width=100px height=70px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
@@ -128,35 +128,33 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark"
                                             href="../afterLogin/usuario.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold"
+                                    <li class="navbar-text navHistorias"><a class="nav-link text-white btn-outline-dark"
                                             href="../afterLogin/usuario.php">Historia</a></li>
                                     <li class="navbar-text nav-instituicoes"><a
-                                            class="nav-link text-dark font-weight-bold"
+                                            class="nav-link text-white btn-outline-dark"
                                             href="../afterLogin/usuario.php">Instituições</a></li>
-                                    <li>
-                                    <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
                                         <?php
-                                                if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
-                                                    $user = $_SESSION["nomeUsuario_nomeFantasia"];
+                                        if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+                                            $user = $_SESSION["nomeUsuario_nomeFantasia"];
 
-                                                    $saudacao = "SELECT nomeUsuario_nomeFantasia ";
-                                                    $saudacao .= "FROM tb_usuario ";
-                                                    $saudacao .= "WHERE usuario_instituicaoID = {$user} ";
+                                            $saudacao = "SELECT nomeUsuario_nomeFantasia ";
+                                            $saudacao .= "FROM tb_usuario ";
+                                            $saudacao .= "WHERE usuario_instituicaoID = {$user} ";
 
-                                                    $saudacao_login = mysqli_query($conecta, $saudacao);
-                                                    if (!$saudacao_login) {
-                                                        die("Falha no banco");
-                                                    }
+                                            $saudacao_login = mysqli_query($conecta, $saudacao);
+                                            if (!$saudacao_login) {
+                                                die("Falha no banco");
+                                            }
 
-                                                    $saudacao_login = mysqli_fetch_assoc($saudacao_login);
-                                                    $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
-                                                    ?>
+                                            $saudacao_login = mysqli_fetch_assoc($saudacao_login);
+                                            $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
+                                            ?>
                                         <div class="dropdown nav-link">
-                                            <button class="btn btn-outline-dark dropdown-toggle" type="button"
+                                            <button class="btn btn-outline-secondary text-white dropdown-toggle" type="button"
                                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">
                                                 <h8> Bem vindo, <?php echo $nome ?> </h8>
@@ -170,8 +168,8 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
                                             </div>
                                         </div>
                                         <?php
-                                                }
-                                                ?>
+                                        }
+                                        ?>
 
                                     </li>
                                     <!---------------------------------Fechando Saudação--------------------------------------->
@@ -198,6 +196,8 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
     <!--Fechando o Div:Nav-Bar-->
 
 
+    <!----------------------------------------------------------------------------------------->
+    <br/>
     <!----------------------------------------------------------------------------------------->
     <div>
         <!--div principal-->

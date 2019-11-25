@@ -138,7 +138,7 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
 
 <body>
 
-<header>
+    <header>
         <div id="">
 
             <div class="Principal">
@@ -146,26 +146,29 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
-                            <div class="navbar-header">
+                            <div class="navbar-header ">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
-                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo6.png" width=100px height=75px>
-                                </a> 
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../afterLogin/instituicao.php">
+                                    <img src="../Images/logo6.png" width=100px height=70px>
+                                </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
-                                    <span class="navbar-toggler-icon text-black"></span>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
+                                    aria-label="Menu Colapso">
+                                    <span class="navbar-toggler-icon text-white"></span>
                                 </button>
                             </div>
 
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark"
+                                            href="../afterLogin/instituicao.php">Home</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -182,17 +185,22 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
                                             $saudacao_login = mysqli_fetch_assoc($saudacao_login);
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
-                                            <div class="dropdown nav-link">
-                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="../EditData/edit.instituition.php">Perfil</a>
-                                                    <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">Imagens instituição</a>
+                                        <div class="dropdown nav-link">
+                                            <button class="btn btn-outline-secondary text-white dropdown-toggle"
+                                                type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                                <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item"
+                                                    href="../EditData/edit.instituition.php">Perfil</a>
+                                                <a class="dropdown-item"
+                                                    href="../EditData/upload.imageInstitution.php">Imagens
+                                                    instituição</a>
 
-                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
-                                                </div>
+                                                <a class="dropdown-item" href="../sair.php">Sair</a>
                                             </div>
+                                        </div>
                                         <?php
                                         }
                                         ?>
@@ -220,14 +228,17 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
     </header>
     <!--Fechando header-->
     <!----------------------------------------------------------------------------------------->
+    <br />
+    <!----------------------------------------------------------------------------------------->
 
-    
-    <span class="d-block p-3 bg-dark text-warning">Cadastrando Imagem</span>
 
-<div class="container-fluid">
+    <span class="d-block p-3 bg-dark text-warning text-center">Cadastrando Imagem</span>
+    <br/>
 
-    <form class="" action="../EditData/upload.imageInstitution.php" method="post" enctype="multipart/form-data">
-    <div class="form-group">
+    <div class="container-fluid">
+
+        <form class="" action="../EditData/upload.imageInstitution.php" method="post" enctype="multipart/form-data">
+            <div class="form-group">
                 <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
                 Enviar esse arquivo: <input name="upload_file" value="imagem" type="file" />
                 <!-- echo '<a href=""><img src="C:/xampp/htdocs/TCC_PHP/Uploads".$upload_file /></a>'; -->
@@ -235,15 +246,16 @@ if( isset($_POST["usuario_instituicaoID"]) ) {
 
             </div>
             <div class="form-group">
-            <!-- <img src="../Uploads/<?php echo $dataUser_login["upload_file"] ?>" alt="..." class="img-thumbnail"> -->
-            <img src="../Uploads/<?php echo $dataUser_login["upload_file"] ?>" class="rounded mx-auto d-block" alt="...">
+                <!-- <img src="../Uploads/<?php echo $dataUser_login["upload_file"] ?>" alt="..." class="img-thumbnail"> -->
+                <img src="../Uploads/<?php echo $dataUser_login["upload_file"] ?>" class="rounded mx-auto d-block"
+                    alt="...">
 
             </div>
 
 
             <input type="hidden" name="usuario_instituicaoID"
                 value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
-                <button type="submit" name="alterar" class="btn btn-info">Alterar</button>
+            <button type="submit" name="alterar" class="btn btn-info">Alterar</button>
 
 
         </form>
