@@ -60,7 +60,7 @@ if (!$resultado_usuario) {
     $wpp                          = $dados_detalhes["wpp"];
     $cep                          = $dados_detalhes["cep"];
     $estado                       = $dados_detalhes["estado"];
-    $cidade                       = $dados_detalhes["cidade"];
+    $UF                           = $dados_detalhes["UF"];
     $bairro                       = $dados_detalhes["bairro"];
     $rua_avenida                  = $dados_detalhes["rua_avenida"];
     $numero                       = $dados_detalhes["numero"];
@@ -218,7 +218,7 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
                     <h5>Endereço:</h5>
                 </small>
                 <small class="text-muted"><?php echo $rua_avenida ?>, <?php echo $numero ?>, <?php echo $estado ?> -
-                    <?php echo $cidade ?>, <?php echo $cep ?></small>
+                    <?php echo $UF ?>, <?php echo $cep ?></small>
             </div>
             <div class="card-footer">
                 <small class="text-muted">

@@ -14,7 +14,7 @@
 
         $cep =                                $_POST["cep"];
         $estado =                             $_POST["estado"];
-        $cidade =                             $_POST["cidade"];
+        $UF =                                 $_POST["UF"];
         $bairro =                             $_POST["bairro"];
         $rua_avenida =                        $_POST["rua_avenida"];
         $numero =                             $_POST["numero"];
@@ -33,14 +33,14 @@
         $obs_Intolerancia =                   $_POST["obs_Intolerancia"];
 
         // $inserir = "INSERT INTO cadastro_usuario ";
-        // $inserir .= "(usuario, senha, email, cpf, dataNascimento, sexo, estadoCivil, telefoneCelular, telefoneFixo, cep, estado, cidade, bairro, rua_avenida, numero, adicional, motivoInternacao, motiv_Adicional, remed, alergRemedio, sintom, doenc_Cronic, instit, levar_Inst, obs_Inst, obs_Intolerancia) "; 
+        // $inserir .= "(usuario, senha, email, cpf, dataNascimento, sexo, estadoCivil, telefoneCelular, telefoneFixo, cep, estado, UF, bairro, rua_avenida, numero, adicional, motivoInternacao, motiv_Adicional, remed, alergRemedio, sintom, doenc_Cronic, instit, levar_Inst, obs_Inst, obs_Intolerancia) "; 
         // $inserir .= "VALUES ";
-        // $inserir .= "('$usuario', '$senha', '$email', '$cpf', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia') ";
+        // $inserir .= "('$usuario', '$senha', '$email', '$cpf', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$UF', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia') ";
 
         $inserir = "INSERT INTO tb_usuario ";
-        $inserir .= "(nomeUsuario_nomeFantasia, sobrenome, senha, email, cpf_cnpj, dataNascimento, sexo, estadoCivil, telefoneCelular, telefoneFixo, cep, estado, cidade, bairro, rua_avenida, numero, adicional, motivoInternacao, motiv_Adicional, remed, alergRemedio, sintom, doenc_Cronic, instit, levar_Inst, obs_Inst, obs_Intolerancia, tipo) "; 
+        $inserir .= "(nomeUsuario_nomeFantasia, sobrenome, senha, email, cpf_cnpj, dataNascimento, sexo, estadoCivil, telefoneCelular, telefoneFixo, cep, estado, UF, bairro, rua_avenida, numero, adicional, motivoInternacao, motiv_Adicional, remed, alergRemedio, sintom, doenc_Cronic, instit, levar_Inst, obs_Inst, obs_Intolerancia, tipo) "; 
         $inserir .= "VALUES ";
-        $inserir .= "('$nomeUsuario_nomeFantasia','$sobrenome' ,'$senha', '$email', '$cpf_cnpj', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$cidade', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia', '1') ";
+        $inserir .= "('$nomeUsuario_nomeFantasia','$sobrenome' ,'$senha', '$email', '$cpf_cnpj', '$dataNascimento', '$sexo', '$estadoCivil', '$telefoneCelular', '$telefoneFixo', '$cep', '$estado', '$UF', '$bairro', '$rua_avenida', '$numero', '$adicional', '$motivoInternacao', '$motiv_Adicional', '$remed', '$alergRemedio', '$sintom', '$doenc_Cronic', '$instit', '$levar_Inst', '$obs_Inst', '$obs_Intolerancia', '1') ";
         // var_dump($inserir);exit;
         $operacao_inserir = mysqli_query($conecta,$inserir);
         if(!$operacao_inserir) {

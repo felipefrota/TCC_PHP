@@ -158,7 +158,7 @@ if (isset($_GET["codigo"])) {
     $wpp                          = $dados_detalhes["wpp"];
     $cep                          = $dados_detalhes["cep"];
     $estado                       = $dados_detalhes["estado"];
-    $cidade                       = $dados_detalhes["cidade"];
+    $UF                           = $dados_detalhes["UF"];
     $bairro                       = $dados_detalhes["bairro"];
     $rua_avenida                  = $dados_detalhes["rua_avenida"];
     $numero                       = $dados_detalhes["numero"];
@@ -255,8 +255,8 @@ if (isset($_GET["codigo"])) {
         </div>
 
         <div class="col-md-4">
-          <p><strong>Cidade</strong></p>
-          <p><?php echo $cidade ?></p>
+          <p><strong>UF</strong></p>
+          <p><?php echo $UF ?></p>
         </div>
 
         <div class="col-md-4">

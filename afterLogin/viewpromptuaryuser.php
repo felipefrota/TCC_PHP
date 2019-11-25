@@ -468,7 +468,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 <hr />
                 <div id="actions" class="row">
                     <div class="col-md-12">
-                        <a href="../afterLogin/usuario.php" class="btn btn-dark text-warning"">Fechar</a>
+                        <a href="../afterLogin/usuario.php" class="btn btn-dark text-warning">Fechar</a>
                     </div>
                     
                 </div>

@@ -28,7 +28,7 @@ CREATE TABLE tb_usuario(
 
 `cep` varchar(10) DEFAULT NULL,
 `estado` varchar(20) DEFAULT NULL,
-`cidade` varchar(3) DEFAULT NULL,
+`UF` varchar(3) DEFAULT NULL,
 `bairro` varchar(30) DEFAULT NULL,
 `rua_avenida` varchar(20) DEFAULT NULL,
 `numero` varchar(5) DEFAULT NULL,

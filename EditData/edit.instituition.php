@@ -113,7 +113,7 @@ if (isset($_POST["razao_Social"])) {
 
     $cep =                                $_POST["cep"];
     $estado =                             $_POST["estado"];
-    $cidade =                             $_POST["cidade"];
+    $UF =                                 $_POST["UF"];
     $bairro =                             $_POST["bairro"];
     $rua_avenida =                        $_POST["rua_avenida"];
     $numero =                             $_POST["numero"];
@@ -139,7 +139,7 @@ if (isset($_POST["razao_Social"])) {
     $alterar .= "telefoneCelular = '{$telefoneCelular}', ";
     $alterar .= "cep = '{$cep}', ";
     $alterar .= "estado = '{$estado}', ";
-    $alterar .= "cidade = '{$cidade}', ";
+    $alterar .= "UF = '{$UF}', ";
     $alterar .= "bairro = '{$bairro}', ";
     $alterar .= "rua_avenida = '{$rua_avenida}', ";
     $alterar .= "numero = '{$numero}', ";
@@ -384,9 +384,9 @@ if (isset($_POST["razao_Social"])) {
                     </div>
 
                     <div class="form-group col-md-4">
-                        <label for="cidade">Cidade</label>
-                        <select class="form-control" name="cidade" id="cidade" required>
-                            <option selected><?php echo $dataUser_login["cidade"] ?></option>
+                        <label for="UF">UF</label>
+                        <select class="form-control" name="UF" id="UF" required>
+                            <option selected><?php echo $dataUser_login["UF"] ?></option>
                             <option value="AC">AC</option>
                             <option value="AC">AC</option>
                             <option value="AM">AM</option>
@@ -416,7 +416,7 @@ if (isset($_POST["razao_Social"])) {
                             <option value="TO">TO</option>
                         </select>
                         <div class="invalid-feedback">
-                            Cidade Obrigatoria!
+                            UF Obrigatorio!
                         </div>
                     </div>
                 </div>

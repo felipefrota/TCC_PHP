@@ -306,8 +306,8 @@ if (!$lista_instituicoes) {
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label for="cidade">Cidade</label>
-                    <select class="form-control" name="cidade" id="cidade" required>
+                    <label for="UF">UF</label>
+                    <select class="form-control" name="UF" id="UF" required>
                         <option selected value="">Selecione o Estado...</option>
                         <option value="AC">AC</option>
                         <option value="AC">AC</option>
@@ -338,7 +338,7 @@ if (!$lista_instituicoes) {
                         <option value="TO">TO</option>
                     </select>
                     <div class="invalid-feedback">
-                        Cidade Obrigatoria!
+                        UF Obrigatorio!
                     </div>
                 </div>
             </div>
@@ -534,7 +534,7 @@ if (!$lista_instituicoes) {
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputCity">Cidade</label>
+            <label for="inputCity">UF</label>
             <input type="text" class="form-control" id="inputCity">
         </div>
         <div class="form-group col-md-4">

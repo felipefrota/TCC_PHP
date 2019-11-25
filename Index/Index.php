@@ -317,7 +317,7 @@ Abrir modal de demonstração
                     <h5>Endereço:</h5>
                   </small>
                   <small class="text-muted"><?php echo $linha["rua_avenida"] ?>,
-                    <?php echo $linha["numero"] ?>, <?php echo $linha["estado"] ?> - <?php echo $linha["cidade"] ?>, <?php echo $linha["cep"] ?></small>
+                    <?php echo $linha["numero"] ?>, <?php echo $linha["estado"] ?> - <?php echo $linha["UF"] ?>, <?php echo $linha["cep"] ?></small>
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">
