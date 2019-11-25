@@ -7,18 +7,19 @@ session_start();
 //     header("location:../Index/index.php");
 // }
 
- // A sessão precisa ser iniciada em cada página diferente
- if (!isset($_SESSION)) session_start();
-    
- $nivel_necessario = 1;
-   
- // Verifica se não há a variável da sessão que identifica o usuário
- if (!isset($_SESSION['usuario_instituicaoID']) OR ($_SESSION['tipo'] <$nivel_necessario)) {
-     // Destrói a sessão por segurança
-    //  session_destroy();
-     // Redireciona o visitante de volta pro login
-     header("Location:../Index/Index.php"); exit;
- }
+// A sessão precisa ser iniciada em cada página diferente
+if (!isset($_SESSION)) session_start();
+
+$nivel_necessario = 1;
+
+// Verifica se não há a variável da sessão que identifica o usuário
+if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_necessario)) {
+  // Destrói a sessão por segurança
+  //  session_destroy();
+  // Redireciona o visitante de volta pro login
+  header("Location:../Index/Index.php");
+  exit;
+}
 //FIM DO TESTE DE SEGURANÇA
 //--------------------------------------------------------------------------//
 
@@ -31,130 +32,124 @@ session_start();
 <html>
 
 <head>
-    <title>PROJETO TCC</title>
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=devide-width, initial-scale=1">
+  <title>PROJETO TCC</title>
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=devide-width, initial-scale=1">
 
-    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../_CSS/styles.css" rel="stylesheet">
+  <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../_CSS/styles.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
-        type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <!-- Custom styles for this template -->
-    <link href="../_CSS/agency.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../_CSS/agency.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
 
-    <header>
-        <div id="Principal">
+  <header>
+    <div id="Principal">
 
-            <div class="background00">
+      <div class="background00">
+        <!----------------------------------------------------------------------------------------->
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+          <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Novel Life</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              Menu
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#portfolio">Instituições</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#team">Nosso time</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
+                </li>
                 <!----------------------------------------------------------------------------------------->
-                <!-- Navigation -->
-                <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-                    <div class="container">
-                        <a class="navbar-brand js-scroll-trigger" href="#page-top">Novel Life</a>
-                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            Menu
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarResponsive">
-                            <ul class="navbar-nav text-uppercase ml-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#services">Serviços</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#portfolio">Instituições</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#about">Sobre</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#team">Nosso time</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
-                                </li>
-                                <!----------------------------------------------------------------------------------------->
-                                <!---------------------------------Botao Saudação------------------------------------------>
-                                <?php
-                                        if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
-                                            $user = $_SESSION["nomeUsuario_nomeFantasia"];
+                <!---------------------------------Botao Saudação------------------------------------------>
+                <?php
+                if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
+                  $user = $_SESSION["nomeUsuario_nomeFantasia"];
 
-                                            $saudacao = "SELECT nomeUsuario_nomeFantasia ";
-                                            $saudacao .= "FROM tb_usuario ";
-                                            $saudacao .= "WHERE usuario_instituicaoID = {$user} ";
+                  $saudacao = "SELECT nomeUsuario_nomeFantasia ";
+                  $saudacao .= "FROM tb_usuario ";
+                  $saudacao .= "WHERE usuario_instituicaoID = {$user} ";
 
-                                            $saudacao_login = mysqli_query($conecta, $saudacao);
-                                            if (!$saudacao_login) {
-                                                die("Falha no banco");
-                                            }
+                  $saudacao_login = mysqli_query($conecta, $saudacao);
+                  if (!$saudacao_login) {
+                    die("Falha no banco");
+                  }
 
-                                            $saudacao_login = mysqli_fetch_assoc($saudacao_login);
-                                            $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
-                                            ?>
-                                <div class="dropdown nav-link">
-                                    <button class="btn btn-outline-warning dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        <h8> Bem vindo, <?php echo $nome ?> </h8>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="../EditData/edit.people.php">Perfil</a>
-                                        <a class="dropdown-item"
-                                            href="../list_Instituition/list.institution.php">Empresa
-                                            Cadastrada</a>
-                                        <a class="dropdown-item"
-                                            href="../afterLogin/verificaprontuariouser.php">Prontuário</a>
-                                        <a class="dropdown-item" href="../sair.php">Sair</a>
-                                    </div>
-                                </div>
-                                <?php
-                                        }
-                                        ?>
+                  $saudacao_login = mysqli_fetch_assoc($saudacao_login);
+                  $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
+                  ?>
+                  <div class="dropdown nav-link">
+                    <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <h8> Bem vindo, <?php echo $nome ?> </h8>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="../EditData/edit.people.php">PERFIL</a>
+                      <a class="dropdown-item" href="../list_Instituition/list.institution.php">EMPRESA
+                        CADASTRADA</a>
+                      <a class="dropdown-item" href="../afterLogin/verificaprontuariouser.php">PRONTUÁRIO</a>
+                      <a class="dropdown-item" href="../sair.php">SAIR</a>
+                    </div>
+                  </div>
+                <?php
+                }
+                ?>
 
-                                </li>
-                                <!---------------------------------Fechando Saudação--------------------------------------->
-                                <!----------------------------------------------------------------------------------------->
-                                <!--Modal login ou senha invalido-->
-                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
+                </li>
+
+                <!---------------------------------Fechando Saudação--------------------------------------->
+                <!----------------------------------------------------------------------------------------->
+                <!--Modal login ou senha invalido-->
+                <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#modalExemplo">
                                         Abrir modal de demonstração
                                     </button> -->
 
-                                <!-- Modal -->
+                <!-- Modal -->
 
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-
-
+              </ul>
             </div>
-        </div>
+          </div>
+        </nav>
 
 
-    </header>
-    <!--Fechando o Div:Nav-Bar-->
+      </div>
+    </div>
 
 
-    <!----------------------------------------------------------------------------------------->
+  </header>
+  <!--Fechando o Div:Nav-Bar-->
 
-    <!----------------------------------------------------------------------------------------->
 
-    
+  <!----------------------------------------------------------------------------------------->
+
+  <!----------------------------------------------------------------------------------------->
+
+
   <!-- Header -->
   <header class="masthead">
-    
+
 
     <!-----------------------------------------Botão fluuante whatsapp-------------------------------------------------->
     <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5561985294948"><img src="../Images/botao_flutuante.png" style="height:80px; position:fixed; bottom: 25px; right: 25px; z-index:100;" data-selector="img"></a>
@@ -754,8 +749,8 @@ session_start();
 
 
 
-    <!----------------------------------------------------------------------------------------->
-     <!-- Bootstrap core JavaScript -->
+  <!----------------------------------------------------------------------------------------->
+  <!-- Bootstrap core JavaScript -->
   <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
   <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

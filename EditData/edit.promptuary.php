@@ -300,26 +300,26 @@ if (!$resultado_diagnostico) {
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
-                            <div class="navbar-header">
+                            <div class="navbar-header ">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
                                 <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo5.png" width=100px height=75px>
+                                    <img src="../Images/logo6.png" width=100px height=70px>
                                 </a>
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
-                                    <span class="navbar-toggler-icon text-black"></span>
+                                    <span class="navbar-toggler-icon text-white"></span>
                                 </button>
                             </div>
 
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../afterLogin/instituicao.php">HOME</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -337,14 +337,14 @@ if (!$resultado_diagnostico) {
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
                                             <div class="dropdown nav-link">
-                                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <h8> Bem vindo, <?php echo $nome ?> </h8>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="../EditData/edit.instituition.php">Perfil</a>
-                                                    <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">Imagens instituição</a>
+                                                    <a class="dropdown-item" href="../EditData/edit.instituition.php">PERFIL</a>
+                                                    <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">IMAGENS INSTITUIÇÃO</a>
 
-                                                    <a class="dropdown-item" href="../sair.php">Sair</a>
+                                                    <a class="dropdown-item" href="../sair.php">SAIR</a>
                                                 </div>
                                             </div>
                                         <?php
@@ -374,23 +374,23 @@ if (!$resultado_diagnostico) {
     </header>
     <!--Fechando header-->
     <!----------------------------------------------------------------------------------------->
+    <br />
+    <!----------------------------------------------------------------------------------------->
 
 
     <!----------------------------------------------------------------------------------------->
 
-
-    <!-------------------------------------------------------------------------------------------------------------->
-
-
+    
 
     <form class="" action="edit.promptuary.php" method="post">
         <div class="container-fluid">
-            <span class="d-block p-2 bg-dark text-white">Dados Sociodemográficos</span>
-            <br />
-            <!-- <div class="form-group col-md-4">
-                    <label for="senha">Idade</label>
-                    <input class="form-control" type="password" name="idade" id="idade" placeholder="idade">
-                </div -->
+
+    <!----------------------------------------------------------------------------------------->
+    <span class="d-block p-3 bg-dark text-warning text-center">Dados Sociodemográficos</span>
+    <br />
+    <!----------------------------------------------------------------------------------------->
+
+    <div class="formularios">
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="estado_civil">Estado Civil</label>
@@ -476,13 +476,15 @@ if (!$resultado_diagnostico) {
                     </select>
                 </div>
             </div>
-            <br /><br />
+            </div>
+            <!--Fechando div class formularios-->
 
-
-            <span class="d-block p-2 bg-dark text-white">Histórico Familiar de Dependência Química</span>
+            <!----------------------------------------------------------------------------------------->
+            <hr>
+            <span class="d-block p-3 bg-dark text-warning text-center">Histórico Familiar de Dependência Química</span>
             <br />
-
-
+            <!----------------------------------------------------------------------------------------->
+<div class="formularios">
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="pai">Pai</label>
@@ -533,9 +535,13 @@ if (!$resultado_diagnostico) {
                     </select>
                 </div>
             </div></br></br>
-            <span class="d-block p-2 bg-dark text-white">Comorbidades Clínicas Principais</span>
+            </div>
+            <!--Fechando div class formularios-->
+            <!----------------------------------------------------------------------------------------->
+            <span class="d-block p-3 bg-dark text-warning text-center">Comorbidades Clínicas Principais</span>
             <br />
-
+            <!----------------------------------------------------------------------------------------->
+            <div class="formularios">
 
             <div class="form-row">
                 <div class="form-group col-md-3">
@@ -613,10 +619,13 @@ if (!$resultado_diagnostico) {
                     </select>
                 </div>
             </div></br></br>
-
-            <span class="d-block p-2 bg-dark text-white">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
+            </div>
+            <!--Fechando div class formularios-->
+            <!----------------------------------------------------------------------------------------->
+            <span class="d-block p-3 bg-dark text-warning text-center">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
             <br />
-
+            <!----------------------------------------------------------------------------------------->
+            <div class="formularios">
 
             <div class="form-row">
                 <div class="form-group col-md-2">
@@ -702,36 +711,46 @@ if (!$resultado_diagnostico) {
                     </select>
                 </div>
             </div></br></br>
-
-            <span class="d-block p-2 bg-dark text-white">Diagnóstico</span>
+            </div>
+            <!--Fechando div class formularios-->
+            <!----------------------------------------------------------------------------------------->
+            <span class="d-block p-3 bg-dark text-warning text-center">Diagnóstico</span>
             <br />
+            <!----------------------------------------------------------------------------------------->
+            <div class="formularios">
 
             <div class="form-group">
                 <label for="diagnostico"></label>
-                <textarea class="form-control" name="diagnostico" type="text" id="diagnostico" > <?php echo $dados_diagnostico["diagnostico"]?> </textarea>
+                <textarea class="form-control" name="diagnostico" type="text" id="diagnostico"> <?php echo $dados_diagnostico["diagnostico"] ?> </textarea>
             </div>
             </br></br>
-
-
-            <span class="d-block p-2 bg-dark text-white">Receituário</span>
+            </div>
+            <!--Fechando div class formularios-->
+            <!----------------------------------------------------------------------------------------->
+            <span class="d-block p-3 bg-dark text-warning text-center">Receituário</span>
             <br />
+            <!----------------------------------------------------------------------------------------->
+            <div class="formularios">
 
             <div class="form-group">
                 <label for="receituario"></label>
                 <textarea class="form-control" name="receituario" id="receituario" rows="10" placeholder="Digite aqui o receituário do paciente"></textarea>
             </div>
-        </div></br></br>
+            </br></br>
 
+
+            <input type="hidden" name="id_prontuario_sociodemograficos" value="<?php echo $dados_detalhes['id_prontuario_sociodemograficos'] ?>">
+            <input type="hidden" name="id_prontuario_historico_familiar" value="<?php echo $dados_dependencia['id_prontuario_historico_familiar'] ?>">
+            <input type="hidden" name="id_prontuario_comorbidades_principais" value="<?php echo $dados_comorbidades['id_prontuario_comorbidades_principais'] ?>">
+            <input type="hidden" name="id_prontuario_substancias_psicoativas" value="<?php echo $dados_substancias['id_prontuario_substancias_psicoativas'] ?>">
+            <input type="hidden" name="id_prontuario_diagnostico_receituario" value="<?php echo $dados_diagnostico['id_prontuario_diagnostico_receituario'] ?>">
+
+
+            <button type="submit" class="btn btn-dark text-warning">Enviar</button>
+            </div>
+            <!--Fechando div class formularios-->
         </div>
-
-        <input type="hidden" name="id_prontuario_sociodemograficos" value="<?php echo $dados_detalhes['id_prontuario_sociodemograficos'] ?>">
-        <input type="hidden" name="id_prontuario_historico_familiar" value="<?php echo $dados_dependencia['id_prontuario_historico_familiar'] ?>">
-        <input type="hidden" name="id_prontuario_comorbidades_principais" value="<?php echo $dados_comorbidades['id_prontuario_comorbidades_principais'] ?>">
-        <input type="hidden" name="id_prontuario_substancias_psicoativas" value="<?php echo $dados_substancias['id_prontuario_substancias_psicoativas'] ?>">
-        <input type="hidden" name="id_prontuario_diagnostico_receituario" value="<?php echo $dados_diagnostico['id_prontuario_diagnostico_receituario'] ?>">
-
-
-        <button type="submit" class="btn btn-info">Enviar</button>
+    </form>
 </body>
 
 </html>

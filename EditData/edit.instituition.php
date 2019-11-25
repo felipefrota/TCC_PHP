@@ -1,7 +1,7 @@
-<?php require_once("../conexao/conexao.php")?>
+<?php require_once("../conexao/conexao.php") ?>
 
 
-<?php 
+<?php
 //--------------------------------------------------------------------------//
 //TESTE DE SEGURANÇA
 session_start();
@@ -70,7 +70,7 @@ if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
 //     $arquivo_temporario = $_FILES['upload_file']['tmp_name'];
 //     $arquivo = basename($_FILES['upload_file']['name']);
 //     $diretorio = "C:/xampp/htdocs/TCC_PHP/Uploads";
-    
+
 
 //     print_r($caminho);
 
@@ -82,12 +82,12 @@ if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
 //         $numero_erro = $_FILES['upload_file']['error'];
 //         $mensagem =  $array_erro[$numero_erro];
 //     }
-    
-    
-    // echo("<pre>");
-    // print_r($_FILES['upload_file']);
-    // echo("</pre>");
-    // echo $mensagem;
+
+
+// echo("<pre>");
+// print_r($_FILES['upload_file']);
+// echo("</pre>");
+// echo $mensagem;
 
 // }
 
@@ -97,7 +97,7 @@ if (isset($_SESSION["nomeUsuario_nomeFantasia"])) {
 
 //--------------------------------------------------------------------------//
 //Pegando os dados enviados do formulario//
-if( isset($_POST["razao_Social"]) ) {
+if (isset($_POST["razao_Social"])) {
     $razao_Social             =           $_POST["razao_Social"];
     $nomeUsuario_nomeFantasia =           $_POST["nome_Fantasia"];
     $cpf_cnpj                =            $_POST["cnpj"];
@@ -109,7 +109,7 @@ if( isset($_POST["razao_Social"]) ) {
     $wpp =                                $_POST["wpp"];
     $brev_apresent =                      $_POST["brev_apresent"];
     $apresent_complet =                   $_POST["apresent_complet"];
-    $url=                                 $_POST["url"];
+    $url =                                 $_POST["url"];
 
     $cep =                                $_POST["cep"];
     $estado =                             $_POST["estado"];
@@ -130,7 +130,7 @@ if( isset($_POST["razao_Social"]) ) {
     $alterar = "UPDATE tb_usuario ";
     $alterar .= "SET ";
     $alterar .= "razao_Social = '{$razao_Social}', ";
-    $alterar .= "nomeUsuario_nomeFantasia = '{$nomeUsuario_nomeFantasia}', "; 
+    $alterar .= "nomeUsuario_nomeFantasia = '{$nomeUsuario_nomeFantasia}', ";
     $alterar .= "cpf_cnpj = '{$cpf_cnpj}', ";
     $alterar .= "email = '{$email}', ";
     $alterar .= "senha = '{$senha}', ";
@@ -153,12 +153,11 @@ if( isset($_POST["razao_Social"]) ) {
     $alterar .= "WHERE usuario_instituicaoID = {$usuario_instituicaoID} ";
 
     $operacao_alterar = mysqli_query($conecta, $alterar);
-    if(!$operacao_alterar) {
-        die("Erro na alteracao");   
+    if (!$operacao_alterar) {
+        die("Erro na alteracao");
     } else {
-        header("location:../EditData/edit.instituition.php");   
+        header("location:../EditData/edit.instituition.php");
     }
-
 }
 
 ?>
@@ -181,7 +180,7 @@ if( isset($_POST["razao_Social"]) ) {
     <header>
         <div id="">
 
-        <div class="Principal">
+            <div class="Principal">
                 <!----------------------------------------------------------------------------------------->
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
@@ -197,9 +196,7 @@ if( isset($_POST["razao_Social"]) ) {
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
-                                    aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-white"></span>
                                 </button>
                             </div>
@@ -207,8 +204,7 @@ if( isset($_POST["razao_Social"]) ) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark"
-                                            href="../afterLogin/instituicao.php">Home</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../afterLogin/instituicao.php">HOME</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -225,22 +221,17 @@ if( isset($_POST["razao_Social"]) ) {
                                             $saudacao_login = mysqli_fetch_assoc($saudacao_login);
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
-                                        <div class="dropdown nav-link">
-                                            <button class="btn btn-outline-secondary text-white dropdown-toggle"
-                                                type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <h8> Bem vindo, <?php echo $nome ?> </h8>
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item"
-                                                    href="../EditData/edit.instituition.php">Perfil</a>
-                                                <a class="dropdown-item"
-                                                    href="../EditData/upload.imageInstitution.php">Imagens
-                                                    instituição</a>
+                                            <div class="dropdown nav-link">
+                                                <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="../EditData/edit.instituition.php">PERFIL</a>
+                                                    <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">IMAGENS INSTITUIÇÃO</a>
 
-                                                <a class="dropdown-item" href="../sair.php">Sair</a>
+                                                    <a class="dropdown-item" href="../sair.php">SAIR</a>
+                                                </div>
                                             </div>
-                                        </div>
                                         <?php
                                         }
                                         ?>
@@ -270,110 +261,103 @@ if( isset($_POST["razao_Social"]) ) {
     <!----------------------------------------------------------------------------------------->
     <br />
     <!----------------------------------------------------------------------------------------->
-
     <span class="d-block p-3 bg-dark text-warning text-center">Cadastro Instituição</span>
+    <!----------------------------------------------------------------------------------------->
+    <form class="was-validated" action="../EditData/edit.instituition.php" method="post" enctype="multipart/form-data">
+        <div class="container-fluid">
+            <div class="formularios">
 
-    <div class="container-fluid">
 
-        <form class="was-validated" action="../EditData/edit.instituition.php" method="post"
-            enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="razao_Social">Razão Social:</label>
+                        <input class="form-control" type="text" name="razao_Social" id="razao_Social" value="<?php echo $dataUser_login["razao_Social"] ?>" required minlength="2">
+                        <div class="invalid-feedback">
+                            Razão Social Obrigatoria!
+                        </div>
+                    </div>
+                </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="razao_Social">Razão Social:</label>
-                    <input class="form-control" type="text" name="razao_Social" id="razao_Social"
-                        value="<?php echo $dataUser_login["razao_Social"] ?>" required minlength="2">
-                    <div class="invalid-feedback">
-                        Razão Social Obrigatoria!
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="nome_Fantasia">Nome Fantasia:</label>
+                        <input class="form-control" type="text" name="nome_Fantasia" id="nome_Fantasia" value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>" required minlength="2">
+                        <div class="invalid-feedback">
+                            Nome Fantasia Obrigatorio!
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="cnpj">CNPJ:</label>
+                        <input class="form-control" type="text" name="cnpj" id="cnpj" value="<?php echo $dataUser_login["cpf_cnpj"] ?>" required minlength="18">
+                        <div class="invalid-feedback">
+                            CNPJ Obrigatorio!
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="email">Email:</label>
+                        <input class="form-control" type="email" name="email" id="email" value="<?php echo $dataUser_login["email"] ?>" required minlength="2">
+                        <div class="invalid-feedback">
+                            Email Obrigatorio!
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="senha">Senha:</label>
+                        <input class="form-control" type="password" name="senha" id="senha" value="<?php echo $dataUser_login["senha"] ?>" required minlength="4">
+                        <div class="invalid-feedback">
+                            Senha Obrigatorio!
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="nome_Fantasia">Nome Fantasia:</label>
-                    <input class="form-control" type="text" name="nome_Fantasia" id="nome_Fantasia"
-                        value="<?php echo $dataUser_login["nomeUsuario_nomeFantasia"] ?>" required minlength="2">
-                    <div class="invalid-feedback">
-                        Nome Fantasia Obrigatorio!
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label for="cnpj">CNPJ:</label>
-                    <input class="form-control" type="text" name="cnpj" id="cnpj"
-                        value="<?php echo $dataUser_login["cpf_cnpj"] ?>" required minlength="18">
-                    <div class="invalid-feedback">
-                        CNPJ Obrigatorio!
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="email">Email:</label>
-                    <input class="form-control" type="email" name="email" id="email"
-                        value="<?php echo $dataUser_login["email"] ?>" required minlength="2">
-                    <div class="invalid-feedback">
-                        Email Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="senha">Senha:</label>
-                    <input class="form-control" type="password" name="senha" id="senha"
-                        value="<?php echo $dataUser_login["senha"] ?>" required minlength="4">
-                    <div class="invalid-feedback">
-                        Senha Obrigatorio!
-                    </div>
-                </div>
-            </div>
+            <!--Fechando div class formularios-->
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
             <span class="d-block p-3 bg-dark text-warning text-center">Dados da Instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
+            <div class="formularios">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="tel1">Telefone 1:</label>
+                        <input class="form-control" type="tel" name="telefoneFixo1" id="telefoneFixo1" value="<?php echo $dataUser_login["telefoneFixo"] ?>" required minlength="14">
+                        <div class="invalid-feedback">
+                            Telefone Obrigatorio!
+                        </div>
+                    </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="tel1">Telefone 1:</label>
-                    <input class="form-control" type="tel" name="telefoneFixo1" id="telefoneFixo1"
-                        value="<?php echo $dataUser_login["telefoneFixo"] ?>" required minlength="14">
-                    <div class="invalid-feedback">
-                        Telefone Obrigatorio!
+                    <div class="form-group col-md-6">
+                        <label for="tel2">Telefone 2:</label>
+                        <input class="form-control" type="tel" name="telefoneFixo2" id="telefoneFixo2" value="<?php echo $dataUser_login["telefoneFixo2"] ?>">
                     </div>
                 </div>
 
-                <div class="form-group col-md-6">
-                    <label for="tel2">Telefone 2:</label>
-                    <input class="form-control" type="tel" name="telefoneFixo2" id="telefoneFixo2"
-                        value="<?php echo $dataUser_login["telefoneFixo2"] ?>">
-                </div>
-            </div>
 
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="cel1">Telefone Celular:</label>
+                        <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular" value="<?php echo $dataUser_login["telefoneCelular"] ?>" required minlength="15">
+                        <div class="invalid-feedback">
+                            Telefone Celular Obrigatorio!
+                        </div>
+                    </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="cel1">Telefone Celular:</label>
-                    <input class="form-control" type="tel" name="telefoneCelular" id="telefoneCelular"
-                        value="<?php echo $dataUser_login["telefoneCelular"] ?>" required minlength="15">
-                    <div class="invalid-feedback">
-                        Telefone Celular Obrigatorio!
+                    <div class="form-group col-md-6">
+                        <label for="wpp">WhatsApp:</label>
+                        <input class="form-control" type="tel" name="wpp" id="wpp" value="<?php echo $dataUser_login["wpp"] ?>">
                     </div>
                 </div>
-
-                <div class="form-group col-md-6">
-                    <label for="wpp">WhatsApp:</label>
-                    <input class="form-control" type="tel" name="wpp" id="wpp"
-                        value="<?php echo $dataUser_login["wpp"] ?>">
-                </div>
             </div>
-
+            <!--Fechando div class formularios-->
 
 
             <!---------------------------------------------------------------------------------------------------------->
@@ -381,100 +365,96 @@ if( isset($_POST["razao_Social"]) ) {
             <span class="d-block p-3 bg-dark text-warning text-center">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="cep">CEP</label>
-                    <input class="form-control" type="text" name="cep" id="cep" id="cep"
-                        value="<?php echo $dataUser_login["cep"] ?>" required minlength="9">
-                    <div class="invalid-feedback">
-                        CEP Obrigatorio!
+            <div class="formularios">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="cep">CEP</label>
+                        <input class="form-control" type="text" name="cep" id="cep" id="cep" value="<?php echo $dataUser_login["cep"] ?>" required minlength="9">
+                        <div class="invalid-feedback">
+                            CEP Obrigatorio!
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="estado">Estado</label>
+                        <input class="form-control" type="text" name="estado" id="estado" value="<?php echo $dataUser_login["estado"] ?>" required minlength="4">
+                        <div class="invalid-feedback">
+                            Estado Obrigatorio!
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="cidade">Cidade</label>
+                        <select class="form-control" name="cidade" id="cidade" required>
+                            <option selected><?php echo $dataUser_login["cidade"] ?></option>
+                            <option value="AC">AC</option>
+                            <option value="AC">AC</option>
+                            <option value="AM">AM</option>
+                            <option value="AP">AP</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RO">RO</option>
+                            <option value="RS">RS</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SE">SE</option>
+                            <option value="SP">SP</option>
+                            <option value="TO">TO</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Cidade Obrigatoria!
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label for="estado">Estado</label>
-                    <input class="form-control" type="text" name="estado" id="estado"
-                        value="<?php echo $dataUser_login["estado"] ?>" required minlength="4">
-                    <div class="invalid-feedback">
-                        Estado Obrigatorio!
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="bairro">Bairro</label>
+                        <input class="form-control" type="text" name="bairro" id="bairro" value="<?php echo $dataUser_login["bairro"] ?>" required minlength="3">
+                        <div class="invalid-feedback">
+                            Bairro Obrigatorio!
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="rua_avenida">Rua/Avenida</label>
+                        <input class="form-control" type="text" name="rua_avenida" id="rua_avenida" value="<?php echo $dataUser_login["rua_avenida"] ?>" required minlength="2">
+                        <div class="invalid-feedback">
+                            Rua ou Avenida Obrigatorio!
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="numero">Número</label>
+                        <input class="form-control" type="number" name="numero" id="numero" value="<?php echo $dataUser_login["numero"] ?>" required minlength="1">
+                        <div class="invalid-feedback">
+                            Número Obrigatorio!
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group col-md-4">
-                    <label for="cidade">Cidade</label>
-                    <select class="form-control" name="cidade" id="cidade" required>
-                        <option selected><?php echo $dataUser_login["cidade"] ?></option>
-                        <option value="AC">AC</option>
-                        <option value="AC">AC</option>
-                        <option value="AM">AM</option>
-                        <option value="AP">AP</option>
-                        <option value="BA">BA</option>
-                        <option value="CE">CE</option>
-                        <option value="DF">DF</option>
-                        <option value="ES">ES</option>
-                        <option value="GO">GO</option>
-                        <option value="MA">MA</option>
-                        <option value="MT">MT</option>
-                        <option value="MS">MS</option>
-                        <option value="MG">MG</option>
-                        <option value="PA">PA</option>
-                        <option value="PB">PB</option>
-                        <option value="PR">PR</option>
-                        <option value="PE">PE</option>
-                        <option value="PI">PI</option>
-                        <option value="RJ">RJ</option>
-                        <option value="RN">RN</option>
-                        <option value="RO">RO</option>
-                        <option value="RS">RS</option>
-                        <option value="RR">RR</option>
-                        <option value="SC">SC</option>
-                        <option value="SE">SE</option>
-                        <option value="SP">SP</option>
-                        <option value="TO">TO</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        Cidade Obrigatoria!
-                    </div>
+
+                <div class="form-group">
+                    <label for="adicional">Adicional</label>
+                    <input class="form-control" type="text" name="adicional" id="adicional" value="<?php echo $dataUser_login["adicional"] ?>">
                 </div>
             </div>
-
-
-            <div class="form-row">
-                <div class="form-group col-md-4">
-                    <label for="bairro">Bairro</label>
-                    <input class="form-control" type="text" name="bairro" id="bairro"
-                        value="<?php echo $dataUser_login["bairro"] ?>" required minlength="3">
-                    <div class="invalid-feedback">
-                        Bairro Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="rua_avenida">Rua/Avenida</label>
-                    <input class="form-control" type="text" name="rua_avenida" id="rua_avenida"
-                        value="<?php echo $dataUser_login["rua_avenida"] ?>" required minlength="2">
-                    <div class="invalid-feedback">
-                        Rua ou Avenida Obrigatorio!
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <label for="numero">Número</label>
-                    <input class="form-control" type="number" name="numero" id="numero"
-                        value="<?php echo $dataUser_login["numero"] ?>" required minlength="1">
-                    <div class="invalid-feedback">
-                        Número Obrigatorio!
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="adicional">Adicional</label>
-                <input class="form-control" type="text" name="adicional" id="adicional"
-                    value="<?php echo $dataUser_login["adicional"] ?>">
-            </div>
-
+            <!--Fechando div class formularios-->
 
 
             <!---------------------------------------------------------------------------------------------------------->
@@ -482,12 +462,13 @@ if( isset($_POST["razao_Social"]) ) {
             <span class="d-block p-3 bg-dark text-warning text-center">Coloque o site da instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
-            <div class="form-group">
-                <label for="url">URL</label>
-                <input class="form-control" type="text" name="url" id="url"
-                    value="<?php echo $dataUser_login["url"] ?>">
+            <div class="formularios">
+                <div class="form-group">
+                    <label for="url">URL</label>
+                    <input class="form-control" type="text" name="url" id="url" value="<?php echo $dataUser_login["url"] ?>">
+                </div>
             </div>
-
+            <!--Fechando div class formularios-->
 
 
             <!---------------------------------------------------------------------------------------------------------->
@@ -495,16 +476,14 @@ if( isset($_POST["razao_Social"]) ) {
             <span class="d-block p-3 bg-dark text-warning text-center">Descrição Empresa</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
+            <div class="formularios">
 
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Breve Descrição da Empresa</label>
+                    <textarea class="form-control" type="text" id="brev_apresent" name="brev_apresent" id="brev_apresent" rows="3"><?php echo $dataUser_login["brev_apresent"] ?></textarea>
 
-
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Breve Descrição da Empresa</label>
-                <textarea class="form-control" type="text" id="brev_apresent" name="brev_apresent" id="brev_apresent"
-                    rows="3"><?php echo $dataUser_login["brev_apresent"] ?></textarea>
-
-            </div>
-
+                </div>
+      
 
 
 
@@ -520,13 +499,13 @@ if( isset($_POST["razao_Social"]) ) {
             </div> -->
 
 
-            <input type="hidden" name="usuario_instituicaoID"
-                value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
-            <button type="submit" name="enviar" class="btn btn-info">Enviar</button>
-
-
-        </form>
-    </div>
+            <input type="hidden" name="usuario_instituicaoID" value="<?php echo $dataUser_login["usuario_instituicaoID"] ?>">
+            <button type="submit" name="enviar" class="btn btn-dark text-warning">Enviar</button>
+            </div>
+            <!--Fechando div class formularios-->
+            </div>
+    </form>
+    
 
     <!-------------------------------------------------------------------------------------------------------------->
     <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>

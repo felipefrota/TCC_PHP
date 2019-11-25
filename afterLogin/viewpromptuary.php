@@ -52,31 +52,32 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     <body>
         <header>
             <div id="">
+
                 <div class="Principal">
                     <!----------------------------------------------------------------------------------------->
                     <!--<object type="text/html" data="../nav-bar.html"></object>-->
                     <div id="Nav-Bar">
 
-                        <nav class="navbar navbar-expand-lg navbar-light">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                             <div class="container-fluid">
-                                <div class="navbar-header">
+                                <div class="navbar-header ">
                                     <a href="../IndexProject/Index.html" class="navbar-brand"></a>
-                                        <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                        <a href="../afterLogin/instituicao.php">
-                                         <img src="../Images/logo5.png" width=100px height=75px >
-                                         </a>
+                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                    <a href="../afterLogin/instituicao.php">
+                                        <img src="../Images/logo6.png" width=100px height=70px>
+                                    </a>
                                     <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
                                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
-                                        <span class="navbar-toggler-icon text-black"></span>
+                                        <span class="navbar-toggler-icon text-white"></span>
                                     </button>
                                 </div>
 
                                 <div id="menuCelular" class="collapse navbar-collapse">
 
                                     <ul class="navbar-nav ml-auto text-light nav-menu">
-                                        <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../afterLogin/instituicao.php">Home</a></li>
+                                        <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../afterLogin/instituicao.php">HOME</a></li>
                                         <li>
                                             <!----------------------------------------------------------------------------------------->
                                             <!---------------------------------Botao Saudação------------------------------------------>
@@ -94,13 +95,14 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                                 $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                                 ?>
                                                 <div class="dropdown nav-link">
-                                                    <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         <h8> Bem vindo, <?php echo $nome ?> </h8>
                                                     </button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="../EditData/edit.instituition.php">Perfil</a>
-                                                        <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">Imagens instituição</a>
-                                                        <a class="dropdown-item" href="../sair.php">Sair</a>
+                                                        <a class="dropdown-item" href="../EditData/edit.instituition.php">PERFIL</a>
+                                                        <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">IMAGENS INSTITUIÇÃO</a>
+
+                                                        <a class="dropdown-item" href="../sair.php">SAIR</a>
                                                     </div>
                                                 </div>
                                             <?php
@@ -128,6 +130,10 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
 
         </header>
+        <!--Fechando header-->
+        <!----------------------------------------------------------------------------------------->
+        <br />
+        <!----------------------------------------------------------------------------------------->
     </body>
 
     </html>
@@ -234,22 +240,22 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
         $id_usuario                             = $dados_substancias["id_usuario"];
     }
 
-      //consultar no banco de dados tabela diagnóstico e receituário
-      $result_diagnostico = "SELECT * ";
-      $result_diagnostico .= "FROM tb_prontuario_diagnostico_receituario ";
-      $result_diagnostico .= "where id_usuario= '$id_usuario_cadastro ' ";
-      $resultado_diagnostico  = mysqli_query($conecta, $result_diagnostico);
-  
-      // testar erro
-      if (!$resultado_diagnostico) {
-          die("Falha no banco de dados");
-      } else {
-          $dados_diagnostico = mysqli_fetch_assoc($resultado_diagnostico);
-          $id_prontuario_diagnostico_receituario  = $dados_diagnostico["id_prontuario_diagnostico_receituario"];
-          $diagnostico                                 = $dados_diagnostico["diagnostico"];
-          $receituario                                 = $dados_diagnostico["receituario"];
-      }
-       
+    //consultar no banco de dados tabela diagnóstico e receituário
+    $result_diagnostico = "SELECT * ";
+    $result_diagnostico .= "FROM tb_prontuario_diagnostico_receituario ";
+    $result_diagnostico .= "where id_usuario= '$id_usuario_cadastro ' ";
+    $resultado_diagnostico  = mysqli_query($conecta, $result_diagnostico);
+
+    // testar erro
+    if (!$resultado_diagnostico) {
+        die("Falha no banco de dados");
+    } else {
+        $dados_diagnostico = mysqli_fetch_assoc($resultado_diagnostico);
+        $id_prontuario_diagnostico_receituario  = $dados_diagnostico["id_prontuario_diagnostico_receituario"];
+        $diagnostico                                 = $dados_diagnostico["diagnostico"];
+        $receituario                                 = $dados_diagnostico["receituario"];
+    }
+
     ?>
 
 
@@ -270,8 +276,10 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     <body>
 
         <div id="main" class="container-fluid">
-            <span class="d-block p-2 bg-dark text-white">Dados Sociodemográficos</span>
+            <!----------------------------------------------------------------------------------------->
+            <span class="d-block p-3 bg-dark text-warning text-center">Dados Sociodemográficos</span>
             <br />
+            <!----------------------------------------------------------------------------------------->
 
             <div class="row">
 
@@ -296,172 +304,182 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
             </div></br></br>
 
+            <!----------------------------------------------------------------------------------------->
             <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Histórico Familiar de Dependência Química</span>
+                <span class="d-block p-3 bg-dark text-warning text-center">Histórico Familiar de Dependência Química</span>
                 <br />
+                <!----------------------------------------------------------------------------------------->
 
                 <div class="row">
 
                     <div class="col-md-12">
                         <p><strong>Pai: </strong><?php echo $pai ?></p>
-                        
+
                     </div>
 
 
                     <div class="col-md-12">
                         <p><strong>Mãe: </strong><?php echo $mae ?></p>
-                       
+
                     </div>
 
                     <div class="col-md-12">
                         <p><strong>Irmão: </strong><?php echo $irmao ?></p>
-                        
+
                     </div>
 
                     <div class="col-md-12">
                         <p><strong>Avô(ó): </strong><?php echo $avo ?></p>
-                        
+
                     </div>
-                    </div></br></br>
-
-                    <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Comorbidades Clínicas Principais</span>
-                <br />
-
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <p><strong>Hipertensão Arterial Sistêmica: </strong><?php echo $hiper ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Diabetes Mlellitus: </strong><?php echo $diabetes ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Dislipidemia: </strong><?php echo $dislipidemia ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Cirrose Hepática: </strong><?php echo $cirrose ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Doença Pulmonar Obstrutiva Crônica: </strong><?php echo $pulmonar ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Asma: </strong><?php echo $asma ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Anemia: </strong><?php echo $anemia ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>HIV: </strong><?php echo $hiv ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Hepatite B ou C: </strong><?php echo $hepatite ?></p>
-                        
-                    </div>
-                    </div></br></br>
-
-                    <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
-                <br />
-
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <p><strong>Tabaco: </strong><?php echo $tabaco ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Álcool: </strong><?php echo $alcool ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Cocaína: </strong><?php echo $cocaina?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Crack: </strong><?php echo $crack ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Maconha: </strong><?php echo $maconha ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Inalantes: </strong><?php echo $inalantes ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Alucinógenos: </strong><?php echo $alucinogenos ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Anfetaminas: </strong><?php echo $anfetaminas ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Benzodiazpínicos: </strong><?php echo $benzodiazepinicos ?></p>
-                        
-                    </div>
-
-                    <div class="col-md-12">
-                        <p><strong>Opioides: </strong><?php echo $opioides ?></p>
-                        
-                    </div>
-                    </div></br></br>
-
-                    <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Diagnóstico</span>
-                <br />
-                <p><strong> </strong><?php echo $diagnostico ?></p>
-                
-
                 </div></br></br>
 
                 <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Receituário</span>
-                <br />
-                <p><strong> </strong><?php echo $receituario ?></p>
+                    <!----------------------------------------------------------------------------------------->
+                    <span class="d-block p-3 bg-dark text-warning text-center">Comorbidades Clínicas Principais</span>
+                    <br />
+                    <!----------------------------------------------------------------------------------------->
 
-                <hr />
-                <div id="actions" class="row">
-                    <div class="col-md-12">
-                        <a href="..\EditData\edit.promptuary.php" class="btn btn-primary">Editar</a>
-                        <a href="instituicao.php" class="btn btn-default">Fechar</a>
-                    </div>
-                    
-                </div>
+                    <div class="row">
 
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+                        <div class="col-md-12">
+                            <p><strong>Hipertensão Arterial Sistêmica: </strong><?php echo $hiper ?></p>
 
-                <!-- Latest compiled and minified JavaScript -->
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>Diabetes Mlellitus: </strong><?php echo $diabetes ?></p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>Dislipidemia: </strong><?php echo $dislipidemia ?></p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>Cirrose Hepática: </strong><?php echo $cirrose ?></p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>Doença Pulmonar Obstrutiva Crônica: </strong><?php echo $pulmonar ?></p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>Asma: </strong><?php echo $asma ?></p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>Anemia: </strong><?php echo $anemia ?></p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>HIV: </strong><?php echo $hiv ?></p>
+
+                        </div>
+
+                        <div class="col-md-12">
+                            <p><strong>Hepatite B ou C: </strong><?php echo $hepatite ?></p>
+
+                        </div>
+                    </div></br></br>
+
+                    <div id="main" class="container-fluid">
+                        <!----------------------------------------------------------------------------------------->
+                        <span class="d-block p-3 bg-dark text-warning text-center">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
+                        <br />
+                        <!----------------------------------------------------------------------------------------->
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <p><strong>Tabaco: </strong><?php echo $tabaco ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Álcool: </strong><?php echo $alcool ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Cocaína: </strong><?php echo $cocaina ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Crack: </strong><?php echo $crack ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Maconha: </strong><?php echo $maconha ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Inalantes: </strong><?php echo $inalantes ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Alucinógenos: </strong><?php echo $alucinogenos ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Anfetaminas: </strong><?php echo $anfetaminas ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Benzodiazpínicos: </strong><?php echo $benzodiazepinicos ?></p>
+
+                            </div>
+
+                            <div class="col-md-12">
+                                <p><strong>Opioides: </strong><?php echo $opioides ?></p>
+
+                            </div>
+                        </div></br></br>
+
+                        <div id="main" class="container-fluid">
+                            <!----------------------------------------------------------------------------------------->
+                            <span class="d-block p-3 bg-dark text-warning text-center">Diagnóstico</span>
+                            <br />
+                            <!----------------------------------------------------------------------------------------->
+                            <p><strong> </strong><?php echo $diagnostico ?></p>
+
+
+                        </div></br></br>
+
+                        <div id="main" class="container-fluid">
+                            <!----------------------------------------------------------------------------------------->
+                            <span class="d-block p-3 bg-dark text-warning text-center">Receituário</span>
+                            <br />
+                            <!----------------------------------------------------------------------------------------->
+                            <p><strong> </strong><?php echo $receituario ?></p>
+
+                            <hr />
+                            <div id="actions" class="row">
+                                <div class="col-md-12">
+                                    <a href="..\EditData\edit.promptuary.php" class="btn btn-dark text-warning">Editar</a>
+                                    <a href="instituicao.php" class="btn btn-dark text-danger">Fechar</a>
+                                </div>
+
+                            </div>
+
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+                            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+                            <!-- Latest compiled and minified JavaScript -->
+                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
 
     </html>
