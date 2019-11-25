@@ -8,17 +8,17 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom fonts for this template -->
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-<!-- Custom styles for this template -->
-<link href="css/agency.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/agency.min.css" rel="stylesheet">
 
     <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../_CSS/styles.css" rel="stylesheet">
@@ -28,26 +28,26 @@
 
 <body>
 
-					<!-- Modal voce se cadastrou com sucesso-->
-                    <div class="modal fade" id="modalCadastrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado com sucesso! </br> Agora faça login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-      </div>
+    <!-- Modal voce se cadastrou com sucesso-->
+    <div class="modal fade" id="modalCadastrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado com sucesso! </br> Agora faça login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<header>
+    <header>
         <div id="Principal">
 
             <div class="">
@@ -55,18 +55,18 @@
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../Index/Index.php" class="navbar-brand">      
-        <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo6.png" width=100px height=75px>
+                                <a href="../IndexProject/Index.html" class="navbar-brand"></a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../afterLogin/usuario.php">
+                                    <img src="../Images/logo6.png" width=100px height=70px>
                                 </a>
+                                <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
-                                    aria-label="Menu Colapso">
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
                                 </button>
                             </div>
@@ -74,18 +74,16 @@
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold"
-                                            href="../Index/index.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a
-                                            class="nav-link text-dark font-weight-bold"
-                                            href="../Index/Index.php">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a
-                                            class="nav-link text-dark font-weight-bold"
-                                            href="#">Instituições</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php">HOME</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#services">SERVIÇOS</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#portfolio">INSTITUIÇÕES</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#about">SOBRE</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#team">NOSSO TIME</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#contact">CONTATO</a></li>
+                                    <!----------------------------------------------------------------------------------------->
                                     <li>
                                         <a class="nav-link">
-                                            <button type="button" class="btn btn-dark text-warning janelaLogin"
-                                                data-toggle="modal" data-target="#telaLogin">Login</button>
+                                            <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#telaLogin">Login</button>
                                         </a>
 
 
@@ -93,15 +91,13 @@
                                         <form action="../login.php" method="post">
 
                                             <div class="container-fluid">
-                                                <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog"
-                                                    aria-labelledby="" aria-hidden="true">
+                                                <div class="modal fade" id="telaLogin" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered" role="login">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h5 class="modal-title text-black-50" id="tituloTela">
                                                                     Faca seu Login</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Fechar">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                                                                     <span aria-hidden="true">&times;</span>
                                                                 </button>
                                                             </div>
@@ -109,23 +105,21 @@
                                                                 <form class="form-horizontal">
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                            <input class="form-control" type="email"
-                                                                                name="usuario" placeholder="Email">
+                                                                            <input class="form-control" type="email" name="usuario" placeholder="Email">
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-10">
-                                                                            <input class="form-control" type="password"
-                                                                                name="senha" placeholder="Senha">
+                                                                            <input class="form-control" type="password" name="senha" placeholder="Senha">
                                                                         </div>
                                                                     </div>
                                                                 </form>
                                                             </div>
                                                             <div class="modal-footer">
-                                                         
+
                                                                 <button type="submit" id="submit" value="login" class="btn btn-dark text-warning">Login</button>
-                                                                
-                   
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -135,65 +129,49 @@
                                             </div>
                                         </form>
 
-
                                     </li>
 
-                                    <!--Modal login ou senha invalido-->
-                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#modalExemplo">
-                                        Abrir modal de demonstração
-                                    </button> -->
-
                                     <!-- Modal -->
-    
+
 
                                     <!---------------------------------------------------------------------------->
                                     <!--Botao Cadastro-->
                                     <li>
-                                        <div class="nav-link">
-                                            <button type="button" class="btn btn-dark text-warning" data-toggle="dropdown"
-                                                data-target="">Cadastro</button>
+                                        <div class="dropdown nav-link">
+                                            <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <h8> Cadastro </h8>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menuIndex " style="color: red;" aria-labelledby="dropdownMenuButton">
+                                                <a class="nav-link active text-warning js-scroll-trigger btn-dark" href="../DataRegister/registerPeople.php" role="button" aria-pressed="true">Usuario</a>
+                                                <a class="nav-link active text-warning js-scroll-trigger btn-dark" href="../DataRegister/registerInstitution.php">Instituição</a>
 
-
-                                            <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
-                                                <div class="form-group">
-                                                <a href="../DataRegister/registerPeople.php" class="btn btn-dark text-warning" role="button" aria-pressed="true">Usuario</a>
-                                                </div>
-                                                <div class="form-group">
-                                                        <a href="../DataRegister/registerInstitution.php" class="btn btn-dark text-warning" role="button" aria-pressed="true">Instituição</a>
-
-
-                                                </div>
-
-                                            </form>
-
+                                            </div>
                                         </div>
                                     </li>
-
-
-
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
                                 </ul>
                             </div>
                         </div>
                     </nav>
-
-
                 </div>
             </div>
 
-           
+
     </header>
     <!--Fechando o Div:Nav-Bar-->
 
 
     <!----------------------------------------------------------------------------------------->
+    <br />
+    <!----------------------------------------------------------------------------------------->
 
+    <span class="d-block p-3 bg-dark text-warning text-center">Cadastro Instituição</span>
 
-    <span class="d-block p-3 bg-dark text-warning">Cadastro Instituição</span>
-
-    <div class="container-fluid">
+    <!----------------------------------------------------------------------------------------->
 
         <form class="was-validated" action="../cadastroInstituicao.php" method="post">
+        <div class="container-fluid">
+        <div class="formularios">
 
             <div class="form-row">
                 <div class="form-group col-md-12">
@@ -244,12 +222,15 @@
                     </div>
                 </div>
             </div>
+            </div>
+            <!--Fechando div class formularios-->
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Dados da Instituição</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Dados da Instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
+            <div class="formularios">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -281,13 +262,16 @@
                     <input class="form-control" type="tel" name="wpp" id="wpp" placeholder="">
                 </div>
             </div>
-
+            </div>
+            <!--Fechando div class formularios-->
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Endereço</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
+            <div class="formularios">
+
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="cep">CEP</label>
@@ -375,29 +359,33 @@
                 <label for="adicional">Adicional</label>
                 <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
             </div>
+            </div>
+            <!--Fechando div class formularios-->
 
 
-             <!---------------------------------------------------------------------------------------------------------->
-             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Coloque o site da instituição</span>
+            <!---------------------------------------------------------------------------------------------------------->
+            <hr>
+            <span class="d-block p-3 bg-dark text-warning text-center">Coloque o site da instituição</span>
             <br>
             <!---------------------------------------------------------------------------------------------------------->
+            <div class="formularios">
+
             <div class="form-group">
                 <label for="url">URL</label>
-                <input class="form-control" type="text" name="url" id="url"
-                    placeholder="Coloque o link do site da empresa">
+                <input class="form-control" type="text" name="url" id="url" placeholder="Coloque o link do site da empresa">
             </div>
 
 
 
 
             <button type="submit" class="btn btn-dark text-warning" data-toggle="modal" data-target="#modalCadastrado">
-              Enviar
+                Enviar
             </button>
 
-
+            </div>
+            <!--Fechando div class formularios-->
+            </div>
         </form>
-    </div>
 
     <!-------------------------------------------------------------------------------------------------------------->
     <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>

@@ -133,8 +133,7 @@ if (isset($_POST["usuario"])) {
             </div>
             <div class="modal-footer">
 
-                  <button type="submit" id="submit" value="login"
-                      class="btn btn-dark text-warning">Login</button>
+              <button type="submit" id="submit" value="login" class="btn btn-dark text-warning">Login</button>
             </div>
           </div>
         </div>
@@ -171,27 +170,24 @@ if (isset($_POST["usuario"])) {
                 <a class="nav-item">
                   <button type="button" class="btn btn-outline-warning janelaLogin" data-toggle="modal" data-target="#telaLogin">Login</button>
                 </a>
-              <li>
-                <div class="nav-item">
-                  <button type="button" class="btn btn-outline-warning" data-toggle="dropdown" data-target="">Cadastro</button>
-
-                  <ul class="nav nav-pills">
-                    <li class="nav-item pill-1">
-                      <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
-                        <div class="form-group">
-                          <a class="nav-link active js-scroll-trigger btn btn-dark" href="../DataRegister/registerPeople.php" role="button" aria-pressed="true">Usuario</a>
-                        </div>
-                        <div class="form-group">
-                          <a class="nav-link active js-scroll-trigger btn btn-dark" href="../DataRegister/registerInstitution.php" role="button" aria-pressed="true">Instituição</a>
-                        </div>
-                    </li>
-                  </ul>
-
-                </div>
-
               </li>
+              <li>
+                <div class="dropdown nav-item">
+                  <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <h8> Cadastro </h8>
+                  </button>
+                  <div class="dropdown-menu dropdown-menuIndex " style="color: red;" aria-labelledby="dropdownMenuButton">
+                    <a class="nav-link active js-scroll-trigger btn-dark" href="../DataRegister/registerPeople.php" role="button" aria-pressed="true">Usuario</a>
+                    <a class="nav-link active js-scroll-trigger btn-dark" href="../DataRegister/registerInstitution.php">Instituição</a>
+
+                  </div>
+                </div>
+              </li>
+
           </div>
+
         </div>
+    </div>
   </form>
 
 
@@ -845,8 +841,8 @@ Abrir modal de demonstração
   </div>
 
   <!----------------------------------------------------------------------------------------->
-   <!-- Bootstrap core JavaScript -->
-   <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="../Scripts/vendor/jquery/jquery.min.js"></script>
   <script src="../Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->

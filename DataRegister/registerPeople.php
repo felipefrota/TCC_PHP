@@ -36,24 +36,24 @@ if (!$lista_instituicoes) {
 
 <body>
 
-					<!-- Modal voce se cadastrou com sucesso-->
-                    <div class="modal fade" id="modalCadastrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado com sucesso! </br> Agora faça login</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-      </div>
+    <!-- Modal voce se cadastrou com sucesso-->
+    <div class="modal fade" id="modalCadastrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Você foi cadastrado com sucesso! </br> Agora faça login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
 
 
@@ -65,15 +65,16 @@ if (!$lista_instituicoes) {
                 <!--<object type="text/html" data="../nav-bar.html"></object>-->
                 <div id="Nav-Bar">
 
-                    <nav class="navbar navbar-expand-lg navbar-light">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <a href="../IndexProject/Index.html" class="navbar-brand">
-                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo6.png" width=100px height=75px>
+                                <a href="../IndexProject/Index.html" class="navbar-brand"></a>
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+                                <a href="../afterLogin/usuario.php">
+                                    <img src="../Images/logo6.png" width=100px height=70px>
                                 </a>
-                                </a>
+                                <!------------------------------------ Fechando Logo ----------------------------------------------------------->
+
 
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-black"></span>
@@ -83,12 +84,16 @@ if (!$lista_instituicoes) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-dark font-weight-bold" href="../Index/Index.php">Home</a></li>
-                                    <li class="navbar-text navHistorias"><a class="nav-link text-dark font-weight-bold" href="../Index/Index.php">Historia</a></li>
-                                    <li class="navbar-text nav-instituicoes"><a class="nav-link text-dark font-weight-bold" href="../Institutions/Institutions.php">Instituições</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php">HOME</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#services">SERVIÇOS</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#portfolio">INSTITUIÇÕES</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#about">SOBRE</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#team">NOSSO TIME</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#contact">CONTATO</a></li>
+                                    <!----------------------------------------------------------------------------------------->
                                     <li>
                                         <a class="nav-link">
-                                            <button type="button" class="btn btn-dark janelaLogin text-warning" data-toggle="modal" data-target="#telaLogin">Login</button>
+                                            <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#telaLogin">Login</button>
                                         </a>
 
 
@@ -134,14 +139,7 @@ if (!$lista_instituicoes) {
                                             </div>
                                         </form>
 
-
                                     </li>
-
-                                    <!--Modal login ou senha invalido-->
-                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#modalExemplo">
-                                        Abrir modal de demonstração
-                                    </button> -->
 
                                     <!-- Modal -->
 
@@ -149,33 +147,22 @@ if (!$lista_instituicoes) {
                                     <!---------------------------------------------------------------------------->
                                     <!--Botao Cadastro-->
                                     <li>
-                                        <div class="nav-link">
-                                            <button type="button" class="btn btn-dark janelaLogin text-warning" data-toggle="dropdown" data-target="">Cadastro</button>
+                                        <div class="dropdown nav-link">
+                                            <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <h8> Cadastro </h8>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menuIndex " style="color: red;" aria-labelledby="dropdownMenuButton">
+                                                <a class="nav-link active text-warning js-scroll-trigger btn-dark" href="../DataRegister/registerPeople.php" role="button" aria-pressed="true">Usuario</a>
+                                                <a class="nav-link active text-warning js-scroll-trigger btn-dark" href="../DataRegister/registerInstitution.php">Instituição</a>
 
-
-                                            <form class="dropdown-menu p-3 dropdown-menu-right mr-5 ">
-                                                <div class="form-group">
-                                                    <a href="../DataRegister/registerPeople.php" class="btn btn-dark text-warning " role="button" aria-pressed="true">Usuario</a>
-                                                </div>
-                                                <div class="form-group">
-                                                    <a href="../DataRegister/registerInstitution.php" class="btn btn-dark text-warning" role="button" aria-pressed="true">Instituição</a>
-
-
-                                                </div>
-
-                                            </form>
-
+                                            </div>
                                         </div>
                                     </li>
-
-
-
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
                                 </ul>
                             </div>
                         </div>
                     </nav>
-
-
                 </div>
             </div>
 
@@ -185,15 +172,16 @@ if (!$lista_instituicoes) {
 
 
     <!----------------------------------------------------------------------------------------->
+    <br />
+    <!----------------------------------------------------------------------------------------->
 
-
-    <span class="d-block p-3 bg-dark text-warning">Cadastro Usuário</span>
+    <span class="d-block p-3 bg-dark text-warning text-center">Cadastro Usuário</span>
 
     <!-------------------------------------------------------------------------------------------------------------->
 
-    <div class="container-fluid">
-
         <form class="was-validated" id="register" action="../cadastroUsuario.php" method="post">
+        <div class="container-fluid">
+        <div class="formularios">
 
             <div class="form-row">
                 <div class="form-group col-md-4">
@@ -227,8 +215,8 @@ if (!$lista_instituicoes) {
                 <label for="email">Seu Email</label>
                 <input class="form-control" type="email" name="email" id="email" placeholder="seuemail@email.com" required>
                 <div class="invalid-feedback">
-                        Email Obrigatorio!
-                    </div>
+                    Email Obrigatorio!
+                </div>
             </div>
 
 
@@ -289,15 +277,17 @@ if (!$lista_instituicoes) {
                     <input class="form-control" type="tel" name="telefoneFixo" id="telefoneFixo" placeholder="EX: (ddd)0000-0000">
                 </div>
             </div>
-
-
+            </div>
+            <!--Fechando div class formularios-->
 
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Endereço</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Endereço</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
+            <div class="formularios">
+
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="cep">CEP</label>
@@ -385,16 +375,16 @@ if (!$lista_instituicoes) {
                 <label for="adicional">Adicional</label>
                 <input class="form-control" type="text" name="adicional" id="adicional" placeholder="Dados adicionais(Opcional)">
             </div>
-
+            </div>
+            <!--Fechando div class formularios-->
 
 
             <!---------------------------------------------------------------------------------------------------------->
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Prontuario</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Prontuario</span>
             <br />
             <!---------------------------------------------------------------------------------------------------------->
-
-
+            <div class="formularios">
 
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -416,11 +406,16 @@ if (!$lista_instituicoes) {
                     <input class="form-control" type="text" name="motiv_Adicional" id="motiv_Adicional" placeholder="Opcional...">
                 </div>
             </div>
+            </div>
+            <!--Fechando div class formularios-->
+
             <!------------------------------------------------------------------------------------------------>
             <hr>
             <span class="d-block p-2 bg-dark text-warning">Remédios</span>
             <br />
             <!------------------------------------------------------------------------------------------------>
+            <div class="formularios">
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="remed">Toma algum remédio?</label>
@@ -447,12 +442,16 @@ if (!$lista_instituicoes) {
                 </div>
 
             </div>
+            </div>
+            <!--Fechando div class formularios-->
 
             <!------------------------------------------------------------------------------------------------>
             <hr>
-            <span class="d-block p-2 bg-dark text-warning">Instituição</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Instituição</span>
             <br />
             <!------------------------------------------------------------------------------------------------>
+            <div class="formularios">
+
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="instit">Qual instituição de preferencia?</label>
@@ -501,16 +500,17 @@ if (!$lista_instituicoes) {
 
 
             <button type="submit" class="btn btn-dark text-warning" data-toggle="modal" data-target="#modalCadastrado">
-              Enviar
+                Enviar
             </button>
 
 
 
 
-
-
+            </div>
+            <!--Fechando div class formularios-->
+            </div>
         </form>
-    </div>
+    
 
     <!-- <div class="container-fluid">
         <form>
