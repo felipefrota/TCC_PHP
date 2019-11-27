@@ -65,7 +65,7 @@ if (isset($_POST["escolaridade"])) {
     $alcool =             $_POST["alcool"];
     $cocaina =            $_POST["cocaina"];
     $crack =              $_POST["crack"];
-    $crack =              $_POST["crack"];
+    $maconha =            $_POST["maconha"];
     $inalantes =          $_POST["inalantes"];
     $alucinogenos =       $_POST["alucinogenos"];
     $anfetaminas =        $_POST["anfetaminas"];
