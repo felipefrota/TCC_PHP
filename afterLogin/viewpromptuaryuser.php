@@ -289,7 +289,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     <body>
 
         <div id="main" class="container-fluid">
-            <span class="d-block p-2 bg-dark text-white">Dados Sociodemográficos</span>
+            <span class="d-block p-3 bg-dark text-warning text-center">Dados Sociodemográficos</span>
             <br />
 
             <div class="row">
@@ -316,7 +316,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             </div></br></br>
 
             <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Histórico Familiar de Dependência Química</span>
+                <span class="d-block p-3 bg-dark text-warning text-center">Histórico Familiar de Dependência Química</span>
                 <br />
 
                 <div class="row">
@@ -344,7 +344,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                     </div></br></br>
 
                     <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Comorbidades Clínicas Principais</span>
+                <span class="d-block p-3 bg-dark text-warning text-center">Comorbidades Clínicas Principais</span>
                 <br />
 
                 <div class="row">
@@ -396,7 +396,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                     </div></br></br>
 
                     <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
+                <span class="d-block p-3 bg-dark text-warning text-center">Substâncias Psicoativas – Dependência Química (atual ou prévia)</span>
                 <br />
 
                 <div class="row">
@@ -453,7 +453,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                     </div></br></br>
 
                     <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Diagnóstico</span>
+                <span class="d-block p-3 bg-dark text-warning text-center">Diagnóstico</span>
                 <br />
                 <p><strong> </strong><?php echo $diagnostico ?></p>
                 
@@ -461,7 +461,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div></br></br>
 
                 <div id="main" class="container-fluid">
-                <span class="d-block p-2 bg-dark text-white">Receituário</span>
+                <span class="d-block p-3 bg-dark text-warning text-center">Receituário</span>
                 <br />
                 <p><strong> </strong><?php echo $receituario ?></p>
 
