@@ -173,7 +173,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <i class="fas fa-chalkboard-teacher fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Plataforma Intermediadora</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <p class="text-muted">Aqui ajudamos você a encontrar um lugar para que possa se recuperar e ter uma vida nova.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
@@ -181,7 +181,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Divulgação da sua empresa</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <p class="text-muted">Empresa criada com o intuito de ajudar as pessoas que estão passando por momentos complicados relacionados a vicios e depressão.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
@@ -189,7 +189,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
             <i class="fas fa-user-md fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Auxílio Psicológico</h4>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          <p class="text-muted">O site dispõe de um chat localizado no canto inferior direito, que vai levar o usuario a um chat com o psicologo. Essa ferramenta deve usada em momentos de crise do paciente.</p>
         </div>
       </div>
     </div>
@@ -257,8 +257,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading text-uppercase">Sobre</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        <h2 class="section-heading text-uppercase">Sobre</h2>
+          <h3 class="section-subheading text-muted">Origem da ideia</h3>
         </div>
       </div>
       <div class="row">
@@ -270,11 +270,11 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>2018</h4>
+                <h4>2018</h4>
                   <h4 class="subheading">Causa social sempre foi desejada</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">A ideia teve iniciativa após ser observado o aumento de pessoas em situação de rua em consequência ao vicio em drogas, após essa observação tivemos a ideia de criar um sistema que pudesse ajudar essas pessoas.</p>
                 </div>
               </div>
             </li>
@@ -284,11 +284,11 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>March 2011</h4>
-                  <h4 class="subheading">An Agency is Born</h4>
+                <h4>Março 2019</h4>
+                  <h4 class="subheading">Desenvolvendo a ideia</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">A ideia inicial do sistema era ajudar pessoas com vicios, mas vimos em jornais que a taxa de suicídio relacionado a depressão aumentava cada vez mais, então pensamos, por que não ajudar essas pessoas também?</p>
                 </div>
               </div>
             </li>
@@ -298,11 +298,11 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>December 2012</h4>
-                  <h4 class="subheading">Transition to Full Service</h4>
+                <h4>Julho 2019</h4>
+                  <h4 class="subheading">Colocando a ideia em prática</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Estávamos finalizando nosso curso e tinhamos que fazer o trabalho de conclusão, e foi nesse momento que o site saiu do papel e começou a tomar novas formas.</p>
                 </div>
               </div>
             </li>
@@ -312,19 +312,19 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4>July 2014</h4>
-                  <h4 class="subheading">Phase Two Expansion</h4>
+                <h4>Novembro 2019</h4>
+                  <h4 class="subheading">Conclusão do Site</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                  <p class="text-muted">Enfim o site foi finalizado com diversas melhorias em relação a ideia inicial. Hoje contamos com um psicólogo que está sempre disponivel para ajudar quem está precisando em um momento de crise, temos cadastro e acompanhamento de protuário do usuário, dentre outras funcionalidades.</p>
                 </div>
               </div>
             </li>
             <li class="timeline-inverted">
               <div class="timeline-image">
-                <h4>Be Part
-                  <br>Of Our
-                  <br>Story!</h4>
+              <h4>Faça Parte
+                  <br>Da Nossa
+                  <br>História!</h4>
               </div>
             </li>
           </ul>
@@ -339,7 +339,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Nosso Time</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 class="section-subheading text-muted">Desenvolvedores do Sistema</h3>
         </div>
       </div>
       <div class="row">
@@ -418,7 +418,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+        <p class="large text-muted">Encare os desafios com seriedade e ultrapasse-os com força de vontade e capacidade de superação.</p>
         </div>
       </div>
     </div>
@@ -458,7 +458,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">Contact Us</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          <h3 class="section-subheading text-muted">Suporte do Site.</h3>
         </div>
       </div>
       <div class="row">

@@ -409,7 +409,7 @@ Abrir modal de demonstração
                   <h4 class="subheading">Conclusão do Site</h4>
                 </div>
                 <div class="timeline-body">
-                  <p class="text-muted">Enfim o site foi finalizado com diversas melhorias em relação a ideia inicial. Hoje contamos com um psicologo que está sempre disponivel para ajudar quem está precisando em um momento de crise, temos cadastro e acompanhamento de protuário do usuário, dentre outras funcionalidades.</p>
+                  <p class="text-muted">Enfim o site foi finalizado com diversas melhorias em relação a ideia inicial. Hoje contamos com um psicólogo que está sempre disponivel para ajudar quem está precisando em um momento de crise, temos cadastro e acompanhamento de protuário do usuário, dentre outras funcionalidades.</p>
                 </div>
               </div>
             </li>
