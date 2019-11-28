@@ -60,9 +60,9 @@ if (isset($_GET["codigo"])) {
                 <div class="navbar-header ">
                   <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                   <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                  <a href="../afterLogin/instituicao.php">
-                    <img src="../Images/logo6.png" width=100px height=70px>
-                  </a>
+                
+                  <a class="navbar-brand js-scroll-trigger text-warning cssLogo" href="../afterLogin/instituicao.php">Novel Life</a>
+
                   <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 

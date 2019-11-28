@@ -37,14 +37,14 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Custom fonts for this template -->
-<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet'
@@ -57,7 +57,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
 <body>
 
-<header>
+    <header>
         <div id="">
 
             <div class="Principal">
@@ -69,14 +69,16 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                         <div class="container-fluid">
                             <div class="navbar-header ">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
-                                    <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                    <a href="../afterLogin/instituicao.php">
-                                    <img src="../Images/logo6.png" width=100px height=70px>
-                                </a> 
+                                <!------------------------------------ Logo abaixo ----------------------------------------------------------->
+
+                                <a class="navbar-brand js-scroll-trigger text-warning cssLogo" href="../afterLogin/instituicao.php">Novel Life</a>
+
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuCelular" aria-controls="menu" aria-expanded="false" aria-label="Menu Colapso">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#menuCelular" aria-controls="menu" aria-expanded="false"
+                                    aria-label="Menu Colapso">
                                     <span class="navbar-toggler-icon text-white"></span>
                                 </button>
                             </div>
@@ -84,7 +86,8 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../afterLogin/instituicao.php">HOME</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark"
+                                            href="../afterLogin/instituicao.php">HOME</a></li>
                                     <li>
                                         <!----------------------------------------------------------------------------------------->
                                         <!---------------------------------Botao Saudação------------------------------------------>
@@ -101,17 +104,22 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                                             $saudacao_login = mysqli_fetch_assoc($saudacao_login);
                                             $nome = $saudacao_login["nomeUsuario_nomeFantasia"];
                                             ?>
-                                            <div class="dropdown nav-link">
-                                                <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <h8> Bem vindo, <?php echo $nome ?> </h8>
-                                                </button>
-                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item" href="../EditData/edit.instituition.php">PERFIL</a>
-                                                    <a class="dropdown-item" href="../EditData/upload.imageInstitution.php">IMAGENS INSTITUIÇÃO</a>
+                                        <div class="dropdown nav-link">
+                                            <button class="btn btn-outline-warning dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                <h8> Bem vindo, <?php echo $nome ?> </h8>
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item"
+                                                    href="../EditData/edit.instituition.php">PERFIL</a>
+                                                <a class="dropdown-item"
+                                                    href="../EditData/upload.imageInstitution.php">IMAGENS
+                                                    INSTITUIÇÃO</a>
 
-                                                    <a class="dropdown-item" href="../sair.php">SAIR</a>
-                                                </div>
+                                                <a class="dropdown-item" href="../sair.php">SAIR</a>
                                             </div>
+                                        </div>
                                         <?php
                                         }
                                         ?>
@@ -144,16 +152,16 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
     </div>
 
     <script>
-        $(document).ready(function() {
-            $.post('listar_usuario_interessados.php', function(retorna) {
-                //Subtitui o valor no seletor id="conteudo"
-                $("#conteudo").html(retorna);
-            });
+    $(document).ready(function() {
+        $.post('listar_usuario_interessados.php', function(retorna) {
+            //Subtitui o valor no seletor id="conteudo"
+            $("#conteudo").html(retorna);
         });
+    });
     </script>
 
-      <!----------------------------------------------------------------------------------------->
-      <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
+    <!----------------------------------------------------------------------------------------->
+    <script src="https://unpkg.com/popper.js@1.15.0/dist/umd/popper.min.js"></script>
     <script src="../Bootstrap/js/jquery-3.4.1.min.js "></script>
     <!-- <script src="../Bootstrap/js/bootstrap.min.js"></script> -->
     <script src="../Bootstrap/js/jquery-3.4.1.min.js"></script>

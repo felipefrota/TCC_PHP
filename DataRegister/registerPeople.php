@@ -70,9 +70,9 @@ if (!$lista_instituicoes) {
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                <a href="../afterLogin/usuario.php">
-                                    <img src="../Images/logo6.png" width=100px height=70px>
-                                </a>
+
+                                          <a class="navbar-brand js-scroll-trigger text-warning cssLogo" href="../afterLogin/usuario.php">Novel Life</a>
+                                          
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
@@ -84,7 +84,7 @@ if (!$lista_instituicoes) {
                             <div id="menuCelular" class="collapse navbar-collapse">
 
                                 <ul class="navbar-nav ml-auto text-light nav-menu">
-                                    <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php">HOME</a></li>
+                                    <li class="navbar-text"><a class="nav-link text-white" href="../Index/Index.php">HOME</a></li>
                                     <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#services">SERVIÇOS</a></li>
                                     <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#portfolio">INSTITUIÇÕES</a></li>
                                     <li class="navbar-text"><a class="nav-link text-white btn-outline-dark" href="../Index/Index.php#about">SOBRE</a></li>

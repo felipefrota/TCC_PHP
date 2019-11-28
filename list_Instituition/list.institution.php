@@ -112,9 +112,9 @@ if (($resultado_usuario) and ($resultado_usuario->num_rows != 0)) {
                             <div class="navbar-header">
                                 <a href="../IndexProject/Index.html" class="navbar-brand"></a>
                                 <!------------------------------------ Logo abaixo ----------------------------------------------------------->
-                                <a href="../afterLogin/usuario.php">
-                                    <img src="../Images/logo6.png" width=100px height=70px>
-                                </a>
+                                
+                                <a class="navbar-brand js-scroll-trigger text-warning cssLogo" href="../afterLogin/usuario.php">Novel Life</a>
+
                                 <!------------------------------------ Fechando Logo ----------------------------------------------------------->
 
 
