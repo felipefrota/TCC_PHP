@@ -26,7 +26,7 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
 
 <head>
     <meta charset="utf-8">
-    <title>Alguma Coisa Lfie</title>
+    <title>Novel Life</title>
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=devide-width, initial-scale=1">
 
