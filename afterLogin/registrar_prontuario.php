@@ -481,8 +481,9 @@ if (!isset($_SESSION['usuario_instituicaoID']) or ($_SESSION['tipo'] < $nivel_ne
                 </div>
                 </br></br>
 
-
-                <span class="d-block p-2 bg-dark text-white">Receituário</span>
+     <!----------------------------------------------------------------------------------------->
+                <hr>
+                <span class="d-block p-3 bg-dark text-warning text-center">Receituário</span>
                 <br />
 
                 <div class="form-group">

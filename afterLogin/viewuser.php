@@ -315,10 +315,7 @@ if (isset($_GET["codigo"])) {
         </div>
 
 
-        <div class="col-md-8">
-          <p><strong>TITULO AQUI</strong></p>
-          <p> COLOCA ALGUMA OBSERVAÇÃO AQUI COLOCA ALGUMA OBSERVAÇÃO AQUI COLOCA ALGUMA OBSERVAÇÃO AQUI COLOCA ALGUMA OBSERVAÇÃO AQUI </p>
-        </div>
+        
       </div>
 
       <hr />
